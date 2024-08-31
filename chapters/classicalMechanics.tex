@@ -1,0 +1,103 @@
+\chapter{Formulazioni della meccanica}
+La meccanica classica si propone di studiare il moto dei corpi macroscopici in movimento con velocità trascurabile rispetto a quella della luce. In questo capitolo esporremo tre \emph{formulazioni} della meccanica classica, ovvero tre modi per ricavare le equazioni del moto. Dopo aver richiamato l'intuitiva ma scomoda formulazione \emph{newtoniana} basata sulle forze, costruiremo la formulazione \emph{lagrangiana} dal principio di minima azione e mostreremo la sua equivalenza con quella newtoniana. Infine, grazie alla trasformata di Legendre, passeremo alla potente formulazione \emph{hamiltoniana}.
+
+\section{Il modello classico dell'universo}
+Per dare una formulazione assiomatica alla meccanica classica è innanzitutto necessario stabilire alcune caratteristiche dell'universo per quanto riguarda i corpi che si muovono su scala macroscopica (azione molto maggiore della costante di Planck $\hbar$) e a basse velocità (velocità molto minore di quella della luce $c$). Queste caratteristiche dovranno essere emulate dal modello di universo che costruiremo. Siccome l'ambito di applicazione di questo modello comprende l'esperienza quotidiana, è da essa che possiamo trarre spunto. Poniamo quindi i seguenti requisiti al nostro modello:
+\begin{enumerate}
+  \item L'universo è composto da \emph{spazio e tempo}. Lo spazio è tridimensionale ed euclideo, il tempo è unidimensionale.
+  \item Localizziamo gli eventi nello spazio e nel tempo usando \emph{sistemi di coordinate}. Esistono sistemi, detti \emph{inerziali}, tali che:
+  \begin{enumerate}
+    \item A ogni istante, tutte le leggi della natura sono uguali in ogni sistema inerziale.
+    \item Tutti i sistemi che si muovono di moto rettilineo e uniforme rispetto a un sistema inerziale sono inerziali.
+  \end{enumerate}
+  \item L'universo è popolato di \emph{particelle}, entità adimensionali dotate di una massa e una posizione. Esso è inoltre è \emph{newtonianamente deterministico}: l'insieme delle posizioni e delle velocità di tutti i particelle a un certo tempo determina tutto il suo moto, sia nel passato che nel futuro.
+\end{enumerate}
+
+Costruiamo ora un modello formale che presenti queste stesse caratteristiche. Per fare ciò, sarà necessaria una struttura matematica che formalizza l'idea di uno spazio-tempo in cui gli spostamenti sono vettori, ma non è definita un'origine. Tale struttura è nota come spazio affine.
+\begin{definition}
+  Uno \dfn{spazio affine $n$-dimensionale} è una struttura $(A,V,+)$ dove:
+  \begin{itemize}
+    \item $A$ è un insieme.
+    \item $V$ è uno spazio vettoriale reale.
+    \item $+:\, A\times V \to A$ è biunivoca. L'immagine della coppia $(a,v)$ con $a \in  A, v \in V$ si denota con $a+v$.
+  \end{itemize}
+  La \dfn{dimensione} di $A$ è la dimensione di $V$.
+\end{definition}
+\begin{remark}
+  Siccome $+$ è biunivoca, fissati $a,b \in A$ esiste uno e un solo $v \in V$ tale che $a + v = b$. Tale elemento di $V$ si denota con $v = b - a$. In tal modo, gli spostamenti (differenze) tra punti di $A$ sono effettivamente vettori.
+\end{remark}
+\begin{remark}
+Fissato un $a \in A$, l'insieme dei $v$ tali che $v = b - a$ per un qualche $b \in A$ forma uno spazio vettoriale reale isomorfo a $V$. Si dice che $V = A - A$.
+\end{remark}
+
+Possiamo a questo punto formulare le componenti centrali del nostro modello: l'universo, il tempo, gli eventi contemporanei e la distanza fra di essi. Queste andranno a formare una struttura detta galileiana.
+\begin{definition}
+  Una \dfn{struttura spazio-temporale galileiana} è composta da:
+  \begin{enumerate}
+    \item L'\dfn{universo}, uno spazio affine quadridimensionale $\mathbb{A}^4$ i cui punti sono detti \emph{eventi}.
+    \item Il \dfn{tempo}, un'applicazione lineare $t:\mathbb{A}^4 - \mathbb{A}^4 \to \R$. Si dice \dfn{intervallo temporale} fra due eventi $a,b \in \mathbb{A}^4$ il numero reale $t(a-b)$. Se esso è nullo, $a$ e $b$ si dicono \dfn{contemporanei}.
+    \item La \dfn{distanza fra eventi contemporanei} \begin{equation}
+    d(a,b) = \norm{a-b}_2 = \sqrt{\ev{a-b,a-b}}  
+    \end{equation} 
+  \end{enumerate}
+\end{definition}
+
+Queste definizioni tuttavia non consentono ancora di formulare la meccanica classica. Non abbiamo modo di identificare un punto nello spazio, siccome gli spazi di eventi contemporanei sono tutti separati tra loro. Per collegarli, introduciamo l'ultima componente, i sistemi di riferimento.
+\begin{definition}
+  Si dice \dfn{sistema di riferimento} un'applicazione lineare biunivoca $\phi:\, \mathbb{A}^4 \to \R\times \R^3$. Un sistema di riferimento $\phi_1$ si dice \dfn{in moto uniforme} rispetto a $\phi_2$ se $\phi_1 \phi_2^{-1}: \R\times \R^3\to \R\times \R^3$ conserva intervalli temporali e distanze.
+\end{definition}
+
+Siamo finalmente in grado di descrivere posizioni e moti dei particelle che popolano l'universo.
+\begin{definition}
+  Si dice \dfn{moto} di una particella in un sistema di riferimento $\phi$ un'applicazione differenziabile $\vec{x}:I \to \R^3$, dove $I$ è un intervallo aperto in $\R$, che manda $t\mapsto \vec{x}(t)$. Si dice \dfn{posizione} del punto al tempo $t \in I$ il vettore $\vec{x}(t)$. Si dicono \dfn{velocità} e \dfn{accelerazione} del punto al tempo $t \in I$ rispettivamente \begin{equation}
+  \vec{\dot{x}} (t) = \dv{\vec{x}}{t}\, (t) \qqtext{e} \vec{\ddot{x}} (t) = \dv[2]{\vec{x}}{t}\, (t)
+  \end{equation} 
+\end{definition}
+\begin{remark}
+  Velocità e accelerazione così definiti sono vettori del medesimo spazio vettoriale $\R^3$ a cui appartiene la posizione.
+\end{remark}
+
+Per descrivere le posizioni di $N$ particelle servono $N$ vettori a 3 componenti. La risultante struttura può essere identificata con un vettore del prodotto diretto di $N$ copie di $\R^3$. Questo vettore descrive la configurazione dell'intero sistema, il che motiva la seguente definizione.
+\begin{definition}
+  Si dice \dfn{spazio delle configurazioni} di un sistema di $N$ particelle il prodotto diretto di $N$ copie di $\R^3$: \begin{equation}
+  \mathbb{M} = \underbrace{\R^3 \times \R^3 \times \ldots \times \R^3}_{N \text{ volte}}
+  \end{equation} 
+  Moto, posizione, velocità e accelerazione di un tale sistema sono definite analogamente a quanto fatto per una sola particella, sostituendo $\R^3$ con $\mathbb{M}$.
+\end{definition}
+
+\section{Meccanica newtoniana}
+Finora ci siamo occupati solo di come descrivere i moti delle particelle nell'universo. L'obiettivo della meccanica, tuttavia, è determinare in anticipo i moti di queste particelle sulla base di informazioni note, grazie al principio di determinismo newtoniano. Nella formulazione originaria, dovuta a Newton stesso, i moti delle particelle sono previsti in base alle forze che agiscono su di esse, determinate sperimentalmente. In una versione moderna, la meccanica può essere formulata come segue.
+\begin{newton}
+  Siano $\mathbb{M}$ lo spazio delle configurazioni di un sistema e $I$ un intervallo reale aperto, esiste una funzione $\vec{F}:\mathbb{M} \times \mathbb{M} \times  I \to \mathbb{M}$ tale che \begin{equation}
+  \vec{\ddot{x}} = \vec{F}\,(\vec{x},\vec{\dot{x}}, t) \label{eq:newton}
+  \end{equation} 
+  Questa equazione è detta \dfn{equazione del moto} ed $\vec{F}$ è detta \dfn{forza} agente sul sistema.
+\end{newton}
+\begin{remark}
+  La funzione $\vec{F}$ si può ottenere dalla formulazione elementare della meccanica, che vede le forze come entità agenti su ciascuna particella in maniera distinta, moltiplicando la forza risultante su ciascuna particella per la massa di quest'ultima e concatenando i vettori risultanti.
+\end{remark}
+\begin{remark}
+  La legge di Newton soddisfa il principio di determinismo grazie al teorema di esistenza e unicità di Cauchy: data la condizione iniziale, ovvero posizione e velocità del sistema a un tempo $t_0$, la soluzione dell'\autoref{eq:newton} esiste ed è unica nell'intervallo temporale $I$ in cui $\vec{F}$ è definita.
+\end{remark}
+La funzione $\vec{F}$ per un dato sistema fisico deve essere determinata sperimentalmente. Il modello matematico del sistema viene costruito nel momento in cui viene definita $\vec{F}$, motivo per cui essa è spesso identificata con il sistema stesso.
+
+La conoscenza di $\vec{F}$ consente in linea di principio di conoscere il moto del sistema per qualsiasi posizione iniziale. Ciò tuttavia è molto più facile a dirsi che a farsi: per un sistema di $N$ particelle, questo metodo richiede di risolvere $3N$ equazioni differenziali, un processo che spesso è impossibile dal punto di vista analitico e inefficiente da quello numerico. I concetti legati all'energia consentono però di fare affermazioni qualitative sul moto dei corpi anche quando l'equazione del moto non è analiticamente risolvibile.
+\begin{definition}
+  Si dice \dfn{energia cinetica} di una particella con massa $m$ la quantità \begin{equation}
+    T(\vec{\dot{x}}) = \frac{1}{2}m\norm{\vec{\dot{x}}}^2
+  \end{equation} 
+\end{definition}
+\begin{definition}
+  Una forza agente su una particella e dipendente solo dalla posizione si dice \dfn{campo di forze}. Si dice \dfn{lavoro} del campo di forze $\vec{F}\, (x)$ sul cammino $\gamma \subset \R^3$ la quantità \begin{equation}
+  L = \int\limits_{\gamma} \vec{F}\,(\vec{x})\cdot \dd \vec{x}
+  \end{equation} 
+  Un campo di forze si dice \dfn{conservativo} se il suo lavoro su un cammino qualsiasi non dipende dal cammino stesso. In tal caso, si dice \dfn{energia potenziale} rispetto a $\vec{x}_0 \in \R^3$ la quantità definita simbolicamente com \begin{equation}
+  U(\vec{x}) = \int_{\vec{x}_0}^{\vec{x}} \vec{F}\,(\vec{x})\cdot \dd \vec{x}
+  \end{equation} 
+  dove l'integrale è compiuto lungo un qualsiasi percorso $\gamma$ di estremi $\vec{x}_0$ e $\vec{x}$.
+\end{definition}
+\begin{definition}
+  Si dice \dfn{energia totale} di un sistema a una particella con campo di forze conservativo\begin{equation}
+  E(\vec{x},\vec{\dot{x}}) = T(\vec{\dot{x}}) + U(\vec{x})
+  \end{equation} 
+\end{definition}

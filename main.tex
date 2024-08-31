@@ -1,9 +1,12 @@
 \documentclass[%
-  twoside,           % carta B5
+  libro,          
   corpo=12pt,        % corpo normale 11pt
   tipotesi=custom, % laurea triennale
   draft
 ]{toptesi}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{toptesi}
 \usepackage{xcolor}
 
@@ -18,16 +21,42 @@
 \usepackage[a-1b]{pdfx}% oppure [a-2b]
 
 \usepackage{fontspec}
-\setmainfont[Ligatures=TeX]{Libertinus Serif}
-\setsansfont[Ligatures=TeX]{Libertinus Sans}
+\setmainfont[Ligatures=TeX]{LibertinusSerif}[
+  Extension = .otf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold, 
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic
+]
+\setsansfont[Ligatures=TeX]{LibertinusSans}[
+  Extension = .otf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold, 
+  ItalicFont = *-Italic,
+]
 \setmonofont{NewCMMono10-Regular.otf}
 \setmainlanguage[babelshorthands]{italian}
+
 \usepackage{amsmath}
 \usepackage{unicode-math}
 \setmathfont{XITS Math}
-\setotherlanguage[variant=ancient]{greek}
-\newfontfamily{\greekfont}{GFS Didot}
+\usepackage{physics}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
 
+\usepackage{amsthm}
+\usepackage{thmtools}
+\declaretheorem[style = plain, parent = chapter, name = Teorema]{theorem}
+\declaretheorem[style = definition, sibling = theorem, name = Definizione]{definition}
+\newcommand{\dfn}[1]{\emph{#1}}
+\declaretheorem[style = remark, parent = theorem, name = Osservazione]{remark}
+\declaretheorem[style = plain, numbered = no, name = Legge di Newton]{newton}
+
+\usepackage{graphicx}
+\graphicspath{./graphics}
+
+\usepackage{hyperref}
+\renewcommand{\equationautorefname}{equazione}
 \begin{document}
 \begin{titlepage}
   %
@@ -53,7 +82,7 @@
   %
   % INSERIRE IL TITOLO DELLA TESI
   %
-  {\LARGE{\bf TITOLO TESI}}\\
+  {\LARGE{\bf Geometria simplettica in fisica}}\\
   }\end{center}
   
   \vspace{50mm} \par \noindent
@@ -88,8 +117,7 @@
   \end{center}
   
   \end{titlepage}
-
-\chapter{Introduzione}
-Vogliamo parlare di \emph{geometria simplettica}.
+  % \input{chapters/introduction.tex}
+  \input{chapters/classicalMechanics.tex}
 
 \end{document}
