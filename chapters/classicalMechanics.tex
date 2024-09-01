@@ -83,21 +83,109 @@ La funzione $\vec{F}$ per un dato sistema fisico deve essere determinata sperime
 
 La conoscenza di $\vec{F}$ consente in linea di principio di conoscere il moto del sistema per qualsiasi posizione iniziale. Ciò tuttavia è molto più facile a dirsi che a farsi: per un sistema di $N$ particelle, questo metodo richiede di risolvere $3N$ equazioni differenziali, un processo che spesso è impossibile dal punto di vista analitico e inefficiente da quello numerico. I concetti legati all'energia consentono però di fare affermazioni qualitative sul moto dei corpi anche quando l'equazione del moto non è analiticamente risolvibile.
 \begin{definition}
-  Si dice \dfn{energia cinetica} di una particella con massa $m$ la quantità \begin{equation}
-    T(\vec{\dot{x}}) = \frac{1}{2}m\norm{\vec{\dot{x}}}^2
+  Si dice \dfn{energia cinetica di un sistema} formato da $N$ particelle di masse $m_i$ nelle posizioni $\vec{x}_i \in \R^3$ la quantità \begin{equation}
+    T(\vec{\dot{x}}) = \sum_{i=1}^{N} \frac{1}{2}m_i\norm{\vec{\dot{x}}_i}^2
   \end{equation} 
 \end{definition}
 \begin{definition}
-  Una forza agente su una particella e dipendente solo dalla posizione si dice \dfn{campo di forze}. Si dice \dfn{lavoro} del campo di forze $\vec{F}\, (x)$ sul cammino $\gamma \subset \R^3$ la quantità \begin{equation}
+  Una forza dipendente solo dalle posizioni del sistema si dice \dfn{campo di forze}. Si dice \dfn{lavoro} del campo di forze $\vec{F}\, (x)$ sul cammino $\gamma \subset \mathbb{M}$ la quantità \begin{equation}
   L = \int\limits_{\gamma} \vec{F}\,(\vec{x})\cdot \dd \vec{x}
   \end{equation} 
-  Un campo di forze si dice \dfn{conservativo} se il suo lavoro su un cammino qualsiasi non dipende dal cammino stesso. In tal caso, si dice \dfn{energia potenziale} rispetto a $\vec{x}_0 \in \R^3$ la quantità definita simbolicamente com \begin{equation}
-  U(\vec{x}) = \int_{\vec{x}_0}^{\vec{x}} \vec{F}\,(\vec{x})\cdot \dd \vec{x}
+  Un campo di forze e il corrispondente sistema si dicono \dfn{conservativi} se il lavoro del campo su un cammino qualsiasi non dipende dal cammino stesso. In tal caso, si dice \dfn{potenziale} rispetto a $\vec{x}_0 \in \mathbb{M}$ la quantità definita simbolicamente come \begin{equation}
+  V(\vec{x}) = \int_{\vec{x}_0}^{\vec{x}} \vec{F}\,(\vec{x})\cdot \dd \vec{x}
   \end{equation} 
   dove l'integrale è compiuto lungo un qualsiasi percorso $\gamma$ di estremi $\vec{x}_0$ e $\vec{x}$.
 \end{definition}
 \begin{definition}
-  Si dice \dfn{energia totale} di un sistema a una particella con campo di forze conservativo\begin{equation}
-  E(\vec{x},\vec{\dot{x}}) = T(\vec{\dot{x}}) + U(\vec{x})
+  Si dice \dfn{energia totale} di un sistema conservativo\begin{equation}
+  E(\vec{x},\vec{\dot{x}}) = T(\vec{\dot{x}}) + V(\vec{x})
   \end{equation} 
 \end{definition}
+\begin{theorem} \label{thm:energyCons}
+L'energia totale di un sistema conservativo è costante nel tempo.
+\end{theorem}
+
+Il \autoref{thm:energyCons} consente ad esempio di determinare la regione di spazio delle configurazioni ammessa per un sistema, date le condizioni iniziali.
+
+\section{Meccanica lagrangiana}
+La conservazione dell'energia di un sistema è un metodo piuttosto semplice per ottenere informazioni qualitative sul suo comportamento, ma queste non sono particolarmente dettagliate. Si possono ottenere maggiori dettagli sul moto di un sistema attraverso la formulazione \dfn{lagrangiana} della meccanica. Il formalismo della teoria è basato su un principio \emph{variazionale}. Poniamo per prima cosa le definizioni.
+
+\begin{definition}
+  Si dice \dfn{lagrangiana} di un sistema conservativo la funzione \begin{equation}
+  \mathcal{L}(\vec{x},\vec{\dot{x}}) = T(\vec{\dot{x}}) - V(\vec{x})
+  \end{equation} 
+  Si dice \dfn{azione} di un moto $\vec{x}:t\mapsto \vec{x}(t)$ l'integrale della lagrangiana nel tempo \begin{equation} \label{eq:action}
+  S(t_0,t_1, \vec{x}) = \int_{t_0}^{t_1} \mathcal{L}(\vec{x}(t),\vec{\dot{x}}(t),t) \dd{t}
+  \end{equation}
+\end{definition}
+\begin{definition}
+  Si dice \dfn{funzionale} un'applicazione tra uno spazio di funzioni differenziabili e l'asse reale.
+\end{definition}
+Fissati un tempo iniziale e finale $t_0$ e $t_1$ e una configurazione iniziale e finale $\vec{x}_0$ e $\vec{x}_1$, l'azione è un funzionale definito sullo spazio dei moti $\vec{x}$ tali che $\vec{x}(t_0) = \vec{x}_0$ e $\vec{x}(t_1)=\vec{x}_1$. Per avere una formulazione della meccanica, è necessario un modo per determinare quale moto viene effettivamente realizzato. Intuitivamente, questo dovrebbe avere un qualche tipo di \textquotedblleft efficienza\textquotedblright: non dovrebbe seguire un percorso inutilmente lungo, né variare la sua velocità più del necessario. Queste idee intuitive sono raccolte in una formulazione matematica dal principio di minima azione, originariamente dovuto a Maupertuis.
+\begin{minaction}
+Il moto fisicamente realizzato da un sistema fra due punti nello spazio delle configurazioni è quello per cui l'azione è minima.
+\end{minaction}
+Il problema della determinazione pratica di quale sia effettivamente il moto che richiede la minima azione richiede lo sviluppo del calcolo delle variazioni per essere risolto completamente; nel presente elaborato ci limiteremo a presentare il teorema che risulta da una trattazione completa.
+\begin{theorem}
+  Affinché un moto $\vec{x}: t\mapsto \vec{x}(t)$ sia un estremale dell'azione $S(\vec{x})$ (definita dall'\autoref{eq:action}) fissati tempi e punti iniziali e finali $t_0, t_1, \vec{x}_0, \vec{x}_1$ è necessario che esso soddisfi le \dfn{equazioni di Eulero-Lagrange} \begin{equation}
+    \dv{t}(\pdv{\mathcal{L}}{\vec{\dot{x}}}) - \pdv{\mathcal{L}}{\vec{x}} = 0
+  \end{equation} 
+  dove $\pdv{\vec{x}}$ indica il gradiente $\nabla_{\vec{x}}$.
+\end{theorem}
+
+È possibile dimostrare che, come si spera, i moti ottenute per un dato sistema meccanico dalla formulazione newtoniana e da quella lagrangiana coincidono. Come menzionato sopra, la formulazione lagrangiana semplifica però notevolmente i calcoli in molte situazioni. Un primo vantaggio è dovuto al fatto che essa consente di svolgere i calcoli non solo usando le componenti dei vettori di $\mathbb{M}$, ma anche con coordinate arbitrarie.
+
+\begin{definition}
+  In un sottospazio dello spazio delle configurazioni $U \subseteq \mathbb{M}$ di dimensione $n$ si dicono \dfn{coordinate} $n$ numeri reali $\vec{q}=(q_1, \ldots, q_n)$ tali che esiste una funzione biunivoca $\phi: \vec{q} \mapsto \vec{x}\in U$.
+\end{definition}
+\begin{theorem}
+  Un moto soddisfa le equazioni di Eulero-Lagrange in $\vec{x}$ se e solo se le soddisfa in coordinate $\vec{q}$ arbitrarie per $\mathbb{M}$: \begin{equation}
+    \dv{t}(\pdv{\mathcal{L}}{\vec{\dot{q}}}) - \pdv{\mathcal{L}}{\vec{q}} = 0
+  \end{equation} 
+\end{theorem}
+
+Questo significa che le equazioni del moto di un sistema ad esempio in coordinate polari possono essere ottenute immediatamente una volta scritte l'energia cinetica $T\big(\vec{\dot{x}}(\vec{q},\vec{\dot{q}})\big)$ e il potenziale $V\big(\vec{x}(\vec{q})\big)$ in coordinate polari.
+
+Un'altra caratteristica della formulazione lagrangiana è il fatto che esse sono \emph{intrinseche} ai sistemi vincolati: vediamo di precisare cosa s'intende.
+
+\begin{definition}
+  Sia $\mathbb{M}$ uno spazio delle configurazioni di dimensione $n$ con coordinate arbitrarie $\vec{q} = (q_1, \ldots, q_n)$. Si dice \dfn{vincolo olonomo} la richiesta che il moto abbia un'immagine contenuta nel sottoinsieme $M$ di $\mathbb{M}$ definito da \begin{equation}
+    M = \left\{ a \in \mathbb{M} \left|\ \begin{cases} 
+      F_1(\vec{q}) = 0 \\
+      \vdots \\
+      F_k(\vec{q}) = 0
+    \end{cases} \right. \right\} \qqtext{con} \vec{q} = \phi^{-1}(a)
+  \end{equation} 
+  dove $k \le n$ e $F_1, \ldots, F_k$ sono funzioni differenziabili da $\mathbb{M}$ a $\R$, tali che il rango della matrice $\pdv{F_i}{q_j}(a)$ sia $k$ in ogni $a \in M$. $M$ è detto \dfn{spazio delle configurazioni di un sistema vincolato}.
+\end{definition}
+\begin{remark}
+  Un vincolo non olonomo, detto \dfn{anolonomo}, può vincolare anche la velocità del sistema. Non parleremo qui di vincoli anolonomi, quindi nel seguito con \emph{vincolo} si intenderà \emph{vincolo olonomo}.
+\end{remark}
+
+Come si può imporre formalmente un vincolo su un sistema? Intuitivamente, un vincolo è un'entità che applica una forza infinita sul sistema quando esso tenta di uscire dal sottoinsieme di configurazioni permesse $M$. Avendo a disposizione solo potenziali, possiamo pensare di modellizzare questa forza infinita con un potenziale a pendenza tendente all'infinito lungo le direzioni che si allontanano dal vincolo. Esprimendo per il teorema del Dini le prime $k$ coordinate in funzione delle altre $n-k$ \begin{equation}
+\begin{cases}
+  q_1 = f_1(q_{k+1}, \ldots, q_n) \\
+  \vdots \\
+  q_k = f_k(q_{k+1}, \ldots, q_n)
+\end{cases}
+\end{equation} 
+il potenziale che ci serve è \begin{equation}
+  V_{\alpha}(\vec{q}) = V(\vec{q}) + \alpha\big[(q_1-f_1)^2 + \ldots + (q_k-f_k)^2 \big] \qqtext{per} \alpha \to +\infty
+\end{equation} 
+dove $V$ è il potenziale dello stesso sistema senza vincoli. Usando questo potenziale è possibile dimostrare il seguente teorema.
+\begin{theorem}
+  Sia $M \subset \mathbb{M}$ lo spazio delle configurazioni di un sistema vincolato con lagrangiana $\mathcal{L}_{\alpha} = T -V_{\alpha}$, siano date le condizioni iniziali $\vec{q}_0 \in  M$ e $\vec{\dot{q}}_0$ tangente a $M$ e sia $\vec{\phi}_{\alpha}(t)$ il moto del sistema. Allora esiste il limite \begin{equation}
+  \lim_{\alpha \to +\infty} \vec{\phi}_{\alpha}(t) = \vec{\psi}(t)
+  \end{equation} 
+  e la funzione limite $\vec{q}(t) = \vec{\psi}(t)$ soddisfa le equazioni di Eulero-Lagrange \begin{equation}
+    \dv{t}(\pdv{\mathcal{L}_{*}}{\vec{\dot{q}}}) - \pdv{\mathcal{L}_{*}}{\vec{q}} = 0
+  \end{equation} 
+  dove $\mathcal{L}_*$ è detta \dfn{lagrangiana ridotta} ed è definita come \begin{equation}
+  \mathcal{L(\vec{q},\vec{\dot{q}})}_* = \eval{T(\vec{q},\vec{\dot{q}})\,}_{\begin{subarray}{l}
+    q_1=f_1, \ldots, q_k=f_k \\
+    \dot{q}_1, \ldots, \dot{q}_k = 0
+  \end{subarray}} - \eval{V(\vec{q})\,}_{q_1=f_1, \ldots, q_k=f_k}
+  \end{equation} 
+\end{theorem}
+Questo teorema consente in pratica di scrivere la lagrangiana esprimendo le coordinate vincolate in funzione delle altre, per poi calcolare le equazioni del moto solo per le coordinate non vincolate. 
+\section{Meccanica hamiltoniana}

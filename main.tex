@@ -46,11 +46,18 @@
 
 \usepackage{amsthm}
 \usepackage{thmtools}
-\declaretheorem[style = plain, parent = chapter, name = Teorema]{theorem}
+\declaretheorem[
+  style = plain,
+  parent = chapter,
+  name = Teorema,
+  refname={teorema,teoremi},
+  Refname={Teorema,Teoremi}]{theorem}
 \declaretheorem[style = definition, sibling = theorem, name = Definizione]{definition}
 \newcommand{\dfn}[1]{\emph{#1}}
 \declaretheorem[style = remark, parent = theorem, name = Osservazione]{remark}
+
 \declaretheorem[style = plain, numbered = no, name = Legge di Newton]{newton}
+\declaretheorem[style = plain, numbered = no, name = Principio di minima azione]{minaction}
 
 \usepackage{graphicx}
 \graphicspath{./graphics}
