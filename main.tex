@@ -52,6 +52,7 @@
 \usepackage{physics}
 \newcommand{\R}{\mathbb{R}}
 \renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\identity}{\mathcal{i}}
 
 \usepackage{amsthm}
 \usepackage{thmtools}
@@ -61,7 +62,12 @@
   name = Teorema,
   refname={teorema,teoremi},
   Refname={Teorema,Teoremi}]{theorem}
-\declaretheorem[style = definition, sibling = theorem, name = Definizione]{definition}
+\declaretheorem[
+  style = definition, 
+  sibling = theorem, 
+  name = Definizione,
+  refname={definizione,definizioni},
+  Refname={Definizione,Definizioni}]{definition}
 \newcommand{\dfn}[1]{\emph{#1}}
 \declaretheorem[
   style = remark,
@@ -87,10 +93,13 @@
 \renewcommand{\equationautorefname}{equazione}
 \renewcommand{\chapterautorefname}{capitolo}
 \begin{document}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
 
   % \input{chapters/frontispice.tex}
   % \input{chapters/introduction.tex}
-  \input{chapters/classicalMechanics.tex}
-  % \input{chapters/manifolds.tex}
+  % \input{chapters/classicalMechanics.tex}
+  
+  \input{chapters/manifolds.tex}
 
 \end{document}
