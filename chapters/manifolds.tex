@@ -1,5 +1,5 @@
 \chapter{Varietà differenziabili}
-La teoria delle varietà differenziabili si occupa di generalizzare le caratteristiche geometriche di $\R^n$ a spazi con topologie diverse. In questo capitolo si daranno per prima cosa le definizioni di varietà differenziabile e di applicazione differenziabile fra varietà. Si definiranno poi i vettori tangenti e cotangenti sulle varietà, mostrandone il collegamento alle operazioni di derivazione e definendo spazi tangenti e cotangenti. Infine ci si occuperà del potente strumento delle forme differenziali, che sarà il fondamento della formulazione simplettica della meccanica.
+La teoria delle varietà differenziabili si occupa di generalizzare le caratteristiche geometriche di $\R^n$ a spazi con topologie diverse. In questo capitolo si daranno per prima cosa le definizioni di varietà differenziabile e di applicazione differenziabile fra varietà. Si definiranno poi i vettori tangenti e cotangenti sulle varietà, mostrandone il collegamento alle operazioni di derivazione e definendo spazi tangenti e cotangenti. Infine ci si occuperà delle forme differenziali, che forniranno il fondamento della formulazione simplettica della meccanica.
 
 \section{Varietà e applicazioni differenziabili} \label{sec:smoothMfd}
 Gli elementi di uno spazio vettoriale possono essere individuati tramite coordinate lineari. Una struttura di varietà differenziabile consente invece di individuare gli elementi di un insieme con coordinate non lineari, espandendo di molto i tipi di insiemi su cui è possibile definire coordinate. La non linearità complica però notevolmente l'individuazione dei punti, e rende necessario l'avere più di un sistema di coordinate. Sono inoltre posti alcuni requisiti per evitare casi patologici.
@@ -7,11 +7,11 @@ Gli elementi di uno spazio vettoriale possono essere individuati tramite coordin
 \begin{definition}
   Si dice \dfn{varietà differenziabile} una struttura $(X,\mathcal{U})$ dove $X$ è un insieme e $\mathcal{U}$, detto \dfn{atlante}, è una collezione di coppie $(U_{\nu}, \phi_{\nu})$ per $\nu \in S \subset \R$, dette \dfn{carte di coordinate}, dove gli $U_{\nu}$ sono sottoinsiemi di $X$ e le $\phi_{\nu}:U_{\nu}\to \R^{n}$ sono applicazioni biunivoche su un sottoinsieme aperto di $\R^{n}$ detto $\phi_{\nu}(U_{\nu})$, tali che:
   \begin{enumerate}
-    \item le carte siano \dfn{compatibili}, cioè se $U_{\nu} \cap U_{\mu} \neq \emptyset$ allora $\phi_{\nu}(U_{\nu} \cap U_{\mu})$ e $\phi_{\mu}(U_{\nu} \cap U_{\mu})$ sono aperti nelle rispettive versioni di $\R^{n}$ e l'applicazione $\phi_{\mu} \circ \phi_{\nu}^{-1}: \phi_{\nu}(U_{\nu} \cap U_{\mu}) \to \phi_{\mu}(U_{\nu} \cap U_{\mu})$ è differenziabile fra questi due sottoinsiemi aperti di $\R^{n}$. $F_{\nu\mu} = \phi_{\mu} \circ \phi_{\nu}^{-1}$ è detta \dfn{mappa di transizione} fra le carte $\phi_{\nu}$ e $\phi_{\mu}$.
+    \item le carte siano \dfn{compatibili}, cioè se $U_{\nu} \cap U_{\mu} \neq \emptyset$ allora $\phi_{\nu}(U_{\nu} \cap U_{\mu})$ e $\phi_{\mu}(U_{\nu} \cap U_{\mu})$ sono aperti nelle rispettive versioni di $\R^{n}$ e l'applicazione $\phi_{\mu} \circ \phi_{\nu}^{-1}: \phi_{\nu}(U_{\nu} \cap U_{\mu}) \to \phi_{\mu}(U_{\nu} \cap U_{\mu})$ è differenziabile fra questi due sottoinsiemi aperti di $\R^{n}$. $\identity_{\nu\mu} = \phi_{\mu} \circ \phi_{\nu}^{-1}$ è detta \dfn{mappa di transizione} fra le carte $\phi_{\nu}$ e $\phi_{\mu}$.
     \item esista un sottoinsieme numerabile $J \subset S$ tale che $X = \bigcup_{j \in  J} U_j$.
     \item Definendo \dfn{aperti in $X$} i sottoinsiemi di $X$ la cui immagine è aperta sotto tutte le carte nel cui dominio sono inclusi, $X$ sia uno spazio di Hausdorff, ossia per ogni $x,y \in X$ con $x \neq y$ esistano due insiemi aperti $U_x, U_y \subset X$ tali che $x \in U_x$ e $y \in  U_y$ mentre $U_x \cap U_y = \emptyset$.
   \end{enumerate}
-   Dato che non saranno considerati altri tipi di varietà, l'aggettivo \emph{differenziabile} sarà omesso nel seguito. Spesso si indicherà inoltre la varietà $(X,\mathcal{U})$ semplicemente come $X$.
+   Dato che non saranno considerati altri tipi di varietà, l'aggettivo \emph{differenziabile} sarà omesso nel seguito. Si indicherà inoltre la varietà $(X,\mathcal{U})$ semplicemente come $X$.
 \end{definition}
 \begin{remark}
   Si noti che, per come sono definite qui, le $\phi_{\nu}$ associano \emph{a un elemento della varietà una $n$-upla di reali}, e non viceversa. Siccome le $\phi_{\nu}$ sono biunivoche per definizione, tuttavia, è possibile riottenere i punti della varietà note le loro coordinate.
@@ -30,21 +30,21 @@ Data una carta $(U,\phi)$ e un punto $x \in U$, spesso per brevità si indicano 
 
 Definito il teatro della teoria, restano da definire le azioni che in essa si possono compiere, vale a dire le applicazioni differenziabili da una varietà a un'altra.
 \begin{definition}
-  Un'applicazione $f:X_1 \to X_2$ tra varietà $X_1, X_2$ è detta \dfn{differenziabile} se per ogni $x \in  X_1$ esistono una carta $(U_1, \phi_1)$ su $X_1$ con $x \in U_1$ e una carta $(U_2, \phi_2)$ su $X_2$ tali che $f(U_1) \subset U_2$ e $\phi_2 \circ f \circ \phi_1^{-1}: \phi_1(U_1) \to \phi_2(U_2)$ sia una funzione differenziabile tra sottoinsiemi di $\R^{n}$. $f_{\phi_1 \phi_2} = \phi_2 \circ f \circ \phi_1^{-1}$ è detta \dfn{rappresentazione in coordinate} dell'applicazione $f$. $f$ è inoltre detta \dfn{diffeomorfismo} o \dfn{isomorfismo di varietà} se anche la sua inversa è differenziabile.
+  Un'applicazione $f:X \to Y$ tra varietà $X, Y$ si dice \dfn{differenziabile} se per ogni $x \in  X$ esistono una carta $(U, \phi)$ su $X$ con $x \in U$ e una carta $(V, \psi)$ su $Y$ tali che $f(U) \subset V$ e $\psi \circ f \circ \phi^{-1}: \phi(U) \to \psi(V)$ sia una funzione differenziabile tra sottoinsiemi di $\R^{n}$. $f_{\phi \psi} = \psi \circ f \circ \phi^{-1}$ è detta \dfn{rappresentazione in coordinate} dell'applicazione $f$. $f$ si dice inoltre \dfn{diffeomorfismo} se anche la sua inversa è differenziabile. 
 \end{definition}
 \begin{remark}
-  Se $f$ è differenziabile, allora $f$ è anche continua fra le topologie naturali delle due varietà. In tal caso infatti ogni sottoinsieme aperto di $X_2$ ha come retroimmagine un sottoinsieme aperto di $X_1$, dato che ogni punto $x$ di questa retroimmagine ammette un intorno aperto $U_1$.
+  Se $f$ è differenziabile, allora è anche continua fra le topologie naturali delle due varietà. In tal caso infatti ogni sottoinsieme aperto di $Y$ ha come retroimmagine un sottoinsieme aperto di $X$, dato che ogni punto $x$ di questa retroimmagine ammette un intorno aperto $U$.
 \end{remark}
 
-Nel caso, specifico ma significativo, in cui $f$ sia a valori reali, ovvero $X_2 = \R$, $X_2$ ha un'unica carta $(\R, \identity)$ (dove $\identity$ è l'identità) e la definizione diventa la seguente.
+Nel caso, specifico ma significativo, in cui $f$ sia a valori reali, ovvero $Y = \R$, $Y$ ha un'unica carta $(\R, \identity)$ (dove $\identity$ è l'identità) e la definizione diventa la seguente.
 \begin{definition}
-  Un'applicazione a valori reali definita su una varietà $f:X\to \R$ si dice \dfn{differenziabile} se per ogni $x \in X$ esiste una carta $(U, \phi)$ su $X$ con $x \in  U$ tale che $f\circ \phi^{-1}: \phi(U) \to \R$ funzione differenziabile tra sottoinsiemi di $\R^{n}$.
+  Un'applicazione a valori reali definita su una varietà $f:X\to \R$ si dice \dfn{differenziabile} se per ogni $x \in X$ esiste una carta $(U, \phi)$ su $X$ con $x \in  U$ tale che $f\circ \phi^{-1}: \phi(U) \to \R$ sia una funzione differenziabile tra sottoinsiemi di $\R^{n}$.
 \end{definition}
 
 Un modo naturale per produrre nuove varietà è prendere il prodotto cartesiano di varietà già definite. Si può infatti dimostrare il seguente teorema.
 \begin{theorem}
-  Se $X^1$ e $X^2$ sono varietà con struttura data dalle carte rispettivamente $\big\lbrace(U^1_{\mu}, \phi^1_{\mu})\big\rbrace_{\mu \in R}$ e $\big\lbrace (U^2_{\nu}, \phi^2_{\nu})\big\rbrace_{\nu \in S}$, il prodotto cartesiano $X^1 \times X^2$ ha una struttura naturale di varietà data dalle carte $\Big\lbrace\big( U^1_{\mu} \times U^2_{\nu}, (\phi^1_{\mu},\phi^2_{\nu})\big)\Big\rbrace$, dove $\mu \in  R,\ \nu \in S$ e \begin{equation*}
-    \big((\phi^1_{\mu},\phi^2_{\nu})\big): (x^1,x^2) \mapsto \bigg(\big(\phi^1_{\mu}(x^1),\phi^2_{\nu}(x^2)\big)\bigg) \qqtext{per} x^1 \in U^1_{\mu},\ x^2 \in  U^2_{\nu}
+  Se $X$ e $Y$ sono varietà con struttura data dalle carte $\big\lbrace(U_{\mu}, \phi_{\mu})\big\rbrace$, con $\mu \in R \subset \R$, e $\big\lbrace (V_{\nu}, \psi_{\nu})\big\rbrace$, con $\nu \in S \subset  \R$, il prodotto cartesiano $X \times Y$ ha una struttura naturale di varietà data dalle carte $\Big\lbrace\big( U_{\mu} \times V_{\nu}, (\phi_{\mu},\psi_{\nu})\big)\Big\rbrace$, dove $\mu \in  R,\ \nu \in S$ e \begin{equation*}
+    \big((\phi_{\mu},\psi_{\nu})\big): (x,y) \mapsto \bigg(\big(\phi_{\mu}(x),\psi_{\nu}(y)\big)\bigg) \qqtext{per} x \in U_{\mu},\ y \in  V_{\nu}
   \end{equation*} 
 \end{theorem}
 \begin{remark}
@@ -56,26 +56,34 @@ Per poter definire una forma di calcolo differenziale sulle varietà, è necessa
 
 \begin{definition}
   Si dice \dfn{vettore tangente} alla varietà $X$ nel punto $x \in  X$ la classe di equivalenza $[\gamma]$, dove $\gamma:]-\epsilon,\epsilon\;[\ \to X$, con $\epsilon > 0$, è un cammino differenziabile con $\gamma(0) = x$ e $\gamma_1$ equivale a $\gamma_2$ se esiste una carta $(U, \phi)$ tale che \begin{equation*}
-  \eval{\dv{\phi}{t}\big(\gamma_1(t)\big)}_{t=0} = \eval{\dv{\phi}{t}\big(\gamma_2(t)\big)}_{t=0}
+  \eval{\dv{t} \phi \big(\gamma_1(t)\big)}_{t=0} = \eval{\dv{t} \phi\big(\gamma_2(t)\big)}_{t=0}
   \end{equation*} 
 \end{definition}
 \begin{remark}
   Intuitivamente, un vettore tangente in $x \in X$ è definito come un cammino infinitesimo che attraversa $x$ con una certa velocità. La relazione di equivalenza rimuove dalla considerazione il dominio di definizione e il comportamento nei punti diversi da $x$.
 \end{remark}
+Nel seguito, quando non necessario per evitare ambiguità, si ometteranno le parentesi quadre dalla notazione per le classi di equivalenza, scrivendo $\gamma$ al posto di $[\gamma]$.
 
 Lo spazio tangente a $\R^{n}$ in un qualsiasi punto $y \in \R^{n}$, denotato $T_y \R^{n}$, può essere identificato con $\R^{n}$ facendo corrispondere a ogni $v \in \R^{n}$ la classe di equivalenza del cammino $\gamma_v(t) = y + tv$. Siccome qualsiasi cammino $\gamma_0:]-\epsilon,\epsilon\;[\ \to X$, con $\epsilon > 0$ e $\gamma_0(0)=y$, ammette nella sua classe di equivalenza (si ricordi che in $\R^{n}$ $\phi = \identity$) il cammino $\gamma(t) = y + t\dot{\gamma}_0(0)$ e quindi corrisponde a un $v_{\gamma} = \dot{\gamma}_0(0) \in \R^{n}$, la corrispondenza è suriettiva. Dato che è anche iniettiva per definizione, essa è biunivoca. 
 
-Inoltre, una carta $(U, \phi)$ intorno a un punto $x \in  X$, con $X$ varietà generica, fornisce un modo di identificare $T_x X$ con $\R^{n}$, associando a ogni $v \in \R^{n}$ il percorso su $X$ $\gamma_{v}(t) = \phi^{-1}(\phi(x)+tv)$. Analogamente a sopra, questa corrispondenza è infatti biunivoca. Ogni spazio tangente può quindi essere identificato con $\R^{n}$, e quindi ogni spazio tangente è uno spazio vettoriale.
+Inoltre, una carta $(U, \phi)$ intorno a un punto $x \in  X$, con $X$ varietà generica di dimensione $n$, fornisce un modo di identificare $T_x X$ con $\R^{n}$, associando a ogni $v \in \R^{n}$ il percorso su $U$ \begin{equation} \label{eq:tangentRn}
+  \gamma_{v}(t) = \phi^{-1}(\phi(x)+tv) \qqtext{per} t \in ]-\epsilon, \epsilon[ \qqtext{con} \epsilon > 0
+\end{equation} Analogamente a sopra, questa corrispondenza è infatti biunivoca, con \begin{equation*}
+v_{\gamma} = \eval{\dv{t} \phi\big( \gamma_0(t)\big)}_{t=0}
+\end{equation*} Ogni spazio tangente può quindi essere identificato con $\R^{n}$. Da ciò segue che ogni spazio tangente è uno spazio vettoriale. Una sua base è \begin{equation} \label{eq:tangentRnBase}
+  \big\lbrace\phi^{-1}(\phi(x)+t\, e_i)\big\rbrace \qqtext{per} i=1, \ldots, n
+\end{equation}
+dove $e_i$ è l'$i$-esimo elemento della base canonica di $\R^{n}$.
 
 È possibile estendere il concetto di campo vettoriale alle varietà: intuitivamente, un campo vettoriale associa a ogni punto un vettore tangente in quel punto, in maniera differenziabile. Il tecnicismo principale sta nella definizione di differenziabilità per un'applicazione da una varietà a uno spazio tangente.
 \begin{definition} \label{def:vecField}
-  Si dice \dfn{campo vettoriale} su una varietà $X$ un'applicazione $V: x \in  X \mapsto V (x) \in T_x X$, tale che per ogni $x \in X$ e per ogni carta $(U, \phi)$ con $x \in U$ sia differenziabile la mappa $V_\phi:U \to \R^{n}$ risultante per ciascun $y \in  U$ dall'identificazione di $T_y X$ con $\R^{n}$ data da $\phi$.
+  Si dice \dfn{campo vettoriale} su una varietà $X$ un'applicazione $V: x \in  X \mapsto V (x) \in T_x X$, tale che per ogni $x \in X$ e per ogni carta $(U, \phi)$ con $x \in U$ sia differenziabile la mappa $V_\phi:U \to \R^{n}$ risultante per ciascun $y \in  U$ dall'identificazione di $T_y X$ con $\R^{n}$ data da $\phi$ secondo l'\autoref{eq:tangentRn}.
 \end{definition}
 
 Le identificazioni locali consentono di scrivere localmente i campi vettoriali su varietà come campi vettoriali su $\R^{n}$, una volta fissata una carta. In un cambio di carta, le componenti dei vettori tangenti si trasformano in maniera ben definita.
 \begin{theorem} 
-  Sia $X$ una varietà e siano $(U,\phi)$ e $(V,\psi)$ due carte. Sia $x \in  U \cap V$ e sia $[\gamma] \in  T_x X$. Siano $u \in \R^{n}$ e $v \in  \R^{n}$ i corrispondenti di $[\gamma]$ secondo $\phi$ e $\psi$, rispettivamente. Allora, dette $u_j$ e $v_i$ le rispettive componenti, e detta $F^{\phi\psi}:\R^{n} \to \R^{n}$ la funzione di transizione, con componenti $F^{\phi \psi}_i$, vale \begin{equation} \label{eq:vecTrans}
-  v_i = \sum_{j=1}^n \pdv{F^{\phi \psi}_i}{x_j} u_j
+  Sia $X$ una varietà e siano $(U,\phi)$ e $(V,\psi)$ due carte. Sia $x \in  U \cap V$ e sia $\gamma \in  T_x X$. Siano $u \in \R^{n}$ e $v \in  \R^{n}$ i corrispondenti di $\gamma$ secondo $\phi$ e $\psi$ (\autoref{eq:tangentRn}), rispettivamente. Allora, identificando $x_i = \phi_i$, dette $u_j$ e $v_i$ le componenti di $u$ e $v$, e detta $F^{\phi\psi}:\R^{n} \to \R^{n}$ la funzione di transizione, con componenti $F^{\phi \psi}_i$, vale \begin{equation} \label{eq:vecTrans}
+  v_i = \sum_{j=1}^n \pdv{F^{\phi \psi}_i}{x_j}\big(\phi(x)\big)\; u_j
   \end{equation} 
 \end{theorem}
 
@@ -85,7 +93,7 @@ I vettori tangenti consentono di individuare spostamenti infinitesimi su una var
   Sia $X$ una varietà, un'applicazione $x:\R \to X$ si dice \dfn{linea di flusso} per un campo vettoriale $V$ su $X$ se soddisfa l'equazione \begin{equation*}
   \dot{x}(t) = V\big(x(t)\big)
   \end{equation*} 
-  dove $\dot{x}$ è il vettore tangente in $x(t)$ definito da $[x]$.
+  dove $\dot{x}$ è il vettore tangente in $x(t)$ definito da $[x]$, con il tempo opportunamente traslato.
 \end{definition}
 \begin{remark}
   Scelta una carta, questa equazione equivale a un'equazione di primo grado, la cui soluzione per una data condizione iniziale esiste ed è unica per via del teorema di Cauchy. Si dimostra quindi il seguente teorema.
@@ -99,7 +107,7 @@ I vettori tangenti consentono di individuare spostamenti infinitesimi su una var
 
 Un'altra possibilità che i vettori tangenti consentono di espandere da $\R^{n}$ alle varietà in generale è la derivazione.
 \begin{definition}
-  Siano $X,Y$ varietà e sia $f:X\to Y$ un'applicazione differenziabile. Si dice \dfn{derivata} di $f$ in $x \in X$ l'applicazione lineare $D_x f:T_x X \to T_{f(x)}Y$ che porta il cammino $\gamma: ]-\epsilon, \epsilon\;[\ \to X$ con $\epsilon>0$ e $\gamma(0) \in X$ nel cammino $f \circ \gamma:]-\epsilon, \epsilon\;[\ \to Y$.
+  Siano $X,Y$ varietà e sia $f:X\to Y$ un'applicazione differenziabile. Si dice \dfn{derivata} o \dfn{push-forward} di $f$ in $x \in X$ l'applicazione lineare $D_x f:T_x X \to T_{f(x)}Y$ che porta il cammino $\gamma: ]-\epsilon, \epsilon\;[\ \to X$ con $\epsilon>0$ e $\gamma(0) \in X$ nel cammino $f \circ \gamma:]-\epsilon, \epsilon\;[\ \to Y$.
 \end{definition}
 \begin{remark}
   Intuitivamente, la derivata dell'applicazione $f$ in un punto $x \in X$ associa a ogni spostamento infinitesimo da $x$ lo spostamento infinitesimo da $f(x) \in Y$ che ne risulta.
@@ -107,35 +115,46 @@ Un'altra possibilità che i vettori tangenti consentono di espandere da $\R^{n}$
 \begin{remark}
   Questa definizione di derivata generalizza la derivata direzionale. Se infatti $X = \R^{n}$ e $Y = \R^{m}$, a un vettore $v \in \R^{n}$ si può associare un percorso $x + tv$. La derivata manda questo percorso in $f(x+tv)$, a cui si può associare $w = \eval{\dv{t}(x+tv)}_{t=0}$ e quest'ultima è esattamente la definizione di derivata direzionale. Nel caso di $X,Y$ varietà generiche, ci si può ricondurre al caso $\R^{n} \to \R^{m}$ tramite le carte di coordinate intorno a $x \in X$ e $f(x)\in Y$, rispettivamente $(U, \phi)$ e $(V,\psi)$. In tal caso, la derivata è rappresentata dal jacobiano di $f_{\phi \psi}$, la rappresentazione in coordinate di $f$.
 \end{remark}
+\begin{remark}
+  La derivata è chiamata anche \emph{push-forward} perché \emph{spinge} i vettori tangenti alla varietà codominio di $f$.
+\end{remark}
 
 Se $f:X \to \R$ è una funzione differenziabile a valori reali, per ogni $x \in X$ si ha che $D_x f: T_x X \to T_{f(x)}\R$, ma siccome $T_{f(x)}\R$ può essere identificato con $\R$ si può scrivere $D_x f: T_x X \to \R$. Ciò significa che la derivata di una funzione a valori reali appartiene allo spazio duale di quello tangente.
 
 \begin{definition}
   Sia $X$ una varietà e sia $x \in X$. Si dice \dfn{spazio cotangente} a $X$ in $x$ $T_x^* X$ lo spazio duale di $T_x X$. I suoi elementi si dicono \dfn{vettori cotangenti}.
 \end{definition}
-\begin{definition}
-  Si dice \dfn{1-forma} su una varietà $X$ un'applicazione $\alpha: x \in X \mapsto \alpha(x) \in T_x^* X$, differenziabile in senso analogo a quello usato per i campi vettoriali nella \autoref{def:vecField} (cioè tale che si ottenga un'applicazione differenziabile identificando gli spazi tangenti con $\R^{n}$ secondo le carte di coordinate).
+\begin{remark}
+  Siccome lo spazio cotangente è uno spazio duale, esso è automaticamente uno spazio vettoriale. Per lo stesso motivo le sue basi sono le basi duali di quelle dello spazio tangente, tra cui la base duale di quella definita dall'\autoref{eq:tangentRnBase}.
+\end{remark}
+
+Così come è possibile costruire campi vettoriali su una varietà, è anche possibile costruirvi \textquotedblleft campi di $1$-forme\textquotedblright.
+\begin{definition} \label{def:1formCvc}
+  Si dice \dfn{1-forma differenziale} su una varietà $X$ un'applicazione $\alpha: x \in X \mapsto \alpha(x) \in T_x^* X$, differenziabile in senso analogo a quello usato per i campi vettoriali nella \autoref{def:vecField} (cioè tale che si ottenga un'applicazione differenziabile identificando gli spazi tangenti con $\R^{n}$ secondo le carte di coordinate).
 \end{definition}
 
-L'applicazione che a ogni punto associa la derivata di una funzione $f$ fissata in quel punto è quindi una 1-forma.
+L'applicazione che a ogni punto associa la derivata di una funzione $f$ fissata in quel punto è una 1-forma differenziale.
 \begin{definition} \label{def:differential}
-  Sia $X$ una varietà e sia $f:X\to \R$ un'applicazione differenziabile, si dice \dfn{differenziale} di $f$ la 1-forma \begin{equation}
+  Sia $X$ una varietà e sia $f:X\to \R$ un'applicazione differenziabile, si dice \dfn{differenziale} di $f$ la 1-forma differenziale \begin{equation}
   \dd f: x \in X \mapsto D_x f \in T_x^* X
   \end{equation} 
 \end{definition}
+\begin{remark}
+  Nel seguito si indicherà la $1$-forma data dal differenziale di $f$ valutato in $y$ come $\dd_y f:T_y X \to \R$.
+\end{remark}
 
-Anche i vettori cotangenti hanno una rappresentazione in coordinate, data dalla base duale di quella scelta per lo spazio tangente, e le loro coordinate si trasformano in maniera ben definita in un cambio di carte. Questa trasformazione è però inversa rispetto a quella per i vettori tangenti.
+Anche le coordinate dei vettori cotangenti si trasformano in maniera ben definita in un cambio di carte. Questa trasformazione è però inversa rispetto a quella per i tangenti.
 \begin{theorem} 
   Sia $X$ una varietà e siano $(U,\phi)$ e $(V,\psi)$ due carte. Sia $x \in  U \cap V$ e sia $\alpha \in  T_x^* X$. Siano $u^* \in \R^{n}$ e $v^* \in  \R^{n}$ i corrispondenti di $\alpha$ secondo $\phi$ e $\psi$, rispettivamente. Allora, dette $u^*_i$ e $v^*_j$ le rispettive componenti, e detta $F^{\phi\psi}:\R^{n} \to \R^{n}$ la funzione di transizione, con componenti $F^{\phi \psi}_i$, vale \begin{equation} \label{eq:cvcTrans}
   u^*_i = \sum_{j=1}^n \pdv{F^{\phi \psi}_i}{x_j} v^*_j
   \end{equation} 
 \end{theorem}
 
-Inoltre, siccome la derivata di una funzione a valori reali definita su una varietà è un vettore cotangente alla varietà stessa, data una funzione $f:X \to \R$ è possibile associare a ogni vettore $\gamma \in T_x X$, con $x \in X$, un valore $\gamma\,(f) \defeq (D_x f) (\gamma) \in \R$. Con questa associazione, un campo vettoriale $V$ diventa una funzione differenziabile $V(f): X \to \R$. Si possono quindi identificare i vettori tangenti a una varietà in un punto con le derivate direzionali su funzioni reali in quel punto e i campi vettoriali con campi di derivate direzionali di funzioni reali. Sia $(\phi,U)$ una carta, se si identificano $U$ e $\phi(U)$ come indicato nella \autoref{sec:smoothMfd} è conveniente identificare i vettori $\gamma_j = \phi^{-1}(tx_j)$ con le derivate parziali $\pdv{x_j}$. Inoltre, con questa identificazione il differenziale $\dd \phi_j$ della funzione $\phi_j:X\to \R$ data dalla $j$-esima componente di $\phi$ si indica semplicemente $\dd x_j$. In questo modo, siccome i rispettivi spazi di appartenenza sono spazi vettoriali, campi vettoriali e $1$-forme si possono scrivere come \begin{equation*}
-V(x) = \sum_{j=1}^{n} a_j(x) \pdv{x_j} \qquad \alpha(x) = \sum_{j=1}^{n} a^*_j(x) \dd{x_j}
+Inoltre, siccome la derivata di una funzione a valori reali definita su una varietà fornisce in ciascun punto un vettore cotangente alla varietà stessa (il differenziale in quel punto, vedi \autoref{def:differential}), data una funzione $f:X \to \R$ è possibile associare a ogni vettore $\gamma \in T_x X$, con $x \in X$, un valore $\gamma\,(f) \defeq (D_x f) (\gamma) \in \R$. Si possono quindi identificare i vettori tangenti a una varietà in un punto con le derivate direzionali su funzioni reali in quel punto. Sia $(\phi,U)$ una carta, se si identificano $U$ e $\phi(U)$ come indicato nella \autoref{sec:smoothMfd} è conveniente identificare i vettori $\gamma_j = \phi^{-1}(tx_j)$ con le derivate parziali $\pdv{x_j}$. Inoltre, con questa identificazione il differenziale $\dd \phi_j$ della funzione $\phi_j:X\to \R$ data dalla $j$-esima componente di $\phi$ si indica semplicemente $\dd x_j$. Con queste associazioni, un campo vettoriale $V$ si associa a un operatore $V: f \mapsto V(f)$, con $V(f): X \to \R$. Siccome i rispettivi spazi di appartenenza sono spazi vettoriali, campi vettoriali e $1$-forme si possono scrivere come \begin{equation*}
+V_x = \sum_{j=1}^{n} a_j(x) \pdv{x_j} \qquad \alpha_x = \sum_{j=1}^{n} a^*_j(x)\, \dd_x x_j
 \end{equation*} 
 dove le $a_j$ e $a^*_j$ sono funzioni differenziabili da $\phi(U)$ a $\R$, mentre le equazioni \ref{eq:vecTrans} ed \ref{eq:cvcTrans} dei cambi di carta da $(U, \phi)$ a $(V, \psi)$, con $y_i \simeq \psi_i(y)$, diventano quelle note dall'analisi \begin{equation*}
-\pdv{y_i} = \sum_{j=1}^{n} \pdv{x_j}{y_i} \pdv{x_j} \qquad \dd{y_i} = \sum_{j=1}^{n} \pdv{y_i}{x_j} \dd{x_j}
+\pdv{y_i} = \sum_{j=1}^{n} \pdv{x_j}{y_i} \pdv{x_j} \qquad \dd{y_i} = \sum_{j=1}^{n} \pdv{y_i}{x_j}\, \dd_x x_j
 \end{equation*} 
 
 È possibile costruire una nuova varietà a partire da una varietà e dagli spazi a essa tangenti o cotangenti. Questi tipi di varietà sono noti come fibrati.
@@ -153,4 +172,144 @@ dove le $a_j$ e $a^*_j$ sono funzioni differenziabili da $\phi(U)$ a $\R$, mentr
 Queste varietà vengono dette fibrati per analogia al caso della circonferenza, in cui ogni punto possiede una \textquotedblleft fibra\textquotedblright\ monodimensionale come spazio tangente. Da un elemento dello spazio tangente si può sempre rimuovere la fibra con l'applicazione seguente.
 \begin{definition}
   Sia $X$ una varietà e $B=\{(x,b)\}$ un suo fibrato (tangente o cotangente). Si dice \dfn{proiezione} l'applicazione $\pi: B \to X$ definito da $\pi(x,b) = x$.
+\end{definition}
+
+\section{Forme differenziali}
+Per le varietà come considerate finora non è definito nessun concetto analogo al volume. Ciò diventa possibile definendo le forme differenziali.
+
+\begin{definition}
+  Sia $V$ uno spazio vettoriale, si dice \dfn{$k$-forma} una mappa $\alpha: V^k \to \R$ con le due seguenti proprietà:
+  \begin{enumerate}
+    \item \dfn{multilinearità}: per ogni $v_1, \ldots, v_k \in V$ e $\lambda,\mu \in \R$, \begin{equation*}
+      \alpha(v_1, \ldots, \lambda v_i + \mu v'_i, \ldots, v_n) = \lambda \alpha(v_1, \ldots, v_i, \ldots, v_n) + \mu \alpha(v_1, \ldots, v'_i, \ldots, v_n)
+    \end{equation*} 
+    \item \dfn{alternanza}: per ogni $v_1, \ldots, v_k \in V$ e $i\neq j$, \begin{equation*}
+    \alpha(v_1, \ldots, v_i, \ldots, v_j, \ldots, v_n) = 
+    - \alpha(v_1, \ldots, v_j, \ldots, v_i, \ldots, v_n)
+    \end{equation*} 
+  \end{enumerate}
+\end{definition}
+
+Si può ottenere una $k$-forma con $k$ arbitrario da $k$ $1$-forme sfruttando l'operazione seguente:
+\begin{definition}
+  Sia $V$ uno spazio vettoriale e siano $\alpha_1, \ldots, \alpha_k$ $1$-forme su di esso, si dice \dfn{prodotto esterno} di $\alpha_1, \ldots, \alpha_k$ la $k$-forma che agisce su $v_1, \ldots, v_k \in V$ secondo \begin{equation*}
+  (\alpha_1 \wedge \ldots \wedge \alpha_k) (v_1, \ldots, v_k) = \det \pmqty{\alpha_1 (v_1) & \ldots & \alpha_1 (v_k) \\
+          \vdots & \ddots & \vdots \\
+          \alpha_k (v_1) & \ldots & \alpha_k (v_k)}
+  \end{equation*} 
+\end{definition}
+\begin{remark}
+  Per le proprietà dei determinanti, l'operazione di prodotto esterno è multilineare negli $\alpha_j$ e, se $\alpha$ è una $1$-forma, vale $\alpha \wedge \alpha = 0$.
+\end{remark}
+
+Si dimostra il seguente teorema: \begin{theorem} \label{thm:kformBase}
+  Sia $V$ uno spazio vettoriale. Lo spazio delle $k$-forme da $V$ ad $\R$ è lo span dell'insieme di prodotti esterni delle $1$-forme su $V$. Se $e_i$ è una base di $V$ e $x_i$ è la sua base duale, lo spazio delle $k$-forme ammette inoltre una base formata da tutte le $k$-forme \begin{equation*}
+  x_{i_1} \wedge \ldots \wedge x_{i_k}
+  \end{equation*}
+  tali che $i_1 < \ldots < i_k$.
+\end{theorem}
+\begin{remark}
+  In particolare, quindi, se $V$ è di dimensione $n$, per $k=n$ si ottiene che ogni $n$-forma su $V$ è multipla di $x_1 \wedge \ldots \wedge x_n$.
+\end{remark}
+
+Da questo teorema segue che è possibile estendere il prodotto esterno a un'operazione tra forme di ordini $k$ e $l$ generici.
+\begin{definition}
+  Sia $V$ uno spazio vettoriale e siano $\alpha$ e $\beta$ rispettivamente una $k$-forma e una $l$-forma su $V$. Si definisce \dfn{prodotto esterno} l'operazione $\wedge$ multilineare negli argomenti e tale che, se $\alpha_1, \ldots, \alpha_n$ e $\beta_1, \ldots, \beta_n$ sono $1$-forme \begin{equation*}
+  (\alpha_1 \overline{\wedge} \ldots \overline{\wedge} \alpha_n) \wedge (\beta_1 \overline{\wedge} \ldots \overline{\wedge} \beta_n) = \alpha_1 \overline{\wedge} \ldots \overline{\wedge} \alpha_n \overline{\wedge} \beta_1 \overline{\wedge} \ldots \overline{\wedge} \beta_n
+  \end{equation*} 
+  dove in questa definizione $\overline{\wedge}$ è il prodotto esterno tra $1$-forme.
+\end{definition}
+
+Finora la teoria delle forme differenziali è stata tenuta separata da quella delle varietà. Le due possono essere unite generalizzando la \autoref{def:1formCvc} a forme di generico ordine $k$. 
+\begin{definition}
+  Sia $X$ una varietà, si dice \dfn{k}-forma differenziale un'applicazione \textquotedblleft differenziabile\textquotedblright\ $\alpha: x \in X \mapsto \alpha_x$, dove $\alpha_x$ è una $k$-forma definita su $T_x X$.
+\end{definition}
+\begin{remark}
+  Con \textquotedblleft differenziabile\textquotedblright\ in questa definizione si intende la caratteristica seguente. Sia $(U, \phi)$ una carta su $X$ e si usi l'identificazione $U \simeq U(\phi)$, in modo da scrivere le funzioni componenti di $\phi$ come $x_j: U \to \R$. Per ogni $y \in U$, $T^*_y X$ si può identificare con $\R^{n}$ tramite la base $\dd_y x_j$, che è duale a quella data da $\phi$ a $T_x X$. Per il \autoref{thm:kformBase} quindi esiste una base per lo spazio delle $k$-forme su ciascun $T_y X$ formata da tutte le $k$-forme $\dd_y x_{i_1} \wedge \ldots \wedge \dd_y x_{i_k}$ tali che $i_1 < \ldots < i_k < n$. Una generica $k$-forma in $y$ si esprime quindi come \begin{equation*}
+  \alpha_y = \sum_{i_1 < \ldots < i_k < n} a_{i_1\ldots i_k}\; \dd_y x_{i_1} \wedge \ldots \wedge \dd_y x_{i_k}
+  \end{equation*} 
+  e, se si introduce la dipendenza da $y$, \begin{equation*}
+    \alpha_y = \sum_{i_1 < \ldots < i_k} a_{i_1\ldots i_k}(y)\ \dd_y x_{i_1} \wedge \ldots \wedge \dd_y x_{i_k}
+    \end{equation*}
+  $\alpha:y\mapsto \alpha(y)$ si dice \dfn{differenziabile} se $a_{i_1\ldots i_k < n}(y): X\to \R$ lo è.
+\end{remark}
+\begin{remark}
+  Lo spazio delle $k$-forme differenziali su una varietà $X$ è uno spazio vettoriale con le operazioni punto per punto, e si denota con $\Omega^k (X)$.
+\end{remark}
+
+L'operazione duale al push-forward dei vettori lungo un'applicazione $f$ è il pull-back delle forme differenziali contro $f$.
+\begin{definition}
+  Siano $X,Y$ due varietà, sia $\alpha \in \Omega^k (Y)$ e sia $f:X\to Y$ un'applicazione differenziabile. Si dice \dfn{pull-back} $f^*(\alpha) \in  \Omega^K(X)$ la $k$-forma differenziale $f^* \alpha$ su $X$ definita per $v_1, \ldots, v_k \in T_x X$, con $x \in X$, da \begin{equation*}
+  (f^*\alpha)_x\, (v_1, \ldots, v_k) = \alpha_{f(x)}\big((D_x f)(v_1), \ldots, (D_x f)(v_n)\big)
+  \end{equation*}  
+\end{definition}
+
+L'espressione in coordinate del pull-back di una forma differenziale rivela lo stretto legame tra forme differenziali e integrazione.
+\begin{theorem} \label{thm:varChange}
+  Siano $X,Y$ due varietà $n$-dimensionali, $f:X\to Y$ un'applicazione differenziabile e $\alpha \in  \Omega^n(Y)$. Siano $(U, \phi)$ e $(V,\psi)$ carte su $X$ e $Y$ rispettivamente, si identifichino $U$ con $\phi(U)$ e $V$ con $\psi(V)$ in modo che $f$ sia rappresentata da $y_i = f_i(x_1, \ldots, x_n)$ e $\alpha$ da $\alpha = a(y)\ \dd_y y_1\wedge \ldots \wedge \dd_y y_n$. Allora $f^* \alpha$ è rappresentata da \begin{equation*}
+  (f^* \alpha)_x = (a \circ f)(x) \det(D_x f)\dd_x x_1 \wedge \ldots \wedge \dd_x x_n
+  \end{equation*} 
+\end{theorem}
+\begin{remark}
+  A meno del segno del determinante, questa è la formula del cambio di variabili. Se il segno del determinante è positivo, si dice che $f$ \dfn{conserva l'orientamento}. Si dice \dfn{orientamento} di una varietà un atlante tale che tutte le funzioni di transizione conservino l'orientamento, se esiste.
+\end{remark}
+
+Grazie al concetto di pull-back è possibile definire l'integrale di una forma differenziale sfruttando l'integrazione in $\R^{n}$.
+\begin{definition}
+  Sia $X$ una varietà $n$-dimensionale e sia $\alpha \in \Omega^k(X)$. Sia $D$ un poliedro limitato e convesso $k$-dimensionale in $\R^{k}$, sia $\mathrm{Or}$ l'orientazione di $\R^k$ e sia $f:D\to X$ un'applicazione differenziabile. Si dice \dfn{poliedro singolare $k$-dimensionale} la terna $\sigma = (D,f,\mathrm{Or})$, identificata con $\sigma = f(D) \subset X$. Si dice \dfn{integrale} di $\alpha$ su $\sigma$ l'integrale del suo pullback su $D$: \begin{equation*}
+  \int\limits_{\sigma} \alpha = \int\limits_{x \in D} (f^* \alpha)(x)
+  \end{equation*} 
+\end{definition}
+
+Dal \autoref{thm:varChange} segue inoltre che
+\begin{theorem}
+  Siano $X$ una varietà $n$-dimensionale orientata e $\alpha$ una $n$-forma differenziale su $X$ con supporto compatto, l'integrale di $\alpha$ su $X$ esiste, l'integrazione è lineare in $\alpha$ e per ogni diffeomorfismo $f:X\to Y$, con $Y$ altra varietà differenziabile,
+  \begin{equation*}
+  \int\limits_Y f^*(\alpha) = \int\limits_X \alpha
+  \end{equation*} 
+\end{theorem}
+
+Tramite l'integrazione è possibile definire anche un'operazione di derivazione di $k$-forme.
+
+\begin{definition}
+  Sia $X$ una varietà e sia $\alpha \in \Omega^k(X)$. Si dice \dfn{derivata esterna} di $\alpha$, indicata con $\dd{a}$, la parte $(k+1)$-lineare dell'integrale \begin{equation*}
+  \int\limits_{\partial \Pi} \alpha
+  \end{equation*}
+  dove $\Pi$ è il parallelepipedo $k+1$-dimensionale delimitato dai vettori $v_1, \ldots, v_n \in \R^{n}$ corrispondenti ai vettori $\gamma_1, \ldots, \gamma_n$ su cui agisce $\alpha$.
+\end{definition}
+
+\begin{theorem}
+  Sia $X$ una varietà e sia $\alpha \in \Omega^k(X)$, rappresentata nella carta $(U, \phi)$ da \begin{equation*}
+    \alpha_y = \sum_{i_1 < \ldots < i_k} a_{i_1\ldots i_k}(y)\ \dd_y x_{i_1} \wedge \ldots \wedge \dd_y x_{i_k}
+    \end{equation*}
+    Allora $\dd{\alpha}$ è rappresentato nella stessa carta da
+    \begin{equation*}
+      \alpha_y = \sum_{i_1 < \ldots < i_k} \sum_{j=1}^n \pdv{a_{i_1\ldots i_k}}{x_j}()(y)\ \dd_y x_{j} \wedge \dd_y x_{i_1} \wedge \ldots \wedge \dd_y x_{i_k}
+      \end{equation*}
+\end{theorem}
+
+Per la derivata esterna valgono le seguenti proprietà:
+\begin{theorem}
+  Siano $X,Y$ varietà e siano $\alpha \in \Omega^k(Y), bb \in \Omega^l(Y)$. Sia $f:X\to Y$ un'applicazione differenziabile. Allora:
+  \begin{enumerate}
+    \item $f^*(\dd{\alpha}) = df^*(\alpha)$
+    \item $f^*(\alpha \wedge \beta) = f^*(\alpha) \wedge f^*(\beta)$
+    \item $\dd (\alpha \wedge \beta) = \dd{\alpha} \wedge \beta + (-1)^k \alpha \wedge \dd{\beta}$
+    \item $\dd{\dd{\alpha}} = 0$
+  \end{enumerate}
+\end{theorem}
+
+Tramite la derivata esterna è possibile generalizzare il concetto di campo vettoriale chiuso.
+\begin{definition}
+  Si dice \dfn{chiusa} una forma differenziale $\alpha$ tale che $\dd \alpha = 0$. 
+\end{definition}
+
+È inoltre possibile applicare il concetto di non degenerazione:
+\begin{definition}
+  Si dice \dfn{non degenere} una $2$-forma differenziale $\alpha$ su una varietà $X$ tale che, se $\alpha_x (\gamma, \delta) = 0$ per ogni $\gamma \in T_x X$, con $x \in  X$, allora $\delta = 0$.
+\end{definition}
+
+Combinando questi due requisiti, si ottiene un tipo di forma differenziale che sarà fondamentale per ottenere lo scopo prefissato alla fine dello scorso capitolo, ovvero liberare la meccanica dalle coordinate.
+\begin{definition}
+  Si dice \dfn{forma simplettica} una $2$-forma differenziale $\omega$ chiusa e non degenere. Si dice \dfn{varietà simplettica} una varietà $2n$-dimensionale su cui è definita una forma simplettica.
 \end{definition}
