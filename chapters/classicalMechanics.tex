@@ -58,7 +58,7 @@ Con quest'ultimo concetto si è finalmente in grado di descrivere posizioni e mo
 \end{remark}
 
 Per descrivere le posizioni di $N$ particelle servono $N$ vettori a 3 componenti. La risultante struttura può essere identificata con un vettore del prodotto diretto di $N$ copie di $\R^3$. Questo vettore descrive la configurazione dell'intero sistema, il che motiva la seguente definizione.
-\begin{definition}
+\begin{definition} \label{def:configSpace}
   Si dice \dfn{spazio delle configurazioni} di un sistema di $N$ particelle il prodotto diretto di $N$ copie di $\R^3$: \begin{equation*}
   \mathbb{M} = \underbrace{\R^3 \times \R^3 \times \ldots \times \R^3}_{N \text{ volte}}
   \end{equation*} 
@@ -84,7 +84,7 @@ La funzione $\vec{F}$ per un dato sistema fisico deve essere determinata sperime
 La conoscenza di $\vec{F}$ consente in linea di principio di conoscere il moto del sistema per qualsiasi posizione iniziale. Ciò tuttavia è molto più facile a dirsi che a farsi: per un sistema di $N$ particelle, questo metodo richiede di risolvere $3N$ equazioni differenziali, un processo che spesso è impossibile dal punto di vista analitico e inefficiente da quello numerico. È però possibile fare affermazioni qualitative sul moto dei corpi anche quando l'equazione del moto non è analiticamente risolvibile, attraverso i concetti legati all'energia.
 \begin{definition}
   Si dice \dfn{energia cinetica di un sistema} formato da $N$ particelle di masse $m_i$ nelle posizioni $\vec{x}_i \in \R^3$ la quantità \begin{equation}
-    T(\vec{\dot{x}}) = \sum_{i=1}^{N} \frac{1}{2}m_i\norm{\vec{\dot{x}}_i}^2
+    K(\vec{\dot{x}}) = \sum_{i=1}^{N} \frac{1}{2}m_i\norm{\vec{\dot{x}}_i}^2
   \end{equation} 
 \end{definition}
 \begin{definition}
@@ -98,7 +98,7 @@ La conoscenza di $\vec{F}$ consente in linea di principio di conoscere il moto d
 \end{definition}
 \begin{definition}
   Si dice \dfn{energia totale} di un sistema conservativo\begin{equation}
-  E(\vec{x},\vec{\dot{x}}) = T(\vec{\dot{x}}) + V(\vec{x})
+  E(\vec{x},\vec{\dot{x}}) = K(\vec{\dot{x}}) + V(\vec{x})
   \end{equation} 
 \end{definition}
 \begin{theorem} \label{thm:energyCons}
@@ -114,7 +114,7 @@ Si può ovviare a questi problemi attraverso la formulazione \dfn{lagrangiana} d
 
 \begin{definition}
   Si dice \dfn{lagrangiana} di un sistema la funzione \begin{equation}
-  \mathcal{L}(\vec{x},\vec{\dot{x}},t) = T(\vec{\dot{x}}) - V(\vec{x},t)
+  \mathcal{L}(\vec{x},\vec{\dot{x}},t) = K(\vec{\dot{x}}) - V(\vec{x},t)
   \end{equation} 
   Si dice \dfn{azione} di un moto $\vec{x}:t\mapsto \vec{x}(t)$ l'integrale della lagrangiana nel tempo \begin{equation} \label{eq:action}
   S(t_0,t_1; \vec{x}) = \int_{t_0}^{t_1} \mathcal{L}(\vec{x}(t),\vec{\dot{x}}(t),t) \dd{t}
@@ -138,9 +138,12 @@ Siccome il principio di minima azione riguarda il moto nella sua interezza, il q
 
 È possibile dimostrare che, come si spera, i moti ottenute per un dato sistema meccanico dalla formulazione newtoniana e da quella lagrangiana coincidono. Come menzionato sopra, la formulazione lagrangiana semplifica però notevolmente i calcoli in molte situazioni. Un primo vantaggio è dovuto al fatto che essa consente di svolgere i calcoli non solo usando le componenti dei vettori di $\mathbb{M}$, ma anche con coordinate arbitrarie.
 
-\begin{definition}
-  In un sottoinsieme dello spazio delle configurazioni $U \subseteq \mathbb{M}$ si dicono \dfn{coordinate} $\vec{q}=(q_1, \ldots, q_n)$ le $n$-uple appartenenti a un insieme $W$ tale che esiste una funzione biunivoca $\phi: \vec{q} \in W \mapsto \vec{x}\in U$.
+\begin{definition} \label{def:coordinates}
+  In un sottoinsieme dello spazio delle configurazioni $U \subseteq \mathbb{M}$ si dicono \dfn{coordinate} $\vec{q}=(q_1, \ldots, q_n)$ le $n$-uple appartenenti a un insieme $W$ tale che esista una funzione biunivoca $\phi^{-1}: \vec{q} \in W \mapsto x\in U$. 
 \end{definition}
+\begin{remark}
+  Nel seguito, per semplificare la notazione, si scriverà $\vec{x}(\vec{q}) = \phi(\vec{q})$.
+\end{remark}
 \begin{remark}
   In generale, non è detto che $\vec{\dot{x}}$ dipenda solo da $\vec{\dot{q}}$: potrebbe dipendere anche da $\vec{q}$, come in effetti spesso è il caso.
 \end{remark}
@@ -154,18 +157,18 @@ Questo significa che le equazioni del moto di un sistema ad esempio in coordinat
 
 Fra i casi più comuni in cui è naturale individuare una configurazione con coordinate non lineari vi sono i sistemi vincolati, ovvero che non sono liberi di occupare l'intero spazio vettoriale delle configurazioni. La meccanica lagrangiana è particolarmente adatta anche a questo caso specifico.
 
-\begin{definition}
+\begin{definition} \label{def:constrainedConfigSpace}
   Sia $\mathbb{M}$ uno spazio delle configurazioni di dimensione $n$ con coordinate arbitrarie $\vec{q} = (q_1, \ldots, q_n)$. Si dice \dfn{vincolo olonomo} la richiesta che il moto abbia un'immagine contenuta nel sottoinsieme $M$ di $\mathbb{M}$ definito da \begin{equation*}
     M = \left\{ a \in \mathbb{M} \left|\ \begin{cases} 
       F_1(\vec{q}) = 0 \\
       \vdots \\
       F_k(\vec{q}) = 0
-    \end{cases} \right. \right\} \qqtext{con} \vec{q} = \phi^{-1}(a)
+    \end{cases} \right. \right\} \qqtext{con} \vec{q} = \phi(a)
   \end{equation*} 
   dove $k \le n$ e $F_1, \ldots, F_k$ sono funzioni differenziabili da $\mathbb{M}$ a $\R$, tali che il rango della matrice $\pdv{F_i}{q_j}(a)$ sia $k$ in ogni $a \in M$. $M$ è detto \dfn{spazio delle configurazioni di un sistema vincolato}.
 \end{definition}
 \begin{remark}
-  Lo spazio vincolato $M$ non è necessariamente uno spazio vettoriale, ma può essere un qualsiasi sottoinsieme di $\mathbb{M}$.
+  Lo spazio vincolato $M$ non è necessariamente uno spazio vettoriale, ma può essere un qualsiasi sottoinsieme di $\mathbb{M}$. $M$ si dice \dfn{varietà immersa} in $\mathbb{M}$. Si dice \dfn{spazio tangente} alla varietà immersa in un punto $a \in M$ lo spazio dei vettori $\vec{\xi}$ applicati ad $a$ tali che $\vec{\xi} \cdot \grad{F_1}(\vec{q}) = \ldots = \vec{\xi} \cdot \grad{F_K}(\vec{q}) = 0$.
 \end{remark}
 \begin{remark}
   Un vincolo non olonomo, detto \dfn{anolonomo}, può vincolare anche la velocità del sistema. Non si parlerà qui di vincoli anolonomi, quindi nel seguito con \emph{vincolo} si intenderà \emph{vincolo olonomo}.
@@ -178,7 +181,7 @@ Per utilizzare concretamente il concetto di vincolo, è necessario trovare una f
   q_k = f_k(q_{k+1}, \ldots, q_n)
 \end{cases}
 \end{equation*} 
-il potenziale che ci serve è \begin{equation*}
+il potenziale necessario è \begin{equation*}
   V_{\alpha}(\vec{q}) = V(\vec{q}) + \alpha\big[(q_1-f_1)^2 + \ldots + (q_k-f_k)^2 \big] \qqtext{per} \alpha \to +\infty
 \end{equation*} 
 dove $V$ è il potenziale dello stesso sistema senza vincoli. Usando questo potenziale è possibile dimostrare il seguente teorema.

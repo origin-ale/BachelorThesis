@@ -69,7 +69,7 @@ Lo spazio tangente a $\R^{n}$ in un qualsiasi punto $y \in \R^{n}$, denotato $T_
 
 Inoltre, una carta $(U, \phi)$ intorno a un punto $x \in  X$, con $X$ varietà generica di dimensione $n$, fornisce un modo di identificare $T_x X$ con $\R^{n}$, associando a ogni $v \in \R^{n}$ il percorso su $U$ \begin{equation} \label{eq:tangentRn}
   \gamma_{v}(t) = \phi^{-1}(\phi(x)+tv) \qqtext{per} t \in ]-\epsilon, \epsilon[ \qqtext{con} \epsilon > 0
-\end{equation} Analogamente a sopra, questa corrispondenza è infatti biunivoca, con \begin{equation*}
+\end{equation} Analogamente a sopra, questa corrispondenza è infatti biunivoca, con \begin{equation*} \label{eq:tangentCoords}
 v_{\gamma} = \eval{\dv{t} \phi\big( \gamma_0(t)\big)}_{t=0}
 \end{equation*} Ogni spazio tangente può quindi essere identificato con $\R^{n}$. Da ciò segue che ogni spazio tangente è uno spazio vettoriale. Una sua base è \begin{equation} \label{eq:tangentRnBase}
   \big\lbrace\phi^{-1}(\phi(x)+t\, e_i)\big\rbrace \qqtext{per} i=1, \ldots, n
@@ -106,6 +106,20 @@ I vettori tangenti consentono di individuare spostamenti infinitesimi su una var
   Inoltre, la mappa $\Phi^t(x):X \to X$ definita da $\Phi^t:x \mapsto \Phi(t,x)$ è un diffeomorfismo di $X$ in se stesso.
 \end{theorem}
 
+Gl spazi tangenti a una varietà si possono raccogliere in una struttura detta fibrato tangente, che è anch'essa una varietà.
+
+\begin{definition} \label{def:tanBundle}
+  Sia $X$ una varietà, si dice \dfn{fibrato tangente} $TX$ l'insieme delle coppie $(x,\gamma)$ con $x \in X$ e $\gamma \in T_x X$, con l'atlante dato dalle carte $(U, \Phi)$ definite nel seguente modo. Sia $(U, \phi)$ una carta su $X$ e sia $T_U X$ l'insieme delle coppie $(x,\gamma)$ con $x \in X$ e $\gamma \in T_x X$. Allora $\Phi:T_U X \to \phi(U) \times \R^{n}$ è definita come \begin{equation}
+  \Phi \big(x,\gamma\big) = \big(\phi(x), v\big)
+  \end{equation} 
+  dove $v \in \R^{n}$ è il vettore reale corrispondente a $\gamma$ secondo la carta $\phi$ (\autoref{eq:tangentCoords}).
+\end{definition}
+
+Queste varietà vengono dette fibrati per analogia al caso della circonferenza, in cui ogni punto possiede una \textquotedblleft fibra\textquotedblright\ monodimensionale come spazio tangente. Da un elemento dello spazio tangente si può sempre rimuovere la fibra.
+\begin{definition}
+  Sia $X$ una varietà e $T X$ il suo fibrato tangente. Si dice \dfn{proiezione} del fibrato tangente su $X$ l'applicazione $\pi: TX \to X$ definito per ogni $x \in X$ e $\gamma \in T_x X$ da $\pi(x,\gamma) = x$.
+\end{definition}
+
 Un'altra possibilità che i vettori tangenti consentono di espandere da $\R^{n}$ alle varietà in generale è la derivazione.
 \begin{definition}
   Siano $X,Y$ varietà e sia $f:X\to Y$ un'applicazione differenziabile. Si dice \dfn{derivata} o \dfn{push-forward} di $f$ in $x \in X$ l'applicazione lineare $D_x f:T_x X \to T_{f(x)}Y$ che porta il cammino $\gamma: ]-\epsilon, \epsilon\;[\ \to X$ con $\epsilon>0$ e $\gamma(0) \in X$ nel cammino $f \circ \gamma:]-\epsilon, \epsilon\;[\ \to Y$.
@@ -117,7 +131,7 @@ Un'altra possibilità che i vettori tangenti consentono di espandere da $\R^{n}$
   Questa definizione di derivata generalizza la derivata direzionale. Se infatti $X = \R^{n}$ e $Y = \R^{m}$, a un vettore $v \in \R^{n}$ si può associare un percorso $x + tv$. La derivata manda questo percorso in $f(x+tv)$, a cui si può associare $w = \eval{\dv{t}(x+tv)}_{t=0}$ e quest'ultima è esattamente la definizione di derivata direzionale. Nel caso di $X,Y$ varietà generiche, ci si può ricondurre al caso $\R^{n} \to \R^{m}$ tramite le carte di coordinate intorno a $x \in X$ e $f(x)\in Y$, rispettivamente $(U, \phi)$ e $(V,\psi)$. In tal caso, la derivata è rappresentata dal jacobiano di $f_{\phi \psi}$, la rappresentazione in coordinate di $f$.
 \end{remark}
 \begin{remark}
-  La derivata è chiamata anche \emph{push-forward} perché \emph{spinge} i vettori tangenti alla varietà codominio di $f$.
+  La derivata è chiamata anche \emph{push-forward} perché \emph{spinge} i vettori tangenti dalla varietà dominio alla varietà codominio di $f$. 
 \end{remark}
 
 Se $f:X \to \R$ è una funzione differenziabile a valori reali, per ogni $x \in X$ si ha che $D_x f: T_x X \to T_{f(x)}\R$, ma siccome $T_{f(x)}\R$ può essere identificato con $\R$ si può scrivere $D_x f: T_x X \to \R$. Ciò significa che la derivata di una funzione a valori reali appartiene allo spazio duale di quello tangente.
@@ -125,27 +139,13 @@ Se $f:X \to \R$ è una funzione differenziabile a valori reali, per ogni $x \in 
 \begin{definition}
   Sia $X$ una varietà e sia $x \in X$. Si dice \dfn{spazio cotangente} a $X$ in $x$ $T_x^* X$ lo spazio duale di $T_x X$. I suoi elementi si dicono \dfn{vettori cotangenti}.
 \end{definition}
-\begin{remark}
-  Siccome lo spazio cotangente è uno spazio duale, esso è automaticamente uno spazio vettoriale. Per lo stesso motivo le sue basi sono le basi duali di quelle dello spazio tangente, tra cui per una data carta $(U, \phi)$ $\dd \phi_1, \ldots, \dd \phi_n$, che è la base duale di quella definita dall'\autoref{eq:tangentRnBase}.
+\begin{remark} \label{rem:dualBasis}
+  Siccome lo spazio cotangente è uno spazio duale, esso è automaticamente uno spazio vettoriale. Per lo stesso motivo le sue basi sono le basi duali di quelle dello spazio tangente, tra cui per una data carta $(U, \phi)$ $\{D_x \phi_1, \ldots, D_x \phi_n\} $, che è la base duale di quella definita dall'\autoref{eq:tangentRnBase}.
 \end{remark}
 
 Così come è possibile costruire campi vettoriali su una varietà, è anche possibile costruirvi \textquotedblleft campi di $1$-forme\textquotedblright.
 \begin{definition} \label{def:1formCvc}
   Si dice \dfn{1-forma differenziale} su una varietà $X$ un'applicazione $\alpha: x \in X \mapsto \alpha(x) \in T_x^* X$, differenziabile in senso analogo a quello usato per i campi vettoriali nella \autoref{def:vecField} (cioè tale che si ottenga un'applicazione differenziabile identificando gli spazi tangenti con $\R^{n}$ secondo le carte di coordinate).
-\end{definition}
-
-Gl spazi tangenti a una varietà si possono raccogliere in una struttura detta fibrato tangente, che è anch'essa una varietà.
-
-\begin{definition} \label{def:tanBundle}
-  Sia $X$ una varietà, si dice \dfn{fibrato tangente} $TX$ l'insieme delle coppie $(x,\gamma)$ con $x \in X$ e $\gamma \in T_x X$, con l'atlante dato dalle carte $(U, \Phi)$ definite nel seguente modo. Sia $(U, \phi)$ una carta su $X$ e sia $T_U X$ l'insieme delle coppie $(x,[\gamma])$ con $x \in X$ e $[\gamma] \in T_x X$. Allora $\Phi:T_U X \to \phi(U) \times \R^{n}$ è definita come \begin{equation}
-  \Phi \big(x,[\gamma]\big) = \big(\phi(x), v\big)
-  \end{equation} 
-  dove $v \in \R^{n}$ è il vettore reale corrispondente a $\gamma$ secondo la carta $\phi$ (\autoref{eq:tangentRnBase}).
-\end{definition}
-
-Queste varietà vengono dette fibrati per analogia al caso della circonferenza, in cui ogni punto possiede una \textquotedblleft fibra\textquotedblright\ monodimensionale come spazio tangente. Da un elemento dello spazio tangente si può sempre rimuovere la fibra.
-\begin{definition}
-  Sia $X$ una varietà e $T X$ il suo fibrato tangente. Si dice \dfn{proiezione} del fibrato tangente su $X$ l'applicazione $\pi: TX \to X$ definito per ogni $x \in X$ e $\gamma \in T_x X$ da $\pi(x,\gamma) = x$.
 \end{definition}
 
 L'applicazione che a ogni punto associa la derivata di una funzione $f$ fissata in quel punto è una 1-forma differenziale.
@@ -156,6 +156,9 @@ L'applicazione che a ogni punto associa la derivata di una funzione $f$ fissata 
 \end{definition}
 \begin{remark}
   Nel seguito si indicherà la $1$-forma data dal differenziale di $f$ valutato in $y$ come $\dd_y f:T_y X \to \R$.
+\end{remark}
+\begin{remark}
+  La base duale dell'\autoref{rem:dualBasis} è $\{ \dd{\phi_1}, \ldots, \dd{\phi_n}\}$.
 \end{remark}
 
 Anche le coordinate dei vettori cotangenti si trasformano in maniera ben definita in un cambio di carte. Questa trasformazione è però inversa rispetto a quella per i tangenti.
@@ -306,7 +309,7 @@ Dal \autoref{thm:varChange} segue inoltre una generalizzazione del teorema di ca
 Tramite l'integrazione è possibile definire anche un'operazione di derivazione di $k$-forme.
 
 \begin{definition}
-  Sia $X$ una varietà e sia $\alpha \in \Omega^k(X)$. Si dice \dfn{derivata esterna} di $\alpha$, indicata con $\dd{a}$, la parte principale, $(k+1)$-lineare, dell'integrale $\int_{\partial \Pi} \alpha$, dove $\Pi$ è il parallelepipedo $k+1$-dimensionale delimitato dai vettori $v_1, \ldots, v_{k+1} \in \R^{n}$ corrispondenti in una carta $(U, \phi)$ ai vettori $\gamma_1, \ldots, \gamma_{k+1}$ su cui agisce $\dd\alpha$. Ciò significa che se per $P$ delimitato da $\epsilon v_1, \ldots, \epsilon v_{k+1}$ si ha \begin{equation*}
+  Sia $X$ una varietà e sia $\alpha \in \Omega^k(X)$. Si dice \dfn{derivata esterna} di $\alpha$, indicata con $\dd{a}$, la parte principale, $(k+1)$-lineare, dell'integrale $\int_{\partial \Pi} \alpha$, dove $\Pi$ è il parallelepipedo $k+1$-dimensionale delimitato dai vettori $v_1, \ldots, v_{k+1} \in \R^{n}$ corrispondenti in una carta $(U, \phi)$ ai vettori $\gamma_1, \ldots, \gamma_{k+1}$ su cui agisce $\dd\alpha$. Più precisamente, se per $\Pi$ delimitato da $\epsilon v_1, \ldots, \epsilon v_{k+1}$ si ha \begin{equation*}
     \int\limits_{\partial \Pi} \alpha = \epsilon^{k+1} A(v_1, \ldots, v_{k+1}) + \mathcal{O}\big(\epsilon^{k+2}\big)
   \end{equation*}
   allora $\dd\alpha$ è definita da \begin{equation*}
@@ -349,6 +352,6 @@ Tramite la derivata esterna è possibile generalizzare il concetto di campo vett
 \end{definition}
 
 Combinando questi due requisiti, si ottiene un tipo di forma differenziale che sarà fondamentale per ottenere lo scopo prefissato alla fine dello scorso capitolo, ovvero liberare la meccanica dalle coordinate.
-\begin{definition}
+\begin{restatable}{definition}{symplecticForm}
   Si dice \dfn{forma simplettica} una $2$-forma differenziale $\omega$ chiusa e non degenere. Si dice \dfn{varietà simplettica} una varietà $2n$-dimensionale su cui è definita una forma simplettica.
-\end{definition}
+\end{restatable}

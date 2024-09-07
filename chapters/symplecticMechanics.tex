@@ -1,1 +1,36 @@
 \chapter{Meccanica simplettica}
+Si possono ora rivisitare le formulazioni lagrangiana ed hamiltoniana esposte nel capitolo 1, avvalendosi degli strumenti sviluppati nel capitolo 2, per chiarire la natura dello spazio delle configurazioni, di quello delle fasi, e il legame tra le due formulazioni. Si definiranno poi i concetti fondamentali della \dfn{meccanica simplettica}, la formulazione della meccanica libera da coordinate. Si enuncerà infine il teorema di Darboux, il quale afferma che ogni varietà simplettica ammette coordinate in cui la struttura simplettica è quella canonica.
+
+\section{Meccanica su varietà}
+Nel capitolo 1 si è definito lo spazio delle configurazioni $\mathbb{M}$ di un sistema non vincolato di $N$ particelle come il prodotto di $N$ copie di $\R^{3}$. Questo spazio è identificabile con $\R^{3N}$. Nel seguito, per brevità, porremo $n = 3N$. Se sulle particelle viene imposto un vincolo, lo spazio delle configurazioni del sistema diventa un qualche insieme $M \subset \R^{3N}$. Come già affermato, questo insieme non avrà in generale una struttura di spazio vettoriale. I suoi punti $x$ potranno però essere individuati da $n$-uple $\vec{q}$, dette coordinate, tramite funzioni biunivoche $\phi^{-1}: \vec{q} \mapsto x$. $M$ avrà quindi la struttura più generale di una \emph{varietà differenziabile}, con atlante dato dalle funzioni $\phi: x \mapsto \vec{q}$ e dai loro domini di biunivocità. Si dice che lo spazio delle configurazioni di un sistema di $N$ particelle con $n-k$ vincoli è una varietà $k$-dimensionale \dfn{immersa} in $\R^{n}$, lo spazio $3N$-dimensionale delle configurazioni senza vincoli.
+
+Per individuare univocamente un generico sistema sono necessari due elementi: il suo spazio delle configurazioni $M$ e l'energia potenziale, definita proprio sullo spazio delle configurazioni, $V: x \in M \mapsto V(x) \in \R$.  
+
+% La velocità $\dot{x}$ di un sistema è interpretabile come un vettore tangente allo spazio delle configurazioni nel punto $x(t)$, facendo corrispondere a ogni $\gamma \in T_x M$ il vettore $\dot{x} = \dot{\gamma}(0)$, che appartiene a $\R^{n}$ poiché $\gamma: ]-\epsilon,\epsilon[ \to M \subset \R^{n}$ ed è tangente nel senso ordinario (ortogonale al gradiente dei vincoli) alla varietà immersa $M$. Su ogni spazio tangente è quindi definita l'energia cinetica come forma quadratica $K_x: \dot{x} \mapsto \frac{1}{2} \dot{x}^2$.
+
+La velocità $\dot{x}$ di un sistema è definita come derivata temporale $\dv{\overline{x}}{t}()(t)$ del suo moto $\overline{x}: t \in I \mapsto \overline{x}(t) \in M$, dove $I$ è un intervallo reale. Per definizione, un vettore tangente alla varietà $M$ nel punto $x \in M$ è una classe di equivalenza di cammini infinitesimi che passano da $x$ al tempo $0$. Per un dato $x =\overline{x}(t)$, si può traslare il tempo e ridurne il dominio in modo da ottenere un nuovo cammino $\gamma:]-\epsilon, \epsilon\,[$ tale che $x = \gamma(0)$. Questo cammino sarà inoltre tale che $\dot{x} = \dv{\gamma}{t}()(0)$. Siccome $M \subset \R^{n}$, una scelta valida per $\phi$ è l'identità $\identity$. Quindi, perché un secondo cammino $\gamma'$ sia equivalente a $\gamma$, è necessario e sufficiente che \begin{equation*}
+\eval{\dv{t}}_{t=0} \gamma'(t) = \eval{\dv{t}}_{t=0} \gamma(t) = \dot{x}
+\end{equation*}
+per definizione: la velocità $\dot{x}$ caratterizza la classe $[\gamma]$ dello spazio tangente a $M$ in $x$. Questo potrà quindi essere identificato con lo spazio delle velocità possibili quando il sistema ha configurazione $x$. Si può quindi dire che la velocità di un sistema è un vettore tangente allo spazio delle configurazioni nella configurazione attuale del sistema. L'energia cinetica, funzione della velocità, è quindi definita per ciascun $x \in M$ su $T_x M$ da $K_x: \dot{x} \mapsto \frac{1}{2} \dot{x}^2$, dove la norma è la norma in $\R^{n}$.
+
+La lagrangiana di un sistema dipende sia dall'energia potenziale che dall'energia cinetica, e dunque sia dalla configurazione del sistema che dalla sua velocità. Essa deve quindi essere definita su $TM$, il fibrato tangente di $M$. Le energie cinetica e potenziale dovranno quindi cambiare dominio da rispettivamente $T_x M$ e $M$ a $TM$ per poter formare la lagrangiana. Sia $(x,\dot{x}) \in TM$, con $x \in M$ e $\dot{x} \in T_x M$ ciò si può fare definendo \begin{equation*}
+\begin{aligned}
+  &V(x,\dot{x})|_{TM} = V(x)|_M \\
+  &K(x, \dot{x})|_{TM} = K(\dot{x})|_{T_x M}
+\end{aligned}
+\end{equation*} 
+Si può a questo punto definire la lagrangiana come una funzione differenziabile $\mathcal{L}:TM\to \R$ data per $x \in M$ e $\dot{x} \in T_x M$ da \begin{equation*}
+\mathcal{L}(x,\dot{x}) = K(\dot{x}) - V(x)
+\end{equation*}
+
+La trasformata di Legendre rispetto alle velocità trasforma la lagrangiana $L(x,\dot{x})$ nell'hamiltoniana $\mathcal{H}(x,\dot{x}^*)$ dove gli $\dot{x}^*$ sono elementi dello spazio duale a quello degli $\dot{x}$. Ma poiché $\dot{x} \in T_x M$, ciò significa che $\dot{x}^* \in T_x^* M$, e quindi l'hamiltoniana di un sistema è definita sul fibrato cotangente del suo spazio delle configurazioni. Il momento generalizzato $\dot{x}^*$ è infatti un covettore, dato da \begin{equation*}
+  \dot{x}^* = \dd_{\dot{x}} \mathcal{L}
+\end{equation*}
+Lo spazio delle fasi può quindi essere definito in maniera indipendente dalle coordinate come il fibrato cotangente $T^* M$ dello spazio delle configurazioni. Se una regione di $M$ è coperta dalla carta $(U,\phi)$, un punto $x \in U$ si può individuare con $\vec{q} = (q_1, \ldots, q_n) = (\phi_1(x), \ldots, \phi_n(x))$ e il momento generalizzato cotangente a $M$ in $x$ si può individuare con $\vec{p}=(p_1, \ldots, p_n)$, le coordinate nella base duale data da $\{\dd_x \phi_1, \ldots, \dd_x \phi_n\} $. Si recupera così la definizione basata sulle coordinate.
+
+\section{Forma simplettica canonica}
+% \symplecticForm*
+
+\begin{restatable}{definition}{symplecticForm}
+  Si dice \dfn{forma simplettica} una $2$-forma differenziale $\omega$ chiusa e non degenere. Si dice \dfn{varietà simplettica} una varietà $2n$-dimensionale su cui è definita una forma simplettica.
+\end{restatable} % PLACEHOLDER FOR INDEPENDENT COMPILATION, REMOVE FOR FINAL VERSION
