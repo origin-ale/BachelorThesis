@@ -51,7 +51,7 @@ Un modo naturale per produrre nuove varietà è prendere il prodotto cartesiano 
   In sostanza, la varietà prodotto ha per punti le coppie di punti e per coordinate le coppie di coordinate delle due varietà fattore.
 \end{remark}
 
-\section{Vettori tangenti e cotangenti}
+\section{Vettori tangenti}
 Per poter definire una forma di calcolo differenziale sulle varietà, è necessario formalizzare la nozione di spostamento infinitesimo, definendo i vettori tangenti.
 
 \begin{definition}
@@ -74,7 +74,21 @@ v_{\gamma} = \eval{\dv{t} \phi\big( \gamma_0(t)\big)}_{t=0}
 \end{equation*} Ogni spazio tangente può quindi essere identificato con $\R^{n}$. Da ciò segue che ogni spazio tangente è uno spazio vettoriale. Una sua base è \begin{equation} \label{eq:tangentRnBase}
   \big\lbrace\phi^{-1}(\phi(x)+t\, e_i)\big\rbrace \qqtext{per} i=1, \ldots, n
 \end{equation}
-dove $e_i$ è l'$i$-esimo elemento della base canonica di $\R^{n}$.
+dove $e_i$ è l'$i$-esimo elemento della base canonica di $\R^{n}$ e i cammini sono da intendersi come classi di equivalenza.
+
+Si consideri ora lo spazio delle derivazioni in $\R^{n}$, ovvero degli operatori $\pdv{\hat{\nu}}$ definiti sulle funzioni $f: \R^{n} \to \R$ come 
+\begin{equation*}
+  \pdv{\hat{\nu}}: f \mapsto \pdv{f}{\hat{\nu}}(x) = \lim_{\epsilon \to 0} \frac{f(x+\epsilon \hat{\nu})-f(x)}{\epsilon}
+\end{equation*}
+Esso è uno spazio vettoriale e possiede una base costituita dalle derivate direzionali lungo i vettori della base canonica
+\begin{equation*}
+\pdv{x_i} = \lim_{\epsilon \to 0} \frac{f(x+\epsilon e_i)-f(x)}{\epsilon} \qqtext{per} i=1, \ldots, n
+\end{equation*}
+Data $f:\R^{n} \to \R$, per l'$i$-esimo cammino di base è possibile considerare il suo punto per $t = \epsilon$, cioè $\phi^{-1}(\phi(x) + \epsilon e_i)$, e il rapporto incrementale in $\R^{n}$
+\begin{equation*}
+\lim_{\epsilon \to 0} \frac{f\, \bigg[\phi \Big(\phi^{-1}\big(\phi(x) + \epsilon e_i\big)\Big)\bigg] - f\,\big[\phi(x)\big]}{\epsilon}
+\end{equation*}
+che non è altro che la definizione di $\pdv{f}{x_i}$. Data una carta, è quindi possibile far corrispondere a ogni elemento della base dei cammini un elemento della base delle derivate direzionali in $\R^{n}$, in maniera univoca. Gli spazi delle derivazioni su $\R^{n}$ e tangente a una varietà di dimensione $n$ sono quindi isomorfi e possono essere identificati, facendo corrispondere a ogni cammino infinitesimo il rapporto incrementale fra le immagini di un suo estremo e del suo centro attraverso la carta.
 
 È possibile estendere il concetto di campo vettoriale alle varietà: intuitivamente, un campo vettoriale associa a ogni punto un vettore tangente in quel punto, in maniera differenziabile.
 \begin{definition} \label{def:vecField}
@@ -87,6 +101,16 @@ Le identificazioni locali consentono di scrivere localmente i campi vettoriali s
   v_i = \sum_{j=1}^n \pdv{F^{\phi \psi}_i}{x_j}\big(\phi(x)\big)\; u_j
   \end{equation} 
 \end{theorem}
+
+Se si rappresentano i vettori tangenti a una varietà con le derivazioni in $\R^{n}$, i campi vettoriali su quella varietà hanno forma 
+\begin{equation*}
+  V_x = \sum_{j=1}^{n} a_j(x) \pdv{x_j}
+\end{equation*} 
+e, indicando la funzione di transizione con $\vec{y}(\vec{x})$, l'\autoref{eq:vecTrans} ha forma 
+\begin{equation*}
+  \pdv{y_i} = \sum_{j=1}^{n} \pdv{x_j}{y_i} \pdv{x_j}
+\end{equation*} 
+ovvero si recupera la regola della catena in $\R^{n}$.
 
 I vettori tangenti consentono di individuare spostamenti infinitesimi su una varietà, e rendono quindi possibile la formulazione e la risoluzione di equazioni differenziali.
 
@@ -134,6 +158,14 @@ Un'altra possibilità che i vettori tangenti consentono di espandere da $\R^{n}$
   La derivata è chiamata anche \emph{push-forward} perché \emph{spinge} i vettori tangenti dalla varietà dominio alla varietà codominio di $f$. 
 \end{remark}
 
+\begin{remark}
+  Se il vettore tangente è identificato con una derivazione $\partial$, essa si trasforma nella derivazione $f^*_x \partial$ tale che per ogni $g:X\to \R$
+  \begin{equation*}
+    (f^*_x \partial)g = \partial (g \circ f) 
+  \end{equation*} 
+\end{remark}
+
+\section{Vettori cotangenti}
 Se $f:X \to \R$ è una funzione differenziabile a valori reali, per ogni $x \in X$ si ha che $D_x f: T_x X \to T_{f(x)}\R$, ma siccome $T_{f(x)}\R$ può essere identificato con $\R$ si può scrivere $D_x f: T_x X \to \R$. Ciò significa che la derivata di una funzione a valori reali appartiene allo spazio duale di quello tangente.
 
 \begin{definition}
@@ -141,6 +173,19 @@ Se $f:X \to \R$ è una funzione differenziabile a valori reali, per ogni $x \in 
 \end{definition}
 \begin{remark} \label{rem:dualBasis}
   Siccome lo spazio cotangente è uno spazio duale, esso è automaticamente uno spazio vettoriale. Per lo stesso motivo le sue basi sono le basi duali di quelle dello spazio tangente, tra cui per una data carta $(U, \phi)$ $\{D_x \phi_1, \ldots, D_x \phi_n\} $, che è la base duale di quella definita dall'\autoref{eq:tangentRnBase}.
+\end{remark}
+
+Se si rappresentano i vettori tangenti come derivazioni su $\R^{n}$, i vettori cotangenti saranno rappresentati da oggetti appartenenti allo spazio duale di quello delle derivazioni. Oggetti di questo genere sono i \dfn{differenziali (in $\R^{n}$)}, definiti nel seguente modo.
+\begin{definition}
+  Sia $f:\R^{n}\to \R$ una funzione e sia $y \in \R^{n}$. Si dice \dfn{$\R^{n}$-differenziale} di $f$ in $y$ l'applicazione $d_y f:\text{Der}|_y\, \R^{n} \to \R$ tale che \begin{equation*}
+  (d_y f)\left(\pdv{x_i}\right) = \pdv{f}{x_i}()(y)
+  \end{equation*} 
+\end{definition}
+\begin{remark}
+  Questa definizione si riconduce a quella nota dall'analisi, secondo cui $(d_y f)(\vec{v}) = \grad{f}(y) \cdot \vec{v}$ identificando ogni derivata direzionale con il vettore di base corrispondente. In tal caso infatti 
+  \begin{equation*}
+    (d_y f)\left(\pdv{x_i}\right) = (d_y f)(\vec{e}_i) = \grad{f}(y) \cdot \vec{e}_i = \pdv{f}{x_i}()(y)
+  \end{equation*} 
 \end{remark}
 
 Così come è possibile costruire campi vettoriali su una varietà, è anche possibile costruirvi \textquotedblleft campi di $1$-forme\textquotedblright.
@@ -160,6 +205,9 @@ L'applicazione che a ogni punto associa la derivata di una funzione $f$ fissata 
 \begin{remark}
   La base duale dell'\autoref{rem:dualBasis} è $\{ \dd{\phi_1}, \ldots, \dd{\phi_n}\}$.
 \end{remark}
+\begin{remark}
+  Un $\R^{n}$-differenziale è un differenziale di una funzione con dominio $\R^{n}$. Quindi $d_x x_i$ è una base per lo spazio duale a quello delle derivazioni.
+\end{remark}
 
 Anche le coordinate dei vettori cotangenti si trasformano in maniera ben definita in un cambio di carte. Questa trasformazione è però inversa rispetto a quella per i tangenti.
 \begin{theorem} 
@@ -168,11 +216,11 @@ Anche le coordinate dei vettori cotangenti si trasformano in maniera ben definit
   \end{equation} 
 \end{theorem}
 
-Inoltre, siccome la derivata di una funzione a valori reali definita su una varietà fornisce in ciascun punto un vettore cotangente alla varietà stessa (il differenziale in quel punto, vedi \autoref{def:differential}), data una funzione $f:X \to \R$ è possibile associare a ogni vettore $\gamma \in T_x X$, con $x \in X$, un valore $\gamma\,(f) \defeq (D_x f) (\gamma) \in \R$. Si possono quindi identificare i vettori tangenti a una varietà in un punto con le derivate direzionali su funzioni reali in quel punto. Sia $(\phi,U)$ una carta, se si identificano $U$ e $\phi(U)$ come indicato nella \autoref{sec:smoothMfd} è conveniente identificare i vettori $\gamma_j = \phi^{-1}(tx_j)$ con le derivate parziali $\pdv{x_j}$. Inoltre, con questa identificazione il differenziale $\dd \phi_j$ della funzione $\phi_j:X\to \R$ data dalla $j$-esima componente di $\phi$ si indica semplicemente $\dd x_j$. Con queste associazioni, un campo vettoriale $V$ si associa a un operatore $V: f \mapsto V(f)$, con $V(f): X \to \R$. Siccome i rispettivi spazi di appartenenza sono spazi vettoriali, campi vettoriali e $1$-forme si possono scrivere come \begin{equation*}
-V_x = \sum_{j=1}^{n} a_j(x) \pdv{x_j} \qquad \alpha_x = \sum_{j=1}^{n} a^*_j(x)\, \dd_x x_j
+Identificando spazi tangenti e spazi delle derivazioni, una generica $1$-forma è associata alla combinazione lineare di differenziali \begin{equation*}
+d_x = \sum_{j=1}^{n} a^*_j(x)\, d_x x_j
 \end{equation*} 
-dove le $a_j$ e $a^*_j$ sono funzioni differenziabili da $\phi(U)$ a $\R$, mentre le equazioni \ref{eq:vecTrans} ed \ref{eq:cvcTrans} dei cambi di carta da $(U, \phi)$ a $(V, \psi)$, con $y_i \simeq \psi_i(y)$, diventano quelle note dall'analisi \begin{equation*}
-\pdv{y_i} = \sum_{j=1}^{n} \pdv{x_j}{y_i} \pdv{x_j} \qquad \dd{y_i} = \sum_{j=1}^{n} \pdv{y_i}{x_j}\, \dd_x x_j
+dove $a_j^*$ è una funzione differenziabile da $\R^{n}$ a $\R$. Da ciò segue che, denotando la funzione di transizione con $\vec{y}(\vec{x})$, l'\autoref{eq:cvcTrans} diventa il teorema del differenziale totale \begin{equation*}
+d_x y_i = \sum_{j=1}^{n} \pdv{y_i}{x_j}\, d_x x_j
 \end{equation*} 
 
 È possibile costruire un fibrato anche raccogliendo gli spazi cotangenti.
@@ -320,7 +368,7 @@ Tramite l'integrazione è possibile definire anche un'operazione di derivazione 
   Si dimostra che in questo modo la derivata esterna è ben definita, ovvero non dipende dalla carta tramite cui si identificano i $\gamma_j$ e i $v_j$.
 \end{remark}
 
-\begin{theorem}
+\begin{theorem} \label{thm:derivCoords}
   Sia $X$ una varietà e sia $\alpha \in \Omega^k(X)$, rappresentata nella carta $(U, \phi)$ da \begin{equation*}
     \alpha_y = \sum_{i_1 < \ldots < i_k} a_{i_1\ldots i_k}(y)\ \dd_y x_{i_1} \wedge \ldots \wedge \dd_y x_{i_k}
     \end{equation*}
