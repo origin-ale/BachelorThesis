@@ -1,1 +1,96 @@
-Lorem ipsum
+\chapter{Mappa momento}
+In questo capitolo si esplorerà la \emph{mappa momento}, concetto che fornisce molti utili strumenti alla meccanica simplettica. Esso è strettamente legato a gruppi e algebre di Lie. Per prima cosa si passeranno quindi in rassegna questi concetti. Successivamente si vedrà l'applicazione della mappa momento all'analisi di sistemi con vincoli non olonomi, a una generalizzazione del teorema di Noether e al moto del corpo rigido.
+
+\section{Gruppi e algebre di Lie}
+Un gruppo di Lie è sostanzialmente \textquotedblleft un gruppo che è anche una varietà\textquotedblright, con opportune richieste sulle applicazioni di gruppo.
+\begin{definition}
+  Si dice \dfn{gruppo di Lie} una varietà $G$ con due applicazioni differenziabili $\cdot: G \times G \to G$ e ${}^{-1}: G\to G$ dette rispettivamente \dfn{moltiplicazione} e \dfn{inversione} e un punto $e \in G$ detto \dfn{identità}, tali che:
+  \begin{enumerate}
+    \item $\cdot $ sia \dfn{associativa}: per ogni $g,f,h \in G$ vale $g\cdot (f\cdot h) = (g\cdot f) \cdot h$.
+    \item $e$ sia l'identità destra e sinistra: per ogni $g \in G$ vale $g \cdot e = e \cdot g = g$.
+    \item per ogni $g \in G$, $g^{-1}$ sia l'\dfn{inverso} di $g$: $g \cdot g^{-1} = g^{-1}\cdot g = e$.
+  \end{enumerate}
+\end{definition}
+
+I gruppi consentono di modellizzare matematicamente le \emph{simmetrie} di una varietà, tramite il concetto di azione.
+\begin{definition}
+  Sia $X$ una varietà e sia $G$ un gruppo di Lie. Si dice \dfn{azione sinistra} di $G$ su $X$ un'applicazione differenziabile $a:(g,x) \in G \times X \mapsto g \cdot x \in X$ tale che:
+  \begin{enumerate}
+    \item l'azione di $e$ sia la mappa identità: $e \cdot x = x$ per ogni $x \in X$.
+    \item azione e moltiplicazione siano associative fra loro: $(g \cdot h) \cdot x = g\cdot (h\cdot x)$ per ogni $g,h \in G$ e $x \in X$.
+  \end{enumerate}
+Se esiste una tale mappa, si dice che $X$ ha \dfn{simmetria continua} sotto $G$. 
+\end{definition}
+\begin{remark}
+  Il nome di simmetria è dovuto al fatto che per definizione la mappa di azione è \emph{interna} a $X$: l'azione di $G$ non \textquotedblleft genera\textquotedblright nuovi punti di $X$, l'insieme resta lo stesso.
+\end{remark}
+\begin{remark}
+  Le azioni di un gruppo di Lie $G$, $\Phi_g: x \mapsto g\cdot x$ con $g \in G$, sono diffeomorfismi per definizione.
+\end{remark}
+
+Dato che un gruppo di Lie è esso stesso una varietà, un gruppo può agire su se stesso.
+\begin{definition}
+  Sia $G$ un gruppo di Lie. Si dice \dfn{azione diretta} di $G$ su se stesso l'applicazione data da $g \underset{\text{az}}{\cdot} h = g \underset{\text{molt}}{\cdot} h$ per ogni $g,h \in X$, dove $\underset{\text{az}}{\cdot}$ indica l'azione sinistra di $G$ come gruppo su $G$ come varietà e $\underset{\text{molt}}{\cdot}$ indica la moltiplicazione interna a $G$ come gruppo.
+\end{definition}
+\begin{definition}
+  Sia $G$ un gruppo di Lie, si dice \dfn{azione aggiunta} di $G$ su se stesso l'applicazione data da $g \cdot h = g \cdot h \cdot g^{-1}$.
+\end{definition}
+\begin{remark} \label{rem:adjIdentity}
+  L'azione aggiunta $\Phi(g)$ di un elemento $g$ di un gruppo di Lie $G$ manda l'identità in se stessa, siccome \begin{equation*}
+  \Phi(g)e = g\cdot e\cdot g^{-1} = g\cdot g^{-1} = e
+  \end{equation*} 
+\end{remark}
+
+Siccome un gruppo di Lie è anche una varietà, su di esso sono definiti spazi tangenti e derivate. In particolare, se $\Phi(g)$ è l'azione aggiunta di $g \in G$, per l'\autoref{rem:adjIdentity} si ha che $D_e \Phi(g): T_e G \to T_e G$. Quindi esiste un'azione naturale di $G$ sul suo spazio tangente nell'identità.
+\begin{definition}
+  Si dice \dfn{azione aggiunta} di un gruppo di Lie $G$ sul suo spazio tangente nell'identità $T_e G$ la derivata dell'azione aggiunta di $G$ su se stesso $D_e \Phi(g)$, dove $g \in G$. 
+\end{definition}
+
+Proprio lo spazio tangente nell'identità consente di associare a ogni gruppo di Lie un'algebra di Lie, tramite l'algebra di Lie dei campi vettoriali che è definita su ogni varietà.
+\begin{definition}
+  Sia $G$ un gruppo di Lie, $e \in G$ la sua identità e $\gamma \in T_e G$. Si dice \dfn{campo associato} a $\gamma$ il campo vettoriale $X_\gamma$ dato per ogni $g \in G$ da \begin{equation*}
+  (X_\gamma)_g = \big(D_e \Phi(g)\big) (\gamma)
+  \end{equation*} 
+  dove $\Phi(g)$ è l'azione diretta di $G$ su se stesso.
+\end{definition}
+\begin{definition}
+  $e \in G$ la sua identità e $\gamma, \delta \in T_e G$. Si dice \dfn{parentesi di Lie} dei due vettori $\gamma$ e $\delta$ il vettore \begin{equation*}
+  [\gamma,\delta] = [X_{\gamma}, X_{\delta}]_e
+  \end{equation*} 
+  dove la parentesi al secondo membro è la parentesi di Lie di campi vettoriali su $X$.
+\end{definition}
+\begin{definition}
+  Sia $G$ un gruppo di Lie e $e$ la sua identità, si dice \dfn{algebra di Lie} $\mathfrak{g}$ di $G$ l'algebra di Lie $\big(T_e G, [\cdot ,\cdot ]\big)$.
+\end{definition}
+\begin{theorem}
+  L'algebra di Lie $\mathfrak{g}$ di un gruppo di Lie è sempre a dimensione finita.
+\end{theorem}
+
+Le algebre dei vettori tangenti nell'identità e dei campi vettoriali sono in realtà omomorfe.
+\begin{definition} \label{def:infmAction}
+  Sia $G$ un gruppo di Lie e sia $X$ una varietà di cui $G$ fornisce una simmetria continua. Si dice \dfn{azione infinitesima} di $G$ su $X$ la seguente mappa $\phi: \mathfrak{g} \to \mathrm{Vec}\, X$. Per ogni $[\gamma] \in T_e G$, si scelga un rappresentante della classe di equivalenza $\gamma:\R\to G$ e $\gamma(0) = e$. L'azione infinitesima associa a $[\gamma]$ un campo vettoriale su $X$ dato dalle classi di equivalenza dei cammini su $X$
+  \begin{equation*}
+  \big(\phi_{\gamma}\big)_x = \gamma(t) \cdot x
+  \end{equation*}
+  Se esiste una tale mappa, si dice che $X$ ha una \dfn{simmetria infinitesima} data da $G$.
+\end{definition}
+\begin{theorem}
+  La mappa $\phi: \mathfrak{g} \to \mathrm{Vec}\, X$ definita nella \autoref{def:infmAction}, è un omomorfismo tra $\mathfrak{g}$ e l'algebra dei campi vettoriali su $X$.
+\end{theorem}
+\begin{definition}
+  La mappa $\big(t, [\gamma]\big) \in \R \times  \mathfrak{g} \mapsto g \in G$ che costituisce il cammino $\gamma$ nella \autoref{def:infmAction} è detta \dfn{mappa esponenziale}, e si denota $\exp(t \gamma)$, se vale $\exp\big((t+s) \gamma\big) = \exp(t \gamma) \cdot  \exp (s \gamma)$ per ogni $t,s \in \R$.
+\end{definition}
+\begin{remark}
+  Questa nomenclatura generalizza il caso in cui $G$ sia un gruppo di Lie composto da matrici.
+\end{remark}
+
+Un gruppo di Lie $G$ con opportune proprietà può essere usato per rimuovere informazioni ridondanti dai punti di una varietà $X$, sfruttando la simmetria a cui esso è associato.
+\begin{definition}
+  Sia $X$ una varietà e $G$ un gruppo di Lie. Si dice che l'azione di $G$ su $X$ è \dfn{libera} se nessuna azione di un elemento $g \in G$ diverso dall'identità ha punti fissi.
+\end{definition}
+\begin{definition}
+  Siano $G$ un gruppo di Lie e $X$ una varietà. Si dice \dfn{orbita} di $x \in X$ l'insieme $Gx = \{g\cdot x\mid g \in G\}$. Si dice \dfn{fetta} dell'azione di $G$ in $p \in Gx$ l'insieme $S_{\epsilon}(p) = \phi^{-1}\big(\phi(Gx)^{\perp} \cap B_{\epsilon}(0)\big)$ dove $(U,\phi)$ è una carta su $X$ e $\phi(Gx)^{\perp}$ è il complemento ortogonale dell'immagine di $Gx$ attraverso la carta.
+\end{definition}
+\begin{theorem}
+  Sia $X$ una varietà e $G$ un gruppo di Lie compatto che agisce liberamente su $X$. Allora l'insieme quoziente $X/G$ definito dalla relazione di equivalenza $x \sim g \cdot x$, con $x \in X$ e $g \in G$, ha una struttura naturale di varietà differenziabile, tale che l'applicazione $\pi:X \to X /G$ che manda un punto nella sua classe di equivalenza sia differenziabile. Le carte sono le carte $(U/G,\phi)$ dove $U = G(S_{\epsilon}(p))$ con $p \in X$ e $\phi$ è una carta su $S_{\epsilon}(p)$, che è una sottovarietà di $X$.
+\end{theorem}
