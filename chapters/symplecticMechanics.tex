@@ -8,7 +8,7 @@ In questo capitolo si esploreranno le proprietà di un tipo particolare di $1$-f
   Si dice \dfn{forma simplettica} una $2$-forma differenziale $\omega$ chiusa e non degenere. Si dice \dfn{varietà simplettica} una varietà $2n$-dimensionale su cui è definita una forma simplettica.
 \end{restatable} % PLACEHOLDER FOR INDEPENDENT COMPILATION, REMOVE FOR FINAL VERSION
 
-Su ogni fibrato cotangente è definita una forma simplettica, attraverso una particolare $1$-forma.
+Su ogni fibrato cotangente è definita una forma simplettica grazie alla proiezione $\pi$ e ai covettori $\dot{x}^*$ che formano le fibre.
 \begin{definition}
   Sia $M$ una varietà $n$-dimensionale e sia $X = T^*M$ il suo fibrato cotangente, con proiezione $\pi:X\to M$. Si dice \dfn{$1-$forma tautologica} $\lambda$ su $X$ la $1$-forma differenziale tale che \begin{equation*}
   \lambda_{(x, \dot{x}^*)}(\gamma) = \dot{x}^* \bigg[\big(D_{(x, \dot{x}^*)} \pi\big)(\gamma)\bigg]
@@ -29,20 +29,22 @@ Su ogni fibrato cotangente è definita una forma simplettica, attraverso una par
 \end{remark}
 Si dimostra che 
 \begin{theorem}
-  La forma canonica su un fibrato cotangente è una forma simplettica su di esso.
+  La forma canonica su un fibrato cotangente è una forma simplettica.
 \end{theorem}
 
-Se $M = \R^{n}$, il suo fibrato cotangente $X$ è isomorfo a $\R^{2n}$ tramite le coordinate $(q_1, \ldots, q_n, p_1, \ldots, p_n)$. In tal caso quindi $\pi: (q_1, \ldots, q_n, p_1, \ldots, p_n) \mapsto  (q_1, \ldots, q_n)$. La derivata di $\pi$ manda vettori tangenti a $\R^{2n}$ in vettori tangenti a $\R^{n}$ proiettandoli sulle loro prime $n$ coordinate:
+Se $M = \R^{n}$, il suo fibrato cotangente $X$ è isomorfo a $\R^{2n}$ tramite le coordinate $(q_1, \ldots, q_n, p_1, \ldots, p_n)$. In tal caso quindi $\pi: (q_1, \ldots, q_n, p_1, \ldots, p_n) \mapsto  (q_1, \ldots, q_n)$. Quindi, sia $\overline{\gamma} = (\overline{\gamma}_1, \ldots, \overline{\gamma}_{2n}):\R \to X$ un cammino con $\overline{\gamma}(0) = x \in X$, si ha \begin{equation*}
+(\pi \circ \overline{\gamma}) (t) = \big(\overline{\gamma}_1(t), \ldots, \overline{\gamma}_n (t)\big)
+\end{equation*} 
+Ciò significa che la derivata di $\pi$ manda vettori $\gamma = (\gamma_1, \ldots, \gamma_{2n})$ tangenti a $\R^{2n}$ in vettori tangenti a $\R^{n}$ proiettandoli sulle loro prime $n$ coordinate:
 \begin{equation*}
   D_{(\vec{q},\vec{p})}\pi: (\gamma_1, \ldots, \gamma_{2n}) \mapsto  (\gamma_1, \ldots, \gamma_n)
 \end{equation*}
-e, siccome $\dot{x}^*(\gamma) = \sum_i p_i \gamma_i$ e per definizione delle coordinate $\gamma_i$, si ha \begin{equation*}
+e, siccome $\dot{x}^*(\gamma) = \sum_j p_j \gamma_j$ (è l'applicazione di un vettore cotangente a uno tangente, scritta in coordinate) e per definizione delle coordinate $\gamma_j = (\dd{q}_j)(\gamma)$, si ha \begin{equation*}
 \lambda_{(\vec{q},\vec{p})} (\gamma) = \sum_{j=1}^n p_j \gamma_j = \left[\sum_{j=1}^n p_j \dd{q_j}\right] (\gamma)
 \end{equation*} 
 da cui segue che \begin{equation}
   \lambda_{(\vec{q},\vec{p})} = \sum_{j=1}^n p_j \dd{q_j}
 \end{equation} 
-
 La forma simplettica su $\R^{2n}$ nelle coordinate $(q_1, \ldots, q_n)$ è quindi data dal \autoref{thm:derivCoords}: 
 \begin{equation} \label{eq:R2nSympForm}
 \omega = \sum_{j=1}^n \dd{q_i} \wedge \dd{p_i}
@@ -50,7 +52,7 @@ La forma simplettica su $\R^{2n}$ nelle coordinate $(q_1, \ldots, q_n)$ è quind
 Si noti che questa forma ha coefficienti costanti su $\R^{2n}$, ed è quindi rappresentabile nella base $e_i$ come matrice quadrata $2n \times 2n$ con elementi dati da 
 \begin{equation*}
 \omega(e_i, e_j) = \sum_{k=1}^{n} \dd{q_k} \wedge \dd{p_k}(e_i, e_j) = \sum_{k=1}^{n} \det\pmqty{q_k(e_i) & q_k(e_j) \\ p_k(e_i) & p_k(e_j)}
-\end{equation*},
+\end{equation*}
 ovvero, nella base con coordinate $(q_1, \ldots, q_n, p_1, \ldots, p_n)$, dalla matrice a blocchi
 \begin{equation*}
 - \mathsf{J} = - \pmqty{0 & -\mathsf{I} \\ \mathsf{I} & 0}
@@ -80,9 +82,9 @@ Una struttura simplettica su una varietà consente di associare un campo vettori
 \begin{remark}
   La corrispondenza tra l'$1$-forma $\dd{H}_x$ e il vettore $(X_H)_x$ è analoga a quella del teorema di rappresentazione di Fischer-Riesz, in cui però il prodotto scalare è sostituito con la forma simplettica.
 \end{remark}
-\begin{definition}
+\begin{remark}
   Il nome di gradiente simplettico è dovuto al fatto che la mappa svolge un ruolo simile a quello del gradiente ordinario $\grad$, ovvero consente di ottenere un campo vettoriale da una funzione.
-\end{definition}
+\end{remark}
 
 L'insieme delle funzioni reali differenziabili $f:X \to \R$ definite su una varietà simplettica $(X, \omega)$ forma uno spazio vettoriale con le operazioni di somma e prodotto per scalare punto per punto. Grazie al gradiente simplettico, questo insieme ha tuttavia una struttura ulteriore, quella di \emph{algebra di Lie}, ovvero ammette un'operazione analoga al commutatore fra matrici.
 \begin{definition}
@@ -104,7 +106,7 @@ L'insieme delle funzioni reali differenziabili $f:X \to \R$ definite su una vari
 
 Per una data funzione $H:X\to \R$, le parentesi di Poisson forniscono la variazione di qualsiasi altra funzione $K$ lungo le linee di flusso di $X_H$.
 \begin{theorem}
-  Sia $(X, \omega)$ una varietà simplettica, sia $H$ un'hamiltoniana e sia $\overline{x}(t)$ una linea di flusso del suo campo hamiltoniano $X_H$. Allora per ogni funzione differenziabile $K:X\to \R$ vale \begin{equation*}
+  Sia $(X, \omega)$ una varietà simplettica, sia $H$ un'hamiltoniana e sia $\overline{x}:t \mapsto \overline{x}(t)$ una linea di flusso del suo campo hamiltoniano $X_H$. Allora per ogni funzione differenziabile $K:X\to \R$ vale \begin{equation*}
   \dv{t} K\big(\overline{x}(t)\big) = \{K,H\} 
   \end{equation*}  
 \end{theorem}
@@ -112,13 +114,16 @@ Per una data funzione $H:X\to \R$, le parentesi di Poisson forniscono la variazi
   Se $\{K, H\} = 0$, $K$ si conserva lungo le linee di flusso. In tal caso, $K$ è detto \dfn{integrale del moto}.
 \end{corollary}
 
-La struttura simplettica consente di associare funzioni differenziabili a campi vettoriali. Allo stesso modo, l'algebra delle funzioni data dalle parentesi di Poisson può essere vista come il risultato, tramite la forma simplettica, di una struttura algebrica di Lie valida per i \emph{campi vettoriali} definiti su una varietà \emph{qualsiasi}, non necessariamente simplettica. Questa struttura è detta \emph{parentesi di Lie} ed è strettamente legata al concetto di derivata di Lie.
+La struttura simplettica consente di associare campi vettoriali a funzioni differenziabili. In maniera simile, l'algebra delle funzioni data dalle parentesi di Poisson può essere vista come il risultato, tramite la forma simplettica, di una struttura algebrica di Lie valida per i \emph{campi vettoriali} definiti su una varietà \emph{qualsiasi}, non necessariamente simplettica. Questa struttura è detta \emph{parentesi di Lie} ed è strettamente legata al concetto di derivata di Lie.
 \begin{definition}
   Siano $X$ una varietà, $V$ un campo vettoriale su $X$ e $\alpha$ una $k$-forma differenziale su $X$. Si dice \dfn{derivata di Lie} $L_V\alpha$ la $k$-forma differenziale data per ogni $x \in X$ da \begin{equation*}
-  (L_V \alpha)_x = \eval{\dv{t}}_{t=0} \big( (\Phi_V^t)^* \alpha\big)_x
+  (L_V \alpha)_x = \eval{\dv{t}}_{t=0} \big( (\Phi_V^t)^* \alpha_{\Phi_V^t(x)}\big)_x
   \end{equation*} 
   dove $\Phi_V$ è il flusso di $V$ e $\dv{t}$ agisce nello spazio vettoriale delle $k$-forme su $T_x X$.
 \end{definition}
+\begin{remark}
+  La derivata di Lie di $\alpha$ è la derivata temporale della forma che si vede seguendo una linea di flusso, valutata in $t=0$.
+\end{remark}
 \begin{definition}
   Siano $X$ una varietà e $V,W$ campi vettoriali su $X$. Si dice \dfn{parentesi di Lie} di $V$ e $W$ il campo vettoriale dato per ogni $x \in X$ da \begin{equation*}
   [V,W]_x = - \eval{\dv{t}}_{t=0} \Big(\big(D_{\Phi_V^t(x)} (\Phi_V^t)^{-1}\big)\big(W_{\Phi_V^t(x)}\big) \Big)_x
