@@ -14,10 +14,10 @@ Un gruppo di Lie è sostanzialmente \textquotedblleft un gruppo che è anche una
 
 I gruppi consentono di modellizzare matematicamente le \emph{simmetrie} di una varietà, tramite il concetto di azione.
 \begin{definition}
-  Sia $X$ una varietà e sia $G$ un gruppo di Lie. Si dice \dfn{azione sinistra} di $G$ su $X$ un'applicazione differenziabile $a:(g,x) \in G \times X \mapsto g \cdot x \in X$ tale che:
+  Sia $X$ una varietà e sia $G$ un gruppo di Lie. Si dice \dfn{azione sinistra} di $G$ su $X$ un'applicazione differenziabile $\Phi:(g,x) \in G \times X \mapsto \Phi_g(x) \in X$ tale che:
   \begin{enumerate}
-    \item l'azione di $e$ sia la mappa identità: $e \cdot x = x$ per ogni $x \in X$.
-    \item azione e moltiplicazione siano associative fra loro: $(g \cdot h) \cdot x = g\cdot (h\cdot x)$ per ogni $g,h \in G$ e $x \in X$.
+    \item l'azione di $e$ sia la mappa identità: $\Phi_e (x) = x$ per ogni $x \in X$.
+    \item azione e moltiplicazione siano associative fra loro: $\Phi_{g\cdot h} (x) = \Phi_g \big(\Phi_h (x)\big)$ per ogni $g,h \in G$ e $x \in X$.
   \end{enumerate}
 Se esiste una tale mappa, si dice che $X$ ha \dfn{simmetria continua} sotto $G$. 
 \end{definition}
@@ -25,23 +25,24 @@ Se esiste una tale mappa, si dice che $X$ ha \dfn{simmetria continua} sotto $G$.
   Il nome di simmetria è dovuto al fatto che per definizione la mappa di azione è \emph{interna} a $X$: l'azione di $G$ non \textquotedblleft genera\textquotedblright nuovi punti di $X$, l'insieme resta lo stesso.
 \end{remark}
 \begin{remark}
-  Le azioni di un gruppo di Lie $G$, $\Phi_g: x \mapsto g\cdot x$ con $g \in G$, sono diffeomorfismi per definizione.
+  Le \dfn{azioni} di un gruppo di Lie $G$, $\Phi_g: x \mapsto g\cdot x$ con $g \in G$, sono diffeomorfismi per definizione.
 \end{remark}
 
-Dato che un gruppo di Lie è esso stesso una varietà, un gruppo può agire su se stesso.
+Dato che un gruppo di Lie è esso stesso una varietà, un gruppo può agire su se stesso. Ciò è possibile in vari modi.
+
 \begin{definition}
-  Sia $G$ un gruppo di Lie. Si dice \dfn{azione diretta} di $G$ su se stesso l'applicazione data da $g \underset{\text{az}}{\cdot} h = g \underset{\text{molt}}{\cdot} h$ per ogni $g,h \in X$, dove $\underset{\text{az}}{\cdot}$ indica l'azione sinistra di $G$ come gruppo su $G$ come varietà e $\underset{\text{molt}}{\cdot}$ indica la moltiplicazione interna a $G$ come gruppo.
+  Sia $G$ un gruppo di Lie. Si dice \dfn{azione diretta} di $G$ su se stesso l'applicazione data da $\Phi^{\text{dir}}_g(h) = g \cdot h$ per ogni $g,h \in X$.
 \end{definition}
 \begin{definition}
-  Sia $G$ un gruppo di Lie, si dice \dfn{azione aggiunta} di $G$ su se stesso l'applicazione data da $g \cdot h = \Phi_g(h) = g \cdot h \cdot g^{-1}$.
+  Sia $G$ un gruppo di Lie, si dice \dfn{azione aggiunta} di $G$ su se stesso l'applicazione data da $\Phi^{\dagger}_g(h) = g \cdot h \cdot g^{-1}$ per ogni $g,h \in X$.
 \end{definition}
 \begin{remark} \label{rem:adjIdentity}
-  L'azione aggiunta $\Phi_g$ di un elemento $g$ di un gruppo di Lie $G$ manda l'identità in se stessa, siccome \begin{equation*}
-  \Phi_g e = g\cdot e\cdot g^{-1} = g\cdot g^{-1} = e
+  L'azione aggiunta di un elemento $g$ di un gruppo di Lie $G$ manda l'identità in se stessa, siccome \begin{equation*}
+  \Phi^{\dagger}_g e = g\cdot e\cdot g^{-1} = g\cdot g^{-1} = e
   \end{equation*} 
 \end{remark}
 
-Siccome un gruppo di Lie è anche una varietà, su di esso sono definiti spazi tangenti e derivate. In particolare, se $\Phi_g$ è l'azione aggiunta di $g \in G$, per l'\autoref{rem:adjIdentity} si ha che $D_e \Phi_g: T_e G \to T_e G$. Quindi esiste un'azione naturale di $G$ sul suo spazio tangente nell'identità.
+Siccome un gruppo di Lie è anche una varietà, su di esso sono definiti spazi tangenti e derivate. In particolare, se $\Phi^{\dagger}_g$ è l'azione aggiunta di $g \in G$, per l'\autoref{rem:adjIdentity} si ha che $D_e \Phi^{\dagger}_g: T_e G \to T_e G$. Quindi esiste un'azione naturale di $G$ sul suo spazio tangente nell'identità.
 \begin{definition}
   Si dice \dfn{azione aggiunta} di un gruppo di Lie $G$ sul suo spazio tangente nell'identità $T_e G$ la derivata dell'azione aggiunta di $G$ su se stesso $\mathrm{Ad}_g = D_e \Phi_g$, per ciascun $g \in G$. 
 \end{definition}
@@ -49,12 +50,12 @@ Siccome un gruppo di Lie è anche una varietà, su di esso sono definiti spazi t
 Proprio lo spazio tangente nell'identità consente di associare a ogni gruppo di Lie un'algebra di Lie, tramite l'algebra di Lie dei campi vettoriali che è definita su ogni varietà. A ogni elemento $\gamma$ dello spazio tangente a $G$ nell'identità si può infatti associare un campo vettoriale su tutto $G$, sfruttando l'azione di $G$ per fare il push-forward di $\gamma$ su tutti gli spazi tangenti.
 \begin{definition}
   Siano $G$ un gruppo di Lie, $e \in G$ la sua identità e $\gamma \in T_e G$. Si dice \dfn{campo associato} a $\gamma$ il campo vettoriale $V_\gamma$ su $G$, dato per ogni $g \in G$ da \begin{equation*}
-  \big(V_\gamma\big)_g = \big(D_e \Phi_g\big) (\gamma)
+  \big(V_\gamma\big)_g = \big(D_e \Phi^{\text{dir}}_g\big) (\gamma)
   \end{equation*} 
-  dove $\Phi_g$ è l'azione diretta di $G$ su se stesso.
+  dove $\Phi^{\text{dir}}_g$ è l'azione diretta di $G$ su se stesso.
 \end{definition}
 \begin{remark}
-  Questo campo vettoriale può essere visto come il campo degli spostamenti infinitesimi di ciascun elemento di $G$, se essi vengono ottenuti come $g=\Phi_g(e)$ e l'identità viene spostata infinitesimamente in modo dato da $\gamma$.
+  Questo campo vettoriale può essere visto come il campo degli spostamenti infinitesimi di ciascun elemento di $G$, se essi vengono ottenuti come $g=\Phi^{\text{dir}}_g(e)$ e l'identità viene spostata infinitesimamente in modo dato da $\gamma$.
 \end{remark}
 \begin{definition}
   Siano $G$ un gruppo di Lie, $e \in G$ la sua identità e $\gamma, \delta \in T_e G$. Si dice \dfn{parentesi di Lie} dei due vettori tangenti $\gamma$ e $\delta$ il vettore \begin{equation*}
@@ -78,9 +79,9 @@ Proprio lo spazio tangente nell'identità consente di associare a ogni gruppo di
 Grazie allo stretto legame fra le definizioni delle parentesi di Lie nei due casi, le algebre dei vettori tangenti nell'identità e dei campi vettoriali sono in realtà omomorfe.
 
 \begin{definition} \label{def:infmAction}
-  Sia $G$ un gruppo di Lie e sia $X$ una varietà di cui $G$ fornisce una simmetria continua. Si dice \dfn{azione infinitesima} di $G$ su $X$ la seguente mappa $\phi: \mathfrak{g} \to \mathrm{Vec}\, X$. Per ogni $[\gamma] \in T_e G$, si scelga un rappresentante della classe di equivalenza $\gamma:\R\to G$ con $\gamma(0) = e$. L'azione infinitesima associa a $[\gamma]$ un campo vettoriale su $X$ dato dalle classi di equivalenza dei cammini su $X$
+  Sia $G$ un gruppo di Lie e sia $X$ una varietà di cui $G$ fornisce una simmetria continua con l'azione $\Phi$. Si dice \dfn{azione infinitesima} di $G$ su $X$ la seguente mappa $\phi: \mathfrak{g} \to \mathrm{Vec}\, X$. Per ogni $[\gamma] \in T_e G$, si scelga un rappresentante della classe di equivalenza $\gamma:\R\to G$ con $\gamma(0) = e$. L'azione infinitesima associa a $[\gamma]$ un campo vettoriale su $X$ dato dalle classi di equivalenza dei cammini su $X$
   \begin{equation*}
-  \big(\phi_{\gamma}\big)_x = \gamma(t) \cdot x
+  \big(\phi_{\gamma}\big)_x = \Phi_{\gamma(t)} (x)
   \end{equation*}
   Se esiste una tale mappa, si dice che $X$ ha una \dfn{simmetria infinitesima} data da $G$.
 \end{definition}
@@ -96,22 +97,22 @@ Grazie allo stretto legame fra le definizioni delle parentesi di Lie nei due cas
 
 Un gruppo di Lie $G$ con opportune proprietà può essere usato per rimuovere informazioni ridondanti dai punti di una varietà $X$, sfruttando la simmetria a cui esso è associato.
 \begin{definition}
-  Sia $X$ una varietà e $G$ un gruppo di Lie. Si dice che l'azione di $G$ su $X$ è \dfn{libera} se nessuna azione di un elemento $g \in G$ diverso dall'identità ha punti fissi.
+  Sia $X$ una varietà e $G$ un gruppo di Lie. Un'azione di $G$ su $X$ si dice \dfn{libera} se nessuna azione di un elemento $g \in G$ diverso dall'identità ha punti fissi.
 \end{definition}
 \begin{definition}
-  Siano $G$ un gruppo di Lie e $X$ una varietà. Si dice \dfn{orbita} di $x \in X$ l'insieme $Gx = \{g\cdot x\mid g \in G\}$. Si dice \dfn{fetta} dell'azione di $G$ in $p \in Gx$ l'insieme $S_{\epsilon}(p) = \phi^{-1}\big(\phi(Gx)^{\perp} \cap B_{\epsilon}(0)\big)$ dove $(U,\phi)$ è una carta su $X$ e $\phi(Gx)^{\perp}$ è il complemento ortogonale dell'immagine di $Gx$ attraverso la carta.
+  Siano $G$ un gruppo di Lie e $X$ una varietà su cui esso agisce secondo $\Phi$. Si dice \dfn{orbita} di $x \in X$ l'insieme $Gx = \{ \Phi_g(x)\mid g \in G\}$. Si dice \dfn{fetta} dell'azione di $G$ in $p \in Gx$ l'insieme $S_{\epsilon}(p) = \phi^{-1}\big(\phi(Gx)^{\perp} \cap B_{\epsilon}(0)\big)$ dove $(U,\phi)$ è una carta su $X$ e $\phi(Gx)^{\perp}$ è il complemento ortogonale dell'immagine di $Gx$ attraverso la carta.
 \end{definition}
 \begin{theorem}
-  Sia $X$ una varietà e $G$ un gruppo di Lie compatto che agisce liberamente su $X$. Allora l'insieme quoziente $X/G$ definito dalla relazione di equivalenza $x \sim g \cdot x$, con $x \in X$ e $g \in G$, ha una struttura naturale di varietà differenziabile, tale che l'applicazione $\pi:X \to X /G$ che manda un punto nella sua classe di equivalenza sia differenziabile. Le carte sono le carte $(U/G,\phi)$ dove $U = G\big(S_{\epsilon}(p)\big)$ con $p \in X$ e $\phi$ è una carta su $S_{\epsilon}(p)$, che è una sottovarietà di $X$.
+  Sia $X$ una varietà e $G$ un gruppo di Lie compatto che agisce liberamente su $X$ secondo $\Phi$. Allora l'insieme quoziente $X/G$ definito dalla relazione di equivalenza $x \sim \Phi_g(x)$, con $x \in X$ e $g \in G$, ha una struttura naturale di varietà differenziabile, tale che l'applicazione $\pi:X \to X /G$ che manda un punto nella sua classe di equivalenza sia differenziabile. Le carte sono le carte $(U/G,\phi)$ dove $U = G\big(S_{\epsilon}(p)\big)$ con $p \in X$ e $\phi$ è una carta su $S_{\epsilon}(p)$, che è una sottovarietà di $X$.
 \end{theorem}
 
 \section{Mappa momento}
-Per una varietà generica, il fatto che l'azione di un gruppo sia interna è sufficiente a garantirne la simmetria rispetto al gruppo. Per una varietà simplettica, è invece necessario imporre che nemmeno la forma simplettica venga modificata.
+Su una varietà generica un gruppo può agire in qualsiasi modo. Perché l'azione di un gruppo su una varietà simplettica abbia senso, è invece necessario che l'azione del gruppo non cambi la struttura simplettica.
 \begin{definition}
-  Siano $G$ un gruppo di Lie e $(X, \omega)$ una varietà simplettica. Si dice che $G$ \dfn{agisce simpletticamente} su $X$ se ogni azione $\Phi_g:X\to X$, con $g \in G$, è una trasformazione canonica.
+  Siano $G$ un gruppo di Lie e $(X, \omega)$ una varietà simplettica. L'azione $\Phi$ di $G$ su $X$ si dice \dfn{simplettica} se ogni azione $\Phi_g:X\to X$, con $g \in G$, è una trasformazione canonica.
 \end{definition}
 
-La conservazione della struttura simplettica non è però sufficiente a caratterizzare una varietà simplettica su cui è definita un'hamiltoniana come simmetrica rispetto a un gruppo: anche l'hamiltoniana deve conservarsi nell'azione del gruppo. Fra i gruppi che agiscono simpletticamente, tale richiesta è soddisfatta da una sottocategoria dei gruppi la cui azione è il flusso di una qualche altra hamiltoniana. L'esistenza di questa hamiltoniana dipende dall'esistenza di una \emph{mappa momento}.
+Fra le azioni simplettiche di un gruppo, esiste una sottoclasse con particolare rilevanza fisica, detta delle azioni \emph{hamiltoniane}. Queste sono le azioni date dal flusso di un'hamiltoniana e in un certo senso compatibili con la struttura di $G$. Questa hamiltoniana è definita tramite uno strumento noto come \emph{mappa momento}.
 \begin{definition}
   Siano $(X,\omega)$ una varietà simplettica e $G$ un gruppo di Lie che vi agisce simpletticamente. Un'applicazione $\mu: X\to \mathfrak{g}^*$ denotata con $x \mapsto \mu_x$ si dice \dfn{mappa momento} dell'azione se per ogni $x \in X$, per ogni $\xi \in T_x X$ vale
   \begin{equation*}
@@ -123,7 +124,7 @@ La conservazione della struttura simplettica non è però sufficiente a caratter
   Questa richiesta equivale al chiedere che l'azione infinitesima di ciascun $\gamma$ sia il campo vettoriale di un'hamiltoniana, data da $x \mapsto H^{\gamma}(x) = \mu_x(\gamma)$.
 \end{remark}
 
-Per un dato gruppo di Lie esistono più mappe momento, ma ne esiste solo una con significato fisico: quella per cui $G$ agisce su $\mathfrak{g}^*$ in maniera compatibile con la sua azione su $X$, cioè le due operazioni formano un diagramma commutativo con la mappa momento stessa. È innanzitutto necessario definire come $G$ agisce su $\mathfrak{g}^*$.
+La mappa momento provoca l'entrata in scena di $\mathfrak{g}^*$, il duale dell'algebra di Lie. Il gruppo $G$ ha un'azione naturale, oltre che sull'algebra stessa, anche sul duale.
 \begin{definition}
   Siano $G$ un gruppo di Lie e $\mathfrak{g}$ la sua algebra associata. Si dice \dfn{azione coaggiunta} di $g \in G$ su $\mathfrak{g}^*$ l'applicazione $\mathrm{Ad}_g^*$ che manda $\alpha \in \mathfrak{g}^*$ in $\mathrm{Ad}^*_g(\alpha) \in \mathfrak{g}^*$ definito da
   \begin{equation*}
@@ -131,8 +132,10 @@ Per un dato gruppo di Lie esistono più mappe momento, ma ne esiste solo una con
   \end{equation*}
   per ogni $\gamma \in \mathfrak{g}$, dove $\mathrm{Ad}$ indica l'azione aggiunta di $G$ su $\mathfrak{g}$.
 \end{definition}
+
+La condizione di compatibilità dell'azione con la struttura di $G$ può ora essere formulata più precisamente. $G$ deve agire su $X$ in maniera compatibile con la sua azione su $\mathfrak{g}^*$, cioè le due operazioni devono formare un diagramma commutativo con la mappa momento, la quale collega gli insiemi. 
 \begin{definition}
-  Siano $(X, \omega)$ una varietà simplettica e $G$ un gruppo di Lie che vi agisce simpletticamente secondo le mappe $\Phi_g$, con $g \in G$. L'azione di $G$ si dice \dfn{hamiltoniana} se esiste una mappa momento $\mu: X \to \mathfrak{g}^*$ tale che per ogni $g \in G$, per ogni $x \in X$ valga
+  Siano $(X, \omega)$ una varietà simplettica e $G$ un gruppo di Lie che vi agisce simpletticamente secondo le mappe $\Phi_g$, con $g \in G$. L'azione $\Phi$ di $G$ si dice \dfn{hamiltoniana} se esiste una mappa momento $\mu: X \to \mathfrak{g}^*$ tale che per ogni $g \in G$, per ogni $x \in X$ valga
   \begin{equation*}
   \mu\big(\Phi_g(x)\big) = \mathrm{Ad}_g^*\, \big(\mu(x)\big)
   \end{equation*} 
@@ -141,10 +144,25 @@ Per un dato gruppo di Lie esistono più mappe momento, ma ne esiste solo una con
 I gruppi con azione hamiltoniana consentono di generalizzare il teorema di Noether.
 
 \begin{theorem}
-  Siano $(X,\omega)$ una varietà simplettica e $G$ un gruppo di Lie con azione hamiltoniana su di essa. Sia $\mu: X\to \mathfrak{g}^*$ la mappa momento. Sia $H: X\to \R$ una funzione hamiltoniana conservata dall'azione di $G$. Allora $\mu$ è conservata dal flusso di $H$.
+  Siano $(X,\omega)$ una varietà simplettica e $G$ un gruppo di Lie con azione hamiltoniana $\Phi$ su di essa. Sia $\mu: X\to \mathfrak{g}^*$ la mappa momento. Sia $H: X\to \R$ una funzione hamiltoniana conservata dall'azione di $G$. Allora $\mu$ è conservata dal flusso di $H$.
 \end{theorem}
 
 Il teorema di Noether in senso stretto può essere formulato geometricamente come un caso particolare dell'origine di flussi hamiltoniani.
 \begin{theorem}
-  Sia $Q$ una varietà e sia $G$ un gruppo di Lie che ne fornisce una simmetria continua. Allora l'azione di $G$ sul fibrato cotangente $T^*Q$ è hamiltoniana rispetto alla forma canonica.
+  Sia $Q$ una varietà e sia $G$ un gruppo di Lie che ne fornisce una simmetria continua secondo una qualche azione $\Phi$. Allora l'azione $\Phi'$ di $G$ sul fibrato cotangente $T^*Q$ corrispondente a $\Phi$ è hamiltoniana rispetto alla forma canonica.
+\end{theorem}
+
+La mappa momento è lo strumento naturale per formulare uno dei più potenti teoremi della meccanica simplettica, che stabilisce un'equivalenza tra un sistema con una data simmetria e un sistema \emph{ridotto}, più semplice.
+\begin{theorem}[Marsden-Weinstein]
+  Sia $(X,\omega)$ una varietà simplettica, sia $G$ un gruppo di Lie compatto con azione hamiltoniana su $X$ e sia $\mu:  X \to \mathfrak{g}^*$ la mappa momento. Se $G$ agisce liberamente su $\mu^{-1}(0)$ allora:
+  \begin{enumerate}
+    \item L'insieme $\mu^{-1}(0)/G$ è una varietà simplettica con forma simplettica $\omega_r$ tale che \begin{equation*}
+    \pi^* \omega_r = \omega
+    \end{equation*} 
+    dove $\pi:\mu^{-1}(0) \to \mu^{-1}(0)/G$ è la proiezione sullo spazio quoziente.
+    \item Se $H:X\to \R$ è una funzione differenziabile invariante sotto l'azione di $G$, allora essa corrisponde a una funzione $H_r:\mu^{-1}(0)/G \to \R$ il cui campo hamiltoniano rispetto a $\omega_r$ è \begin{equation*}
+    X_{H_r} = D \pi(X_H)
+    \end{equation*}
+    dove $X_H$ è il campo hamiltoniano di $H$.
+  \end{enumerate}
 \end{theorem}
