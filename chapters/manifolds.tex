@@ -56,7 +56,7 @@ Per poter definire una forma di calcolo differenziale sulle varietà, è necessa
 
 \begin{definition}
   Si dice \dfn{vettore tangente} alla varietà $X$ nel punto $x \in  X$ la classe di equivalenza $[\gamma]$, dove $\gamma:]-\epsilon,\epsilon\;[\ \to X$, con $\epsilon > 0$, è un cammino differenziabile con $\gamma(0) = x$ e $\gamma_1$ equivale a $\gamma_2$ se esiste una carta $(U, \phi)$ tale che \begin{equation*}
-  \eval{\dv{t} \phi \big(\gamma_1(t)\big)}_{t=0} = \eval{\dv{t} \phi\big(\gamma_2(t)\big)}_{t=0}
+  \eval{\dv{t}}_{t=0} \phi \big(\gamma_1(t)\big) = \eval{\dv{t}}_{t=0} \phi\big(\gamma_2(t)\big)
   \end{equation*} 
   L'insieme dei vettori tangenti a $X$ in $x$ si dice \dfn{spazio tangente} a $X$ in $x$ e si indica con $T_x X$.
 \end{definition}
@@ -67,46 +67,61 @@ Nel seguito, quando non necessario per evitare ambiguità, si ometteranno le par
 
 Lo spazio tangente a $\R^{n}$ in un qualsiasi punto $y \in \R^{n}$, denotato $T_y \R^{n}$, può essere identificato con $\R^{n}$ facendo corrispondere a ogni $v \in \R^{n}$ la classe di equivalenza del cammino $\gamma_v(t) = y + tv$. Siccome qualsiasi cammino $\gamma_0:]-\epsilon,\epsilon\;[\ \to X$, con $\epsilon > 0$ e $\gamma_0(0)=y$, ammette nella sua classe di equivalenza (si ricordi che in $\R^{n}$ $\phi = \identity$) il cammino $\gamma(t) = y + t\dot{\gamma}_0(0)$ e quindi corrisponde a un $v_{\gamma} = \dot{\gamma}_0(0) \in \R^{n}$, la corrispondenza è suriettiva. Dato che è anche iniettiva per definizione, essa è biunivoca. 
 
-Inoltre, una carta $(U, \phi)$ intorno a un punto $x \in  X$, con $X$ varietà generica di dimensione $n$, fornisce un modo di identificare $T_x X$ con $\R^{n}$, associando a ogni $v \in \R^{n}$ il percorso su $U$ \begin{equation} \label{eq:tangentRn}
+Una carta $(U, \phi)$ intorno a un punto $x \in  X$, con $X$ varietà generica di dimensione $n$, fornisce un modo di identificare $T_x X$ con $\R^{n}$, associando a ogni $v \in \R^{n}$ il percorso su $U$ \begin{equation} \label{eq:tangentRn}
   \gamma_{v}(t) = \phi^{-1}(\phi(x)+tv) \qqtext{per} t \in ]-\epsilon, \epsilon[ \qqtext{con} \epsilon > 0
-\end{equation} Analogamente a sopra, questa corrispondenza è infatti biunivoca, con \begin{equation*} \label{eq:tangentCoords}
-v_{\gamma} = \eval{\dv{t} \phi\big( \gamma_0(t)\big)}_{t=0}
-\end{equation*} Ogni spazio tangente può quindi essere identificato con $\R^{n}$. Da ciò segue che ogni spazio tangente è uno spazio vettoriale. Una sua base è \begin{equation} \label{eq:tangentRnBase}
-  \big\lbrace\phi^{-1}(\phi(x)+t\, e_i)\big\rbrace \qqtext{per} i=1, \ldots, n
+\end{equation} Questa corrispondenza è biunivoca, dato che a ogni vettore $\gamma$ corrisponde la $n$-upla \begin{equation*} \label{eq:tangentCoords}
+v_{\gamma} = \eval{\dv{t}}_{t=0} \phi\big( \gamma(t)\big)
+\end{equation*} Ogni spazio tangente può quindi essere identificato con $\R^{n}$ tramite un'applicazione $\Phi: \R^{n} \to T_x X$ che manda $v \mapsto \gamma_v$, la cui inversa manda $\gamma \mapsto v_{\gamma}$. Si può dare a $T_x X$ la struttura di uno spazio vettoriale imponendo che $\Phi$ sia un isomorfismo, ovvero definendo le operazioni come
+\begin{equation*}
+\gamma + \mu \delta = \Phi(v_\gamma + \mu v_{\delta})
+\end{equation*}
+Una base di $T_x X$ è costituita dalle classi di equivalenza delle \dfn{curve coordinate} \begin{equation} \label{eq:tangentRnBase}
+  \gamma_i = \phi^{-1}\big(\phi(x)+t\, e_i\big) \qqtext{per} i=1, \ldots, n
 \end{equation}
-dove $e_i$ è l'$i$-esimo elemento della base canonica di $\R^{n}$ e i cammini sono da intendersi come classi di equivalenza.
+dove $e_i$ è l'$i$-esimo elemento della base canonica di $\R^{n}$ e i cammini sono da intendersi come classi di equivalenza. In questa base, un vettore $\gamma$ è rappresentato proprio dalla $n$-upla $v_{\gamma} \in \R^{n}$.
 
-Si consideri ora lo spazio delle derivazioni in $\R^{n}$, ovvero degli operatori $\pdv{\hat{\nu}}$ definiti sulle funzioni $f: \R^{n} \to \R$ come 
+Esiste tuttavia anche un'altra definizione equivalente di vettori tangenti, che presenta notevoli vantaggi per quanto riguarda l'uso dei vettori nei calcoli. Si consideri lo spazio degli operatori $\hat{\gamma}$ definiti sulle funzioni $f: X \to \R$ come 
 \begin{equation*}
-  \pdv{\hat{\nu}}: f \mapsto \pdv{f}{\hat{\nu}}(x) = \lim_{\epsilon \to 0} \frac{f(x+\epsilon \hat{\nu})-f(x)}{\epsilon}
+  \hat{\gamma}: f \mapsto \hat{\gamma}(f) = \eval{\dv{t}}_{t=0} f(\gamma(t)) 
 \end{equation*}
-Esso è uno spazio vettoriale e possiede una base costituita dalle derivate direzionali lungo i vettori della base canonica
+dove $[\gamma] \in T_x X$. Esso è uno spazio vettoriale se si definiscono le operazioni imponendo che per $\hat{\gamma} + \mu \hat{\delta}$ valga 
 \begin{equation*}
-\pdv{x_i} = \lim_{\epsilon \to 0} \frac{f(x+\epsilon e_i)-f(x)}{\epsilon} \qqtext{per} i=1, \ldots, n
+  (\hat{\gamma} + \mu \hat{\delta}) (f) = \hat{\gamma}(f) + \mu \hat{\delta}(f)
 \end{equation*}
-Data $f:\R^{n} \to \R$, per l'$i$-esimo cammino di base è possibile considerare il suo punto per $t = \epsilon$, cioè $\phi^{-1}(\phi(x) + \epsilon e_i)$, e il rapporto incrementale in $\R^{n}$
+per ogni funzione $f:X\to \R$. Una sua base è data dagli operatori $\hat{\gamma}_i$, dove i $\gamma_i$ sono le curve coordinate. In questa base, l'operatore $\hat{\gamma}$ è rappresentato dalla $n$-upla $v_\gamma$. Per ognuno di questi operatori vale inoltre la \dfn{regola di Leibniz in $x$}
 \begin{equation*}
-\lim_{\epsilon \to 0} \frac{f\, \bigg[\phi \Big(\phi^{-1}\big(\phi(x) + \epsilon e_i\big)\Big)\bigg] - f\,\big[\phi(x)\big]}{\epsilon}
+\hat{\gamma}(fg) = \hat{\gamma}(f)g(x) + f(x)\hat{\gamma}(g)
 \end{equation*}
-che non è altro che la definizione di $\pdv{f}{x_i}$. Data una carta, è quindi possibile far corrispondere a ogni elemento della base dei cammini un elemento della base delle derivate direzionali in $\R^{n}$, in maniera univoca. Gli spazi delle derivazioni su $\R^{n}$ e tangente a una varietà di dimensione $n$ sono quindi isomorfi e possono essere identificati, facendo corrispondere a ogni cammino infinitesimo il rapporto incrementale fra le immagini di un suo estremo e del suo centro attraverso la carta.
+per ogni coppia di funzioni $f,g:X\to \R$. La mappa $\Psi: \gamma \mapsto \hat{\gamma}$ è un isomorfismo tra lo spazio degli operatori che obbediscono alla regola di Leibniz e lo spazio tangente a $X$ in $x$. I due spazi possono quindi essere identificati, e i vettori tangenti a $X$ in $x$ possono essere \emph{definiti} come gli operatori su $X$ che rispettano la regola di Leibniz in $x$, detti \dfn{derivate direzionali}.
 
-È possibile estendere il concetto di campo vettoriale alle varietà: intuitivamente, un campo vettoriale associa a ogni punto un vettore tangente in quel punto, in maniera differenziabile.
-\begin{definition} \label{def:vecField}
-  Si dice \dfn{campo vettoriale} su una varietà $X$ un'applicazione $V: x \in  X \mapsto V (x) \in T_x X$, tale che per ogni $x \in X$ e per ogni carta $(U, \phi)$ con $x \in U$ sia differenziabile la mappa $V_\phi:U \to \R^{n}$ risultante per ciascun $y \in  U$ dall'identificazione di $T_y X$ con $\R^{n}$ data da $\phi$ secondo l'\autoref{eq:tangentRn}.
-\end{definition}
+La definizione degli operatori di base $\hat{\gamma}_i$ può essere scritta come \begin{equation*}
+\begin{aligned}
+  \hat{\gamma}_i &= \eval{\dv{t}}_{t=0} f(\gamma_i(t)) = \\
+  &= \lim_{\epsilon \to 0} \frac{f(\gamma_i(\epsilon))-f(\gamma_i(0))}{\epsilon} = \\
+  &= \lim_{\epsilon \to 0} \frac{f(\phi^{-1}(\phi(x)+\epsilon e_i))-f(\phi^{-1}(\phi(x)))}{\epsilon} = \\
+  &= \lim_{\epsilon \to 0} \frac{\hat{f}(\phi(x)+\epsilon e_i)-\hat{f}(\phi(x))}{\epsilon} = \\
+  &= \eval{\pdv{\hat{f}}{x_i}}_{\phi(x)} \equiv \eval{\pdv{x_i}}_x f \equiv \eval{\partial_i}_x f
+\end{aligned}
+\end{equation*} 
+dove $\hat{f}$ è la rappresentazione di $f$ nella carta $\phi$. Un generico vettore tangente, inteso come derivata direzionale, può quindi essere scritto come combinazione lineare degli operatori $\eval{\partial_i}_x$. Un tale oggetto si dice \dfn{operatore differenziale del primo ordine valutato in $x$}. Ovviamente, quindi, i vettori tangenti a $X$ in un punto $x$ possono essere definiti in una terza maniera equivalente come operatori differenziali del primo ordine valutati in $x$.
 
-Le identificazioni locali consentono di scrivere localmente i campi vettoriali su varietà come campi vettoriali su $\R^{n}$, una volta fissata una carta. In un cambio di carta, le componenti dei vettori tangenti si trasformano in maniera ben definita.
+Quale che sia la definizione iniziale che viene adottata, un singolo vettore tangente può quindi essere visto come classe di curve, come derivazione direzionale o come operatore differenziale del primo ordine. Le componenti del vettore nelle basi \dfn{canoniche} $\gamma_i$, $\hat{\gamma_i}$ e $\eval{\partial_i}_x$ sono le stesse nei tre casi. In un cambio di carta, le curve coordinate corrispondenti alla base canonica di $\R^{n}$ cambieranno, e dunque cambieranno anche le componenti di un dato vettore. Questa trasformazione è indipendente dal vettore ed è data dal seguente teorema.
 \begin{theorem} 
-  Sia $X$ una varietà e siano $(U,\phi)$ e $(V,\psi)$ due carte. Sia $x \in  U \cap V$ e sia $\gamma \in  T_x X$. Siano $u \in \R^{n}$ e $v \in  \R^{n}$ i corrispondenti di $\gamma$ secondo $\phi$ e $\psi$ (\autoref{eq:tangentRn}), rispettivamente. Allora, identificando $x_i = \phi_i$, dette $u_j$ e $v_i$ le componenti di $u$ e $v$, e detta $F^{\phi\psi}:\R^{n} \to \R^{n}$ la funzione di transizione, con componenti $F^{\phi \psi}_i$, vale \begin{equation} \label{eq:vecTrans}
+  Sia $X$ una varietà e siano $(U,\phi)$ e $(V,\psi)$ due carte. Sia $x \in  U \cap V$ e sia $\gamma \in  T_x X$. Siano $u \in \R^{n}$ e $v \in  \R^{n}$ le componenti di $\gamma$ nelle basi di curve coordinate date da $\phi$ e $\psi$, rispettivamente. Allora, dette $u_j$ e $v_i$ le componenti di $u$ e $v$, e detta $F^{\phi\psi}:\R^{n} \to \R^{n}$ la funzione di transizione, con componenti $F^{\phi \psi}_i$, vale \begin{equation} \label{eq:vecTrans}
   v_i = \sum_{j=1}^n \pdv{F^{\phi \psi}_i}{x_j}\big(\phi(x)\big)\; u_j
   \end{equation} 
 \end{theorem}
 
-Se si rappresentano i vettori tangenti a una varietà con le derivazioni in $\R^{n}$, i campi vettoriali su quella varietà hanno forma 
+È possibile estendere il concetto di campo vettoriale alle varietà: intuitivamente, un campo vettoriale associa a ogni punto un vettore tangente in quel punto, in maniera differenziabile.
+\begin{definition} \label{def:vecField}
+  Si dice \dfn{campo vettoriale} su una varietà $X$ un'applicazione $V: x \in  X \mapsto V (x) \in T_x X$, tale che per ogni $x \in X$ e per ogni carta $(U, \phi)$ con $x \in U$ sia differenziabile la mappa $V_\phi:U \to \R^{n}$ risultante per ciascun $y \in  U$ dall'identificazione di $T_y X$ con $\R^{n}$ data dalla base di curve coordinate di $\phi$.
+\end{definition}
+
+Pensando ai vettori tangenti come operatori differenziali del primo ordine, un campo vettoriale è dato da
 \begin{equation*}
   V_x = \sum_{j=1}^{n} a_j(x) \pdv{x_j}
 \end{equation*} 
-e, indicando la funzione di transizione con $\vec{y}(\vec{x})$, l'\autoref{eq:vecTrans} ha forma 
+che è un operatore differenziale agente sulle funzioni su $X$. Indicando simbolicamente la funzione di transizione con $\vec{y}(\vec{x})$, l'\autoref{eq:vecTrans} implica che valga 
 \begin{equation*}
   \pdv{y_i} = \sum_{j=1}^{n} \pdv{x_j}{y_i} \pdv{x_j}
 \end{equation*} 
@@ -144,7 +159,7 @@ Queste varietà vengono dette fibrati per analogia al caso della circonferenza, 
   Sia $X$ una varietà e $T X$ il suo fibrato tangente. Si dice \dfn{proiezione} del fibrato tangente su $X$ l'applicazione $\pi: TX \to X$ definito per ogni $x \in X$ e $\gamma \in T_x X$ da $\pi(x,\gamma) = x$.
 \end{definition}
 
-Un'altra possibilità che i vettori tangenti consentono di espandere da $\R^{n}$ alle varietà in generale è la derivazione.
+Un'altra possibilità che i vettori tangenti consentono di espandere da $\R^{n}$ alle varietà in generale è la derivazione di un'applicazione tra varietà, da non confondersi con la derivazione \emph{direzionale} di una funzione da una varietà in $\R$.
 \begin{definition}
   Siano $X,Y$ varietà e sia $f:X\to Y$ un'applicazione differenziabile. Si dice \dfn{derivata} o \dfn{push-forward} di $f$ in $x \in X$ l'applicazione lineare $D_x f:T_x X \to T_{f(x)}Y$ che porta il cammino $\gamma: ]-\epsilon, \epsilon\;[\ \to X$ con $\epsilon>0$ e $\gamma(0) \in X$ nel cammino $f \circ \gamma:]-\epsilon, \epsilon\;[\ \to Y$.
 \end{definition}
@@ -152,17 +167,11 @@ Un'altra possibilità che i vettori tangenti consentono di espandere da $\R^{n}$
   Intuitivamente, la derivata dell'applicazione $f$ in un punto $x \in X$ associa a ogni spostamento infinitesimo da $x$ lo spostamento infinitesimo da $f(x) \in Y$ che ne risulta.
 \end{remark}
 \begin{remark}
-  Questa definizione di derivata generalizza la derivata direzionale. Se infatti $X = \R^{n}$ e $Y = \R^{m}$, a un vettore $v \in \R^{n}$ si può associare un percorso $x + tv$. La derivata manda questo percorso in $f(x+tv)$, a cui si può associare $w = \eval{\dv{t}(x+tv)}_{t=0}$ e quest'ultima è esattamente la definizione di derivata direzionale. Nel caso di $X,Y$ varietà generiche, ci si può ricondurre al caso $\R^{n} \to \R^{m}$ tramite le carte di coordinate intorno a $x \in X$ e $f(x)\in Y$, rispettivamente $(U, \phi)$ e $(V,\psi)$. In tal caso, la derivata è rappresentata dal jacobiano di $f_{\phi \psi}$, la rappresentazione in coordinate di $f$.
-\end{remark}
-\begin{remark}
-  La derivata è chiamata anche \emph{push-forward} perché \emph{spinge} i vettori tangenti dalla varietà dominio alla varietà codominio di $f$. 
-\end{remark}
-
-\begin{remark}
-  Se il vettore tangente è identificato con una derivazione $\partial$, essa si trasforma nella derivazione $f^*_x \partial$ tale che per ogni $g:X\to \R$
+  Se il vettore tangente è invece visto come una derivazione direzionale $\hat{\gamma}$ su $X$, il push-forward la porta nella derivazione $f^*_x \hat{\gamma}$ su $Y$ tale che per ogni $g:Y\to \R$ valga
   \begin{equation*}
-    (f^*_x \partial)g = \partial (g \circ f) 
+    (f^*_x \hat{\gamma})(g) = \hat{\gamma} (g \circ f) 
   \end{equation*} 
+  Questo è il motivo del nome \emph{push-forward}: la derivazione viene \emph{spinta} dalla varietà dominio alla varietà codominio di $f$. 
 \end{remark}
 
 \section{Vettori cotangenti}
@@ -172,23 +181,24 @@ Se $f:X \to \R$ è una funzione differenziabile a valori reali, per ogni $x \in 
   Sia $X$ una varietà e sia $x \in X$. Si dice \dfn{spazio cotangente} a $X$ in $x$ $T_x^* X$ lo spazio duale di $T_x X$. I suoi elementi si dicono \dfn{vettori cotangenti}.
 \end{definition}
 \begin{remark} \label{rem:dualBasis}
-  Siccome lo spazio cotangente è uno spazio duale, esso è automaticamente uno spazio vettoriale. Per lo stesso motivo le sue basi sono le basi duali di quelle dello spazio tangente, tra cui per una data carta $(U, \phi)$ $\{D_x \phi_1, \ldots, D_x \phi_n\} $, che è la base duale di quella definita dall'\autoref{eq:tangentRnBase}.
+  Siccome lo spazio cotangente è uno spazio duale, esso è automaticamente uno spazio vettoriale. Per lo stesso motivo le sue basi sono le basi duali di quelle dello spazio tangente, tra cui per una data carta $(U, \phi)$ $\{D_x \phi_1, \ldots, D_x \phi_n\} $, che è la base duale di quella delle curve coordinate.
 \end{remark}
 
-Se si rappresentano i vettori tangenti come derivazioni su $\R^{n}$, i vettori cotangenti saranno rappresentati da oggetti appartenenti allo spazio duale di quello delle derivazioni. Oggetti di questo genere sono i \dfn{differenziali (in $\R^{n}$)}, definiti nel seguente modo.
-\begin{definition}
-  Sia $f:\R^{n}\to \R$ una funzione e sia $y \in \R^{n}$. Si dice \dfn{$\R^{n}$-differenziale} di $f$ in $y$ l'applicazione $d_y f:\text{Der}|_y\, \R^{n} \to \R$ tale che \begin{equation*}
-  (d_y f)\left(\pdv{x_i}\right) = \pdv{f}{x_i}()(y)
-  \end{equation*} 
-\end{definition}
-\begin{remark}
-  Questa definizione si riconduce a quella nota dall'analisi, secondo cui $(d_y f)(\vec{v}) = \grad{f}(y) \cdot \vec{v}$ identificando ogni derivata direzionale con il vettore di base corrispondente. In tal caso infatti 
-  \begin{equation*}
-    (d_y f)\left(\pdv{x_i}\right) = (d_y f)(\vec{e}_i) = \grad{f}(y) \cdot \vec{e}_i = \pdv{f}{x_i}()(y)
-  \end{equation*} 
-\end{remark}
+% Se si rappresentano i vettori tangenti come derivazioni su $\R^{n}$, i vettori cotangenti saranno rappresentati da oggetti appartenenti allo spazio duale di quello delle derivazioni. Oggetti di questo genere sono i \dfn{differenziali (in $\R^{n}$)}, definiti nel seguente modo.
 
-Così come è possibile costruire campi vettoriali su una varietà, è anche possibile costruirvi \textquotedblleft campi di $1$-forme\textquotedblright.
+% \begin{definition}
+%   Sia $f:\R^{n}\to \R$ una funzione e sia $y \in \R^{n}$. Si dice \dfn{$\R^{n}$-differenziale} di $f$ in $y$ l'applicazione $d_y f:\text{Der}|_y\, \R^{n} \to \R$ tale che \begin{equation*}
+%   (d_y f)\left(\pdv{x_i}\right) = \pdv{f}{x_i}()(y)
+%   \end{equation*} 
+% \end{definition}
+% \begin{remark}
+%   Questa definizione si riconduce a quella nota dall'analisi, secondo cui $(d_y f)(\vec{v}) = \grad{f}(y) \cdot \vec{v}$ identificando ogni derivata direzionale con il vettore di base corrispondente. In tal caso infatti 
+%   \begin{equation*}
+%     (d_y f)\left(\pdv{x_i}\right) = (d_y f)(\vec{e}_i) = \grad{f}(y) \cdot \vec{e}_i = \pdv{f}{x_i}()(y)
+%   \end{equation*} 
+% \end{remark}
+
+Così come è possibile costruire campi vettoriali su una varietà, è anche possibile costruirvi campi di vettori cotangenti.
 \begin{definition} \label{def:1formCvc}
   Si dice \dfn{1-forma differenziale} su una varietà $X$ un'applicazione $\alpha: x \in X \mapsto \alpha(x) \in T_x^* X$, differenziabile in senso analogo a quello usato per i campi vettoriali nella \autoref{def:vecField} (cioè tale che si ottenga un'applicazione differenziabile identificando gli spazi tangenti con $\R^{n}$ secondo le carte di coordinate).
 \end{definition}
@@ -200,27 +210,27 @@ L'applicazione che a ogni punto associa la derivata di una funzione $f$ fissata 
   \end{equation} 
 \end{definition}
 \begin{remark}
-  Nel seguito si indicherà la $1$-forma data dal differenziale di $f$ valutato in $y$ come $\dd_y f:T_y X \to \R$.
+  Nel seguito si indicherà la $1$-forma data dal differenziale di $f$ valutato in $x$ come $\dd_x f:T_x X \to \R$.
 \end{remark}
 \begin{remark}
-  La base duale dell'\autoref{rem:dualBasis} è $\{ \dd{\phi_1}, \ldots, \dd{\phi_n}\}$.
+  La base duale alle curve coordinate definita nell'\autoref{rem:dualBasis} è $\{ \dd_x{\phi_1}, \ldots, \dd_x{\phi_n}\}$. Questa base, detta \dfn{canonica}, è spesso indicata identificando $\dd_x{x_j} \equiv \dd_x{\phi_j}$, come $\{ \dd_x x_1, \ldots, \dd_x x_n\}$ 
 \end{remark}
-\begin{remark}
-  Un $\R^{n}$-differenziale è un differenziale di una funzione con dominio $\R^{n}$. Quindi $d_x x_i$ è una base per lo spazio duale a quello delle derivazioni.
-\end{remark}
-
+% \begin{remark}
+%   Un $\R^{n}$-differenziale è un differenziale di una funzione con dominio $\R^{n}$. Quindi $d_x x_i$ è una base per lo spazio duale a quello delle derivazioni.
+% \end{remark}
 Anche le coordinate dei vettori cotangenti si trasformano in maniera ben definita in un cambio di carte. Questa trasformazione è però inversa rispetto a quella per i tangenti.
+
 \begin{theorem} 
   Sia $X$ una varietà e siano $(U,\phi)$ e $(V,\psi)$ due carte. Sia $x \in  U \cap V$ e sia $\alpha \in  T_x^* X$. Siano $u^* \in \R^{n}$ e $v^* \in  \R^{n}$ i corrispondenti di $\alpha$ secondo $\phi$ e $\psi$, rispettivamente. Allora, dette $u^*_i$ e $v^*_j$ le rispettive componenti, e detta $F^{\phi\psi}:\R^{n} \to \R^{n}$ la funzione di transizione, con componenti $F^{\phi \psi}_i$, vale \begin{equation} \label{eq:cvcTrans}
   u^*_i = \sum_{j=1}^n \pdv{F^{\phi \psi}_i}{x_j} v^*_j
   \end{equation} 
 \end{theorem}
 
-Identificando spazi tangenti e spazi delle derivazioni, una generica $1$-forma è associata alla combinazione lineare di differenziali \begin{equation*}
-d_x = \sum_{j=1}^{n} a^*_j(x)\, d_x x_j
+Una generica $1$-forma è data nella base canonica dalla combinazione lineare di differenziali \begin{equation*}
+\alpha_x = \sum_{j=1}^{n} a^*_j(x)\, \dd_x x_j
 \end{equation*} 
-dove $a_j^*$ è una funzione differenziabile da $\R^{n}$ a $\R$. Da ciò segue che, denotando la funzione di transizione con $\vec{y}(\vec{x})$, l'\autoref{eq:cvcTrans} diventa il teorema del differenziale totale \begin{equation*}
-d_x y_i = \sum_{j=1}^{n} \pdv{y_i}{x_j}\, d_x x_j
+dove $a_j^*$ è una funzione differenziabile da $\R^{n}$ a $\R$. Da ciò segue che, denotando la funzione di transizione con $\vec{y}(\vec{x})$, l'\autoref{eq:cvcTrans} implica simbolicamente il teorema del differenziale totale \begin{equation*}
+\dd_x y_i = \sum_{j=1}^{n} \pdv{y_i}{x_j}\, \dd_x x_j
 \end{equation*} 
 
 È possibile costruire un fibrato anche raccogliendo gli spazi cotangenti.
@@ -306,7 +316,8 @@ Finora la teoria delle forme differenziali è stata tenuta separata da quella de
   Lo spazio delle $k$-forme differenziali su una varietà $X$ è uno spazio vettoriale con le operazioni punto per punto, e si denota con $\Omega^k (X)$. Anche il prodotto esterno di forme differenziali è definibile punto per punto.
 \end{remark}
 
-Siccome le $k$-forme differenziali ammettono in ogni punto una base $T_y X$ formata da tutte le $k$-forme $\dd_y x_{i_1} \wedge \ldots \wedge \dd_y x_{i_k}$ tali che $i_1 < \ldots < i_k < n$, vale il seguente teorema.
+Siccome le $k$-forme differenziali ammettono in ogni punto $y \in X$ una base formata da tutte le $k$-forme $\dd_y x_{i_1} \wedge \ldots \wedge \dd_y x_{i_k}$ tali che $i_1 < \ldots < i_k < n$, vale il seguente teorema.
+
 \begin{theorem}
   Sia $X$ una varietà $n$-dimensionale, ogni $k$-forma differenziale $\alpha: y \mapsto \alpha_y$ su $X$ si può esprimere univocamente nelle basi locali $x_1, \ldots, x_n \simeq \phi_1, \ldots, \phi_n$ date da una carta $(U, \phi)$, con $y \in U$, come 
   \begin{equation*}
@@ -315,6 +326,7 @@ Siccome le $k$-forme differenziali ammettono in ogni punto una base $T_y X$ form
 \end{theorem}
 
 L'operazione duale al push-forward dei vettori lungo un'applicazione $f$ è il pull-back delle forme differenziali contro $f$.
+
 \begin{definition}
   Siano $X,Y$ due varietà, sia $\alpha \in \Omega^k (Y)$ e sia $f:X\to Y$ un'applicazione differenziabile. Si dice \dfn{pull-back} $f^*(\alpha) \in  \Omega^K(X)$ la $k$-forma differenziale $f^* \alpha$ su $X$ definita per $v_1, \ldots, v_k \in T_x X$, con $x \in X$, da \begin{equation*}
   (f^*\alpha)_x\, (v_1, \ldots, v_k) = \alpha_{f(x)}\big((D_x f)(v_1), \ldots, (D_x f)(v_n)\big)
@@ -357,10 +369,10 @@ Dal \autoref{thm:varChange} segue inoltre una generalizzazione del teorema di ca
 Tramite l'integrazione è possibile definire anche un'operazione di derivazione di $k$-forme.
 
 \begin{definition}
-  Sia $X$ una varietà e sia $\alpha \in \Omega^k(X)$. Si dice \dfn{derivata esterna} di $\alpha$, indicata con $\dd{a}$, la parte principale, $(k+1)$-lineare, dell'integrale $\int_{\partial \Pi} \alpha$, dove $\Pi$ è il parallelepipedo $k+1$-dimensionale delimitato dai vettori $v_1, \ldots, v_{k+1} \in \R^{n}$ corrispondenti in una carta $(U, \phi)$ ai vettori $\gamma_1, \ldots, \gamma_{k+1}$ su cui agisce $\dd\alpha$. Più precisamente, se per $\Pi$ delimitato da $\epsilon v_1, \ldots, \epsilon v_{k+1}$ si ha \begin{equation*}
+  Sia $X$ una varietà e sia $\alpha \in \Omega^k(X)$. Si dice \dfn{derivata esterna} di $\alpha$, indicata con $\dd{a}$, la parte principale, $(k+1)$-lineare, dell'integrale $\int_{\partial \Pi} \alpha$, dove $\Pi$ è il parallelepipedo $k+1$-dimensionale delimitato dai vettori $v_1, \ldots, v_{k+1} \in \R^{n}$ che in una carta $(U, \phi)$ rappresentano i vettori $\gamma_1, \ldots, \gamma_{k+1}$ su cui agisce $\dd\alpha$. In simboli, se per $\Pi$ delimitato da $\epsilon v_1, \ldots, \epsilon v_{k+1}$ si ha \begin{equation*}
     \int\limits_{\partial \Pi} \alpha = \epsilon^{k+1} A(v_1, \ldots, v_{k+1}) + \mathcal{O}\big(\epsilon^{k+2}\big)
   \end{equation*}
-  allora $\dd\alpha$ è definita da \begin{equation*}
+  allora $\dd\alpha$ è definita come \begin{equation*}
   \dd{\alpha}(\gamma_1, \ldots, \gamma_{k+1}) = A(v_1, \ldots, v_{k+1})
   \end{equation*} 
 \end{definition}
@@ -369,12 +381,12 @@ Tramite l'integrazione è possibile definire anche un'operazione di derivazione 
 \end{remark}
 
 \begin{theorem} \label{thm:derivCoords}
-  Sia $X$ una varietà e sia $\alpha \in \Omega^k(X)$, rappresentata nella carta $(U, \phi)$ da \begin{equation*}
+  Sia $X$ una varietà e sia $\alpha \in \Omega^k(X)$ rappresentata nella carta $(U, \phi)$ da \begin{equation*}
     \alpha_y = \sum_{i_1 < \ldots < i_k} a_{i_1\ldots i_k}(y)\ \dd_y x_{i_1} \wedge \ldots \wedge \dd_y x_{i_k}
     \end{equation*}
-    Allora $\dd{\alpha}$ è rappresentato nella stessa carta da
+    Allora $\dd{\alpha}$ è rappresentata nella stessa carta da
     \begin{equation*}
-      \alpha_y = \sum_{i_1 < \ldots < i_k} \sum_{j=1}^n \pdv{a_{i_1\ldots i_k}}{x_j}()(y)\ \dd_y x_{j} \wedge \dd_y x_{i_1} \wedge \ldots \wedge \dd_y x_{i_k}
+      \dd{\alpha_y} = \sum_{i_1 < \ldots < i_k} \sum_{j=1}^n \pdv{a_{i_1\ldots i_k}}{x_j}()(y)\ \dd_y x_{j} \wedge \dd_y x_{i_1} \wedge \ldots \wedge \dd_y x_{i_k}
       \end{equation*}
 \end{theorem}
 
