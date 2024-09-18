@@ -112,19 +112,7 @@ Su una varietà generica un gruppo può agire in qualsiasi modo. Perché l'azion
   Siano $G$ un gruppo di Lie e $(X, \omega)$ una varietà simplettica. L'azione $\Phi$ di $G$ su $X$ si dice \dfn{simplettica} se ogni azione $\Phi_g:X\to X$, con $g \in G$, è una trasformazione canonica.
 \end{definition}
 
-Fra le azioni simplettiche di un gruppo, esiste una sottoclasse con particolare rilevanza fisica, detta delle azioni \emph{hamiltoniane}. Queste sono le azioni date dal flusso di un'hamiltoniana e in un certo senso compatibili con la struttura di $G$. Questa hamiltoniana è definita tramite uno strumento noto come \emph{mappa momento}.
-\begin{definition}
-  Siano $(X,\omega)$ una varietà simplettica e $G$ un gruppo di Lie che vi agisce simpletticamente. Un'applicazione $\mu: X\to \mathfrak{g}^*$ denotata con $x \mapsto \mu_x$ si dice \dfn{mappa momento} dell'azione se per ogni $x \in X$, per ogni $\xi \in T_x X$ vale
-  \begin{equation*}
-  \omega\big((\phi_{\gamma})_x, \xi\big) = \dd_x [\mu_x(\gamma)](\xi)
-  \end{equation*} 
-  per ogni $\gamma \in \mathfrak{g}$.
-\end{definition}
-\begin{remark}
-  Questa richiesta equivale al chiedere che l'azione infinitesima di ciascun $\gamma$ sia il campo vettoriale di un'hamiltoniana, data da $x \mapsto H^{\gamma}(x) = \mu_x(\gamma)$.
-\end{remark}
-
-La mappa momento provoca l'entrata in scena di $\mathfrak{g}^*$, il duale dell'algebra di Lie. Il gruppo $G$ ha un'azione naturale, oltre che sull'algebra stessa, anche sul duale.
+Fra le azioni simplettiche di un gruppo, esiste una sottoclasse con particolare rilevanza fisica, detta delle azioni \emph{hamiltoniane}. Queste sono le azioni date dal flusso di un'hamiltoniana definita su tutta la varietà $X$ e in un certo senso compatibili con la struttura di $G$. La mappa momento implica l'entrata in scena di $\mathfrak{g}^*$, il duale dell'algebra di Lie. Il gruppo $G$ ha un'azione naturale, oltre che sull'algebra stessa, anche sul duale.
 \begin{definition}
   Siano $G$ un gruppo di Lie e $\mathfrak{g}$ la sua algebra associata. Si dice \dfn{azione coaggiunta} di $g \in G$ su $\mathfrak{g}^*$ l'applicazione $\mathrm{Ad}_g^*$ che manda $\alpha \in \mathfrak{g}^*$ in $\mathrm{Ad}^*_g(\alpha) \in \mathfrak{g}^*$ definito da
   \begin{equation*}
@@ -133,36 +121,61 @@ La mappa momento provoca l'entrata in scena di $\mathfrak{g}^*$, il duale dell'a
   per ogni $\gamma \in \mathfrak{g}$, dove $\mathrm{Ad}$ indica l'azione aggiunta di $G$ su $\mathfrak{g}$.
 \end{definition}
 
-La condizione di compatibilità dell'azione con la struttura di $G$ può ora essere formulata più precisamente. $G$ deve agire su $X$ in maniera compatibile con la sua azione su $\mathfrak{g}^*$, cioè le due operazioni devono formare un diagramma commutativo con la mappa momento, la quale collega gli insiemi. 
+La condizione di compatibilità dell'azione con la struttura di $G$ può ora essere formulata più precisamente. 
 \begin{definition}
-  Siano $(X, \omega)$ una varietà simplettica e $G$ un gruppo di Lie che vi agisce simpletticamente secondo le mappe $\Phi_g$, con $g \in G$. L'azione $\Phi$ di $G$ si dice \dfn{hamiltoniana} se esiste una mappa momento $\mu: X \to \mathfrak{g}^*$ tale che per ogni $g \in G$, per ogni $x \in X$ valga
+  Siano $(X, \omega)$ una varietà simplettica e $G$ un gruppo di Lie che vi agisce simpletticamente secondo le mappe $\Phi_g$, con $g \in G$. L'azione $\Phi$ di $G$ si dice \dfn{hamiltoniana} se esiste un'applicazione $\mu: X \to \mathfrak{g}^*$ tale che  per ogni $x \in X$, per ogni $\gamma \in \mathfrak{g}$ per ogni $\xi \in T_x X$ valga
+  \begin{equation*}
+  \omega\big((\phi_{\gamma})_x, \xi\big) = \dd_x [\mu_x(\gamma)](\xi)
+  \end{equation*} 
+  e inoltre per ogni $g \in G$, per ogni $x \in X$ valga
   \begin{equation*}
   \mu\big(\Phi_g(x)\big) = \mathrm{Ad}_g^*\, \big(\mu(x)\big)
   \end{equation*} 
+  In tal caso, l'applicazione $\mu$ è detta \dfn{mappa momento}.
 \end{definition}
+\begin{remark}
+  La prima richiesta equivale al chiedere che l'azione infinitesima di ciascun $\gamma$ sia il campo vettoriale di un'hamiltoniana, data da $x \mapsto P_{\gamma}(x) = \mu_x(\gamma)$. L'hamiltoniana così ottenuta dipende linearmente da $\gamma$, ma è possibile dimostrare che non c'è perdita di generalità rispetto al caso di hamiltoniane generiche.
+\end{remark}
+\begin{remark}
+  La seconda richiesta è che $G$ agisca su $X$ in maniera compatibile con la sua azione su $\mathfrak{g}^*$, cioè che le due operazioni formino un diagramma commutativo con la mappa momento, la quale collega gli insiemi. Questa richiesta, al contrario della prima, non può essere soddisfatta per hamiltoniane generiche.
+\end{remark}
+\begin{remark}
+  L'applicazione $\mu^*:\mathfrak{g} \to \mathcal{C}^{\infty}(X)$ che manda $\gamma \mapsto P_{\gamma}$, detta \dfn{mappa comomento}, è un omomorfismo delle due algebre di Lie, ovvero 
+  \begin{equation*}
+  [\gamma,\delta] = \{P_{\gamma}, P_{\delta}\} 
+  \end{equation*} 
+  per ogni $\gamma,\delta \in \mathfrak{g}$.
+\end{remark}
 
-I gruppi con azione hamiltoniana consentono di generalizzare il teorema di Noether.
+La principale rilevanza fisica delle azioni hamiltoniane sta nel fatto che esse consentono di generalizzare il teorema di Noether.
 
 \begin{theorem}
-  Siano $(X,\omega)$ una varietà simplettica e $G$ un gruppo di Lie con azione hamiltoniana $\Phi$ su di essa. Sia $\mu: X\to \mathfrak{g}^*$ la mappa momento. Sia $H: X\to \R$ una funzione hamiltoniana conservata dall'azione di $G$. Allora $\mu$ è conservata dal flusso di $H$.
+  Siano $(X,\omega)$ una varietà simplettica e $G$ un gruppo di Lie con azione hamiltoniana $\Phi$ su di essa. Sia $\mu: X\to \mathfrak{g}^*$ la mappa momento. Sia $H: X\to \R$ una funzione hamiltoniana conservata dall'azione di $G$. Allora le funzioni $P^{\gamma}: X\to \R$ definite da $x \mapsto P^{\gamma}(x) = \mu_x(\gamma)$ sono conservate dal flusso hamiltoniano di $H$.
 \end{theorem}
+\begin{remark}
+  L'invarianza delle $P^{\gamma}$ implica che le componenti di $\mu_x$ in una qualsiasi base di $\mathfrak{g}^*$ siano costanti. Si può quindi dire che \emph{le componenti del momento si conservano}. 
+\end{remark}
 
-Il teorema di Noether in senso stretto può essere formulato geometricamente come un caso particolare dell'origine di flussi hamiltoniani.
+Il teorema di Noether in senso stretto risulta un caso particolare dell'origine di flussi hamiltoniani.
 \begin{theorem}
   Sia $Q$ una varietà e sia $G$ un gruppo di Lie che ne fornisce una simmetria continua secondo una qualche azione $\Phi$. Allora l'azione $\Phi'$ di $G$ sul fibrato cotangente $T^*Q$ corrispondente a $\Phi$ è hamiltoniana rispetto alla forma canonica.
 \end{theorem}
 
-La mappa momento è lo strumento naturale per formulare uno dei più potenti teoremi della meccanica simplettica, che stabilisce un'equivalenza tra un sistema con una data simmetria e un sistema \emph{ridotto}, più semplice.
+Siccome $P_\gamma$ deve rimanere costante, un sistema che ammette un'azione hamiltoniana ha meno gradi di libertà effettivi di quanto appaia a primo impatto. È possibile rimuovere i gradi di libertà senza significato fisico tramite un processo noto come \emph{riduzione simplettica}, reso possibile dal teorema seguente.
+
 \begin{theorem}[Marsden-Weinstein]
-  Sia $(X,\omega)$ una varietà simplettica, sia $G$ un gruppo di Lie compatto con azione hamiltoniana su $X$ e sia $\mu:  X \to \mathfrak{g}^*$ la mappa momento. Se $G$ agisce liberamente su $\mu^{-1}(0)$ allora:
+  Sia $(X,\omega)$ una varietà simplettica, sia $G$ un gruppo di Lie compatto con azione hamiltoniana su $X$ e sia $\mu:  X \to \mathfrak{g}^*$ la mappa momento. Sia $p \in \mathfrak{g}^*$, sia $X_p = \mu^{-1}(p)$ e sia $G_p = \{g \in G \mid \mathrm{Ad}_g^*\, p = p\}$. Se $G_p$ agisce liberamente su $M_p$ allora:
   \begin{enumerate}
-    \item L'insieme $\mu^{-1}(0)/G$ è una varietà simplettica con forma simplettica $\omega_r$ tale che \begin{equation*}
+    \item L'insieme $M_p/G_p$ è una varietà simplettica con forma simplettica $\omega_r$ tale che \begin{equation*}
     \pi^* \omega_r = \omega
     \end{equation*} 
-    dove $\pi:\mu^{-1}(0) \to \mu^{-1}(0)/G$ è la proiezione sullo spazio quoziente.
-    \item Se $H:X\to \R$ è una funzione differenziabile invariante sotto l'azione di $G$, allora essa corrisponde a una funzione $H_r:\mu^{-1}(0)/G \to \R$ il cui campo hamiltoniano rispetto a $\omega_r$ è \begin{equation*}
+    dove $\pi:M_p \to M_p/G_p$ è la proiezione sullo spazio quoziente e $\omega$ indica in realtà la \emph{restrizione} $\omega|_{X_p}$.
+    \item Se $H:X\to \R$ è una funzione differenziabile invariante sotto l'azione di $G$, allora la sua restrizione a $M_p/G_p$ (il cui valore su una classe di equivalenza è dato dal valore su un rappresentante) è una funzione $H_r:M_p/G_p \to \R$ il cui campo hamiltoniano rispetto a $\omega_r$ è \begin{equation*}
     X_{H_r} = D \pi(X_H)
     \end{equation*}
     dove $X_H$ è il campo hamiltoniano di $H$.
   \end{enumerate}
 \end{theorem}
+\begin{remark}
+  I due punti del teorema corrispondono al fatto che sia la \emph{struttura simplettica} della varietà che la sua \emph{dinamica hamiltoniana} possono essere ridotte, rimuovendo le informazioni che la simmetria rispetto a $G$ rende superflue.
+\end{remark}
