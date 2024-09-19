@@ -100,7 +100,7 @@ La definizione degli operatori di base $\hat{\gamma}_i$ può essere scritta come
   &= \lim_{\epsilon \to 0} \frac{f(\gamma_i(\epsilon))-f(\gamma_i(0))}{\epsilon} = \\
   &= \lim_{\epsilon \to 0} \frac{f(\phi^{-1}(\phi(x)+\epsilon e_i))-f(\phi^{-1}(\phi(x)))}{\epsilon} = \\
   &= \lim_{\epsilon \to 0} \frac{\hat{f}(\phi(x)+\epsilon e_i)-\hat{f}(\phi(x))}{\epsilon} = \\
-  &= \eval{\pdv{\hat{f}}{x_i}}_{\phi(x)} \equiv \eval{\pdv{x_i}}_x f \equiv \eval{\partial_i}_x f
+  &= \eval{\pdv{\hat{f}}{x_i}}_{\phi(x)} \equiv \eval{\pdv{x_i}}_x f \equiv \partial_i\big|_x f
 \end{aligned}
 \end{equation*} 
 dove $\hat{f}$ è la rappresentazione di $f$ nella carta $\phi$. Un generico vettore tangente, inteso come derivata direzionale, può quindi essere scritto come combinazione lineare degli operatori $\eval{\partial_i}_x$. Un tale oggetto si dice \dfn{operatore differenziale del primo ordine valutato in $x$}. Ovviamente, quindi, i vettori tangenti a $X$ in un punto $x$ possono essere definiti in una terza maniera equivalente come operatori differenziali del primo ordine valutati in $x$.
@@ -411,7 +411,4 @@ Tramite la derivata esterna è possibile generalizzare il concetto di campo vett
   Si dice \dfn{non degenere} una $2$-forma differenziale $\alpha$ su una varietà $X$ tale che, se $\alpha_x (\gamma, \delta) = 0$ per ogni $\gamma \in T_x X$, con $x \in  X$, allora $\delta = 0$.
 \end{definition}
 
-Combinando questi due requisiti, si ottiene un tipo di forma differenziale che sarà fondamentale per ottenere lo scopo prefissato alla fine dello scorso capitolo, ovvero liberare la meccanica dalle coordinate.
-\begin{restatable}{definition}{symplecticForm}
-  Si dice \dfn{forma simplettica} una $2$-forma differenziale $\omega$ chiusa e non degenere. Si dice \dfn{varietà simplettica} una varietà $2n$-dimensionale su cui è definita una forma simplettica.
-\end{restatable}
+I concetti finora esposti costituiscono la base della teoria delle varietà differenziabili. Il prossimo capitolo esaminerà concetti più specializzati all'obiettivo di questo elaborato.

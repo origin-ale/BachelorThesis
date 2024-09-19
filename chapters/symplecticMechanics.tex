@@ -1,13 +1,12 @@
-\chapter{Meccanica simplettica}
-In questo capitolo si esploreranno le proprietà di un tipo particolare di $1$-forma, detto \dfn{forma simplettica}. Una forma di questo tipo è definita naturalmente su ogni fibrato cotangente e rende possibile definire un'algebra di Lie delle funzioni su di esso tramite un'operazione detta \dfn{parentesi di Poisson}. Si passeranno poi in rassegna le formulazioni trattate nel capitolo 1, che ora potranno essere riscritte in maniera indipendente dalle coordinate. Lo spazio delle fasi in particolare risulterà essere un fibrato cotangente, e grazie alla sua struttura simplettica sarà possibile scrivere le equazioni di Hamilton in maniera indipendente dalle coordinate, completando così la formulazione geometrica della meccanica classica.
+\chapter{Varietà simplettiche}
+In questo capitolo si userà la teoria delle varietà differenziabili per costruire gli strumenti che saranno poi impiegati nella formulazione simplettica della meccanica. Si definirà una \emph{struttura simplettica} canonica sui fibrati cotangenti, che consentirà di associare un campo vettoriale a ogni funzione definita su di essi. Si formalizzeranno poi le simmetrie possedute da una data varietà tramite il concetto di \emph{azione di un gruppo di Lie}. Infine, si vedrà che i gradi di libertà su cui vale una simmetria possono essere eliminati tramite un processo noto come \emph{riduzione simplettica}.
 
 \section{Struttura simplettica}
 % \symplecticForm*
 
 \begin{restatable}{definition}{symplecticForm}
   Si dice \dfn{forma simplettica} una $2$-forma differenziale $\omega$ chiusa e non degenere. Si dice \dfn{varietà simplettica} una varietà $2n$-dimensionale su cui è definita una forma simplettica.
-\end{restatable} % PLACEHOLDER FOR INDEPENDENT COMPILATION, REMOVE FOR FINAL VERSION
-
+\end{restatable}
 Su ogni fibrato cotangente è definita una forma simplettica grazie alla proiezione $\pi$ e ai covettori $\dot{x}^*$ che formano le fibre.
 \begin{definition}
   Sia $M$ una varietà $n$-dimensionale e sia $X = T^*M$ il suo fibrato cotangente, con proiezione $\pi:X\to M$. Si dice \dfn{$1-$forma tautologica} $\lambda$ su $X$ la $1$-forma differenziale tale che \begin{equation*}
@@ -142,49 +141,185 @@ La struttura simplettica consente di associare campi vettoriali a funzioni diffe
   \end{equation*} 
 \end{theorem}
 
-\section{Meccanica su varietà}
-Nel capitolo 1 si è definito lo spazio delle configurazioni $\mathbb{M}$ di un sistema non vincolato di $N$ particelle come il prodotto di $N$ copie di $\R^{3}$. Questo spazio è identificabile con $\R^{3N}$. Se sulle particelle viene imposto un vincolo, lo spazio delle configurazioni del sistema diventa un qualche insieme $M \subset \R^{3N}$. Come già affermato, questo insieme non avrà in generale una struttura di spazio vettoriale. I suoi punti $x$ potranno però essere individuati da $n$-uple $\vec{q}$, dette coordinate, tramite funzioni biunivoche $\phi^{-1}: \vec{q} \mapsto x$. $M$ avrà quindi la struttura più generale di una \emph{varietà differenziabile}, con atlante dato dalle funzioni $\phi: x \mapsto \vec{q}$ e dai loro domini di biunivocità. Si dice che lo spazio delle configurazioni di un sistema di $N$ particelle con $3N-n$ vincoli è una varietà $n$-dimensionale \dfn{immersa} in $\R^{3N}$, lo spazio $3N$-dimensionale delle configurazioni senza vincoli.
+\section{Gruppi di Lie e algebre associate}
+Un gruppo di Lie è sostanzialmente \textquotedblleft un gruppo che è anche una varietà\textquotedblright, con opportune richieste sulle applicazioni di gruppo.
+\begin{definition}
+  Si dice \dfn{gruppo di Lie} una varietà $G$ con due applicazioni differenziabili $\cdot: G \times G \to G$ e ${}^{-1}: G\to G$, dette rispettivamente \dfn{moltiplicazione} e \dfn{inversione}, e un punto $e \in G$ detto \dfn{identità}, tali che:
+  \begin{enumerate}
+    \item $\cdot $ sia \dfn{associativa}: per ogni $g,f,h \in G$ vale $g\cdot (f\cdot h) = (g\cdot f) \cdot h$.
+    \item $e$ sia l'identità destra e sinistra: per ogni $g \in G$ vale $g \cdot e = e \cdot g = g$.
+    \item per ogni $g \in G$, $g^{-1}$ sia l'\dfn{inverso} di $g$: $g \cdot g^{-1} = g^{-1}\cdot g = e$.
+  \end{enumerate}
+\end{definition}
 
-Per individuare univocamente un generico sistema sono necessari due elementi: il suo spazio delle configurazioni $M$ e l'energia potenziale, definita proprio sullo spazio delle configurazioni, $V: x \in M \mapsto V(x) \in \R$.  
+I gruppi consentono di modellizzare matematicamente le \emph{simmetrie} di una varietà, tramite il concetto di azione.
+\begin{definition}
+  Sia $X$ una varietà e sia $G$ un gruppo di Lie. Si dice \dfn{azione sinistra} di $G$ su $X$ un'applicazione differenziabile $\Phi:(g,x) \in G \times X \mapsto \Phi_g(x) \in X$ tale che:
+  \begin{enumerate}
+    \item l'azione di $e$ sia la mappa identità: $\Phi_e (x) = x$ per ogni $x \in X$.
+    \item azione e moltiplicazione siano associative fra loro: $\Phi_{g\cdot h} (x) = \Phi_g \big(\Phi_h (x)\big)$ per ogni $g,h \in G$ e $x \in X$.
+  \end{enumerate}
+Se esiste una tale mappa, si dice che $X$ ha \dfn{simmetria continua} sotto $G$. 
+\end{definition}
+\begin{remark}
+  Il nome di simmetria è dovuto al fatto che per definizione la mappa di azione è \emph{interna} a $X$: l'azione di $G$ non \textquotedblleft genera\textquotedblright nuovi punti di $X$, l'insieme resta lo stesso.
+\end{remark}
+\begin{remark}
+  Le \dfn{azioni} di un gruppo di Lie $G$, $\Phi_g: x \mapsto g\cdot x$ con $g \in G$, sono diffeomorfismi per definizione.
+\end{remark}
 
-% La velocità $\dot{x}$ di un sistema è interpretabile come un vettore tangente allo spazio delle configurazioni nel punto $x(t)$, facendo corrispondere a ogni $\gamma \in T_x M$ il vettore $\dot{x} = \dot{\gamma}(0)$, che appartiene a $\R^{n}$ poiché $\gamma: ]-\epsilon,\epsilon[ \to M \subset \R^{n}$ ed è tangente nel senso ordinario (ortogonale al gradiente dei vincoli) alla varietà immersa $M$. Su ogni spazio tangente è quindi definita l'energia cinetica come forma quadratica $K_x: \dot{x} \mapsto \frac{1}{2} \dot{x}^2$.
+Dato che un gruppo di Lie è esso stesso una varietà, un gruppo può agire su se stesso. Ciò è possibile in vari modi.
 
-La velocità $\dot{x}$ di un sistema è definita come derivata temporale $\dv{\overline{x}}{t}()(t)$ del suo moto $\overline{x}: t \in I \mapsto \overline{x}(t) \in M$, dove $I$ è un intervallo reale. Per definizione, un vettore tangente alla varietà $M$ nel punto $x \in M$ è una classe di equivalenza di cammini infinitesimi che passano da $x$ al tempo $0$. Per un dato $x =\overline{x}(t)$, si può traslare il tempo e ridurne il dominio in modo da ottenere un nuovo cammino $\gamma:]-\epsilon, \epsilon\,[$ tale che $x = \gamma(0)$. Questo cammino sarà inoltre tale che $\dot{x} = \dv{\gamma}{t}()(0)$. Siccome $M \subset \R^{n}$, una scelta valida per $\phi$ è l'identità $\identity$. Quindi, perché un secondo cammino $\gamma'$ sia equivalente a $\gamma$, è necessario e sufficiente che \begin{equation*}
-\eval{\dv{t}}_{t=0} \gamma'(t) = \eval{\dv{t}}_{t=0} \gamma(t) = \dot{x}
-\end{equation*}
-per definizione: la velocità $\dot{x}$ caratterizza la classe $[\gamma]$ dello spazio tangente a $M$ in $x$. Questo potrà quindi essere identificato con lo spazio delle velocità possibili quando il sistema ha configurazione $x$. Si può quindi dire che la velocità di un sistema è un vettore tangente allo spazio delle configurazioni nella configurazione attuale del sistema. L'energia cinetica, funzione della velocità, è quindi definita per ciascun $x \in M$ su $T_x M$ da $K_x: \dot{x} \mapsto \frac{1}{2} \dot{x}^2$, dove la norma è la norma in $\R^{n}$.
+\begin{definition}
+  Sia $G$ un gruppo di Lie. Si dice \dfn{azione diretta} di $G$ su se stesso l'applicazione data da $\Phi^{\text{dir}}_g(h) = g \cdot h$ per ogni $g,h \in X$.
+\end{definition}
+\begin{definition}
+  Sia $G$ un gruppo di Lie, si dice \dfn{azione aggiunta} di $G$ su se stesso l'applicazione data da $\Phi^{\dagger}_g(h) = g \cdot h \cdot g^{-1}$ per ogni $g,h \in X$.
+\end{definition}
+\begin{remark} \label{rem:adjIdentity}
+  L'azione aggiunta di un elemento $g$ di un gruppo di Lie $G$ manda l'identità in se stessa, siccome \begin{equation*}
+  \Phi^{\dagger}_g e = g\cdot e\cdot g^{-1} = g\cdot g^{-1} = e
+  \end{equation*} 
+\end{remark}
 
-La lagrangiana di un sistema dipende sia dall'energia potenziale che dall'energia cinetica, e dunque sia dalla configurazione del sistema che dalla sua velocità. Essa deve quindi essere definita su $TM$, il fibrato tangente di $M$. Le energie cinetica e potenziale dovranno quindi cambiare dominio da rispettivamente $T_x M$ e $M$ a $TM$ per poter formare la lagrangiana. Sia $(x,\dot{x}) \in TM$, con $x \in M$ e $\dot{x} \in T_x M$ ciò si può fare definendo \begin{equation*}
-\begin{aligned}
-  &V(x,\dot{x})|_{TM} = V(x)|_M \\
-  &K(x, \dot{x})|_{TM} = K(\dot{x})|_{T_x M}
-\end{aligned}
-\end{equation*} 
-Si può a questo punto definire la lagrangiana come una funzione differenziabile $\mathcal{L}:TM\to \R$ data per $x \in M$ e $\dot{x} \in T_x M$ da \begin{equation*}
-\mathcal{L}(x,\dot{x}) = K(\dot{x}) - V(x)
-\end{equation*}
+Siccome un gruppo di Lie è anche una varietà, su di esso sono definiti spazi tangenti e derivate. In particolare, se $\Phi^{\dagger}_g$ è l'azione aggiunta di $g \in G$, per l'\autoref{rem:adjIdentity} si ha che $D_e \Phi^{\dagger}_g: T_e G \to T_e G$. Quindi esiste un'azione naturale di $G$ sul suo spazio tangente nell'identità.
+\begin{definition}
+  Si dice \dfn{azione aggiunta} di un gruppo di Lie $G$ sul suo spazio tangente nell'identità $T_e G$ la derivata dell'azione aggiunta di $G$ su se stesso $\mathrm{Ad}_g = D_e \Phi_g$, per ciascun $g \in G$. 
+\end{definition}
 
-La trasformata di Legendre rispetto alle velocità trasforma la lagrangiana $\mathcal{L}(x,\dot{x})$ nell'hamiltoniana $\mathcal{H}(x,\dot{x}^*)$ dove gli $\dot{x}^*$ sono elementi dello spazio duale a quello degli $\dot{x}$. Ma poiché $\dot{x} \in T_x M$, ciò significa che $\dot{x}^* \in T_x^* M$, e quindi l'hamiltoniana di un sistema è definita sul fibrato cotangente del suo spazio delle configurazioni. Il momento generalizzato $\dot{x}^*$ è infatti un vettore cotangente, dato da \begin{equation*}
-  \dot{x}^* = \dd_{\dot{x}} \mathcal{L}
-\end{equation*}
-Lo spazio delle fasi può quindi essere definito in maniera indipendente dalle coordinate come il fibrato cotangente $T^* M$ dello spazio delle configurazioni. Se una regione di $M$ è coperta dalla carta $(U,\phi)$, un punto $x \in U$ si può individuare con $\vec{q} = (q_1, \ldots, q_n) = (\phi_1(x), \ldots, \phi_n(x))$ e il momento generalizzato cotangente a $M$ in $x$ si può individuare con $\vec{p}=(p_1, \ldots, p_n)$, le coordinate nella base duale data da $\{\dd_x \phi_1, \ldots, \dd_x \phi_n\} $. Si recupera così la definizione basata sulle coordinate.
+Proprio lo spazio tangente nell'identità consente di associare a ogni gruppo di Lie un'algebra di Lie, tramite l'algebra di Lie dei campi vettoriali che è definita su ogni varietà. A ogni elemento $\gamma$ dello spazio tangente a $G$ nell'identità si può infatti associare un campo vettoriale su tutto $G$, sfruttando l'azione di $G$ per fare il push-forward di $\gamma$ su tutti gli spazi tangenti.
+\begin{definition}
+  Siano $G$ un gruppo di Lie, $e \in G$ la sua identità e $\gamma \in T_e G$. Si dice \dfn{campo associato} a $\gamma$ il campo vettoriale $V_\gamma$ su $G$, dato per ogni $g \in G$ da \begin{equation*}
+  \big(V_\gamma\big)_g = \big(D_e \Phi^{\text{dir}}_g\big) (\gamma)
+  \end{equation*} 
+  dove $\Phi^{\text{dir}}_g$ è l'azione diretta di $G$ su se stesso.
+\end{definition}
+\begin{remark}
+  Questo campo vettoriale può essere visto come il campo degli spostamenti infinitesimi di ciascun elemento di $G$, se essi vengono ottenuti come $g=\Phi^{\text{dir}}_g(e)$ e l'identità viene spostata infinitesimamente in modo dato da $\gamma$.
+\end{remark}
+\begin{definition}
+  Siano $G$ un gruppo di Lie, $e \in G$ la sua identità e $\gamma, \delta \in T_e G$. Si dice \dfn{parentesi di Lie} dei due vettori tangenti $\gamma$ e $\delta$ il vettore \begin{equation*}
+  [\gamma,\delta] = [V_{\gamma}, V_{\delta}]_e
+  \end{equation*} 
+  dove la parentesi al secondo membro è la parentesi di Lie di campi vettoriali su $X$.
+\end{definition}
+\begin{remark}
+  Per le matrici, la parentesi di Lie corrisponde all'effettuare una rotazione infinitesima $\gamma$ seguita da $\delta$, per poi invertire $\delta$ e poi $\gamma$. Questo non è altro che il commutatore.
+\end{remark}
+\begin{definition}
+  Sia $G$ un gruppo di Lie e $e$ la sua identità, si dice \dfn{algebra di Lie} $\mathfrak{g}$ di $G$ l'algebra di Lie $\big(T_e G, [\cdot ,\cdot ]\big)$.
+\end{definition}
+\begin{remark}
+  Spesso verrà usato il simbolo $\mathfrak{g}$ anche per indicare $T_e G$.
+\end{remark}
+\begin{theorem}
+  L'algebra di Lie $\mathfrak{g}$ di un gruppo di Lie è sempre a dimensione finita.
+\end{theorem}
 
-La \autoref{def:hamField} estende la \autoref{eq:hamFieldUnconstr} al caso di varietà che non costituiscono spazi vettoriali. Si consideri infatti una varietà simplettica $2n$-dimensionale $X$. In una carta $(U,\phi)$ siano i suoi punti $x \in U$ individuati dalle coordinate $(x_1, \ldots, x_{2n})$ e i vettori $\gamma$ tangenti a $X$ in un punto $y \in U$ individuati dalle coordinate $(\gamma_1, \ldots, \gamma_{2n})$. Allora il differenziale $\dd{\mathcal{H}}$ è rappresentato dalla trasposta del gradiente su queste coordinate $(\grad{\mathcal{H}})^T$, così che \begin{equation*}
-\dd{\mathcal{H}}(\gamma) = (\grad{\mathcal{H}})^T \begin{pmatrix} \gamma_1\\ \vdots\\ \gamma_{2n} \end{pmatrix}
-\end{equation*} 
-Allo stesso tampo, la forma simplettica $\omega$ sarà rappresentata da $\mathsf{J} = \left( \begin{smallmatrix}
-  0 & -\mathsf{I} \\ \mathsf{I} & 0
-\end{smallmatrix}  \right) $ e il campo $X_{\mathcal{H}}$ da un vettore $\mathsf{X_{\mathcal{H}}}$, così che
-\begin{equation*}
-\dd{\mathcal{H}}(\gamma) = \omega(X_{\mathcal{H}}, \gamma) = \mathsf{X_{\mathcal{H}}}^T\, \mathsf{J}\, \begin{pmatrix} \gamma_1\\ \vdots\\ \gamma_{2n} \end{pmatrix}
-\end{equation*} 
-Da ciò segue che $\mathsf{X_{\mathcal{H}}}^T \mathsf{J} = (\grad{\mathcal{H}})^T$. Trasponendo e moltiplicando per $\mathsf{J}$, siccome $\mathsf{J}^2 =- \mathsf{I}$, si ha
-\begin{equation*}
-\mathsf{X}_{\mathcal{H}} = -\mathsf{J} \grad{\mathcal{H}} 
-\end{equation*}
-ovvero per le coordinate vale \begin{equation*}
-\dot{q}_i = \pdv{\mathcal{H}}{p_i} \qquad \dot{p}_i = - \pdv{\mathcal{H}}{q_i}
-\end{equation*}
-che sono le equazioni di Hamilton. Le linee di flusso del campo vettoriale hamiltoniano minimizzano quindi l'azione associata alla lagrangiana ridotta sullo spazio delle configurazioni vincolato. Esse minimizzano quindi l'azione, e dunque rappresentano le posizioni e le velocità che il sistema ha nel suo moto. Con quest'ultimo tassello è finalmente possibile porre una formulazione della meccanica di sistemi con vincoli olonomi arbitrari puramente geometrica e libera da coordinate.
+Grazie allo stretto legame fra le definizioni delle parentesi di Lie nei due casi, le algebre dei vettori tangenti nell'identità e dei campi vettoriali sono in realtà omomorfe.
 
-Un sistema fisico è definito dal suo \emph{spazio delle configurazioni}, una varietà differenziabile $n$-dimensionale $M$ in cui ogni punto $m$ corrisponde a una diversa configurazione delle componenti del sistema, e da una funzione \emph{hamiltoniana} $\mathcal{H}: M\to \R$, che ne governa il movimento. Lo \emph{stato} di un sistema è rappresentato da un punto nello \emph{spazio delle fasi}, il fibrato cotangente $X = T^* M$ dello spazio delle configurazioni. Sullo spazio delle fasi è definita la \emph{forma simplettica canonica} $\omega$. Tramite essa è definito il \emph{campo vettoriale hamiltoniano} $X_{\mathcal{H}}$, ovvero quel campo tale che, per un qualsiasi vettore $\gamma$ tangente allo spazio delle fasi in un qualche punto $x \in X$, prenderne la forma simplettica con il campo hamiltoniano $\omega_{x}(X_{\mathcal{H}}, \gamma)$ sia uguale a prenderne il differenziale dell'hamiltoniano $\dd_{x}{\mathcal{H}}(\gamma)$. Se il sistema parte da uno stato iniziale $(x_0, \dot{x}^*_0)$, il suo stato percorre la linea di flusso di $X_{\mathcal{H}}$ che parte da $(x_0, \dot{x}^*_0)$. L'evoluzione di una qualsiasi funzione di stato $F$ è data dalla parentesi di Poisson $\{F, \mathcal{H}\}$.
+\begin{definition} \label{def:infmAction}
+  Sia $G$ un gruppo di Lie e sia $X$ una varietà di cui $G$ fornisce una simmetria continua con l'azione $\Phi$. Si dice \dfn{azione infinitesima} di $G$ su $X$ la seguente mappa $\phi: \mathfrak{g} \to \mathrm{Vec}\, X$. Per ogni $[\gamma] \in T_e G$, si scelga un rappresentante della classe di equivalenza $\gamma:\R\to G$ con $\gamma(0) = e$. L'azione infinitesima associa a $[\gamma]$ un campo vettoriale su $X$ dato dalle classi di equivalenza dei cammini su $X$
+  \begin{equation*}
+  \big(\phi_{\gamma}\big)_x = \Phi_{\gamma(t)} (x)
+  \end{equation*}
+  Se esiste una tale mappa, si dice che $X$ ha una \dfn{simmetria infinitesima} data da $G$.
+\end{definition}
+\begin{theorem}
+  La mappa $\phi: \mathfrak{g} \to \mathrm{Vec}\, X$ definita nella \autoref{def:infmAction}, è un omomorfismo tra $\mathfrak{g}$ e l'algebra dei campi vettoriali su $X$.
+\end{theorem}
+\begin{definition}
+  La mappa $\big(t, [\gamma]\big) \in \R \times  \mathfrak{g} \mapsto g \in G$ che costituisce il cammino $\gamma$ nella \autoref{def:infmAction} è detta \dfn{mappa esponenziale}, e si denota $\exp(t \gamma)$, se vale $\exp\big((t+s) \gamma\big) = \exp(t \gamma) \cdot  \exp (s \gamma)$ per ogni $t,s \in \R$.
+\end{definition}
+\begin{remark}
+  Questa nomenclatura generalizza il caso in cui $G$ sia un gruppo di Lie composto da matrici.
+\end{remark}
+
+Un gruppo di Lie $G$ con opportune proprietà può essere usato per rimuovere informazioni ridondanti dai punti di una varietà $X$, sfruttando la simmetria a cui esso è associato.
+\begin{definition}
+  Sia $X$ una varietà e $G$ un gruppo di Lie. Un'azione di $G$ su $X$ si dice \dfn{libera} se nessuna azione di un elemento $g \in G$ diverso dall'identità ha punti fissi.
+\end{definition}
+\begin{definition}
+  Siano $G$ un gruppo di Lie e $X$ una varietà su cui esso agisce secondo $\Phi$. Si dice \dfn{orbita} di $x \in X$ l'insieme $Gx = \{ \Phi_g(x)\mid g \in G\}$. Si dice \dfn{fetta} dell'azione di $G$ in $p \in Gx$ l'insieme $S_{\epsilon}(p) = \phi^{-1}\big(\phi(Gx)^{\perp} \cap B_{\epsilon}(0)\big)$ dove $(U,\phi)$ è una carta su $X$ e $\phi(Gx)^{\perp}$ è il complemento ortogonale dell'immagine di $Gx$ attraverso la carta.
+\end{definition}
+\begin{theorem}
+  Sia $X$ una varietà e $G$ un gruppo di Lie compatto che agisce liberamente su $X$ secondo $\Phi$. Allora l'insieme quoziente $X/G$ definito dalla relazione di equivalenza $x \sim \Phi_g(x)$, con $x \in X$ e $g \in G$, ha una struttura naturale di varietà differenziabile, tale che l'applicazione $\pi:X \to X /G$ che manda un punto nella sua classe di equivalenza sia differenziabile. Le carte sono le carte $(U/G,\phi)$ dove $U = G\big(S_{\epsilon}(p)\big)$ con $p \in X$ e $\phi$ è una carta su $S_{\epsilon}(p)$, che è una sottovarietà di $X$.
+\end{theorem}
+
+\section{Riduzione simplettica}
+Su una varietà generica un gruppo può agire in qualsiasi modo. Perché l'azione di un gruppo su una varietà simplettica abbia senso, è invece necessario che l'azione del gruppo non cambi la struttura simplettica.
+\begin{definition}
+  Siano $G$ un gruppo di Lie e $(X, \omega)$ una varietà simplettica. L'azione $\Phi$ di $G$ su $X$ si dice \dfn{simplettica} se ogni azione $\Phi_g:X\to X$, con $g \in G$, è una trasformazione canonica.
+\end{definition}
+
+Fra le azioni simplettiche di un gruppo, esiste una sottoclasse con particolare rilevanza fisica, detta delle azioni \emph{hamiltoniane}. Queste sono le azioni date dal flusso di un'hamiltoniana definita su tutta la varietà $X$ e in un certo senso compatibili con la struttura di $G$. La mappa momento implica l'entrata in scena di $\mathfrak{g}^*$, il duale dell'algebra di Lie. Il gruppo $G$ ha un'azione naturale, oltre che sull'algebra stessa, anche sul duale.
+\begin{definition}
+  Siano $G$ un gruppo di Lie e $\mathfrak{g}$ la sua algebra associata. Si dice \dfn{azione coaggiunta} di $g \in G$ su $\mathfrak{g}^*$ l'applicazione $\mathrm{Ad}_g^*$ che manda $\alpha \in \mathfrak{g}^*$ in $\mathrm{Ad}^*_g(\alpha) \in \mathfrak{g}^*$ definito da
+  \begin{equation*}
+  \big[\mathrm{Ad}^*_g(\alpha)\big](\gamma) = \alpha(\mathrm{Ad}_{g^{-1}}\gamma)
+  \end{equation*}
+  per ogni $\gamma \in \mathfrak{g}$, dove $\mathrm{Ad}$ indica l'azione aggiunta di $G$ su $\mathfrak{g}$.
+\end{definition}
+
+La condizione di compatibilità dell'azione con la struttura di $G$ può ora essere formulata più precisamente. 
+\begin{definition}
+  Siano $(X, \omega)$ una varietà simplettica e $G$ un gruppo di Lie che vi agisce simpletticamente secondo le mappe $\Phi_g$, con $g \in G$. L'azione $\Phi$ di $G$ si dice \dfn{hamiltoniana} se esiste un'applicazione $\mu: X \to \mathfrak{g}^*$ tale che  per ogni $x \in X$, per ogni $\gamma \in \mathfrak{g}$ per ogni $\xi \in T_x X$ valga
+  \begin{equation*}
+  \omega\big((\phi_{\gamma})_x, \xi\big) = \dd_x [\mu_x(\gamma)](\xi)
+  \end{equation*} 
+  e inoltre per ogni $g \in G$, per ogni $x \in X$ valga
+  \begin{equation*}
+  \mu\big(\Phi_g(x)\big) = \mathrm{Ad}_g^*\, \big(\mu(x)\big)
+  \end{equation*} 
+  In tal caso, l'applicazione $\mu$ è detta \dfn{mappa momento}.
+\end{definition}
+\begin{remark}
+  La prima richiesta equivale al chiedere che l'azione infinitesima di ciascun $\gamma$ sia il campo vettoriale di un'hamiltoniana, data da $x \mapsto P_{\gamma}(x) = \mu_x(\gamma)$. L'hamiltoniana così ottenuta dipende linearmente da $\gamma$, ma è possibile dimostrare che non c'è perdita di generalità rispetto al caso di hamiltoniane generiche.
+\end{remark}
+\begin{remark}
+  La seconda richiesta è che $G$ agisca su $X$ in maniera compatibile con la sua azione su $\mathfrak{g}^*$, cioè che le due operazioni formino un diagramma commutativo con la mappa momento, la quale collega gli insiemi. Questa richiesta, al contrario della prima, non può essere soddisfatta per hamiltoniane generiche.
+\end{remark}
+\begin{remark}
+  L'applicazione $\mu^*:\mathfrak{g} \to \mathcal{C}^{\infty}(X)$ che manda $\gamma \mapsto P_{\gamma}$, detta \dfn{mappa comomento}, è un omomorfismo delle due algebre di Lie, ovvero 
+  \begin{equation*}
+  [\gamma,\delta] = \{P_{\gamma}, P_{\delta}\} 
+  \end{equation*} 
+  per ogni $\gamma,\delta \in \mathfrak{g}$.
+\end{remark}
+
+La principale rilevanza fisica delle azioni hamiltoniane sta nel fatto che esse consentono di generalizzare il teorema di Noether.
+
+\begin{theorem}
+  Siano $(X,\omega)$ una varietà simplettica e $G$ un gruppo di Lie con azione hamiltoniana $\Phi$ su di essa. Sia $\mu: X\to \mathfrak{g}^*$ la mappa momento. Sia $H: X\to \R$ una funzione hamiltoniana conservata dall'azione di $G$. Allora le funzioni $P^{\gamma}: X\to \R$ definite da $x \mapsto P^{\gamma}(x) = \mu_x(\gamma)$ sono conservate dal flusso hamiltoniano di $H$.
+\end{theorem}
+\begin{remark}
+  L'invarianza delle $P^{\gamma}$ implica che le componenti di $\mu_x$ in una qualsiasi base di $\mathfrak{g}^*$ siano costanti. Si può quindi dire che \emph{le componenti del momento si conservano}. 
+\end{remark}
+
+Il teorema di Noether in senso stretto risulta un caso particolare dell'origine di flussi hamiltoniani.
+\begin{theorem}
+  Sia $Q$ una varietà e sia $G$ un gruppo di Lie che ne fornisce una simmetria continua secondo una qualche azione $\Phi$. Allora l'azione $\tilde{\Phi}$ di $G$ sul fibrato cotangente $X=T^*Q$ data per $x \in Q$ e $\alpha \in T^*_x Q$ da
+  \begin{equation*}
+  \tilde{\Phi}(x,\alpha) = \big(\Phi(x), (\Phi^{-1})^*(\alpha)\big)
+  \end{equation*} 
+  è hamiltoniana rispetto alla forma canonica.
+\end{theorem}
+
+Siccome $P_\gamma$ deve rimanere costante, un sistema che ammette un'azione hamiltoniana ha meno gradi di libertà effettivi di quanto appaia a primo impatto. È possibile rimuovere i gradi di libertà senza significato fisico tramite un processo noto come \emph{riduzione simplettica}, reso possibile dal teorema seguente.
+
+\begin{theorem}[Marsden-Weinstein]
+  Sia $(X,\omega)$ una varietà simplettica, sia $G$ un gruppo di Lie compatto con azione hamiltoniana su $X$ e sia $\mu:  X \to \mathfrak{g}^*$ la mappa momento. Sia $p \in \mathfrak{g}^*$, sia $X_p = \mu^{-1}(p)$ e sia $G_p = \{g \in G \mid \mathrm{Ad}_g^*\, p = p\}$. Se $G_p$ agisce liberamente su $M_p$ allora:
+  \begin{enumerate}
+    \item L'insieme $M_p/G_p$ è una varietà simplettica con forma simplettica $\omega_r$ tale che \begin{equation*}
+    \pi^* \omega_r = \omega
+    \end{equation*} 
+    dove $\pi:M_p \to M_p/G_p$ è la proiezione sullo spazio quoziente e $\omega$ indica in realtà la \emph{restrizione} $\omega|_{X_p}$.
+    \item Se $H:X\to \R$ è una funzione differenziabile invariante sotto l'azione di $G$, allora la sua restrizione a $M_p/G_p$ (il cui valore su una classe di equivalenza è dato dal valore su un rappresentante) è una funzione $H_r:M_p/G_p \to \R$ il cui campo hamiltoniano rispetto a $\omega_r$ è \begin{equation*}
+    X_{H_r} = D \pi(X_H)
+    \end{equation*}
+    dove $X_H$ è il campo hamiltoniano di $H$.
+  \end{enumerate}
+\end{theorem}
+\begin{remark}
+  I due punti del teorema corrispondono al fatto che sia la \emph{struttura simplettica} della varietà che la sua \emph{dinamica hamiltoniana} possono essere ridotte, rimuovendo le informazioni che la simmetria rispetto a $G$ rende superflue.
+\end{remark}
