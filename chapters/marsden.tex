@@ -50,20 +50,89 @@ Un sistema fisico è definito dal suo \emph{spazio delle configurazioni}, una va
 
 Se lo spazio delle fasi ammette un'azione hamiltoniana $\Phi_g$ di un qualche gruppo di Lie $G$ e $\mathcal{H}$ è invariante sotto questa azione, la mappa momento avrà il valore $p_0$ fissato dalle condizioni iniziali lungo tutta l'evoluzione del sistema, e la dinamica di questo nello spazio delle fasi ridotto $\mu^{-1}(p_0)/G_{p_0}$ potrà essere studiata grazie al teorema di riduzione simplettica. 
 
-\section{Esempio: moto del corpo rigido}
+\section{Esempio: moto del corpo rigido libero}
 Si consideri un sistema costituito da un corpo rigido libero. Per definire questo sistema nella formulazione simplettica, è necessario individuare il suo spazio delle configurazioni e la sua hamiltoniana. Un \dfn{corpo rigido} è definito come una collezione di punti materiali $P$ le cui distanze relative sono tutte fissate. La definizione di punti e distanze equivale alla definizione della forma del corpo. Note le distanze, la posizione di ciascun punto del corpo in un dato sistema di riferimento può essere ottenuta conoscendo la posizione di un suo punto e il modo in cui è ruotato il corpo. La configurazione del corpo è quindi rappresentata da un punto nella varietà $Q = \R^3 \times SO(3)$, che costituisce lo spazio delle configurazioni. Si noti che qui $SO(3)$, il gruppo di Lie delle rotazioni in tre dimensioni, è considerato solo in quanto varietà differenziabile: le sue proprietà di gruppo sono completamente irrilevanti. Per quanto riguarda l'hamiltoniana $\mathcal{H}$, siccome supponiamo che il corpo sia libero essa è data semplicemente dall'energia cinetica (per la precisione, dalla \emph{trasformata di Legendre} dell'energia cinetica, in modo da essere definita su $T^*Q$ e non su $TQ$). 
 
-Lo spazio delle fasi del sistema è a rigore $T^*Q = T^*\big(\R^3 \times SO(3)\big)$. Esso è tuttavia isomorfo a $T^*\R^3 \times T^*SO(3)$; si userà quindi come spazio delle fasi $X =T^*\R^3 \times T^*SO(3)$.
+Lo spazio delle fasi del sistema è a rigore $T^*Q = T^*\big(\R^3 \times SO(3)\big)$. Esso è tuttavia isomorfo a $T^*\R^3 \times T^*SO(3)$, la cui trattazione è notevolmente più semplice per via della possibilità di sfruttare le proprietà di identificazione tra spazi di $\R^3$. Si userà quindi come spazio delle fasi $X = T^*\R^3 \times T^*SO(3)$, lasciando implicito il ritorno al fibrato cotangente di $Q$ propriamente detto.
 
 Si consideri il gruppo di Lie delle \dfn{traslazioni} $\R^3$. Questa volta a essere rilevante è la natura di gruppo. Esso ha un'azione naturale su $\R^3$ inteso come \emph{varietà}, data per $\vec{a} \in \R^3\text{-gruppo}$ e $\vec{q} \in \R^3\text{-varietà}$ da
 \begin{equation*}
-\Phi^{\vec{a}}_{\R^3}: \vec{q} \mapsto  \vec{a} + \vec{q}
+\Phi_{\vec{a}}^{\R^3}: \vec{q} \mapsto  \vec{a} + \vec{q}
 \end{equation*}
-dove il $+$ denota l'operazione di addizione definita in $\R^3$ inteso come spazio vettoriale. Si definisca la sua azione su $X$ come 
+dove il $+$ denota l'operazione di addizione definita in $\R^3$ inteso come spazio vettoriale. Si definisca la sua azione su $Q$ come 
 \begin{equation*}
-  \Phi^{\vec{a}}_{\R^3}: (\vec{a} + \vec{q},\rho, \vec{\dot{q}}, \dot{\rho}^*) \longmapsto (\vec{q},\rho, \vec{\dot{q}}^*, \dot{\rho}^*)
+  \Phi_{\vec{a}}^Q: (\vec{q},\rho) \longmapsto (\vec{a} + \vec{q},\rho)
 \end{equation*}
-dove $\vec{q} \in \R^3, \rho \in SO(3), \vec{\dot{q}}^* \in T^*_{\vec{q}}\R^3$ e $\dot{\rho}^* \in T^*_{\rho}SO(3)$. Questa azione è ben definita su $Q$ e genera quindi un'azione hamiltoniana su $X$ per il teorema di Noether.\\[11pt]
+dove $\vec{q} \in \R^3, \rho \in SO(3), \vec{\dot{q}}^* \in T^*_{\vec{q}}\R^3$ e $\dot{\rho}^* \in T^*_{\rho}SO(3)$. Questa azione è ben definita su $Q$ e per il teorema di Noether genera quindi un'azione hamiltoniana sul fibrato cotangente propriamente detto. Questa azione corrisponde a un'azione $\Phi^X_a$ su $X$, definita sfruttando la fattorizzazione come segue. Sia $(\vec{q},\vec{\dot{q}}^*, \rho, \dot{\rho}^*) \in X$. Ciò significa innanzitutto che $\vec{\dot{q}}^* \in T^*_{\vec{q}}\R^3$. Ma siccome $T^*_{\vec{q}}\R^3 \simeq \R^3 \simeq T^*_{\vec{q}+\vec{a}}\R^3$, si può anche considerare che $\vec{\dot{q}}^* \in T^*_{\vec{q}+\vec{a}}\R^3$. D'altra parte, anche $\dot{\rho}^* \in  T^*_{\rho}SO(3)$. Da ciò segue che $(\vec{q} +\vec{a},\vec{\dot{q}}^*, \rho, \dot{\rho}^*) \in X$, siccome i covettori appartengono agli spazi cotangenti appropriati. È quindi possibile definire l'azione su $X$ senza pull-back dei covettori, che invece è necessario nel caso dell'azione sul fibrato cotangente propriamente detto di $Q$, come 
+\begin{equation*}
+\Phi^X_{\vec{a}}: (\vec{q},\vec{\dot{q}}^*, \rho, \dot{\rho}^*) \longmapsto (\vec{q}+ \vec{a},\vec{\dot{q}}^*, \rho, \dot{\rho}^*) 
+\end{equation*}  
 
-{\huge\textit{continua...}}
+Come ci si può aspettare, anche $\Phi^X$ è hamiltoniana, con mappa momento data da
+\begin{equation*}
+\mu^{\R^3}: (\vec{q}, \vec{\dot{q}}^*, \rho, \dot{\rho}^*) \longmapsto\; \vec{\dot{q}}^*
+\end{equation*} 
+dove l'immagine $\vec{\dot{q}}^*$ è considerata come elemento di $T^*_{\vec{q}}\R^3 \simeq \R^3 \simeq T^*_{\vec{0}}\R^3 = \mathfrak{g}^*$, il duale dell'algebra di Lie di $\R^3$ inteso come gruppo di Lie.
 
+Dimostriamo che $\mu$ è effettivamente una mappa momento. L'azione infinitesima di $e_i$, l'$i$-esimo elemento della base canonica di $\R^3 \simeq T_e \R^3 = \mathfrak{g}$, su $X$ è data dal campo costante
+\begin{equation*}
+\phi_{e}^X: (\vec{q},\vec{\dot{q}}^*, \rho, \dot{\rho}^*)\longmapsto (e_i, 0, 0, 0)
+\end{equation*}
+dove nell'immagine $e_i$ è inteso come elemento della base canonica di $\R^3 \simeq T_{\vec{q}}\R^3$. Infatti, \begin{equation*}
+  (\phi^{\R^3}_{e_i})_x = \Phi^{\R^3}_{0 + e_i t}(x) = x + e_i t \simeq e_i
+\end{equation*}
+siccome $\R^3 \ni e_i \simeq (\vec{0}+e_i) \in \vec{T_0} \R^3 $ e l'azione di $\R^3$ sulle altre componenti è banale. Allo stesso tempo, il valore della mappa comomento associata a $e_i$ in ciascun punto è 
+\begin{equation*}
+  P_{e_i}(\vec{q},\vec{\dot{q}}^*, \rho, \dot{\rho}^*) =\ \vec{\dot{q}}^*\! e_i = \dot{q}^*_i
+\end{equation*} 
+dove nel membro di mezzo $\vec{\dot{q}}^*$ è considerato come elemento di $T^*_{\vec{q}}\R^3 \simeq \R^3 \simeq T^*_{\vec{0}}\R^3 = \mathfrak{g}^*$ ed $e_i$ come elemento di $\R^3 \simeq T_{\vec{0}}\R^3 = \mathfrak{g}$. Siccome la base simplettica per $\R^{6} \simeq T^* \R^{3}$ è quella canonica e la mappa comomento è costante sul fattore $T^*SO(3)$, il campo hamiltoniano della mappa comomento per un dato $e_i$ è fornito da \begin{equation*}
+X_{P_{e_i}} = - J\, \grad{P_{e_i}} = - \begin{pmatrix}
+  0 & 0 & -\mathbb{I} & 0 \\
+  0 & 0 & 0 & \mathbb{I} \\
+  \mathbb{I} & 0 & 0 & 0 \\ 
+  0 & \mathbb{I} & 0 & 0 
+\end{pmatrix} \begin{pmatrix}
+0 \\ e_i \\ 0 \\ 0
+\end{pmatrix} = (e_i, 0, 0, 0)
+\end{equation*} 
+ovvero esattamente il campo dell'azione infinitesima. Quanto all'equivarianza, siccome $\R^{n}$ è commutativo l'azione aggiunta $\mathrm{Ad}$ è banale, e quindi lo è anche l'azione coaggiunta.L'equivarianza è soddisfatta poiché in effetti $\mu$ non dipende dalla configurazione in $\R^3$, così che $\mu(\vec{q}+\vec{a}) = \mu(\vec{q}) = \mathrm{Ad}^*\,\big(\mu(\vec{q})\big)$. Quindi $\mu^{\R^3}$ è una mappa momento e $\Phi^X$ è un'azione hamiltoniana.
+
+Siccome $\R^{n}$ è commutativo e l'azione coaggiunta è banale, si ha anche che $G_p = G$, e siccome per ogni coppia di elementi $\vec{a}, \vec{b} \in \R^3$ esiste un terzo elemento $\vec{c}$ tale che $\vec{a} = \vec{c} + \vec{b}$, tutti gli elementi di $\R^3$ sono equivalenti sotto l'azione di $\R^3$. Da questo e dal fatto che per un dato $\vec{p} \in \R^3 \simeq T^*_{\vec{0}} \R^3 = \mathfrak{g}$ si ha che 
+\begin{equation*}
+\mu^{-1}(\vec{p}) = \big\lbrace(\vec{q},\vec{p}, \rho, \dot{\rho}^*) \mid \vec{q}\in \R^3, \rho \in SO(3), \dot{\rho}^* \in T^*_{\rho} SO(3)\big\rbrace \simeq \R^3 \times T^*SO(3)
+\end{equation*} 
+segue che che $\mu^{-1}(p)/\R^3 = T^*SO(3)$. Per il teorema di Marsden-Weinstein, $T^* SO(3)$ ha una struttura simplettica data dalla forma simplettica ridotta, mentre l'evoluzione del sistema è governata dall'hamiltoniana su $X$, ristretta a $T^* SO(3)$. Si può dimostrare che la forma simplettica ridotta è quella canonica, mentre l'hamiltoniana differisce da quella su $X$ per una costante. Ciò significa che il moto di rotazione di un corpo rigido libero che trasla è esattamente uguale a quello dello stesso corpo che ruota senza traslare.
+
+Si ha quindi una sorta di spazio delle configurazioni ridotto $\pi\big(T^*SO(3)\big) = SO(3)$. In modo simile a quanto fatto per $\R^3$, si faccia agire $SO(3)$-gruppo su $SO(3)$-varietà secondo la moltiplicazione a sinistra:
+\begin{equation*}
+L_{\sigma}: \rho \longmapsto \sigma \rho 
+\end{equation*} 
+Il moto del sistema in $SO(3)$ sarà un'applicazione $\overline{\rho}: \R \to SO(3)$. La velocità in un punto $\rho$ della varietà sarà naturalmente un vettore $\dot{\rho}(t) \in T_{\overline{\rho}(t)}SO(3)$. Tuttavia, si considera solitamente una quantità equivalente, la \dfn{velocità angolare} $\psi$ definita dal push-forward di $\dot{\rho}$ nello spazio tangente all'identità $T_e SO(3) = \mathfrak{g}$:
+\begin{equation*}
+\psi = \big(D L_{\overline{\rho}(t)^{-1}}\big)\big(\dot{\rho}(t)\big) \in \mathfrak{g}
+\end{equation*}
+Dato che si sta considerando il corpo rigido libero, l'hamiltoniana coinciderà sostanzialmente con l'energia cinetica. Per sua natura, questa dovrà essere definita tramite una norma sulle velocità: l'introduzione della velocità angolare consente di definire questa norma solo su $\mathfrak{g}$ invece che su ciascun $T_{\rho}SO(3)$. La norma sarà una qualche applicazione $\norm{\cdot}^2: \mathfrak{g} \to \R^+$. Essa consente di definire un'identificazione $I$, detta \dfn{tensore d'inerzia}, tra $\mathfrak{g}$ e $\mathfrak{g}^*$, tramite
+\begin{equation*}
+I: \psi \mapsto \psi^* \qqtext{tale che} \psi^* \psi = \norm{\psi}^2
+\end{equation*} 
+L'esatta azione della norma dipende dalla distribuzione di massa del corpo che viene considerato. L'hamiltoniana può essere definita su $T^* SO(3)$ tramite il tensore d'inerzia, la norma su $\mathfrak{g}$ e il pullback dei covettori da $T^*_{\rho}SO(3)$ a $T^*_{e}SO(3)$, come
+\begin{equation*}
+\mathcal{H}(\rho, \dot{\rho}^*) = \norm{I^{-1}\big(L^*_\rho \dot{\rho}^*\big)}^2
+\end{equation*} 
+
+L'azione di $SO(3)$-gruppo su $SO(3)$-varietà è ben definita, e per il teorema di Noether genera quindi un'azione hamiltoniana su $T^*SO(3)$. Si può dimostrare che la mappa momento di questa azione è data da 
+\begin{equation*}
+\mu^{SO(3)}: (\rho, \dot{\rho}^*) \longmapsto R_{\rho}^* \dot{\rho}^* \in T^*_e SO(3) = \mathfrak{g}^*
+\end{equation*}
+dove $R_\rho$ indica la moltiplicazione a destra: 
+\begin{equation*}
+R_\sigma: \rho \mapsto \rho \sigma
+\end{equation*}
+La mappa comomento assume per una velocità angolare $\psi$, per definizione, il valore 
+\begin{equation*}
+P_{\psi}(\rho) = (R_{\rho}^* \dot{\rho}^*) \psi = \dot{\rho}^*((D R_{\rho})(\psi)) = \dot{\rho}^*((D R_{\rho})((D L_{\rho}) (\dot{\rho})))
+\end{equation*} 
+
+Per un dato $\Lambda \in \mathfrak{g}^*$, è possibile dimostrare che $\mu^{-1}(\Lambda)/SO(3)_{\Lambda} = S^2$, l'insieme degli elementi $\lambda$ della coalgebra di Lie con norma pari a $\norm{\Lambda}$, dove $\lambda, \Lambda$ sono visti come elementi di $\mathfrak{g}^* \simeq \R^3$ e le norme sono quelle euclidee in $\R^3$. Di nuovo, essa avrà una struttura simplettica data dalla forma simplettica ridotta, mentre la dinamica sarà governata dall'hamiltoniana $\mathcal{H}$, ristretta a $S^2$. Il significato della riduzione dello spazio delle fasi a $S^2$ è che lo stato di rotazione del sistema (sia la sua configurazione che i suoi momenti) è completamente specificato dalla posizione del suo asse di rotazione.
+
+È inoltre possibile fare una considerazione del tutto generale sulla stabilità delle rotazioni. Siccome l'hamiltoniana si conserva nel corso del moto, questo dovrà svolgersi sulle intersezioni di $S^2$ con le superfici di livello di $\mathcal{H}$. Essendo una forma quadratica, essa avrà superfici di livello ellissoidali, per via del teorema spettrale. La sfera intersecherà l'ellissoide intorno agli assi. Le intersezioni vicine all'asse maggiore e minore resteranno nell'intorno dell'asse, mentre quelle vicine all'asse intermedio ne usciranno. Ciò significa che, a livello fisico, le rotazioni di un corpo rigido libero attorno agli assi con momento d'inerzia minore e maggiore sono stabili, mentre le rotazioni attorno all'asse intermedio sono instabili. Questo risultato è noto come \dfn{teorema di Poinsot}.
