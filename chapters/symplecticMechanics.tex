@@ -257,7 +257,7 @@ Proprio lo spazio tangente nell'identità consente di associare a ogni gruppo di
   \end{equation*} 
   dove la parentesi al secondo membro è la parentesi di Lie di campi vettoriali su $X$.
 \end{definition}
-\begin{remark}
+\begin{remark} \label{rem:matrixComm}
   Per le matrici, la parentesi di Lie corrisponde all'effettuare una rotazione infinitesima $\gamma$ seguita da $\delta$, per poi invertire $\delta$ e poi $\gamma$. Questo non è altro che il commutatore.
 \end{remark}
 \begin{definition}
@@ -280,7 +280,7 @@ Grazie allo stretto legame fra le definizioni delle parentesi di Lie nei due cas
   Se esiste una tale mappa, si dice che $X$ ha una \dfn{simmetria infinitesima} data da $G$.
 \end{definition}
 \begin{theorem}
-  La mappa $\phi: \mathfrak{g} \to \mathcal{V}(X)$ definita nella \autoref{def:infmAction}, è un omomorfismo tra $\mathfrak{g}$ e l'algebra dei campi vettoriali su $X$.
+  La mappa che a ogni elemento di $\mathfrak{g}$ associa la propria azione infinitesima è un omomorfismo tra $\mathfrak{g}$ e l'algebra dei campi vettoriali su $X$.
 \end{theorem}
 \begin{definition}
   La mappa $\big(t, [\gamma]\big) \in \R \times  \mathfrak{g} \mapsto g \in G$ che costituisce il cammino $\gamma$ nella \autoref{def:infmAction} è detta \dfn{mappa esponenziale}, e si denota $\exp(t \gamma)$, se vale $\exp\big((t+s) \gamma\big) = \exp(t \gamma) \cdot  \exp (s \gamma)$ per ogni $t,s \in \R$.
@@ -309,7 +309,48 @@ Analogamente, dalle curve $\gamma_y: \theta\mapsto R_y(\theta)$ e $\gamma_x: \th
 \begin{equation*}
   \eval{\dv{\theta}}_{\theta=0}\gamma_y = \pmqty{0 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & 0} \defeq r_y \qqtext{e} \eval{\dv{\theta}}_{\theta=0}\gamma_x = \pmqty{0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0} \defeq r_x
 \end{equation*}
-Queste tre matrici sono linearmente indipendenti. Siccome l'algebra di Lie di $SO(3)$ ha dimensione uguale al gruppo, quindi $3$, esse ne costituiscono quindi una base. L'algebra di Lie consiste quindi delle matirici $3\times 3$ antisimmetriche, e può essere identificata con $\R^3$ tramite questa base. Tramite un calcolo diretto si può mostrare che l'azione aggiunta $\mathrm{Ad}_R$ di $SO(3)$ sulla propria algebra di Lie è data semplicemente dall'azione naturale su $\R^3$, mentre la parentesi di Lie $[r,s]$ di $r,s \in \mathfrak{g}$ viene mandata in $\vec{r} \times \vec{s}$ di $\vec{r},\vec{s}$ con $\vec{r},\vec{s} \in \R^3$. 
+Queste tre matrici sono linearmente indipendenti. Siccome l'algebra di Lie $\mathfrak{g}$ di $SO(3)$ ha dimensione uguale al gruppo, quindi $3$, esse ne costituiscono una base. L'algebra di Lie consiste delle combinazioni lineari di $r_x, r_y, r_z$, ovvero delle matirici $3\times 3$ antisimmetriche, e può essere identificata con $\R^3$ tramite questa base. 
+
+L'azione aggiunta $\mathrm{Ad}$ di $SO(3)$ sulla propria algebra di Lie è definita come la derivata nell'identità dell'azione aggiunta $\mathrm{AD}$ di $SO(3) $ su se stesso. Ciò significa che $\mathrm{Ad}_R$, con $R \in SO(3)$, è l'applicazione che manda un percorso $\gamma: \theta \mapsto A(\theta)$ nel percorso $\gamma': \theta \mapsto R A(\theta) R^{-1}$. Questo percorso ha ancora codominio $SO(3)$ e può quindi essere caratterizzato dalla sua derivata in $\theta = 0$
+\begin{equation*}
+\eval{\dv{\theta}}_{\theta=0} \big(R A(\theta)R^{-1}\big) = R \Bigg(\eval{\dv{\theta}}_{\theta=0} A(\theta)\Bigg) R^{-1}
+\end{equation*}  
+che è a sua volta antisimmetrica e può quindi essere identificata con un elemento di $\R^3$. Con un calcolo diretto si può mostrare che l'azione aggiunta coincide con l'azione naturale su $\R^3$, cioè per $R \in SO(3)$ e $\vec{r} \in \mathfrak{g} \simeq \R^3$
+\begin{equation*}
+\mathrm{Ad}_R: \vec{r} \mapsto R \vec{r}
+\end{equation*} 
+Sempre con un calcolo diretto, dall'\autoref{rem:matrixComm} si può mostrare che la parentesi di Lie è data da
+\begin{equation*}
+  [\vec{r},\vec{s}] = \left( \smqty{
+    0 & r_3 & r_2 \\
+    -r_3 & 0 & r_1 \\
+    -r_2 & -r_1 & 0
+  } \right)  \left( \smqty{
+    0 & s_3 & s_2 \\
+    -s_3 & 0 & s_1 \\
+    -s_2 & -s_1 & 0
+  } \right)  - \left( \smqty{
+    0 & s_3 & s_2 \\
+    -s_3 & 0 & s_1 \\
+    -s_2 & -s_1 & 0
+  } \right)  \left( \smqty{
+    0 & r_3 & r_2 \\
+    -r_3 & 0 & r_1 \\
+    -r_2 & -r_1 & 0
+  } \right)  = \vec{r} \times \vec{s} 
+\end{equation*} 
+dove $\vec{r}$ e $\vec{s}$ sono considerati prima come elementi di $\mathfrak{g}$ e poi come elementi di $\R^3$. L'azione infinitesima di $\vec{r} \in \mathfrak{g}$ su $\vec{v} \in \R^3$ infine, è data dalle classi di equivalenza dei cammini dati dall'azione di una matrice $A(\theta)$, che possono essere identificati dalle matrici
+\begin{equation*}
+\eval{\dv{\theta}}_{\theta=0} A(\theta) \vec{v} = \pmqty{
+  0 & r_3 & r_2 \\
+  -r_3 & 0 & r_1 \\
+  -r_2 & -r_1 & 0
+} \mqty(v_1 \\ v_2 \\v_3)
+\end{equation*} 
+Ancora un calcolo diretto mostra quindi che l'azione infinitesima di $\vec{r} \in \mathfrak{g} \simeq \R^3$ è 
+\begin{equation*}
+\phi_{\vec{r}}: \vec{v} \mapsto \vec{r}\times \vec{v}
+\end{equation*}
 
 Un gruppo di Lie $G$ con opportune proprietà può essere usato per rimuovere informazioni ridondanti dai punti di una varietà $X$, sfruttando la simmetria a cui esso è associato. Per formulare precisamente questo metodo, è necessario introdurre i concetti di \emph{azione libera}, \emph{orbita} e \emph{fetta} dell'azione di un gruppo.
 \begin{definition}
@@ -389,20 +430,24 @@ Come esempio, si consideri ancora il caso dell'azione di $SO(3)$ su $\R^3$. Sicc
 \begin{equation*}
 \Phi_R: (\vec{q},\vec{p}) \mapsto (R\vec{q},R\vec{p})
 \end{equation*}  
-L'azione infinitesima corrispondente si può calcolare essere data da
+Analogamente al caso di $\R^3$, l'azione infinitesima corrispondente è data da
 \begin{equation*}
 \phi_{\vec{r}}: (\vec{q},\vec{p}) \mapsto (\vec{r}\times \vec{q},\vec{r}\times \vec{p})
 \end{equation*}
 
 Chiaramente, anche la coalgebra $\mathfrak{g}^*$ è isomorfa a $\R^3$. Un elemento $\vec{\alpha} \in \mathfrak{g}^* \simeq \R^3$ agisce su $\vec{\gamma} \in \mathfrak{g} \simeq \R^3$ secondo
 \begin{equation*}
-\alpha(\gamma) = \alpha \cdot \gamma
+\vec{\alpha}(\vec{\gamma}) = \vec{\alpha} \cdot \vec{\gamma}
 \end{equation*} 
-L'azione coaggiunta è data da 
+L'azione coaggiunta di $R \in SO(3)$ è definita come l'azione $\mathrm{Ad}^*_R$ tale che per ogni $\vec{\alpha} \in \mathfrak{g}^*$, per ogni $\vec{\gamma} \in \mathfrak{g}$
 \begin{equation*}
-\mathrm{Ad^*}(\alpha) = R^{-1}\alpha
+  \big[\mathrm{Ad}^*_R(\vec{\alpha})\big](\vec{\gamma}) = \vec{\alpha}\big(\mathrm{Ad}_{R^{-1}}(\vec{\gamma})\big) = \vec{\alpha} \cdot R^{-1}\vec{\gamma} = R \vec{\alpha} \cdot \vec{\gamma}
 \end{equation*} 
-ovvero da una rotazione \emph{passiva} di $\R^3$, che ruota la base lasciando fisso il vettore.
+dato che $R$ è ortogonale. Essa è quindi data da
+\begin{equation*}
+\mathrm{Ad}^*_R(\vec{\alpha}) = R\vec{\alpha}
+\end{equation*} 
+Dato però che $\vec{\alpha}$ è un \emph{covettore}, questa rappresenta una rotazione $passiva$ di $\R^3$, ovvero una rotazione della base dei vettori lasciando fissi questi ultimi.
 
 Tramite il calcolo vettoriale in $\R^3$ si dimostra che l'azione di $SO(3)$ su $\R^6$ con la forma canonica è hamiltoniana, con mappa momento data da 
 \begin{equation*}
