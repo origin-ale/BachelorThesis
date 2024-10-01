@@ -1,2 +1,12 @@
 .DS_Store
 build
+code/bin
+code/include
+code/lib
+code/share
+code/pyvenv.cfg
+actionTest.aux
+actionTest.dvi
+actionTest.pdf
+actionTest.log
+actionTest.tex

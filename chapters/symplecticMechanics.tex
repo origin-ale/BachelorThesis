@@ -307,9 +307,9 @@ Si noti che $R_z(\theta)$ non è altro che la matrice di rotazione di un angolo 
 \end{equation*}
 Analogamente, dalle curve $\gamma_y: \theta\mapsto R_y(\theta)$ e $\gamma_x: \theta \mapsto R_x(\theta)$ si ottengono 
 \begin{equation*}
-  \eval{\dv{\theta}}_{\theta=0}\gamma_y = \pmqty{0 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & 0} \defeq r_y \qqtext{e} \eval{\dv{\theta}}_{\theta=0}\gamma_x = \pmqty{0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0} \defeq r_x
+  \eval{\dv{\theta}}_{\theta=0}\gamma_y = \pmqty{0 & 0 & -1 \\ 0 & 0 & 0 \\ 1 & 0 & 0} \defeq r_y \qqtext{e} \eval{\dv{\theta}}_{\theta=0}\gamma_x = \pmqty{0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0} \defeq r_x
 \end{equation*}
-Queste tre matrici sono linearmente indipendenti. Siccome l'algebra di Lie $\mathfrak{g}$ di $SO(3)$ ha dimensione uguale al gruppo, quindi $3$, esse ne costituiscono una base. L'algebra di Lie consiste delle combinazioni lineari di $r_x, r_y, r_z$, ovvero delle matirici $3\times 3$ antisimmetriche, e può essere identificata con $\R^3$ tramite questa base. 
+Queste tre matrici sono linearmente indipendenti. Siccome l'algebra di Lie $\mathfrak{g}$ di $SO(3)$ ha dimensione uguale al gruppo, quindi $3$, esse ne costituiscono una base. L'algebra di Lie consiste delle combinazioni lineari di $r_x, r_y, r_z$, ovvero delle matirici $3\times 3$ antisimmetriche, e può essere identificata con $\R^3$ tramite questa base.  Nel seguito, si intenderà l'algebra di Lie di $SO(3)$ alternativamente come spazio di matrici o di triple reali, a seconda delle necessità.
 
 L'azione aggiunta $\mathrm{Ad}$ di $SO(3)$ sulla propria algebra di Lie è definita come la derivata nell'identità dell'azione aggiunta $\mathrm{AD}$ di $SO(3) $ su se stesso. Ciò significa che $\mathrm{Ad}_R$, con $R \in SO(3)$, è l'applicazione che manda un percorso $\gamma: \theta \mapsto A(\theta)$ nel percorso $\gamma': \theta \mapsto R A(\theta) R^{-1}$. Questo percorso ha ancora codominio $SO(3)$ e può quindi essere caratterizzato dalla sua derivata in $\theta = 0$
 \begin{equation*}
@@ -322,29 +322,29 @@ che è a sua volta antisimmetrica e può quindi essere identificata con un eleme
 Sempre con un calcolo diretto, dall'\autoref{rem:matrixComm} si può mostrare che la parentesi di Lie è data da
 \begin{equation*}
   [\vec{r},\vec{s}] = \left( \smqty{
-    0 & r_3 & r_2 \\
+    0 & r_3 & -r_2 \\
     -r_3 & 0 & r_1 \\
-    -r_2 & -r_1 & 0
+    r_2 & -r_1 & 0
   } \right)  \left( \smqty{
-    0 & s_3 & s_2 \\
+    0 & s_3 & -s_2 \\
     -s_3 & 0 & s_1 \\
-    -s_2 & -s_1 & 0
+    s_2 & -s_1 & 0
   } \right)  - \left( \smqty{
-    0 & s_3 & s_2 \\
+    0 & s_3 & -s_2 \\
     -s_3 & 0 & s_1 \\
-    -s_2 & -s_1 & 0
+    s_2 & -s_1 & 0
   } \right)  \left( \smqty{
-    0 & r_3 & r_2 \\
+    0 & r_3 & -r_2 \\
     -r_3 & 0 & r_1 \\
-    -r_2 & -r_1 & 0
+    r_2 & -r_1 & 0
   } \right)  = \vec{r} \times \vec{s} 
 \end{equation*} 
 dove $\vec{r}$ e $\vec{s}$ sono considerati prima come elementi di $\mathfrak{g}$ e poi come elementi di $\R^3$. L'azione infinitesima di $\vec{r} \in \mathfrak{g}$ su $\vec{v} \in \R^3$ infine, è data dalle classi di equivalenza dei cammini dati dall'azione di una matrice $A(\theta)$, che possono essere identificati dalle matrici
 \begin{equation*}
 \eval{\dv{\theta}}_{\theta=0} A(\theta) \vec{v} = \pmqty{
-  0 & r_3 & r_2 \\
+  0 & r_3 & -r_2 \\
   -r_3 & 0 & r_1 \\
-  -r_2 & -r_1 & 0
+  r_2 & -r_1 & 0
 } \mqty(v_1 \\ v_2 \\v_3)
 \end{equation*} 
 Ancora un calcolo diretto mostra quindi che l'azione infinitesima di $\vec{r} \in \mathfrak{g} \simeq \R^3$ è 
@@ -382,11 +382,11 @@ Fra le azioni simplettiche di un gruppo, esiste una sottoclasse con particolare 
   \begin{equation*}
   \omega\big((\phi_{\gamma})_x, \xi\big) = \dd_x [\mu_x(\gamma)](\xi)
   \end{equation*} 
-  e inoltre per ogni $g \in G$, per ogni $x \in X$ valga
+  Se inoltre l'applicazione $\mu$ è \dfn{equivariante}, ovvero per ogni $g \in G$, per ogni $x \in X$ vale
   \begin{equation*}
   \mu\big(\Phi_g(x)\big) = \mathrm{Ad}_g^*\, \big(\mu(x)\big)
   \end{equation*} 
-  In tal caso, l'applicazione $\mu$ è detta \dfn{mappa momento} per $\Phi$.
+  essa è detta \dfn{mappa momento} per $\Phi$.
 \end{definition}
 \begin{remark}
   La prima richiesta equivale al chiedere che l'azione infinitesima di ciascun $\gamma$ sia il campo vettoriale di un'hamiltoniana, data da $x \mapsto P_{\gamma}(x) = \mu_x(\gamma)$. L'hamiltoniana così ottenuta dipende linearmente da $\gamma$, ma è possibile dimostrare che non c'è perdita di generalità rispetto al caso di hamiltoniane generiche.
@@ -405,7 +405,7 @@ Fra le azioni simplettiche di un gruppo, esiste una sottoclasse con particolare 
 La principale rilevanza fisica delle azioni hamiltoniane sta nel fatto che esse consentono di determinare quantità che sono conservate nell'evoluzione di un sistema hamiltoniao.
 
 \begin{theorem}
-  Siano $(X,\omega)$ una varietà simplettica e $G$ un gruppo di Lie con azione hamiltoniana $\Phi$ su di essa. Sia $\mu: X\to \mathfrak{g}^*$ la mappa momento. Sia $H: X\to \R$ una funzione hamiltoniana conservata dall'azione di $G$. Allora le funzioni $P^{\gamma}: X\to \R$ definite da $x \mapsto P^{\gamma}(x) = \mu_x(\gamma)$ sono conservate dal flusso hamiltoniano di $H$.
+  Siano $(X,\omega)$ una varietà simplettica e $G$ un gruppo di Lie con azione hamiltoniana $\Phi$ su di essa. Sia $\mu: X\to \mathfrak{g}^*$ la mappa momento. Sia $H: X\to \R$ una funzione hamiltoniana conservata dall'azione di $G$, ovvero tale che $H(x) = H(\Phi_g x)$ per ogni $x \in X$ e $g \in G$. Allora le funzioni $P^{\gamma}: X\to \R$ definite da $x \mapsto P^{\gamma}(x) = \mu_x(\gamma)$ sono conservate dal flusso hamiltoniano di $H$ $\Phi_H$, ovvero $P^{\gamma}(x) = P^{\gamma}(\Phi^t_H x)$ per ogni $t$ per cui $\Phi^t_H$ è definito e per ogni $x \in X$.
 \end{theorem}
 \begin{remark}
   L'invarianza delle $P^{\gamma}$ implica che le componenti di $\mu_x$ in una qualsiasi base di $\mathfrak{g}^*$ siano costanti lungo la linea di flusso. Si può quindi dire che \emph{le componenti del momento si conservano}. La mappa momento fornisce quindi una generalizzazione della conservazione dei momenti che si osserva in fisica.
