@@ -2,7 +2,7 @@
 La meccanica classica si propone di studiare il moto dei corpi macroscopici in movimento con velocità trascurabile rispetto a quella della luce. In questo capitolo saranno esposte tre \emph{formulazioni} della meccanica classica, vale a dire tre modi per ricavare le equazioni del moto di un sistema. Dopo aver costruito un modello di universo classico e richiamato l'intuitiva ma scomoda formulazione \emph{newtoniana} basata sulle forze, si ricaverà la formulazione \emph{lagrangiana} dal principio di minima azione. Infine, grazie alla trasformata di Legendre, si passerà alla potente formulazione \emph{hamiltoniana}, che costituirà il fondamento per il resto della trattazione.
 
 \section{Il modello classico dell'universo}
-Per dare una formulazione assiomatica alla meccanica classica è innanzitutto necessario stabilire alcune caratteristiche dell'universo per quanto riguarda i corpi che si muovono su scala macroscopica (azione molto maggiore della costante di Planck $\hbar$) e a basse velocità (velocità molto minore di quella della luce $c$). Queste caratteristiche dovranno essere emulate dal modello di universo che ci si propone di costruire. Siccome l'ambito di applicazione di questo modello comprende l'esperienza quotidiana, è da essa che si può trarre spunto. Si pongono quindi i seguenti requisiti al modello:
+Per dare una formulazione assiomatica alla meccanica classica è innanzitutto necessario stabilire alcune caratteristiche dell'universo per quanto riguarda i corpi che si muovono su scala macroscopica (azione molto maggiore della costante di Planck $\hbar$) e a basse velocità ( molto minori di quella della luce $c$). Queste caratteristiche dovranno essere emulate dal modello di universo che ci si propone di costruire. Siccome l'ambito di applicazione di questo modello comprende l'esperienza quotidiana, è da essa che si può trarre spunto. Si pongono quindi i seguenti requisiti al modello:
 \begin{enumerate}
   \item L'universo è composto da \emph{spazio e tempo}. Lo spazio è tridimensionale ed euclideo, il tempo è unidimensionale.
   \item  Gli eventi sono individuati nello spazio e nel tempo usando \emph{sistemi di coordinate}. Esistono sistemi, detti \emph{inerziali}, tali che:
@@ -35,10 +35,11 @@ Fissato un $a \in A$, l'insieme dei $v$ tali che $v = b - a$ per un qualche $b \
   Una \dfn{struttura spazio-temporale galileiana} è composta da:
   \begin{enumerate}
     \item L'\dfn{universo}, uno spazio affine quadridimensionale $\mathbb{A}^4$ i cui punti sono detti \emph{eventi}.
-    \item Il \dfn{tempo}, un'applicazione lineare $t:\mathbb{A}^4 - \mathbb{A}^4 \to \R$. Si dice \dfn{intervallo temporale} fra due eventi $a,b \in \mathbb{A}^4$ il numero reale $t(a-b)$. Se esso è nullo, $a$ e $b$ si dicono \dfn{contemporanei}.
+    \item Il \dfn{tempo}, un'applicazione lineare $t:\mathbb{A}^4 - \mathbb{A}^4 \to \R$. Si dice \dfn{intervallo temporale} fra due eventi $a,b \in \mathbb{A}^4$ il numero reale $t(a-b)$. Se esso è nullo, $a$ e $b$ si dicono \dfn{contemporanei}. Gli eventi contemporanei a un dato evento $a$ formano uno spazio affine tridimensionale detto \dfn{spazio degli eventi contemporanei}.
     \item La \dfn{distanza fra eventi contemporanei} \begin{equation*}
     d(a,b) = \norm{a-b}_2 = \sqrt{\ev{a-b,a-b}}  
-    \end{equation*} 
+    \end{equation*}
+    definita su $\mathrm{Ker}\, t$, cioè sugli spazi degli eventi contemporanei.
   \end{enumerate}
 \end{definition}
 
@@ -47,7 +48,7 @@ Queste definizioni tuttavia non consentono ancora di formulare la meccanica clas
   Si dice \dfn{sistema di riferimento} un'applicazione lineare biunivoca $\phi:\, \mathbb{A}^4 \to \R\times \R^3$. Un sistema di riferimento $\phi_1$ si dice \dfn{in moto uniforme} rispetto a $\phi_2$ se $\phi_1 \phi_2^{-1}: \R\times \R^3\to \R\times \R^3$ conserva intervalli temporali e distanze.
 \end{definition}
 
-Con quest'ultimo concetto si è finalmente in grado di descrivere posizioni e moti delle particelle che popolano l'universo.
+Con quest'ultimo concetto si è finalmente in grado di descrivere posizioni e moti delle particelle che popolano l'universo. Noto infatti un elemento $(t,\vec{x})$ di $\R \times  \R^3$ si può risalire univocamente all'evento $\phi^{-1}(t,\vec{x})$.
 \begin{definition}
   Si dice \dfn{moto} di una particella in un sistema di riferimento $\phi$ un'applicazione differenziabile $\vec{x}:I \to \R^3$, dove $I$ è un intervallo aperto in $\R$, che manda $t\mapsto \vec{x}(t)$. Si dice \dfn{posizione} del punto al tempo $t \in I$ il vettore $\vec{x}(t)$. Si dicono \dfn{velocità} e \dfn{accelerazione} del punto al tempo $t \in I$ le derivate rispettivamente prima e seconda della posizione \begin{equation*}
   \vec{\dot{x}} (t) = \dv{\vec{x}}{t}\, (t) \qqtext{e} \vec{\ddot{x}} (t) = \dv[2]{\vec{x}}{t}\, (t)

@@ -130,19 +130,19 @@ ovvero si recupera la regola della catena in $\R^{n}$.
 I vettori tangenti consentono di individuare spostamenti infinitesimi su una varietà, e rendono quindi possibile la formulazione e la risoluzione di equazioni differenziali.
 
 \begin{definition}
-  Sia $X$ una varietà, un'applicazione $x:\R \to X$ si dice \dfn{linea di flusso} per un campo vettoriale $V$ su $X$ se soddisfa l'equazione \begin{equation*}
+  Sia $X$ una varietà, un'applicazione $\overline{x}:\R \to X$ si dice \dfn{linea di flusso} per un campo vettoriale $V$ su $X$ se soddisfa l'equazione \begin{equation*}
   \dot{x}(t) = V\big(x(t)\big)
   \end{equation*} 
-  dove $\dot{x}$ è il vettore tangente in $x(t)$ definito da $[x]$, con il tempo opportunamente traslato.
+  dove $\dot{x}$ è il vettore tangente in $\overline{x}(t)$ definito da $[\overline{x}]$, con il tempo opportunamente traslato.
 \end{definition}
 \begin{remark}
   Scelta una carta, questa equazione equivale a un'equazione di primo grado, la cui soluzione per una data condizione iniziale esiste ed è unica per via del teorema di Cauchy. Si dimostra quindi il seguente teorema.
 \end{remark}
 \begin{theorem}
   Sia $X$ una varietà compatta (cioè in cui ogni successione ammette una sottosuccessione convergente) e sia $V$ un campo vettoriale su $X$. Allora esistono un $\epsilon > 0$ e un'applicazione differenziabile $\Phi:]-\epsilon, \epsilon\;[\ \times X \to X$, detta \dfn{flusso del campo vettoriale}, tale che \begin{equation*}
-  \dv{t} \Phi(t,x) = V\big( \Phi(x,t)\big) \quad \forall\, x \in  X
+  \dv{t} \Phi(t,x) = V\big( \Phi(t,x)\big) \quad \forall\, x \in  X
   \end{equation*} 
-  Inoltre, la mappa $\Phi^t(x):X \to X$ definita da $\Phi^t:x \mapsto \Phi(t,x)$ è un diffeomorfismo di $X$ in se stesso.
+  dove la derivata temporale di $\Phi$ rappresenta sempre il vettore tangente in $\Phi(x,t)$ definito da $[\Phi(t,x)]$. Inoltre, la mappa $\Phi^t(x):X \to X$ definita da $\Phi^t:x \mapsto \Phi(t,x)$ è un diffeomorfismo di $X$ in se stesso.
 \end{theorem}
 
 Gl spazi tangenti a una varietà si possono raccogliere in una struttura detta fibrato tangente, che è anch'essa una varietà.
@@ -151,10 +151,10 @@ Gl spazi tangenti a una varietà si possono raccogliere in una struttura detta f
   Sia $X$ una varietà, si dice \dfn{fibrato tangente} $TX$ l'insieme delle coppie $(x,\gamma)$ con $x \in X$ e $\gamma \in T_x X$, con l'atlante dato dalle carte $(U, \Phi)$ definite nel seguente modo. Sia $(U, \phi)$ una carta su $X$ e sia $T_U X$ l'insieme delle coppie $(x,\gamma)$ con $x \in X$ e $\gamma \in T_x X$. Allora $\Phi:T_U X \to \phi(U) \times \R^{n}$ è definita come \begin{equation}
   \Phi \big(x,\gamma\big) = \big(\phi(x), v\big)
   \end{equation} 
-  dove $v \in \R^{n}$ è il vettore reale corrispondente a $\gamma$ secondo la carta $\phi$ (\autoref{eq:tangentCoords}).
+  dove $v \in \R^{n}$ è il vettore reale corrispondente a $\gamma$ nella base delle curve coordinate di $\phi$.
 \end{definition}
 
-Queste varietà vengono dette fibrati per analogia al caso della circonferenza, in cui ogni punto possiede una \textquotedblleft fibra\textquotedblright\ monodimensionale come spazio tangente. Da un elemento dello spazio tangente si può sempre rimuovere la fibra.
+Queste varietà vengono dette fibrati per analogia al caso della circonferenza, in cui ogni punto possiede una \textquotedblleft fibra\textquotedblright\ monodimensionale come spazio tangente. Il fibrato cotangente di una circonferenza, quindi, è il cilindro infinito $S^1 \times \R$. Da un elemento dello spazio tangente si può sempre rimuovere la fibra.
 \begin{definition}
   Sia $X$ una varietà e $T X$ il suo fibrato tangente. Si dice \dfn{proiezione} del fibrato tangente su $X$ l'applicazione $\pi: TX \to X$ definito per ogni $x \in X$ e $\gamma \in T_x X$ da $\pi(x,\gamma) = x$.
 \end{definition}
@@ -167,7 +167,7 @@ Un'altra possibilità che i vettori tangenti consentono di espandere da $\R^{n}$
   Intuitivamente, la derivata dell'applicazione $f$ in un punto $x \in X$ associa a ogni spostamento infinitesimo da $x$ lo spostamento infinitesimo da $f(x) \in Y$ che ne risulta.
 \end{remark}
 \begin{remark}
-  Se il vettore tangente è invece visto come una derivazione direzionale $\hat{\gamma}$ su $X$, il push-forward la porta nella derivazione $f^*_x \hat{\gamma}$ su $Y$ tale che per ogni $g:Y\to \R$ valga
+  Se il vettore tangente è invece visto come una derivazione $\hat{\gamma}$ su $X$, il push-forward la porta nella derivazione $f^*_x \hat{\gamma}$ su $Y$ tale che per ogni $g:Y\to \R$ valga
   \begin{equation*}
     (f^*_x \hat{\gamma})(g) = \hat{\gamma} (g \circ f) 
   \end{equation*} 
@@ -178,7 +178,7 @@ Un'altra possibilità che i vettori tangenti consentono di espandere da $\R^{n}$
 Se $f:X \to \R$ è una funzione differenziabile a valori reali, per ogni $x \in X$ si ha che $D_x f: T_x X \to T_{f(x)}\R$, ma siccome $T_{f(x)}\R$ può essere identificato con $\R$ si può scrivere $D_x f: T_x X \to \R$. Ciò significa che la derivata di una funzione a valori reali appartiene allo spazio duale di quello tangente.
 
 \begin{definition}
-  Sia $X$ una varietà e sia $x \in X$. Si dice \dfn{spazio cotangente} a $X$ in $x$ $T_x^* X$ lo spazio duale di $T_x X$. I suoi elementi si dicono \dfn{vettori cotangenti}.
+  Sia $X$ una varietà e sia $x \in X$. Si dice \dfn{spazio cotangente} a $X$ in $x$ $T_x^* X$ lo spazio duale di $T_x X$. I suoi elementi si dicono \dfn{vettori cotangenti} o \dfn{covettori}.
 \end{definition}
 \begin{remark} \label{rem:dualBasis}
   Siccome lo spazio cotangente è uno spazio duale, esso è automaticamente uno spazio vettoriale. Per lo stesso motivo le sue basi sono le basi duali di quelle dello spazio tangente, tra cui per una data carta $(U, \phi)$ $\{D_x \phi_1, \ldots, D_x \phi_n\} $, che è la base duale di quella delle curve coordinate.
@@ -198,7 +198,7 @@ Se $f:X \to \R$ è una funzione differenziabile a valori reali, per ogni $x \in 
 %   \end{equation*} 
 % \end{remark}
 
-Così come è possibile costruire campi vettoriali su una varietà, è anche possibile costruirvi campi di vettori cotangenti.
+Così come è possibile costruire campi vettoriali su una varietà, è anche possibile costruirvi campi di covettori.
 \begin{definition} \label{def:1formCvc}
   Si dice \dfn{1-forma differenziale} su una varietà $X$ un'applicazione $\alpha: x \in X \mapsto \alpha(x) \in T_x^* X$, differenziabile in senso analogo a quello usato per i campi vettoriali nella \autoref{def:vecField} (cioè tale che si ottenga un'applicazione differenziabile identificando gli spazi tangenti con $\R^{n}$ secondo le carte di coordinate).
 \end{definition}
@@ -218,7 +218,7 @@ L'applicazione che a ogni punto associa la derivata di una funzione $f$ fissata 
 % \begin{remark}
 %   Un $\R^{n}$-differenziale è un differenziale di una funzione con dominio $\R^{n}$. Quindi $d_x x_i$ è una base per lo spazio duale a quello delle derivazioni.
 % \end{remark}
-Anche le coordinate dei vettori cotangenti si trasformano in maniera ben definita in un cambio di carte. Questa trasformazione è però inversa rispetto a quella per i tangenti.
+Anche le coordinate dei covettori si trasformano in maniera ben definita in un cambio di carte. Questa trasformazione è però inversa rispetto a quella per i vettori.
 
 \begin{theorem} 
   Sia $X$ una varietà e siano $(U,\phi)$ e $(V,\psi)$ due carte. Sia $x \in  U \cap V$ e sia $\alpha \in  T_x^* X$. Siano $u^* \in \R^{n}$ e $v^* \in  \R^{n}$ i corrispondenti di $\alpha$ secondo $\phi$ e $\psi$, rispettivamente. Allora, dette $u^*_i$ e $v^*_j$ le rispettive componenti, e detta $F^{\phi\psi}:\R^{n} \to \R^{n}$ la funzione di transizione, con componenti $F^{\phi \psi}_i$, vale \begin{equation} \label{eq:cvcTrans}
