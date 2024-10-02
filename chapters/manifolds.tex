@@ -41,6 +41,18 @@ Nel caso, specifico ma significativo, in cui $f$ sia a valori reali, ovvero $Y =
   Un'applicazione a valori reali definita su una varietà $f:X\to \R$ si dice \dfn{differenziabile} se per ogni $x \in X$ esiste una carta $(U, \phi)$ su $X$ con $x \in  U$ tale che $f\circ \phi^{-1}: \phi(U) \to \R$ sia una funzione differenziabile tra sottoinsiemi di $\R^{n}$.
 \end{definition}
 
+Come semplice esempio di varietà differenziabile, si consideri la circonferenza unitaria $S^1$ nel piano $(x,y)$. Intuitivamente, essa è una varietà a una dimensione e la funzione coordinata ha quindi un'unica componente. L'angolo $\phi: S^1 \to ]0,2 \pi[$ in senso antiorario partendo dall'asse $x$ non fornisce però una coordinata, dato che il punto $x=1$ sull'asse $x$ rimane escluso. Si possono definire coordinate sulla circonferenza dividendola in due domini (aperti) $U_1 = S^1 \setminus \{(1,0)\}$ e $U_2 = S^1 \setminus \{(0,1)\}$. Su questi domini si possono poi definire le funzioni coordinata $\phi_1: U_1 \to ]0,2 \pi[$ data da $\phi_1: (x,y)\mapsto \tan^{-1}(\frac{y}{x})$ e $\phi_2: U_2 \to ]-\pi,\pi[$ data da $\phi_2: (x,y)\mapsto \tan^{-1}(\frac{y}{x})$. Entrambe le carte sono ben definite e la funzione di transizione
+\begin{equation*}
+\phi_2\phi_1^{-1}: \theta \mapsto  \begin{cases}
+  \theta & \text{se } \theta \in ]0, \pi[\\
+  \theta-2\pi & \text{se } \theta \in ]\pi, 2\pi[\\
+\end{cases}
+\end{equation*}
+è differenziabile. Un esempio di funzione a valori reali $f:S^1 \to \R$ su questa varietà è dato da $f:(x,y)\to y$. Le sue rappresentazioni in coordinate sono $f \circ \phi_1^{-1}: ]0, 2\pi[ \to \R$ e $f \circ \phi_2^{-1}: ]- \pi, \pi[ \to \R$, date da
+\begin{equation*}
+f \circ \phi_1^{-1}: \theta \mapsto \cos \theta \qquad f \circ \phi_2^{-1}: \theta \mapsto \cos(\theta - 2 \pi)
+\end{equation*} 
+
 Un modo naturale per produrre nuove varietà è prendere il prodotto cartesiano di varietà già definite. Si può infatti dimostrare il seguente teorema.
 \begin{theorem}
   Se $X$ e $Y$ sono varietà con struttura data dalle carte $\big\lbrace(U_{\mu}, \phi_{\mu})\big\rbrace$, con $\mu \in R \subset \R$, e $\big\lbrace (V_{\nu}, \psi_{\nu})\big\rbrace$, con $\nu \in S \subset  \R$, il prodotto cartesiano $X \times Y$ ha una struttura naturale di varietà data dalle carte $\Big\lbrace\big( U_{\mu} \times V_{\nu}, (\phi_{\mu},\psi_{\nu})\big)\Big\rbrace$, dove $\mu \in  R,\ \nu \in S$ e \begin{equation*}

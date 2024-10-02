@@ -156,6 +156,8 @@ Siccome il principio di minima azione riguarda il moto nella sua interezza, il q
 
 Questo significa che le equazioni del moto di un sistema ad esempio in coordinate polari possono essere ottenute immediatamente una volta scritte l'energia cinetica $T\big(\vec{\dot{x}}(\vec{q},\vec{\dot{q}})\big)$ e il potenziale $V\big(\vec{x}(\vec{q})\big)$ in coordinate polari.
 
+Si nota per completezza che la trattazione di alcuni sistemi richiede l'introduzione di un termine di \dfn{potenziale generalizzato} dipendente linearmente dalla velocità. In questo elaborato, tale classe di sistemi non verrà tuttavia trattata.
+
 Fra i casi più comuni in cui è naturale individuare una configurazione con coordinate non lineari vi sono i sistemi vincolati, ovvero che non sono liberi di occupare l'intero spazio vettoriale delle configurazioni. La meccanica lagrangiana è particolarmente adatta anche a questo caso specifico.
 
 \begin{definition} \label{def:constrainedConfigSpace}
@@ -201,6 +203,7 @@ dove $V$ è il potenziale dello stesso sistema senza vincoli. Usando questo pote
   \end{equation*} 
 \end{theorem} 
 Questo teorema consente in pratica di scrivere la lagrangiana esprimendo le coordinate vincolate in funzione delle altre, per poi calcolare le equazioni del moto solo per le coordinate non vincolate. 
+
 \section{Meccanica hamiltoniana}
 Le equazioni di Eulero-Lagrange sono di secondo ordine nelle coordinate $\vec{q}$, il che rende complicate operazioni come i cambi di variabili una volta scritta la lagrangiana. La formulazione \emph{hamiltoniana} consente invece di ottenere le equazioni del moto da equazioni di primo ordine. La formulazione hamiltoniana è sempre basata sul principio di minima azione, ma usa una diversa funzione scalare, detta hamiltoniana, che è legata alla lagrangiana da un'applicazione nota come trasformata di Legendre.
 
@@ -304,4 +307,4 @@ da cui risulta che
   Il moto di un sistema non vincolato è la linea di flusso del campo vettoriale hamiltoniano che ha inizio nelle condizioni iniziali $(\vec{q}_0, \vec{p}_0)$.
 \end{theorem} 
 
-Definendo il moto in termini di flusso di un campo vettoriale, si sono rimosse le coordinate dalla meccanica di un sistema non vincolato: il comportamento delle linee di flusso ne è indipendente, così come il campo vettoriale. Questa formulazione della meccanica è il punto da cui si partirà per rimuovere completamente le coordinate dalla definizione dei sistemi meccanici e dei loro moti. Tuttavia, nel caso di sistemi generici, che possono anche essere vincolati e quindi avere proprietà topologiche non banali, sarà necessario impostare la teoria delle varietà differenziabili, con la quale si descriveranno geometricamente gli spazi delle fasi. Questo sarà l'oggetto del prossimo capitolo.
+Definendo il moto in termini di flusso di un campo vettoriale, si sono rimosse le coordinate dalla meccanica di un sistema non vincolato: il comportamento delle linee di flusso ne è indipendente, così come il campo vettoriale. Questa formulazione della meccanica è il punto da cui si partirà per rimuovere completamente le coordinate dalla definizione dei sistemi meccanici e dei loro moti. Tuttavia, nel caso di sistemi conservativi generici, che possono anche essere vincolati e quindi avere proprietà topologiche non banali, sarà necessario impostare la teoria delle varietà differenziabili, con la quale si descriveranno geometricamente gli spazi delle fasi. Questo sarà l'oggetto del prossimo capitolo. 
