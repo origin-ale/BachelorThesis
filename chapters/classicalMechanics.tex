@@ -1,8 +1,8 @@
 \chapter{Formulazioni della meccanica}
-La meccanica classica si propone di studiare il moto dei corpi macroscopici in movimento con velocità trascurabile rispetto a quella della luce. In questo capitolo saranno esposte tre \emph{formulazioni} della meccanica classica, vale a dire tre modi per ricavare le equazioni del moto di un sistema. Dopo aver costruito un modello di universo classico e richiamato l'intuitiva ma scomoda formulazione \emph{newtoniana} basata sulle forze, si ricaverà la formulazione \emph{lagrangiana} dal principio di minima azione. Infine, grazie alla trasformata di Legendre, si passerà alla potente formulazione \emph{hamiltoniana}, che costituirà il fondamento per il resto della trattazione.
+La meccanica classica si propone di studiare il moto dei corpi macroscopici in movimento con velocità trascurabile rispetto a quella della luce. In questo capitolo saranno esposte tre \emph{formulazioni} della meccanica classica, vale a dire tre modi per ricavare le equazioni del moto di un sistema. Dopo aver costruito un modello di universo classico e richiamato l'intuitiva ma scomoda formulazione \emph{newtoniana} basata sulle forze, si ricaverà la formulazione \emph{lagrangiana} dal principio di minima azione. Infine, grazie alla trasformata di Legendre, si passerà alla formulazione \emph{hamiltoniana}. Quest'ultima formulazione costituirà il sostrato dell'intero lavoro. Le sue caratteristiche e le necessità di una sua riformulazione geometrica guideranno la terminologia utilizzata e le scelte degli argomenti nei capitoli 2 e 3. 
 
 \section{Il modello classico dell'universo}
-Per dare una formulazione assiomatica alla meccanica classica è innanzitutto necessario stabilire alcune caratteristiche dell'universo per quanto riguarda i corpi che si muovono su scala macroscopica (azione molto maggiore della costante di Planck $\hbar$) e a basse velocità ( molto minori di quella della luce $c$). Queste caratteristiche dovranno essere emulate dal modello di universo che ci si propone di costruire. Siccome l'ambito di applicazione di questo modello comprende l'esperienza quotidiana, è da essa che si può trarre spunto. Si pongono quindi i seguenti requisiti al modello:
+Per dare una formulazione il più matematica possibile alla meccanica classica è innanzitutto necessario stabilire alcune caratteristiche dell'universo per quanto riguarda i corpi che si muovono su scala macroscopica (azione molto maggiore della costante di Planck $\hbar$) e a basse velocità (molto minori di quella della luce $c$). Queste caratteristiche dovranno essere emulate dal modello di universo che ci si propone di costruire. Siccome l'ambito di applicazione di questo modello comprende l'esperienza quotidiana, è da essa che si può trarre spunto. Si pongono quindi i seguenti requisiti al modello:
 \begin{enumerate}
   \item L'universo è composto da \emph{spazio e tempo}. Lo spazio è tridimensionale ed euclideo, il tempo è unidimensionale.
   \item  Gli eventi sono individuati nello spazio e nel tempo usando \emph{sistemi di coordinate}. Esistono sistemi, detti \emph{inerziali}, tali che:
@@ -10,7 +10,7 @@ Per dare una formulazione assiomatica alla meccanica classica è innanzitutto ne
     \item A ogni istante, tutte le leggi della natura sono uguali in ogni sistema inerziale.
     \item Tutti i sistemi che si muovono di moto rettilineo e uniforme rispetto a un sistema inerziale sono inerziali.
   \end{enumerate}
-  \item L'universo è popolato di \emph{particelle}, entità adimensionali dotate di una massa e una posizione. Esso è inoltre è \emph{newtonianamente deterministico}: l'insieme delle posizioni e delle velocità di tutte le particelle a un certo tempo determina tutto il loro moto, sia nel passato che nel futuro.
+  \item L'universo è popolato di \emph{particelle}, entità adimensionali dotate di una massa e una posizione. Esso è inoltre \emph{newtonianamente deterministico}: l'insieme delle posizioni e delle velocità di tutte le particelle a un certo tempo determina tutto il loro moto, sia nel passato che nel futuro.
 \end{enumerate}
 
 Si desidera ora costruire un modello formale che presenti queste stesse caratteristiche. Per fare ciò, sarà necessaria una struttura matematica che formalizza l'idea di uno spazio-tempo in cui gli spostamenti sono vettori, ma non è definita un'origine. Tale struttura è nota come spazio affine.
@@ -19,43 +19,44 @@ Si desidera ora costruire un modello formale che presenti queste stesse caratter
   \begin{itemize}
     \item $A$ è un insieme.
     \item $V$ è uno spazio vettoriale reale.
-    \item $+:\, A\times V \to A$ è un'applicazion biunivoca detta \dfn{azione destra} di $V$ su $A$. L'immagine della coppia $(a,v)$ con $a \in  A, v \in V$ si denota con $a+v$.
+    \item $+:\, A\times V \to A$ è un'applicazione biunivoca detta \dfn{azione destra} di $V$ su $A$. L'immagine della coppia $(a,v)$ con $a \in  A, v \in V$ si denota con $a+v$.
   \end{itemize}
-  La \dfn{dimensione} di $A$ è la dimensione di $V$.
+  Si dice \dfn{dimensione} di $A$ la dimensione di $V$. Spesso uno spazio affine $(A, V, +)$ viene indicato semplicemente con l'insieme $A$.
 \end{definition}
 \begin{remark}
-  Siccome $+$ è biunivoca, fissati $a,b \in A$ esiste uno e un solo $v \in V$ tale che $a + v = b$. Tale elemento di $V$ si denota con $v = b - a$. In tal modo, gli spostamenti (differenze) tra punti di $A$ sono effettivamente vettori.
+  Siccome $+$ è biunivoca, fissati $a,b \in A$ esiste uno e un solo $v \in V$ tale che $a + v = b$. Tale elemento di $V$ si denota con $v = b - a$. Se si pensa alla differenza tra punti come a uno \emph{spostamento}, quindi, gli spostamenti in $A$ risultano effettivamente vettori di $V$.
 \end{remark}
 \begin{remark}
-Fissato un $a \in A$, l'insieme dei $v$ tali che $v = b - a$ per un qualche $b \in A$ forma uno spazio vettoriale reale isomorfo a $V$. Si dice che $V = A - A$.
+Fissato un $a \in A$, l'insieme dei $v$ tali che $v = b - a$ per un qualche $b \in A$ forma uno spazio vettoriale reale isomorfo a $V$.
 \end{remark}
 
 È a questo punto possibile formulare le componenti centrali del nostro modello: l'universo, il tempo, gli eventi contemporanei e la distanza fra di essi. Queste andranno a formare una struttura detta galileiana.
 \begin{definition}
   Una \dfn{struttura spazio-temporale galileiana} è composta da:
   \begin{enumerate}
-    \item L'\dfn{universo}, uno spazio affine quadridimensionale $\mathbb{A}^4$ i cui punti sono detti \emph{eventi}.
-    \item Il \dfn{tempo}, un'applicazione lineare $t:\mathbb{A}^4 - \mathbb{A}^4 \to \R$. Si dice \dfn{intervallo temporale} fra due eventi $a,b \in \mathbb{A}^4$ il numero reale $t(a-b)$. Se esso è nullo, $a$ e $b$ si dicono \dfn{contemporanei}. Gli eventi contemporanei a un dato evento $a$ formano uno spazio affine tridimensionale detto \dfn{spazio degli eventi contemporanei}.
+    \item L'\dfn{universo}, uno spazio affine quadridimensionale $\mathbb{A}^4$ i cui punti sono detti \emph{eventi}. 
+    \item Il \dfn{tempo}, un'applicazione lineare $t:\mathbb{V}^4 \to \R$, dove $\mathbb{V}^4$ è lo spazio vettoriale associato ad $\mathbb{A}^4$. Si dice \dfn{intervallo temporale} fra due eventi $a,b \in \mathbb{A}^4$ il numero reale $t(a-b)$. Se esso è nullo, $a$ e $b$ si dicono \dfn{contemporanei}. Gli eventi contemporanei a un dato evento $a$ formano uno spazio affine tridimensionale detto \dfn{spazio degli eventi contemporanei}.
     \item La \dfn{distanza fra eventi contemporanei} \begin{equation*}
-    d(a,b) = \norm{a-b}_2 = \sqrt{\ev{a-b,a-b}}  
+    d(a,b) \defeq \norm{a-b}_2 \defeq \sqrt{\ev{a-b,a-b}}  
     \end{equation*}
-    definita su $\mathrm{Ker}\, t$, cioè sugli spazi degli eventi contemporanei.
+    definita sugli spazi degli eventi contemporanei.
   \end{enumerate}
 \end{definition}
 
-Queste definizioni tuttavia non consentono ancora di formulare la meccanica classica. Non si ha infatti modo di identificare un punto nello spazio, siccome gli spazi di eventi contemporanei sono tutti separati tra loro. Per collegarli, si introduce l'ultima componente, i sistemi di riferimento.
+Queste definizioni tuttavia non consentono ancora di formulare la meccanica classica. Non si ha infatti modo di identificare un punto nello spazio attraverso lo scorrere del tempo, siccome gli spazi di eventi contemporanei sono tutti separati tra loro. Per collegarli, si introduce l'ultima componente, i sistemi di riferimento.
 \begin{definition}
-  Si dice \dfn{sistema di riferimento} un'applicazione lineare biunivoca $\phi:\, \mathbb{A}^4 \to \R\times \R^3$. Un sistema di riferimento $\phi_1$ si dice \dfn{in moto uniforme} rispetto a $\phi_2$ se $\phi_1 \phi_2^{-1}: \R\times \R^3\to \R\times \R^3$ conserva intervalli temporali e distanze.
+  Si dice \dfn{sistema di riferimento} un'applicazione lineare biunivoca $\phi:\, \mathbb{A}^4 \to \R\times \R^3$. 
+  % Un sistema di riferimento $\phi_1$ si dice \dfn{in moto uniforme} rispetto a $\phi_2$ se $\phi_1 \phi_2^{-1}: \R\times \R^3\to \R\times \R^3$ conserva intervalli temporali e distanze.
 \end{definition}
 
-Con quest'ultimo concetto si è finalmente in grado di descrivere posizioni e moti delle particelle che popolano l'universo. Noto infatti un elemento $(t,\vec{x})$ di $\R \times  \R^3$ si può risalire univocamente all'evento $\phi^{-1}(t,\vec{x})$.
+Con quest'ultimo concetto si è finalmente in grado di descrivere posizioni e moti delle particelle che popolano l'universo. Noto infatti un elemento $(t,\vec{x})$ di $\R \times  \R^3$ si può risalire univocamente all'evento $\phi^{-1}(t,\vec{x})$. Soprattutto se, come in questo elaborato, non si considerano cambi di sistema di riferimento, è quindi possibile formulare un modello in $\R \times \R^3$ per poi risalire alla sua espressione in $\mathbb{A}^4$, che rappresenta il vero e proprio modello di universo
 \begin{definition}
   Si dice \dfn{moto} di una particella in un sistema di riferimento $\phi$ un'applicazione differenziabile $\vec{x}:I \to \R^3$, dove $I$ è un intervallo aperto in $\R$, che manda $t\mapsto \vec{x}(t)$. Si dice \dfn{posizione} del punto al tempo $t \in I$ il vettore $\vec{x}(t)$. Si dicono \dfn{velocità} e \dfn{accelerazione} del punto al tempo $t \in I$ le derivate rispettivamente prima e seconda della posizione \begin{equation*}
-  \vec{\dot{x}} (t) = \dv{\vec{x}}{t}\, (t) \qqtext{e} \vec{\ddot{x}} (t) = \dv[2]{\vec{x}}{t}\, (t)
+  \vec{\dot{x}} (t) = \eval{\dv{\vec{x}}{t}}_t \qqtext{e} \vec{\ddot{x}} (t) = \eval{\dv[2]{\vec{x}}{t}}_t
   \end{equation*} 
 \end{definition}
 \begin{remark}
-  Velocità e accelerazione così definiti sono vettori del medesimo spazio vettoriale $\R^3$ a cui appartiene la posizione.
+  Velocità e accelerazione così definiti sono vettori del medesimo spazio vettoriale $\R^3$ a cui appartiene la posizione. Formulare la meccanica in maniera geometrica per sistemi arbitrari richiederà di rinunciare a questa proprietà.
 \end{remark}
 
 Per descrivere le posizioni di $N$ particelle servono $N$ vettori a 3 componenti. La risultante struttura può essere identificata con un vettore del prodotto diretto di $N$ copie di $\R^3$. Questo vettore descrive la configurazione dell'intero sistema, il che motiva la seguente definizione.
@@ -63,8 +64,11 @@ Per descrivere le posizioni di $N$ particelle servono $N$ vettori a 3 componenti
   Si dice \dfn{spazio delle configurazioni} di un sistema di $N$ particelle il prodotto diretto di $N$ copie di $\R^3$: \begin{equation*}
   \mathbb{M} = \underbrace{\R^3 \times \R^3 \times \ldots \times \R^3}_{N \text{ volte}}
   \end{equation*} 
-  \dfn{Moto, configurazione, velocità} e \dfn{accelerazione} di un tale sistema sono definite analogamente a quanto fatto per una sola particella, sostituendo $\R^3$ con $\mathbb{M}$.
+  \dfn{Moto, configurazione} (corrispondente alla posizione), \dfn{velocità} e \dfn{accelerazione} di un tale sistema sono definite analogamente a quanto fatto per una sola particella, sostituendo $\R^3$ con $\mathbb{M}$.
 \end{definition}
+\begin{remark}
+  Si noti che anche $\mathbb{M}$ è uno spazio vettoriale. 
+\end{remark}
 
 \section{Meccanica newtoniana}
 Finora ci è occupati solo di come descrivere i moti delle particelle nell'universo. L'obiettivo della meccanica, tuttavia, è determinare in anticipo i moti di queste particelle sulla base di informazioni note, grazie al principio di determinismo newtoniano. Nella formulazione originaria, dovuta a Newton stesso, i moti delle particelle sono previsti in base alle forze che agiscono su di esse, determinate sperimentalmente, tramite la legge di Newton. In versione moderna, questa può essere formulata come segue.
@@ -75,41 +79,41 @@ Finora ci è occupati solo di come descrivere i moti delle particelle nell'unive
   Questa è detta \dfn{equazione di Newton} ed $\vec{F}$ è detta \dfn{forza} (generalizzata) agente sul sistema.
 \end{newton}
 \begin{remark}
-  La funzione $\vec{F}$ si può ottenere dalla formulazione elementare della meccanica, che vede le forze come entità agenti su ciascuna particella in maniera distinta, moltiplicando la forza risultante su ciascuna particella per la massa di quest'ultima e concatenando i vettori risultanti.
+  La funzione $\vec{F}$ si può ottenere da una formulazione elementare della meccanica, che vede le forze come entità agenti su ciascuna particella in maniera distinta, moltiplicando la forza risultante su ciascuna particella per la massa di quest'ultima e concatenando i vettori risultanti.
 \end{remark}
 \begin{remark}
   La legge di Newton soddisfa il principio di determinismo grazie al teorema di esistenza e unicità di Cauchy: data la condizione iniziale, ovvero posizione e velocità del sistema a un tempo $t_0$, la soluzione dell'\autoref{eq:newton} esiste ed è unica nell'intervallo temporale $I$ in cui $\vec{F}$ è definita.
 \end{remark}
 La funzione $\vec{F}$ per un dato sistema fisico deve essere determinata sperimentalmente. Il modello matematico del sistema viene costruito nel momento in cui viene definita $\vec{F}$, motivo per cui essa è spesso identificata con il sistema stesso.
 
-La conoscenza di $\vec{F}$ consente in linea di principio di conoscere il moto del sistema per qualsiasi posizione iniziale. Ciò tuttavia è molto più facile a dirsi che a farsi: per un sistema di $N$ particelle, questo metodo richiede di risolvere $3N$ equazioni differenziali, un processo che spesso è impossibile dal punto di vista analitico e inefficiente da quello numerico. È però possibile fare affermazioni qualitative sul moto dei corpi anche quando l'equazione del moto non è analiticamente risolvibile, attraverso i concetti legati all'energia.
+La conoscenza di $\vec{F}$ consente in linea di principio di conoscere il moto del sistema per qualsiasi posizione iniziale. Ciò tuttavia è molto più facile a dirsi che a farsi: per un sistema di $N$ particelle, questo metodo richiede di risolvere $3N$ equazioni differenziali, un processo spesso impossibile dal punto di vista analitico e inefficiente da quello numerico. È però possibile fare affermazioni qualitative sul moto dei corpi anche quando l'equazione del moto non è analiticamente risolvibile, attraverso concetti legati a una funzione a valori reali detta \emph{energia} (totale).
 \begin{definition}
   Si dice \dfn{energia cinetica di un sistema} formato da $N$ particelle di masse $m_i$ nelle posizioni $\vec{x}_i \in \R^3$ la quantità \begin{equation}
     K(\vec{\dot{x}}) = \sum_{i=1}^{N} \frac{1}{2}m_i\norm{\vec{\dot{x}}_i}^2
   \end{equation} 
 \end{definition}
 \begin{definition}
-  Una forza dipendente solo dalle posizioni del sistema si dice \dfn{campo di forze}. Si dice \dfn{lavoro} del campo di forze $\vec{F}\, (x)$ sul cammino $\gamma \subset \mathbb{M}$ la quantità \begin{equation*}
-  L = \int\limits_{\gamma} \vec{F}\,(\vec{x})\cdot \dd \vec{x}
+  Una forza dipendente solo dalla configurazione $\vec{x}$ del sistema e dal tempo $t$ si dice \dfn{campo di forze}. Si dice \dfn{lavoro} del campo di forze $\vec{F}\, (\vec{x},t)$ sul cammino $\gamma \subset \mathbb{M}$ la quantità \begin{equation*}
+  L = \int\limits_{\gamma} \vec{F}\,(\vec{x},t)\cdot \dd \vec{x} \qqtext{a $t$ fissato}
   \end{equation*} 
   Un campo di forze e il corrispondente sistema si dicono \dfn{conservativi} se il lavoro del campo su un cammino qualsiasi non dipende dal cammino stesso. In tal caso, si dice \dfn{potenziale} rispetto a $\vec{x}_0 \in \mathbb{M}$ la quantità definita simbolicamente come \begin{equation}
-  V(\vec{x}) = \int_{\vec{x}_0}^{\vec{x}} \vec{F}\,(\vec{x})\cdot \dd \vec{x}
+  V(\vec{x},t) = \int_{\vec{x}_0}^{\vec{x}} \vec{F}\,(\vec{x},t)\cdot \dd \vec{x} \qqtext{a $t$ fissato}
   \end{equation} 
   dove l'integrale è compiuto lungo un qualsiasi percorso $\gamma$ di estremi $\vec{x}_0$ e $\vec{x}$.
 \end{definition}
 \begin{definition}
   Si dice \dfn{energia totale} di un sistema conservativo\begin{equation}
-  E(\vec{x},\vec{\dot{x}}) = K(\vec{\dot{x}}) + V(\vec{x})
+  E(\vec{x},\vec{\dot{x}}) = K(\vec{\dot{x}}) + V(\vec{x},t)
   \end{equation} 
 \end{definition}
 \begin{theorem} \label{thm:energyCons}
-L'energia totale di un sistema conservativo è costante nel tempo.
+L'energia totale di un sistema conservativo con potenziale indipendente dal tempo è costante nel tempo.
 \end{theorem}
 
 Il \autoref{thm:energyCons} consente ad esempio di determinare la regione di spazio delle configurazioni ammessa per il moto di un sistema, date le condizioni iniziali.
 
 \section{Meccanica lagrangiana}
-La conservazione dell'energia di un sistema è un metodo piuttosto semplice per ottenere informazioni qualitative sul suo comportamento, ma queste non sono particolarmente dettagliate. La formulazione newtoniana è inoltre fortemente lineare: si è sostanzialmente forzati a usare le coordinate dello spazio vettoriale $\mathbb{M}$ per individuare un punto, anche quando il moto sarebbe più conveniente da descrivere attraverso altri sistemi di coordinate.
+La conservazione dell'energia di un sistema è un metodo piuttosto semplice per ottenere informazioni qualitative sul suo comportamento, ma queste non sono particolarmente dettagliate. La formulazione newtoniana è inoltre fortemente legata alle componenti dei vettori in $\mathbb{M}$: si è sostanzialmente forzati a usarle per individuare un punto, anche quando il moto sarebbe più conveniente da descrivere attraverso altri sistemi di coordinate.
 
 Si può ovviare a questi problemi attraverso la formulazione \dfn{lagrangiana} della meccanica, che ricava le equazioni del moto da una funzione scalare, non vettoriale come la forza generalizzata.
 
@@ -122,11 +126,15 @@ Si può ovviare a questi problemi attraverso la formulazione \dfn{lagrangiana} d
   \end{equation}
 \end{definition}
 
-Fissati un tempo iniziale e finale $t_0$ e $t_1$ e una configurazione iniziale e finale $\vec{x}_0$ e $\vec{x}_1$, l'azione è un funzionale definito sullo spazio dei moti $\vec{x}$ tali che $\vec{x}(t_0) = \vec{x}_0$ e $\vec{x}(t_1)=\vec{x}_1$. Per avere una formulazione della meccanica, è necessario un modo per determinare quale moto viene effettivamente realizzato. Intuitivamente, questo dovrebbe avere un qualche tipo di \textquotedblleft efficienza\textquotedblright: non dovrebbe seguire un percorso inutilmente lungo, né variare la sua velocità più del necessario. Queste idee intuitive sono raccolte in una formulazione matematica dal principio di minima azione, originariamente dovuto a Maupertuis.
+\begin{remark}
+  Si nota per completezza che la trattazione di alcuni sistemi richiede l'introduzione di un termine di \dfn{potenziale generalizzato} dipendente linearmente dalla velocità. Tale classe di sistemi non verrà tuttavia trattata in questo lavoro.
+\end{remark}
+
+Fissati un tempo iniziale e finale $t_0$ e $t_1$ e una configurazione iniziale e finale $\vec{x}_0$ e $\vec{x}_1$, l'azione è un funzionale definito sullo spazio dei moti $\vec{x}$ tali che $\vec{x}(t_0) = \vec{x}_0$ e $\vec{x}(t_1)=\vec{x}_1$. Per avere una formulazione della meccanica, è necessario un modo per determinare quale moto viene effettivamente realizzato. Intuitivamente, questo dovrebbe avere un qualche tipo di \textquotedblleft efficienza\textquotedblright: non dovrebbe seguire un percorso inutilmente lungo, né variare la sua velocità più del necessario. Queste idee sono raccolte in una formulazione matematica dal \dfn{principio di minima azione}.
 \begin{minaction}
 Il moto fisicamente realizzato da un sistema fra due punti nello spazio delle configurazioni è quello per cui l'azione è minima.
 \end{minaction}
-Siccome il principio di minima azione riguarda il moto nella sua interezza, il quale essendo un'applicazione differenziabile appartiene a uno spazio vettoriale infinito-dimensionale, il problema della determinazione pratica di quale sia effettivamente il moto lungo cui l'azione è minima necessita lo sviluppo del calcolo delle variazioni per essere risolto; nella presente monografia ci si limiterà a presentare il teorema che risulta da una trattazione completa.
+Questo principio riguarda il moto nella sua interezza. Essendo un'applicazione differenziabile, il moto appartiene però a uno spazio vettoriale infinito-dimensionale. A causa di ciò, il problema della determinazione pratica di quale sia effettivamente il moto lungo cui l'azione è minima necessita lo sviluppo del calcolo delle variazioni per essere risolto; nel presente lavoro ci si limiterà a presentare il teorema che risulta da una trattazione completa.
 % \begin{definition}
   %   Si dice \dfn{funzionale} un'applicazione tra uno spazio di funzioni differenziabili e l'asse reale.
   % \end{definition}
@@ -136,14 +144,17 @@ Siccome il principio di minima azione riguarda il moto nella sua interezza, il q
   \end{equation} 
   dove $\pdv{\vec{x}}$ indica il gradiente $\nabla_{\vec{x}}$.
 \end{theorem}
+\begin{remark}
+  Questa è a rigore una condizione necessaria ma non sufficiente. Il caso in cui un'applicazione soddisfa le equazioni di Eulero-Lagrange senza dare un minimo dell'azione non si verifica però in meccanica. 
+\end{remark}
 
-È possibile dimostrare che, come si spera, i moti ottenute per un dato sistema meccanico dalla formulazione newtoniana e da quella lagrangiana coincidono. Come menzionato sopra, la formulazione lagrangiana semplifica però notevolmente i calcoli in molte situazioni. Un primo vantaggio è dovuto al fatto che essa consente di svolgere i calcoli non solo usando le componenti dei vettori di $\mathbb{M}$, ma anche con coordinate arbitrarie.
+È possibile dimostrare l'equivalenza tra le equazioni di Eulero-Lagrange e quelle di Newton nel definire i moti di un sistema fisico. Come menzionato sopra, la formulazione lagrangiana semplifica però notevolmente i calcoli in molte situazioni. Un primo vantaggio è dovuto al fatto che essa consente di svolgere i calcoli non solo usando le componenti dei vettori di $\mathbb{M}$, ma anche con coordinate arbitrarie.
 
 \begin{definition} \label{def:coordinates}
   In un sottoinsieme dello spazio delle configurazioni $U \subseteq \mathbb{M}$ si dicono \dfn{coordinate} $\vec{q}=(q_1, \ldots, q_n)$ le $n$-uple appartenenti a un insieme $W$ tale che esista una funzione biunivoca $\phi^{-1}: \vec{q} \in W \mapsto x\in U$. 
 \end{definition}
 \begin{remark}
-  Nel seguito, per semplificare la notazione, si scriverà $\vec{x}(\vec{q}) = \phi(\vec{q})$.
+  La funzione è definita come un'inversa per consistenza con il capitolo 2. Nel seguito, per semplificare la notazione, si scriverà $\vec{x}(\vec{q}) = \phi^{-1}(\vec{q})$. 
 \end{remark}
 \begin{remark}
   In generale, non è detto che $\vec{\dot{x}}$ dipenda solo da $\vec{\dot{q}}$: potrebbe dipendere anche da $\vec{q}$, come in effetti spesso è il caso.
@@ -156,28 +167,27 @@ Siccome il principio di minima azione riguarda il moto nella sua interezza, il q
 
 Questo significa che le equazioni del moto di un sistema ad esempio in coordinate polari possono essere ottenute immediatamente una volta scritte l'energia cinetica $T\big(\vec{\dot{x}}(\vec{q},\vec{\dot{q}})\big)$ e il potenziale $V\big(\vec{x}(\vec{q})\big)$ in coordinate polari.
 
-Si nota per completezza che la trattazione di alcuni sistemi richiede l'introduzione di un termine di \dfn{potenziale generalizzato} dipendente linearmente dalla velocità. In questo elaborato, tale classe di sistemi non verrà tuttavia trattata.
-
-Fra i casi più comuni in cui è naturale individuare una configurazione con coordinate non lineari vi sono i sistemi vincolati, ovvero che non sono liberi di occupare l'intero spazio vettoriale delle configurazioni. La meccanica lagrangiana è particolarmente adatta anche a questo caso specifico.
+Fra i casi più comuni in cui è naturale individuare una configurazione con coordinate non lineari vi sono i sistemi vincolati, ovvero che non sono liberi di occupare l'intero spazio vettoriale delle configurazioni. La meccanica lagrangiana è particolarmente adatta alla determinazione delle equazioni del moto di tali sistemi.
 
 \begin{definition} \label{def:constrainedConfigSpace}
-  Sia $\mathbb{M}$ uno spazio delle configurazioni di dimensione $n$ con coordinate arbitrarie $\vec{q} = (q_1, \ldots, q_n)$. Si dice \dfn{vincolo olonomo} la richiesta che il moto abbia un'immagine contenuta nel sottoinsieme $M$ di $\mathbb{M}$ definito da \begin{equation*}
+  Sia $\mathbb{M}$ uno spazio delle configurazioni di dimensione $n$ con coordinate arbitrarie $\vec{q} = (q_1, \ldots, q_n)$. Si dice \dfn{vincolo olonomo} la richiesta che il moto abbia un'immagine contenuta nel sottoinsieme $M$ di $\mathbb{M}$ definito da \begin{equation}
+    \label{eq:constrSyst}
     M = \left\{ a \in \mathbb{M} \left|\ \begin{cases} 
       F_1(\vec{q}) = 0 \\
       \vdots \\
       F_k(\vec{q}) = 0
     \end{cases} \right. \right\} \qqtext{con} \vec{q} = \phi(a)
-  \end{equation*} 
+  \end{equation} 
   dove $k \le n$ e $F_1, \ldots, F_k$ sono funzioni differenziabili da $\mathbb{M}$ a $\R$, tali che il rango della matrice $\pdv{F_i}{q_j}(a)$ sia $k$ in ogni $a \in M$. $M$ è detto \dfn{spazio delle configurazioni di un sistema vincolato}.
 \end{definition}
 \begin{remark}
-  Lo spazio vincolato $M$ non è necessariamente uno spazio vettoriale, ma può essere un qualsiasi sottoinsieme di $\mathbb{M}$. $M$ si dice \dfn{varietà immersa} in $\mathbb{M}$. Si dice \dfn{spazio tangente} alla varietà immersa in un punto $a \in M$ lo spazio dei vettori $\vec{\xi}$ applicati ad $a$ tali che $\vec{\xi} \cdot \grad{F_1}(\vec{q}) = \ldots = \vec{\xi} \cdot \grad{F_K}(\vec{q}) = 0$.
+  Lo spazio vincolato $M$ non è necessariamente uno spazio vettoriale, ma può essere un qualsiasi sottoinsieme di $\mathbb{M}$. Un insieme $M$ della forma data dall'\autoref{eq:constrSyst} si dice \dfn{varietà immersa} in $\mathbb{M}$. Si dice \dfn{spazio tangente} alla varietà immersa in un punto $a \in M$ lo spazio dei vettori $\vec{\xi}$ applicati ad $a$ tali che $\vec{\xi} \cdot \grad{F_1}(\vec{q}) = \ldots = \vec{\xi} \cdot \grad{F_K}(\vec{q}) = 0$. I concetti generali di \emph{varietà} e \emph{spazio tangente} sono fondamentali per una formulazione geometrica della meccanica e saranno esposti nel capitolo 2.
 \end{remark}
 \begin{remark}
-  Un vincolo non olonomo, detto \dfn{anolonomo}, può vincolare anche la velocità del sistema. Non si parlerà qui di vincoli anolonomi, quindi nel seguito con \emph{vincolo} si intenderà \emph{vincolo olonomo}.
+  Un vincolo non olonomo, detto \dfn{anolonomo}, può vincolare anche la velocità del sistema. Non si parlerà in questo lavoro di vincoli anolonomi, quindi in tutto il seguito con \emph{vincolo} si intenderà \emph{vincolo olonomo}.
 \end{remark}
 
-Per utilizzare concretamente il concetto di vincolo, è necessario trovare una formalizzazione del meccanismo che restringe la regione ammessa di spazio delle configurazioni. Intuitivamente, un vincolo è un'entità che applica una forza infinita sul sistema quando esso tenta di uscire dallo spazio vincolato $M$. Le forze sono prerogativa della meccanica newtoniana, ma si può utilizzare un potenziale a pendenza tendente all'infinito lungo le direzioni che si allontanano dal vincolo. Esprimendo per il teorema del Dini le prime $k$ coordinate in funzione delle altre $n-k$ \begin{equation*}
+Per utilizzare matematicamente il concetto di vincolo, è necessario trovare una formalizzazione del meccanismo che restringe la regione ammessa di spazio delle configurazioni. Intuitivamente, un vincolo è un'entità che applica una forza infinita sul sistema quando esso tenta di uscire dallo spazio vincolato $M$. Le forze sono prerogativa della meccanica newtoniana, ma si può utilizzare un potenziale a pendenza tendente all'infinito lungo le direzioni che si allontanano dal vincolo. Esprimendo per il teorema del Dini le prime $k$ coordinate in funzione delle altre $n-k$ \begin{equation*}
 \begin{cases}
   q_1 = f_1(q_{k+1}, \ldots, q_n) \\
   \vdots \\
@@ -202,18 +212,19 @@ dove $V$ è il potenziale dello stesso sistema senza vincoli. Usando questo pote
   \end{subarray}} - \eval{V(\vec{q})\,}_{q_1=f_1, \ldots, q_k=f_k}
   \end{equation*} 
 \end{theorem} 
-Questo teorema consente in pratica di scrivere la lagrangiana esprimendo le coordinate vincolate in funzione delle altre, per poi calcolare le equazioni del moto solo per le coordinate non vincolate. 
+Questo teorema consente in pratica di scrivere la lagrangiana esprimendo le coordinate vincolate in funzione delle altre, per poi calcolare le equazioni del moto solo per le coordinate non vincolate. Nel caso di un pendolo sferico, ad esempio, si possono calcolare le equazioni del moto solo per le coordinate sferiche angolari, tenendo fissa la coordinata radiale.
 
 \section{Meccanica hamiltoniana}
-Le equazioni di Eulero-Lagrange sono di secondo ordine nelle coordinate $\vec{q}$, il che rende complicate operazioni come i cambi di variabili una volta scritta la lagrangiana. La formulazione \emph{hamiltoniana} consente invece di ottenere le equazioni del moto da equazioni di primo ordine. La formulazione hamiltoniana è sempre basata sul principio di minima azione, ma usa una diversa funzione scalare, detta hamiltoniana, che è legata alla lagrangiana da un'applicazione nota come trasformata di Legendre.
+Le equazioni di Eulero-Lagrange sono intrinseche allo spazio delle configurazioni, ovvero non richiedono di conoscere le caratteristiche di tutto $\mathbb{M}$ ma solo di $M$. Esse sono tuttavia di secondo ordine nelle coordinate $\vec{q}$, il che rende complicate operazioni come i cambi di variabili una volta scritta la lagrangiana. La formulazione \emph{hamiltoniana} consente invece di ottenere le equazioni del moto da equazioni di primo ordine. La formulazione hamiltoniana è sempre basata sul principio di minima azione, ma usa una diversa funzione scalare, detta hamiltoniana, che è legata alla lagrangiana da un'applicazione nota come trasformata di Legendre.
 
 \begin{definition}
-  Una funzione $f:\R^n \to \R$ si dice \dfn{convessa} se l'hessiana $\pdv{f}{x_i}{x_j}()(x)$ è definita positiva $\forall x \in \R^{n}$.
+  Una funzione $f:\R^n \to \R$ si dice \dfn{convessa} se l'hessiana $\eval{\pdv{f}{x_i}{x_j}}_x$ è definita positiva $\forall x \in \R^{n}$.
 \end{definition}
 
 \begin{definition}
-  Data una funzione convessa $f:\R^{n}\to \R$, sia \begin{equation*}
-  F(\vec{x},\vec{p}): \R^{n} \times (\R^{n})^* \to \R \qqtext{tale che} F(\vec{x},\vec{p}) = \vec{p}\vec{x} - f(x)
+  Data una funzione convessa $f:\R^{n}\to \R$, sia $F: \R^{n} \times (\R^{n})^* \to \R$ un'applicazione data da 
+  \begin{equation*}
+    F: (\vec{x},\vec{p}) \longmapsto  F(\vec{x},\vec{p}) \defeq \vec{p}\vec{x} - f(x)
   \end{equation*} 
   e sia $\vec{x}(\vec{p})$ la funzione che a un vettore duale $\vec{p} \in (\R^{n})^*$ associa il valore di $\vec{x}$ tale che $F(\vec{x},\vec{p})$ è massimo. Si dice \dfn{trasformata di Legendre} di $f$ la funzione $f^*:(\R^{n})^* \to \R$ tale che \begin{equation*}
   f^*(\vec{p}) = F(\vec{x}(\vec{p}), \vec{p})
@@ -223,8 +234,8 @@ Le equazioni di Eulero-Lagrange sono di secondo ordine nelle coordinate $\vec{q}
   La funzione $F$ non è altro che la distanza verticale tra il punto del grafico di $f$ con coordinate $\vec{x}$ e il grafico del duale $\vec{p}$ (che nel caso multidimensionale è un piano a $n-1$ dimensioni passante per l'origine). 
 \end{remark}
 \begin{remark} \label{rem:legendreSlope}
-  A $\vec{p}$ fissato, $F$ è massima quando $\pdv{F}{\vec{x}}=0$, da cui segue che nel punto $\vec{x}(\vec{p})$ vale \begin{equation*}
-    \vec{p}=\pdv{f}{\vec{x}}()(\vec{x})
+  A $\vec{p}$ fissato, $F$ è massima quando $\pdv{F}{\vec{x}}=0$, da cui segue che \begin{equation*}
+    \vec{p}=\eval{\pdv{f}{\vec{x}}}_{\vec{x}(\vec{p})}
   \end{equation*}
 \end{remark}
 \begin{remark}
@@ -234,24 +245,22 @@ Le equazioni di Eulero-Lagrange sono di secondo ordine nelle coordinate $\vec{q}
   La trasformata di Legendre è comunque definita anche per funzioni convesse ma non differenziabili.
 \end{remark}
 
-Si possono a questo punto formulare le definizioni centrali di questo paragrafo.
+Le equazioni del moto di primo ordine si ottengono dall'hamiltoniana, che come detto in precedenza è la trasformata di Legendre della lagrangiana rispetto alle velocità.
 \begin{definition}
   Si dice \dfn{hamiltoniana} $\mathcal{H}$ di un sistema con lagrangiana $\mathcal{L}$ espresso nelle coordinate $\vec{q}$ la trasformata di Legendre di $\mathcal{L}$ rispetto alle velocità generalizzate $\vec{\dot{q}}$. 
 \end{definition}
 \begin{remark}
-  La condizione di convessità necessaria per la trasformata di Legendre è sempre soddisfatta per i sistemi meccanici conservativi, siccome l'energia cinetica è definita positiva e il potenziale non dipende dalle $\vec{\dot{q}}$.
+  La condizione di convessità necessaria per la trasformata di Legendre è sempre soddisfatta per i sistemi meccanici qui in esame, siccome l'energia cinetica è definita positiva e il potenziale non dipende dalle $\vec{\dot{q}}$.
 \end{remark}
 
-In meccanica hamiltoniana rivestono un'importanza fondamentale grandezze dette \emph{momenti}, che sono duali delle velocità e ne prendono il ruolo come variabili.
+In meccanica hamiltoniana rivestono un'importanza fondamentale grandezze dette \emph{momenti}, che sono duali delle velocità e ne prendono il ruolo come variabili una volta effettuata la trasformata di Legendre.
 \begin{definition}
-  Dato un sistema con lagrangiana $\mathcal{L}$ espresso nelle coordinate $\vec{q}=(q_1, \ldots, q_n)$, si dice \dfn{momento generalizzato} rispetto a $q_j$ la quantità \begin{equation}
-  p_j(\dot{q}_j) = \pdv{\mathcal{L}}{\dot{q}_j}() (\dot{q}_j)
+  Dato un sistema con lagrangiana $\mathcal{L}$ espresso nelle coordinate $\vec{q}=(q_1, \ldots, q_n)$, si dice \dfn{momento (generalizzato)} rispetto a $q_j$ la quantità \begin{equation}
+  p_j(\dot{q}_j) \defeq \pdv{\mathcal{L}}{\dot{q}_j}() (\dot{q}_j)
   \end{equation} 
 \end{definition}
-\begin{remark}
-  La relazione $\vec{p}(\vec{q})$ può essere invertita per ottenere $\vec{q}(\vec{p})$.
-\end{remark}
 
+La relazione $\vec{p}(\dot{\vec{q}})$ può essere invertita per ottenere $\dot{\vec{q}}(\vec{p})$, il che consente di esprimere l'energia cinetica in funzione dei momenti. Ciò consente di ottenere l'hamiltoniana in maniera più immediata che attraverso la trasformata di Legendre.
 \begin{theorem}
   L'hamiltoniana di un sistema con lagrangiana $\mathcal{L}$ espresso nelle coordinate $\vec{q}=(q_1, \ldots, q_n)$ è data da \begin{equation*}
   \mathcal{H} = \left[\sum_{j=1}^{n} p_j \dot{q}_j (p_j)\right] - \mathcal{L}\big(\vec{q}, \vec{\dot{q}}(\vec{p}), t\big)
@@ -267,10 +276,10 @@ Come anticipato, le equazioni del moto possono essere ottenute dall'hamiltoniana
 \end{theorem}
 
 \begin{theorem}
-  Se la lagrangiana ha la forma $\mathcal{L} = T - V$, l'hamiltoniana non è altro che \begin{equation*}
+  Se la lagrangiana ha la forma $\mathcal{L} = T - V$, l'hamiltoniana è data da \begin{equation*}
   \mathcal{H}(\vec{q},\vec{p},t) = T\big(\vec{q},\vec{\dot{q}}(\vec{p})\big) + V(\vec{q},t)
   \end{equation*} 
-  ovvero $\mathcal{H} = E$, l'energia totale.
+  ovvero $\mathcal{H} = E$, l'energia totale definita dalla meccanica newtoniana.
 \end{theorem}
 
 La conservazione dell'energia totale si generalizza alla conservazione di qualsiasi hamiltoniana:
@@ -278,7 +287,7 @@ La conservazione dell'energia totale si generalizza alla conservazione di qualsi
   Se l'hamiltoniana $\mathcal{H}$ non dipende esplicitamente dal tempo $t$, le equazioni di Hamilton conservano $\mathcal{H}$.
 \end{theorem}
 
-In meccanica lagrangiana si codifica lo stato del sistema nello spazio delle configurazioni, con la velocità data dall'evoluzione a partire dalle condizioni iniziali; in meccanica hamiltoniana è necessario usare un altro tipo di spazio, lo spazio delle fasi, che include anche i momenti generalizzati.
+In meccanica lagrangiana si codifica lo stato del sistema nello spazio delle configurazioni, con la velocità data dall'evoluzione di $\vec{\dot{q}}$a partire dalle condizioni iniziali; in meccanica hamiltoniana è necessario usare un altro tipo di spazio, lo spazio delle fasi, che include anche i momenti generalizzati.
 \begin{definition}
   Si dice \dfn{spazio delle fasi} $X$ lo spazio di tutte le possibili coppie di posizione e momento generalizzato $(\vec{q},\vec{p})$.
 \end{definition}
@@ -286,6 +295,7 @@ In meccanica lagrangiana si codifica lo stato del sistema nello spazio delle con
   Se il sistema non è vincolato, le sue posizioni appartengono allo spazio delle configurazioni $\mathbb{M}$ isomorfo a un qualche $\R^{n}$, e dunque anche i momenti appartengono a $(\R^{n})^*$ isomorfo a $\R^{n}$. Lo spazio delle fasi è quindi isomorfo a $\R^{2n}$.
 \end{remark}
 
+Si è detto che lo scopo di questo lavoro è fornire una formulazione geometrica, ovvero libera da coordinate, della meccanica classica. Per sistemi non vincolati, ciò è possibile anche solo utilizzando gli strumenti definiti finora e quelli forniti dal calcolo differenziale in $\R^{n}$.
 \begin{definition} \label{eq:hamFieldUnconstr}
   Per un sistema non vincolato, con hamiltoniana $\mathcal{H}$, si dice \dfn{campo vettoriale hamiltoniano} \begin{equation*}
     \vec{V}_{\mathcal{H}}\,(\vec{z}) = -\mathsf{J}\; \grad{\mathcal{H}} (\vec{z})
@@ -294,9 +304,9 @@ In meccanica lagrangiana si codifica lo stato del sistema nello spazio delle con
     \grad = \Bigg(\pdv{\vec{q}},\pdv{\vec{p}}\Bigg) 
     \end{equation*}
     e $\mathsf{J}$ è una matrice a blocchi data da \begin{equation*}
-    \mathsf{J} = \bmqty{0 & -\mathsf{I} \\ \mathsf{I} & 0}
+    \mathsf{J} = \bmqty{0 & -\mathbb{1} \\ \mathbb{1} & 0}
     \end{equation*}
-    dove $\mathsf{I}$ è la matrice identità.
+    dove $\mathbb{1}$ è la matrice identità.
 \end{definition}
 
 In tal modo le equazioni di Hamilton prendono la forma \begin{equation*}
@@ -307,4 +317,4 @@ da cui risulta che
   Il moto di un sistema non vincolato è la linea di flusso del campo vettoriale hamiltoniano che ha inizio nelle condizioni iniziali $(\vec{q}_0, \vec{p}_0)$.
 \end{theorem} 
 
-Definendo il moto in termini di flusso di un campo vettoriale, si sono rimosse le coordinate dalla meccanica di un sistema non vincolato: il comportamento delle linee di flusso ne è indipendente, così come il campo vettoriale. Questa formulazione della meccanica è il punto da cui si partirà per rimuovere completamente le coordinate dalla definizione dei sistemi meccanici e dei loro moti. Tuttavia, nel caso di sistemi conservativi generici, che possono anche essere vincolati e quindi avere proprietà topologiche non banali, sarà necessario impostare la teoria delle varietà differenziabili, con la quale si descriveranno geometricamente gli spazi delle fasi. Questo sarà l'oggetto del prossimo capitolo. 
+Definendo il moto in termini di flusso di un campo vettoriale, si sono rimosse le coordinate dalla meccanica di un sistema non vincolato: il comportamento delle linee di flusso ne è indipendente, così come il campo vettoriale. Si procederà in maniera analoga per rimuovere completamente le coordinate dalla definizione dei sistemi meccanici e dei loro moti. Tuttavia, nel caso di sistemi conservativi generici, che possono anche essere vincolati e quindi avere proprietà geometriche non banali, sarà necessario impostare la teoria delle varietà differenziabili, con la quale si descriveranno geometricamente gli spazi delle fasi e in particolare i campi vettoriali hamiltoniani e i loro flussi di fase. Questo sarà l'oggetto del prossimo capitolo. 
