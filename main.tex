@@ -1,9 +1,9 @@
 \documentclass[%
   libro,          
   corpo=12pt,        % corpo normale 11pt
-  tipotesi=custom, % laurea triennale
-  draft
+  tipotesi=custom % laurea triennale
 ]{toptesi}
+
 
 \usepackage[T1]{fontenc}
 % \usepackage[utf8]{inputenc} %ignored by luatex?
@@ -102,12 +102,17 @@
 \usepackage{graphicx}
 \graphicspath{./graphics}
 
+\usepackage[backend=biber, url=false, eprint = false]{biblatex} %bibliography support
+\addbibresource{./bachelorThesis.bib}
+
 \usepackage[italian=quotes]{csquotes}
+
 
 \usepackage{hyperref} %autoloaded in xwatermark
 \renewcommand{\equationautorefname}{equazione}
 \renewcommand{\chapterautorefname}{capitolo}
 \renewcommand{\sectionautorefname}{sezione}
+\hypersetup{hidelinks}
 
 \begin{document}
 \renewcommand{\epsilon}{\varepsilon}
@@ -121,5 +126,11 @@
   \input{chapters/manifolds.tex}
   \input{chapters/symplecticMechanics.tex}
   \input{chapters/marsden.tex}
+
+  \nocite{*}
+  \printbibliography[heading=bibintoc,
+  title={Riferimenti bibliografici}]
+
+  \input{chapters/thanks.tex}
 
 \end{document}
