@@ -139,6 +139,18 @@ Per una data funzione $H:X\to \R$, le parentesi di Poisson forniscono la variazi
   In particolare, siccome $\pb{H}{H} = 0$, $H$ stessa è un integrale del moto.
 \end{corollary}
 
+Oltre all'hamiltoniana stessa, anche la forma simplettica si conserva durante l'evoluzione del sistema, e in particolare il \textquote{volume} definito dall'integrale della sua $n$-esima potenza, che è una $2n$-forma, su un sottoinsieme rimane costante. Questo risultato è noto come \emph{teorema di Liouville}
+\begin{theorem}[Liouville]
+  Sia $(X, \omega)$ una varietà simplettica $2n$-dimensionale, sia $H$ un'hamiltoniana e sia $\Phi^t:X \to X$ il suo flusso a un tempo $t \in \R$. Allora $\Phi^t$ è una trasformazione canonica e conserva i \dfn{volumi simplettici} dei sottoinsiemi di $X$, cioè se $U \subset X$
+  \begin{equation*}
+  \int\limits_U \omega^{\wedge n} = \int\limits_{\Phi^t(U)} \omega^{\wedge n}
+  \end{equation*} 
+  dove 
+  \begin{equation*}
+    \omega^{\wedge n} = \underbrace{\omega \wedge \ldots \wedge \omega}_{n}
+  \end{equation*} 
+\end{theorem}
+
 La struttura simplettica consente di associare campi vettoriali a funzioni differenziabili. In maniera simile, anche se nel senso inverso, l'algebra delle funzioni data dalle parentesi di Poisson può essere vista come il risultato, tramite la forma simplettica, di una struttura algebrica di Lie valida per l'insieme $\mathcal{V}(X)$ dei \emph{campi vettoriali} definiti su una varietà \emph{qualsiasi}, non necessariamente simplettica. Questa struttura è detta \emph{parentesi di Lie}.
 % ed è strettamente legata al concetto di derivata di Lie.
 % \begin{definition}
