@@ -98,7 +98,7 @@
   Refname={Esempio,Esempi}]{example}
 
 
-
+\usepackage{epigraph}
 \usepackage{graphicx}
 \graphicspath{./graphics}
 
@@ -119,7 +119,19 @@
 \renewcommand{\phi}{\varphi}
 
   \input{chapters/frontispice.tex}
+  \newpage
+  \pagenumbering{gobble}
   \tableofcontents
+  \newpage
+  \hspace{0pt}
+  \vfill
+  \epigraph{Per i mari azzurri degli atlanti e per i grandi mari del mondo.}{J. L. Borges, \textit{Storia della notte}}
+  \vfill
+  \hspace{0pt}
+  \newpage
+  \
+  \newpage
+  \pagenumbering{arabic}
   \input{chapters/introduction.tex}
 
   \input{chapters/classicalMechanics.tex}
