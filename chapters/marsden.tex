@@ -71,30 +71,30 @@ Come ci si può aspettare, anche $\Phi^X$ è hamiltoniana, con mappa momento dat
 \end{equation*} 
 dove l'immagine $\vec{\dot{q}}^*$ è considerata come elemento di $T^*_{\vec{q}}\R^3 \simeq \R^3 \simeq T^*_{\vec{0}}\R^3 = \mathfrak{r}^{3*}$, il duale dell'algebra di Lie di $\R^3$-gruppo. Si noti che, come anticipato, questa quantità corrisponde fisicamente al momento lineare. Nel seguito, per semplicità, si scriverà $\mu \defeq \mu^{\R^3}$
 
-Dimostriamo che $\mu$ è effettivamente una mappa momento. L'azione infinitesima di $e_i$, l'$i$-esimo elemento della base canonica di $\R^3 \simeq T_e \R^3 = \mathfrak{r}^3$, su $X$ è data dal campo costante
+Dimostriamo che $\mu$ è effettivamente una mappa momento. L'azione infinitesima di $\vec{e}_i$, l'$i$-esimo elemento della base canonica di $\R^3 \simeq T_e \R^3 = \mathfrak{r}^3$, su $X$ è data dal campo costante
 \begin{equation*}
-\phi_{e}^X: (\vec{q},\vec{\dot{q}}^*, \rho, \dot{\rho}^*)\longmapsto (e_i, 0, 0, 0)
+\phi_{\vec{e}_i}^X: (\vec{q},\vec{\dot{q}}^*, \rho, \dot{\rho}^*)\longmapsto (\vec{e}_i, 0, 0, 0)
 \end{equation*}
-dove nell'immagine $e_i$ è inteso come elemento della base canonica di $\R^3 \simeq T_{\vec{q}}\R^3$. Infatti,l'azione infinitesima di $\mathfrak{r}^3$ su $\R^3$ è \begin{equation*}
-  \Big(\phi^{\R^3}_{e_i}\Big)_x = \Phi^{\R^3}_{0 + e_i t}(x) = x + e_i t \simeq e_i
+dove nell'immagine $\vec{e}_i$ è inteso come elemento della base canonica di $\R^3 \simeq T_{\vec{q}}\R^3$. Infatti,l'azione infinitesima di $\mathfrak{r}^3$ su $\R^3$ in $\vec{x} \in \R^3$ è \begin{equation*}
+  \Big(\phi^{\R^3}_{\vec{e}_i}\Big)\vec{_x} = \Phi^{\R^3}_{\vec{0} + \vec{e}_i t}(x) = \vec{x} + \vec{e}_i t \simeq \vec{e}_i
 \end{equation*}
-siccome $\R^3 \ni e_i \simeq (\vec{0}+e_i t) \in \vec{T_0} \R^3 $ e l'azione di $\R^3$ sulle altre componenti è banale. Allo stesso tempo, il valore della mappa comomento associata a $e_i$ in ciascun punto è 
+siccome $\R^3 \ni \vec{e}_i \simeq (\vec{0}+\vec{e}_i t) \in \vec{T_0} \R^3 $ e l'azione di $\R^3$ sulle altre componenti è banale. Allo stesso tempo, il valore della mappa comomento associata a $\vec{e}_i$ in ciascun punto è 
 \begin{equation*}
-  P_{e_i}(\vec{q},\vec{\dot{q}}^*, \rho, \dot{\rho}^*) =\ \vec{\dot{q}}^*\! e_i = \dot{q}^*_i
+  P_{\vec{e}_i}(\vec{q},\vec{\dot{q}}^*, \rho, \dot{\rho}^*) =\ \vec{\dot{q}}^*\! \vec{e}_i = \dot{q}^*_i
 \end{equation*} 
-dove nel membro di mezzo $\vec{\dot{q}}^*$ è considerato come elemento di $T^*_{\vec{q}}\R^3 \simeq \R^3 \simeq T^*_{\vec{0}}\R^3 = \mathfrak{r}^{3*}$ ed $e_i$ come elemento di $\R^3 \simeq T_{\vec{0}}\R^3 = \mathfrak{r}^3$. Nella base simplettica di $T^*\big(\R^3 \times  SO(3)\big)$ (non di $X$, che non essendo un fibrato cotangente non ha una struttura simplettica canonica), data semplicemente dalla concatenazione delle basi simplettiche di $\R^3$ e $SO(3)$, siccome la mappa comomento è costante sulle componenti derivanti da $T^*SO(3)$ il campo hamiltoniano della mappa comomento per un dato $e_i$ è fornito da \begin{equation*}
-V_{P_{e_i}} = - \mathsf{J}\, \grad{P_{e_i}} = - \begin{pmatrix}
+dove nel membro di mezzo $\vec{\dot{q}}^*$ è considerato come elemento di $T^*_{\vec{q}}\R^3 \simeq \R^3 \simeq T^*_{\vec{0}}\R^3 = \mathfrak{r}^{3*}$ ed $\vec{e}_i$ come elemento di $\R^3 \simeq T_{\vec{0}}\R^3 = \mathfrak{r}^3$. Nella base simplettica di $T^*\big(\R^3 \times  SO(3)\big)$ (non di $X$, che non essendo un fibrato cotangente non ha una struttura simplettica canonica), data semplicemente dalla concatenazione delle basi simplettiche di $\R^3$ e $SO(3)$, siccome la mappa comomento è costante sulle componenti derivanti da $T^*SO(3)$ il campo hamiltoniano della mappa comomento per un dato $e_i$ è fornito da \begin{equation*}
+V_{P_{\vec{e}_i}} = - \mathsf{J}\, \grad{P_{\vec{e}_i}} = - \begin{pmatrix}
   0 & 0 & \mathbb{1} & 0 \\
   0 & 0 & 0 & \mathbb{1} \\
   -\mathbb{1} & 0 & 0 & 0 \\ 
   0 & -\mathbb{1} & 0 & 0 
 \end{pmatrix} \begin{pmatrix}
-0 \\ 0 \\ e_i \\ 0
-\end{pmatrix} = (e_i, 0, 0, 0)
+0 \\ 0 \\ \vec{e}_i \\ 0
+\end{pmatrix} = (\vec{e}_i, 0, 0, 0)
 \end{equation*} 
 ovvero esattamente il campo dell'azione infinitesima. Quanto all'equivarianza, siccome $\R^{n}$ è commutativo l'azione aggiunta $\mathrm{Ad}$ è banale, e quindi lo è anche l'azione coaggiunta. L'equivarianza è soddisfatta poiché in effetti $\mu$ non dipende dalla configurazione in $\R^3$, così che $\mu(\vec{q}+\vec{a}) = \mu(\vec{q}) = \mathrm{Ad}^*\,\big(\mu(\vec{q})\big)$. Quindi $\mu$ è una mappa momento e $\Phi^X$ è un'azione hamiltoniana.
 
-Siccome $\R^{n}$ è commutativo e l'azione coaggiunta è banale, si ha anche che $G_p = G$, e siccome per ogni coppia di elementi $\vec{a}, \vec{b} \in \R^3$ esiste un terzo elemento $\vec{c}$ tale che $\vec{a} = \vec{c} + \vec{b}$, tutti gli elementi di $\R^3$ sono equivalenti sotto l'azione di $\R^3$. Da questo e dal fatto che per un dato $\vec{p} \in \R^3 \simeq T^*_{\vec{0}} \R^3 = \mathfrak{r}^3$ si ha che
+Siccome $\R^{n}$ è commutativo e l'azione coaggiunta è banale, si ha anche che $G_{\vec{p}} = G$ per ogni $\vec{p} \in \mathfrak{r}^3$, e siccome per ogni coppia di elementi $\vec{a}, \vec{b} \in \R^3$ esiste un terzo elemento $\vec{c}$ tale che $\vec{a} = \vec{c} + \vec{b}$, tutti gli elementi di $\R^3$ sono equivalenti sotto l'azione di $\R^3$. Da queste osservazioni e dal fatto che per un dato $\vec{p} \in \R^3 \simeq T^*_{\vec{0}} \R^3 = \mathfrak{r}^3$ si ha che
 \begin{equation*}
 \mu^{-1}(\vec{p}) = \big\lbrace(\vec{q},\vec{p}, \rho, \dot{\rho}^*) \mid \vec{q}\in \R^3, \rho \in SO(3), \dot{\rho}^* \in T^*_{\rho} SO(3)\big\rbrace \simeq \R^3 \times T^*SO(3)
 \end{equation*} 
