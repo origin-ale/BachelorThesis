@@ -36,9 +36,9 @@ Fissato un $a \in A$, l'insieme dei $v$ tali che $v = b - a$ per un qualche $b \
   \begin{enumerate}
     \item L'\dfn{universo}, uno spazio affine quadridimensionale $\mathbb{A}^4$ i cui punti sono detti \emph{eventi}. 
     \item Il \dfn{tempo}, un'applicazione lineare $t:\mathbb{V}^4 \to \R$, dove $\mathbb{V}^4$ è lo spazio vettoriale associato ad $\mathbb{A}^4$. Si dice \dfn{intervallo temporale} fra due eventi $a,b \in \mathbb{A}^4$ il numero reale $t(a-b)$. Se esso è nullo, $a$ e $b$ si dicono \dfn{contemporanei}. Gli eventi contemporanei a un dato evento $a$ formano uno spazio affine tridimensionale detto \dfn{spazio degli eventi contemporanei}.
-    \item La \dfn{distanza fra eventi contemporanei} \begin{equation*}
+    \item La \dfn{distanza fra eventi contemporanei} \begin{equation}
     d(a,b) \defeq \norm{a-b}_2 \defeq \sqrt{\ev{a-b,a-b}}  
-    \end{equation*}
+    \end{equation}
     definita sugli spazi degli eventi contemporanei.
   \end{enumerate}
 \end{definition}
@@ -51,9 +51,9 @@ Queste definizioni tuttavia non consentono ancora di formulare la meccanica clas
 
 Con quest'ultimo concetto si è finalmente in grado di descrivere posizioni e moti delle particelle che popolano l'universo. Noto infatti un elemento $(t,\vec{x})$ di $\R \times  \R^3$ si può risalire univocamente all'evento $\phi^{-1}(t,\vec{x})$. Soprattutto se, come in questo elaborato, non si considerano cambi di sistema di riferimento, è quindi possibile formulare un modello in $\R \times \R^3$ per poi risalire alla sua espressione in $\mathbb{A}^4$, che rappresenta il vero e proprio modello di universo
 \begin{definition}
-  Si dice \dfn{moto} di una particella in un sistema di riferimento $\phi$ un'applicazione differenziabile $\vec{x}:I \to \R^3$, dove $I$ è un intervallo aperto in $\R$, che manda $t\mapsto \vec{x}(t)$. Si dice \dfn{posizione} del punto al tempo $t \in I$ il vettore $\vec{x}(t)$. Si dicono \dfn{velocità} e \dfn{accelerazione} del punto al tempo $t \in I$ le derivate rispettivamente prima e seconda della posizione \begin{equation*}
-  \vec{\dot{x}} (t) = \eval{\dv{\vec{x}}{t}}_t \qqtext{e} \vec{\ddot{x}} (t) = \eval{\dv[2]{\vec{x}}{t}}_t
-  \end{equation*} 
+  Si dice \dfn{moto} di una particella in un sistema di riferimento $\phi$ un'applicazione differenziabile $\vec{x}:I \to \R^3$, dove $I$ è un intervallo aperto in $\R$, che manda $t\mapsto \vec{x}(t)$. Si dice \dfn{posizione} del punto al tempo $t \in I$ il vettore $\vec{x}(t)$. Si dicono \dfn{velocità} e \dfn{accelerazione} del punto al tempo $t \in I$ le derivate rispettivamente prima e seconda della posizione \begin{equation}
+  \vec{\dot{x}} (t) \defeq \eval{\dv{\vec{x}}{t}}_t \qqtext{e} \vec{\ddot{x}} (t) \defeq \eval{\dv[2]{\vec{x}}{t}}_t
+  \end{equation} 
 \end{definition}
 \begin{remark}
   Velocità e accelerazione così definiti sono vettori del medesimo spazio vettoriale $\R^3$ a cui appartiene la posizione. Formulare la meccanica in maniera geometrica per sistemi arbitrari richiederà di rinunciare a questa proprietà.
@@ -61,9 +61,9 @@ Con quest'ultimo concetto si è finalmente in grado di descrivere posizioni e mo
 
 Per descrivere le posizioni di $N$ particelle servono $N$ vettori a 3 componenti. La risultante struttura può essere identificata con un vettore del prodotto diretto di $N$ copie di $\R^3$. Questo vettore descrive la configurazione dell'intero sistema, il che motiva la seguente definizione.
 \begin{definition} \label{def:configSpace}
-  Si dice \dfn{spazio delle configurazioni} di un sistema di $N$ particelle il prodotto diretto di $N$ copie di $\R^3$: \begin{equation*}
-  \mathbb{M} = \underbrace{\R^3 \times \R^3 \times \ldots \times \R^3}_{N \text{ volte}}
-  \end{equation*} 
+  Si dice \dfn{spazio delle configurazioni} di un sistema di $N$ particelle il prodotto diretto di $N$ copie di $\R^3$: \begin{equation}
+  \mathbb{M} \defeq \underbrace{\R^3 \times \R^3 \times \ldots \times \R^3}_{N \text{ volte}}
+  \end{equation} 
   \dfn{Moto, configurazione} (corrispondente alla posizione), \dfn{velocità} e \dfn{accelerazione} di un tale sistema sono definite analogamente a quanto fatto per una sola particella, sostituendo $\R^3$ con $\mathbb{M}$.
 \end{definition}
 \begin{remark}
@@ -89,21 +89,21 @@ La funzione $\vec{F}$ per un dato sistema fisico deve essere determinata sperime
 La conoscenza di $\vec{F}$ consente in linea di principio di conoscere il moto del sistema per qualsiasi posizione iniziale. Ciò tuttavia è molto più facile a dirsi che a farsi: per un sistema di $N$ particelle, questo metodo richiede di risolvere $3N$ equazioni differenziali, un processo spesso impossibile dal punto di vista analitico e inefficiente da quello numerico. È però possibile fare affermazioni qualitative sul moto dei corpi anche quando l'equazione del moto non è analiticamente risolvibile, attraverso concetti legati a una funzione a valori reali detta \emph{energia} (totale).
 \begin{definition}
   Si dice \dfn{energia cinetica di un sistema} formato da $N$ particelle di masse $m_i$ nelle posizioni $\vec{x}_i \in \R^3$ la quantità \begin{equation}
-    K(\vec{\dot{x}}) = \sum_{i=1}^{N} \frac{1}{2}m_i\norm{\vec{\dot{x}}_i}^2
+    K(\vec{\dot{x}}) \defeq \sum_{i=1}^{N} \frac{1}{2}m_i\norm{\vec{\dot{x}}_i}^2
   \end{equation} 
 \end{definition}
 \begin{definition}
-  Una forza dipendente solo dalla configurazione $\vec{x}$ del sistema e dal tempo $t$ si dice \dfn{campo di forze}. Si dice \dfn{lavoro} del campo di forze $\vec{F}\, (\vec{x},t)$ sul cammino $\gamma \subset \mathbb{M}$ la quantità \begin{equation*}
-  L = \int\limits_{\gamma} \vec{F}\,(\vec{x},t)\cdot \dd \vec{x} \qqtext{a $t$ fissato}
-  \end{equation*} 
+  Una forza dipendente solo dalla configurazione $\vec{x}$ del sistema e dal tempo $t$ si dice \dfn{campo di forze}. Si dice \dfn{lavoro} del campo di forze $\vec{F}\, (\vec{x},t)$ sul cammino $\gamma \subset \mathbb{M}$ la quantità \begin{equation}
+  L \defeq \int\limits_{\gamma} \vec{F}\,(\vec{x},t)\cdot \dd \vec{x} \qqtext{a $t$ fissato}
+  \end{equation} 
   Un campo di forze e il corrispondente sistema si dicono \dfn{conservativi} se il lavoro del campo su un cammino qualsiasi non dipende dal cammino stesso. In tal caso, si dice \dfn{potenziale} rispetto a $\vec{x}_0 \in \mathbb{M}$ la quantità definita simbolicamente come \begin{equation}
-  V(\vec{x},t) = \int_{\vec{x}_0}^{\vec{x}} \vec{F}\,(\vec{x},t)\cdot \dd \vec{x} \qqtext{a $t$ fissato}
+  V(\vec{x},t) \defeq \int_{\vec{x}_0}^{\vec{x}} \vec{F}\,(\vec{x},t)\cdot \dd \vec{x} \qqtext{a $t$ fissato}
   \end{equation} 
   dove l'integrale è compiuto lungo un qualsiasi percorso $\gamma$ di estremi $\vec{x}_0$ e $\vec{x}$.
 \end{definition}
 \begin{definition}
   Si dice \dfn{energia totale} di un sistema conservativo\begin{equation}
-  E(\vec{x},\vec{\dot{x}}) = K(\vec{\dot{x}}) + V(\vec{x},t)
+  E(\vec{x},\vec{\dot{x}}) \defeq K(\vec{\dot{x}}) + V(\vec{x},t)
   \end{equation} 
 \end{definition}
 \begin{theorem} \label{thm:energyCons}
@@ -119,10 +119,10 @@ Si può ovviare a questi problemi attraverso la formulazione \dfn{lagrangiana} d
 
 \begin{definition}
   Si dice \dfn{lagrangiana} di un sistema la funzione \begin{equation}
-  \mathcal{L}(\vec{x},\vec{\dot{x}},t) = K(\vec{\dot{x}}) - V(\vec{x},t)
+  \mathcal{L}(\vec{x},\vec{\dot{x}},t) \defeq K(\vec{\dot{x}}) - V(\vec{x},t)
   \end{equation} 
-  Si dice \dfn{azione} di un moto $\vec{x}:t\mapsto \vec{x}(t)$ l'integrale della lagrangiana nel tempo \begin{equation} \label{eq:action}
-  S(t_0,t_1; \vec{x}) = \int_{t_0}^{t_1} \mathcal{L}(\vec{x}(t),\vec{\dot{x}}(t),t) \dd{t}
+  Si dice \dfn{azione} di un moto $\vec{x}:t\mapsto \vec{x}(t)$ tra i tempi $t_0$ e $t_1 \in \R$ l'integrale della lagrangiana nel tempo \begin{equation} \label{eq:action}
+  S(t_0,t_1; \vec{x}) \defeq \int_{t_0}^{t_1} \mathcal{L}(\vec{x}(t),\vec{\dot{x}}(t),t) \dd{t}
   \end{equation}
 \end{definition}
 
@@ -160,9 +160,9 @@ Questo principio riguarda il moto nella sua interezza. Essendo un'applicazione d
   In generale, non è detto che $\vec{\dot{x}}$ dipenda solo da $\vec{\dot{q}}$: potrebbe dipendere anche da $\vec{q}$, come in effetti spesso è il caso.
 \end{remark}
 \begin{theorem}
-  Un moto soddisfa le equazioni di Eulero-Lagrange in $\vec{x}$ se e solo se le soddisfa in coordinate $\vec{q}$ arbitrarie per $\mathbb{M}$: \begin{equation*}
+  Un moto soddisfa le equazioni di Eulero-Lagrange in $\vec{x}$ se e solo se le soddisfa in coordinate $\vec{q}$ arbitrarie per $\mathbb{M}$: \begin{equation}
     \dv{t}\Bigg[\pdv{\mathcal{L}}{\vec{\dot{q}}}()\big(\vec{x}(\vec{q}), \vec{\dot{x}}(\vec{q},\vec{\dot{q}}), t\big)\Bigg] - \pdv{\mathcal{L}}{\vec{q}}()\big(\vec{x}(\vec{q}), \vec{\dot{x}}(\vec{q},\vec{\dot{q}}), t\big) = 0
-  \end{equation*} 
+  \end{equation} 
 \end{theorem}
 
 Questo significa che le equazioni del moto di un sistema ad esempio in coordinate polari possono essere ottenute immediatamente una volta scritte l'energia cinetica $T\big(\vec{\dot{x}}(\vec{q},\vec{\dot{q}})\big)$ e il potenziale $V\big(\vec{x}(\vec{q})\big)$ in coordinate polari.
@@ -172,7 +172,7 @@ Fra i casi più comuni in cui è naturale individuare una configurazione con coo
 \begin{definition} \label{def:constrainedConfigSpace}
   Sia $\mathbb{M}$ uno spazio delle configurazioni di dimensione $n$ con coordinate arbitrarie $\vec{q} = (q_1, \ldots, q_n)$. Si dice \dfn{vincolo olonomo} la richiesta che il moto abbia un'immagine contenuta nel sottoinsieme $M$ di $\mathbb{M}$ definito da \begin{equation}
     \label{eq:constrSyst}
-    M = \left\{ a \in \mathbb{M} \left|\ \begin{cases} 
+    M \defeq \left\{ a \in \mathbb{M} \left|\ \begin{cases} 
       F_1(\vec{q}) = 0 \\
       \vdots \\
       F_k(\vec{q}) = 0
@@ -187,30 +187,30 @@ Fra i casi più comuni in cui è naturale individuare una configurazione con coo
   Un vincolo non olonomo, detto \dfn{anolonomo}, può vincolare anche la velocità del sistema. Non si parlerà in questo lavoro di vincoli anolonomi, quindi in tutto il seguito con \emph{vincolo} si intenderà \emph{vincolo olonomo}.
 \end{remark}
 
-Per utilizzare matematicamente il concetto di vincolo, è necessario trovare una formalizzazione del meccanismo che restringe la regione ammessa di spazio delle configurazioni. Intuitivamente, un vincolo è un'entità che applica una forza infinita sul sistema quando esso tenta di uscire dallo spazio vincolato $M$. Le forze sono prerogativa della meccanica newtoniana, ma si può utilizzare un potenziale a pendenza tendente all'infinito lungo le direzioni che si allontanano dal vincolo. Esprimendo per il teorema del Dini le prime $k$ coordinate in funzione delle altre $n-k$ \begin{equation*}
+Per utilizzare matematicamente il concetto di vincolo, è necessario trovare una formalizzazione del meccanismo che restringe la regione ammessa di spazio delle configurazioni. Intuitivamente, un vincolo è un'entità che applica una forza infinita sul sistema quando esso tenta di uscire dallo spazio vincolato $M$. Le forze sono prerogativa della meccanica newtoniana, ma si può utilizzare un potenziale a pendenza tendente all'infinito lungo le direzioni che si allontanano dal vincolo. Esprimendo per il teorema del Dini le prime $k$ coordinate in funzione delle altre $n-k$ \begin{equation}
 \begin{cases}
   q_1 = f_1(q_{k+1}, \ldots, q_n) \\
   \vdots \\
   q_k = f_k(q_{k+1}, \ldots, q_n)
 \end{cases}
-\end{equation*} 
-il potenziale necessario è \begin{equation*}
-  V_{\alpha}(\vec{q}) = V(\vec{q}) + \alpha\big[(q_1-f_1)^2 + \ldots + (q_k-f_k)^2 \big] \qqtext{per} \alpha \to +\infty
-\end{equation*} 
+\end{equation} 
+il potenziale necessario è \begin{equation}
+  V_{\alpha}(\vec{q}) \defeq V(\vec{q}) + \alpha\big[(q_1-f_1)^2 + \ldots + (q_k-f_k)^2 \big] \qqtext{per} \alpha \to +\infty
+\end{equation} 
 dove $V$ è il potenziale dello stesso sistema senza vincoli. Usando questo potenziale è possibile dimostrare il seguente teorema.
 \begin{theorem}
-  Sia $M \subset \mathbb{M}$ lo spazio delle configurazioni di un sistema vincolato con lagrangiana $\mathcal{L}_{\alpha} = T -V_{\alpha}$, siano date le condizioni iniziali $\vec{q}_0 \in  M$ e $\vec{\dot{q}}_0$ tangente a $M$ e sia $\vec{\phi}_{\alpha}(t)$ il moto del sistema. Allora esiste il limite \begin{equation*}
+  Sia $M \subset \mathbb{M}$ lo spazio delle configurazioni di un sistema vincolato con lagrangiana $\mathcal{L}_{\alpha} = T -V_{\alpha}$, siano date le condizioni iniziali $\vec{q}_0 \in  M$ e $\vec{\dot{q}}_0$ tangente a $M$ e sia $\vec{\phi}_{\alpha}(t)$ il moto del sistema. Allora esiste il limite \begin{equation}
   \lim_{\alpha \to +\infty} \vec{\phi}_{\alpha}(t) = \vec{\psi}(t)
-  \end{equation*} 
-  e la funzione limite $\vec{q}(t) = \vec{\psi}(t)$ soddisfa le equazioni di Eulero-Lagrange \begin{equation*}
+  \end{equation} 
+  e la funzione limite $\vec{q}(t) = \vec{\psi}(t)$ soddisfa le equazioni di Eulero-Lagrange \begin{equation}
     \dv{t}\Bigg[\pdv{\mathcal{L}_{*}}{\vec{\dot{q}}}()(\vec{q},\vec{\dot{q}},t)\Bigg] - \pdv{\mathcal{L}_{*}}{\vec{q}}()(\vec{q},\vec{\dot{q}},t) = 0
-  \end{equation*} 
-  dove $\mathcal{L}_*$ è detta \dfn{lagrangiana ridotta} ed è definita come \begin{equation*}
-  \mathcal{L}_*(\vec{q},\vec{\dot{q}}) = \eval{T(\vec{q},\vec{\dot{q}})\,}_{\begin{subarray}{l}
+  \end{equation} 
+  dove $\mathcal{L}_*$ è detta \dfn{lagrangiana ridotta} ed è definita come \begin{equation}
+  \mathcal{L}_*(\vec{q},\vec{\dot{q}}) \defeq \eval{T(\vec{q},\vec{\dot{q}})\,}_{\begin{subarray}{l}
     q_1=f_1, \ldots, q_k=f_k \\
     \dot{q}_1, \ldots, \dot{q}_k = 0
   \end{subarray}} - \eval{V(\vec{q})\,}_{q_1=f_1, \ldots, q_k=f_k}
-  \end{equation*} 
+  \end{equation} 
 \end{theorem} 
 Questo teorema consente in pratica di scrivere la lagrangiana esprimendo le coordinate vincolate in funzione delle altre, per poi calcolare le equazioni del moto solo per le coordinate non vincolate. Nel caso di un pendolo sferico, ad esempio, si possono calcolare le equazioni del moto solo per le coordinate sferiche angolari, tenendo fissa la coordinata radiale.
 
@@ -223,20 +223,20 @@ Le equazioni di Eulero-Lagrange sono intrinseche allo spazio delle configurazion
 
 \begin{definition}
   Data una funzione convessa $f:\R^{n}\to \R$, sia $F: \R^{n} \times (\R^{n})^* \to \R$ un'applicazione data da 
-  \begin{equation*}
+  \begin{equation}
     F: (\vec{x},\vec{p}) \longmapsto  F(\vec{x},\vec{p}) \defeq \vec{p}\vec{x} - f(x)
-  \end{equation*} 
-  e sia $\vec{x}(\vec{p})$ la funzione che a un vettore duale $\vec{p} \in (\R^{n})^*$ associa il valore di $\vec{x}$ tale che $F(\vec{x},\vec{p})$ è massimo. Si dice \dfn{trasformata di Legendre} di $f$ la funzione $f^*:(\R^{n})^* \to \R$ tale che \begin{equation*}
+  \end{equation} 
+  e sia $\vec{x}(\vec{p})$ la funzione che a un vettore duale $\vec{p} \in (\R^{n})^*$ associa il valore di $\vec{x}$ tale che $F(\vec{x},\vec{p})$ è massimo. Si dice \dfn{trasformata di Legendre} di $f$ la funzione $f^*:(\R^{n})^* \to \R$ tale che \begin{equation}
   f^*(\vec{p}) = F(\vec{x}(\vec{p}), \vec{p})
-  \end{equation*} 
+  \end{equation} 
 \end{definition}
 \begin{remark} \label{rem:legendreDist}
   La funzione $F$ non è altro che la distanza verticale tra il punto del grafico di $f$ con coordinate $\vec{x}$ e il grafico del duale $\vec{p}$ (che nel caso multidimensionale è un piano a $n-1$ dimensioni passante per l'origine). 
 \end{remark}
 \begin{remark} \label{rem:legendreSlope}
-  A $\vec{p}$ fissato, $F$ è massima quando $\pdv{F}{\vec{x}}=0$, da cui segue che \begin{equation*}
+  A $\vec{p}$ fissato, $F$ è massima quando $\pdv{F}{\vec{x}}=0$, da cui segue che \begin{equation}
     \vec{p}=\eval{\pdv{f}{\vec{x}}}_{\vec{x}(\vec{p})}
-  \end{equation*}
+  \end{equation}
 \end{remark}
 \begin{remark}
   Nel caso in cui $f$ è una funzione differenziabile definita sull'asse reale, siccome il grafico di un vettore duale $\vec{p} \in  (\R)^*$ è una retta passante per l'origine, l'\autoref{rem:legendreSlope} significa che $x(p)$ è il punto in cui la tangente al grafico di $f$ è parallela al grafico di $p$. Insieme all'\autoref{rem:legendreDist}, ciò implica che in questo caso $f^*(p)$ è l'intercetta della retta con pendenza $p$ tangente al grafico di $f$.
@@ -262,9 +262,9 @@ In meccanica hamiltoniana rivestono un'importanza fondamentale grandezze dette \
 
 La relazione $\vec{p}(\dot{\vec{q}})$ può essere invertita per ottenere $\dot{\vec{q}}(\vec{p})$, il che consente di esprimere l'energia cinetica in funzione dei momenti. Ciò consente di ottenere l'hamiltoniana in maniera più immediata che attraverso la trasformata di Legendre.
 \begin{theorem}
-  L'hamiltoniana di un sistema con lagrangiana $\mathcal{L}$ espresso nelle coordinate $\vec{q}=(q_1, \ldots, q_n)$ è data da \begin{equation*}
+  L'hamiltoniana di un sistema con lagrangiana $\mathcal{L}$ espresso nelle coordinate $\vec{q}=(q_1, \ldots, q_n)$ è data da \begin{equation}
   \mathcal{H} = \left[\sum_{j=1}^{n} p_j \dot{q}_j (p_j)\right] - \mathcal{L}\big(\vec{q}, \vec{\dot{q}}(\vec{p}), t\big)
-  \end{equation*} 
+  \end{equation} 
 \end{theorem}
 
 Come anticipato, le equazioni del moto possono essere ottenute dall'hamiltoniana risolvendo un sistema di equazioni di primo ordine.
@@ -276,9 +276,9 @@ Come anticipato, le equazioni del moto possono essere ottenute dall'hamiltoniana
 \end{theorem}
 
 \begin{theorem}
-  Se la lagrangiana ha la forma $\mathcal{L} = T - V$, l'hamiltoniana è data da \begin{equation*}
+  Se la lagrangiana ha la forma $\mathcal{L} = T - V$, l'hamiltoniana è data da \begin{equation}
   \mathcal{H}(\vec{q},\vec{p},t) = T\big(\vec{q},\vec{\dot{q}}(\vec{p})\big) + V(\vec{q},t)
-  \end{equation*} 
+  \end{equation} 
   ovvero $\mathcal{H} = E$, l'energia totale definita dalla meccanica newtoniana.
 \end{theorem}
 
@@ -297,21 +297,21 @@ In meccanica lagrangiana si codifica lo stato del sistema nello spazio delle con
 
 Si è detto che lo scopo di questo lavoro è fornire una formulazione geometrica, ovvero libera da coordinate, della meccanica classica. Per sistemi non vincolati, ciò è possibile anche solo utilizzando gli strumenti definiti finora e quelli forniti dal calcolo differenziale in $\R^{n}$.
 \begin{definition} \label{eq:hamFieldUnconstr}
-  Per un sistema non vincolato, con hamiltoniana $\mathcal{H}$, si dice \dfn{campo vettoriale hamiltoniano} \begin{equation*}
-    \vec{V}_{\mathcal{H}}\,(\vec{z}) = -\mathsf{J}\; \grad{\mathcal{H}} (\vec{z})
-  \end{equation*}
-  dove $\vec{z}=(\vec{q},\vec{p})$, $\grad$ rappresenta il gradiente totale sullo spazio delle fasi \begin{equation*}
-    \grad = \Bigg(\pdv{\vec{q}},\pdv{\vec{p}}\Bigg) 
-    \end{equation*}
-    e $\mathsf{J}$ è una matrice a blocchi data da \begin{equation*}
-    \mathsf{J} = \bmqty{0 & -\mathbb{1} \\ \mathbb{1} & 0}
-    \end{equation*}
+  Per un sistema non vincolato, con hamiltoniana $\mathcal{H}$, si dice \dfn{campo vettoriale hamiltoniano} \begin{equation}
+    \vec{V}_{\mathcal{H}}\,(\vec{z}) \defeq -\mathsf{J}\; \grad{\mathcal{H}} (\vec{z})
+  \end{equation}
+  dove $\vec{z}=(\vec{q},\vec{p})$, $\grad$ è il gradiente totale sullo spazio delle fasi \begin{equation}
+    \grad \defeq \Bigg(\pdv{\vec{q}},\pdv{\vec{p}}\Bigg) 
+    \end{equation}
+    e $\mathsf{J}$ è una matrice a blocchi data da \begin{equation}
+    \mathsf{J} \defeq \bmqty{0 & -\mathbb{1} \\ \mathbb{1} & 0}
+    \end{equation}
     dove $\mathbb{1}$ è la matrice identità.
 \end{definition}
 
-In tal modo le equazioni di Hamilton prendono la forma \begin{equation*}
+In tal modo le equazioni di Hamilton prendono la forma \begin{equation}
 \vec{\dot{z}} = \vec{V}_{\mathcal{H}}\, (\vec{z}) 
-\end{equation*} 
+\end{equation} 
 da cui risulta che
 \begin{theorem}
   Il moto di un sistema non vincolato è la linea di flusso del campo vettoriale hamiltoniano che ha inizio nelle condizioni iniziali $(\vec{q}_0, \vec{p}_0)$.

@@ -7,29 +7,30 @@ In questo capitolo si userà la teoria delle varietà differenziabili per costru
 \begin{restatable}{definition}{symplecticForm}
   Si dice \dfn{forma simplettica} una $2$-forma differenziale $\omega$ chiusa e non degenere. Si dice \dfn{varietà simplettica} una varietà $2n$-dimensionale su cui è definita una forma simplettica.
 \end{restatable}
+
 Su ogni fibrato cotangente è definita una forma simplettica grazie alla proiezione $\pi$ e ai covettori $\alpha$ che formano le fibre.
 \begin{definition}
   Sia $M$ una varietà $n$-dimensionale e sia $X = T^*M$ il suo fibrato cotangente, con proiezione $\pi:X\to M$. 
   % Si dice \dfn{$1-$forma tautologica} $\lambda$ su $X$ la $1$-forma differenziale data dal pullback dei covettori contro la proiezione 
-  % \begin{equation*}
+  % \begin{equation}
   % \lambda_{(m,\alpha)} = \pi^* \alpha
-  % \end{equation*}
+  % \end{equation}
   % dove $m \in M$ e $\alpha \in T_m^* M$.
-  Si dice \dfn{$1-$forma tautologica} $\lambda$ su $X$ la $1$-forma differenziale tale che \begin{equation*}
-  \lambda_{(m, \alpha)}(\xi) = \alpha \bigg[\big(D_{(m, \alpha)} \pi\big)(\xi)\bigg]
-  \end{equation*} 
+  Si dice \dfn{$1-$forma tautologica} $\lambda$ su $X$ la $1$-forma differenziale tale che \begin{equation}
+  \lambda_{(m, \alpha)}(\xi) \defeq \alpha \bigg[\big(D_{(m, \alpha)} \pi\big)(\xi)\bigg]
+  \end{equation} 
   dove $m \in M$, $\alpha \in T_m^* M$ e $\xi \in T_{(m,\alpha)}X$.
 \end{definition}
 \begin{remark}
 La forma tautologica può essere vista in ciascun punto $(m,\alpha)$ come il pull-back attraverso la proiezione della $1$-forma differenziale data da $\alpha$ su tutta $M$
-\begin{equation*}
+\begin{equation}
   \lambda_{(m,\alpha)} = \pi^* \alpha
-\end{equation*} 
+\end{equation} 
 \end{remark}
 
 \begin{definition}
   Sia $X$ un fibrato cotangente, si dice \dfn{$2$-forma canonica} $\omega$ l'opposto della derivata esterna della forma tautologica: \begin{equation}
-  \omega = -\dd{\lambda}
+  \omega \defeq -\dd{\lambda}
   \end{equation} 
 \end{definition}
 \begin{remark}
@@ -39,16 +40,16 @@ La forma tautologica può essere vista in ciascun punto $(m,\alpha)$ come il pul
   La $2$-forma canonica su un fibrato cotangente è una forma simplettica.
 \end{theorem}
 
-Vediamo come esempio la determinazione della forma simplettica su $\R^{n}$. Se $M = \R^{n}$, il suo fibrato cotangente $X$ è isomorfo a $\R^{2n}$ tramite coordinate $\phi: (x, \alpha) \mapsto (q_1, \ldots, q_n, p_1, \ldots, p_n)$. In tal caso quindi si può considerare $\pi: (q_1, \ldots, q_n, p_1, \ldots, p_n) \mapsto  (q_1, \ldots, q_n)$. Quindi, sia $\gamma = (\gamma_1, \ldots, \gamma_{2n}):\R \to X$ un cammino con $\gamma(0) = x \in X$, si ha \begin{equation*}
+Vediamo come esempio la determinazione della forma simplettica su $\R^{n}$. Se $M = \R^{n}$, il suo fibrato cotangente $X$ è isomorfo a $\R^{2n}$ tramite coordinate $\phi: (x, \alpha) \mapsto (q_1, \ldots, q_n, p_1, \ldots, p_n)$. In tal caso quindi si può considerare $\pi: (q_1, \ldots, q_n, p_1, \ldots, p_n) \mapsto  (q_1, \ldots, q_n)$. Quindi, sia $\gamma = (\gamma_1, \ldots, \gamma_{2n}):\R \to X$ un cammino con $\gamma(0) = x \in X$, si ha \begin{equation}
 (\pi \circ {\gamma}) (t) = \big({\gamma}_1(t), \ldots, {\gamma}_n (t)\big)
-\end{equation*} 
+\end{equation} 
 Ciò significa che la derivata di $\pi$ manda vettori $\vec{\xi} = (\xi_1, \ldots, \xi_{2n})$ tangenti a $\R^{2n}$ in vettori tangenti a $\R^{n}$ proiettandoli sulle loro prime $n$ coordinate:
-\begin{equation*}
+\begin{equation}
   D_{(\vec{q},\vec{p})}\pi: (\xi_1, \ldots, \xi_{2n}) \mapsto  (\xi_1, \ldots, \xi_n)
-\end{equation*}
-e, siccome $\alpha(\xi) = \sum_j p_j \xi_j$ (l'applicazione di un vettore cotangente a uno tangente, scritta in coordinate) e siccome $(\dd{q})_j$ è la base duale $\xi_j = (\dd{q}_j)(\xi)$, si ha \begin{equation*}
+\end{equation}
+e, siccome $\alpha(\xi) = \sum_j p_j \xi_j$ (l'applicazione di un vettore cotangente a uno tangente, scritta in coordinate) e siccome $(\dd{q})_j$ è la base duale $\xi_j = (\dd{q}_j)(\xi)$, si ha \begin{equation}
 \lambda_{(\vec{q},\vec{p})} (\xi) = \sum_{j=1}^n p_j \xi_j = \left[\sum_{j=1}^n p_j \dd{q_j}\right] (\xi)
-\end{equation*} 
+\end{equation} 
 da cui segue che \begin{equation}
   \lambda_{(\vec{q},\vec{p})} = \sum_{j=1}^n p_j \dd{q_j}
 \end{equation} 
@@ -57,22 +58,22 @@ La forma simplettica su $\R^{2n}$ nelle coordinate $(q_1, \ldots, q_n)$ è quind
 \omega = \sum_{j=1}^n \dd{q_i} \wedge \dd{p_i}
 \end{equation} 
 Si noti che questa forma ha coefficienti costanti su $\R^{2n}$, ed è quindi rappresentabile in una base $\{e_i\}$ come matrice quadrata $2n \times 2n$ con elementi dati da 
-\begin{equation*}
+\begin{equation}
 \omega(e_i, e_j) = \sum_{k=1}^{n} (\dd{q_k} \wedge \dd{p_k})(e_i, e_j) = \sum_{k=1}^{n} \det\pmqty{\dd{q_k}(e_i) & \dd{q_k}(e_j) \\\dd{p_k}(e_i) & \dd{p_k}(e_j)}
-\end{equation*}
+\end{equation}
 ovvero, nella base con coordinate $(q_1, \ldots, q_n, p_1, \ldots, p_n)$, dalla matrice a blocchi
-\begin{equation*}
-- \mathsf{J} = - \pmqty{0 & -\mathbb{1} \\ \mathbb{1} & 0}
-\end{equation*} 
+\begin{equation}
+- \mathsf{J} \defeq - \pmqty{0 & -\mathbb{1} \\ \mathbb{1} & 0}
+\end{equation} 
 ovvero vale $\omega(\xi_1, \xi_2) = \xi_1^T (-\mathsf{J}) \xi_2$. Essendo essa stessa una derivata esterna, $\omega$ è chiusa, mentre dalla rappresentazione in coordinate si ottiene che essa è anche non degenere. $\omega$ è quindi effettivamente una forma simplettica.
 
 Si può dimostrare che la struttura della forma simplettica in $\R^{2n}$ è comune a tutte le varietà simplettiche. Questo risultato è noto come \emph{teorema di Darboux}. Per formularlo precisamente, è necessario definire il concetto di una trasformazione che \textquote{preserva la struttura simplettica}.
 
 \begin{definition}
   Siano $(X, \omega_X)$ e $(Y, \omega_Y)$ due varietà simplettiche. Si dice \dfn{simplettomorfismo} un diffeomorfismo $F:X\to Y$ tale che 
-  \begin{equation*}
+  \begin{equation}
     F^*(\omega_Y) = \omega_X
-  \end{equation*} 
+  \end{equation} 
   Se $X = Y$ e $\omega_X = \omega_Y$, $F$ si dice \dfn{trasformazione canonica}.
 \end{definition}
 
@@ -83,14 +84,14 @@ Si può dimostrare che la struttura della forma simplettica in $\R^{2n}$ è comu
   Nelle coordinate individuate dal teorema di Darboux, la forma simplettica $\omega(\xi_1,\xi_2)$ su due vettori è la somma delle aree delle  proiezioni sui piani $(q_i, p_i)$ del rettangolo (infinitesimo) formato da $\xi_1$ e $\xi_2$.
 \end{remark}
 
-Come esempio di varietà simplettica non lineare e che non è un fibrato cotangente, si consideri la sfera $S^2$ immersa in $\R^3$. Si considerino le coordinate cilindriche di $\R^3$ attorno agli assi $\overline{z}$ e $\overline{x}$, $(\theta,r,z)$ e $(\phi, s, x)$ con $\theta,\phi \in [0,2\pi[$, $r,s \in \R^+$ e $z,x \in \R$. Per il teorema del Dini, $\big\lbrace S^2 \setminus \overline{z}, (\theta,z)\big\rbrace$ e $\big\lbrace S^2 \setminus \overline{x}, (\phi,x)\big\rbrace$ sono carte che ricoprono $S^2$, che è quindi una varietà differenziabile. La $2$-forma $\omega = \dd{z} \wedge \dd{\theta}$, che è del tipo previsto dal teorema di Darboux, è una forma simplettica. Infatti, per via di antisimmetria e bilinearità ogni $3$-forma su una varietà bidimensionale deve essere identicamente nulla, quindi in particolare lo è $\dd (\dd z \wedge \dd \theta)$ e dunque $\dd z \wedge \dd \theta$ è chiusa. Inoltre, analogamente a sopra $\omega$ è esprimibile in una base di ciascuno spazio tangente tramite la matrice $2\times 2$ con elementi 
-\begin{equation*}
+Come esempio di varietà simplettica non lineare e che non è un fibrato cotangente, si consideri la sfera $S^2$ immersa in $\R^3$. Si considerino le coordinate cilindriche di $\R^3$ attorno agli assi $\overline{z}$ e $\overline{x}$, $(\theta,r,z)$ e $(\phi, s, x)$ con $\theta,\phi \in [0,2\pi[$, $r,s \in \R^+$ e $z,x \in \R$. Per il teorema del Dini, $\big\lbrace S^2 \setminus \overline{z}, (\theta,z)\big\rbrace$ e $\big\lbrace S^2 \setminus \overline{x}, (\phi,x)\big\rbrace$ sono carte che ricoprono $S^2$, che è quindi una varietà differenziabile. La $2$-forma $\omega = \dd{z} \wedge \dd{\theta}$, che è del tipo previsto dal teorema di Darboux, è una forma simplettica. Infatti, per via di antisimmetria e bilinearità ogni $3$-forma su una varietà bidimensionale deve essere identicamente nulla, quindi in particolare lo è $\dd (\dd z \wedge \dd \theta)$ e dunque $\dd z \wedge \dd \theta$ è chiusa. Inoltre, analogamente a sopra $\omega$ è esprimibile in una base di ciascuno spazio tangente tramite la matrice $2\times 2$ con elementi
+\begin{equation}
 \omega(e_i,e_j) = (\dd{z} \wedge \dd{\theta}) (e_i, e_j) = \det\pmqty{\dd{z}(e_i) & \dd{z}(e_j) \\ \dd{\theta}(e_i) & \dd{\theta}(e_j)}
-\end{equation*} 
+\end{equation} 
 ovvero, se $e_1$ ed $e_2$ sono le curve coordinate di $z$ e $\theta$, dalla matrice
-\begin{equation*}
-  - \mathsf{J} = - \pmqty{0 & -1 \\ 1 & 0}
-\end{equation*}
+\begin{equation}
+  - \mathsf{J} \defeq - \pmqty{0 & -1 \\ 1 & 0}
+\end{equation}
 Dunque, analogamente a sopra, $\omega$ è non degenere. Essendo chiusa e non degenere, $\omega$ è una forma simplettica e conferisce a $S^2$ una struttura di varietà simplettica.
 
 Una struttura simplettica su una varietà consente di associare un campo vettoriale a ogni funzione a valori reali definita su di essa. Questa associazione è il modo anticipato in precedenza per ottenere il moto di un sistema dalla sua hamiltoniana in modo geometrico, analogamente a quanto già fatto per i sistemi non vincolati.
@@ -110,7 +111,7 @@ Una struttura simplettica su una varietà consente di associare un campo vettori
 
 L'insieme $\mathcal{F}(X)$ delle funzioni reali differenziabili $f:X \to \R$ definite su una varietà simplettica $(X, \omega)$ forma uno spazio vettoriale con le operazioni di somma e prodotto per scalare punto per punto. Grazie al gradiente simplettico, questo insieme ha tuttavia una struttura ulteriore, quella di \emph{algebra di Lie}, ovvero ammette un'operazione analoga al commutatore fra matrici.
 \begin{definition}
-  Sia $X$ un insieme e $[\cdot , \cdot]:X \times X \to X$ un'operazione denotata con $(x,y) \mapsto [x,y]$. La struttura $\big(X, [\cdot ,\cdot ]\big)$ si dice \dfn{algebra di Lie} se valgono le seguenti proprietà: \begin{enumerate}
+  Sia $X$ uno spazio vettoriale reale e $[\cdot , \cdot]:X \times X \to X$ un'operazione denotata con $(x,y) \mapsto [x,y]$. La struttura $\big(X, [\cdot ,\cdot ]\big)$ si dice \dfn{algebra di Lie} se valgono le seguenti proprietà: \begin{enumerate}
     \item \dfn{bilinearità}: $[\lambda x + \mu y, z] = \lambda [x, z] + \mu[y,z]$ per ogni $x,y,z \in X$ e $\lambda, \mu \in  \R$
     \item \dfn{antisimmetria}: $[x,y] = -[y,x]$ per ogni $[x,y] \in X$
     \item \dfn{identità di Jacobi}: $\big[x,[y,z]\big] + \big[z,[x,y]\big] + \big[y,[z,x]\big] = 0$
@@ -118,9 +119,9 @@ L'insieme $\mathcal{F}(X)$ delle funzioni reali differenziabili $f:X \to \R$ def
 \end{definition}
 
 \begin{definition}
-  Sia $(X, \omega)$ una varietà simplettica e siano $H,K: X \to \R$ due funzioni reali differenziabili con campi vettoriali hamiltoniani $V_H$ e $V_K$, si dice \dfn{parentesi di Poisson} di $H$ e $K$ \begin{equation*}
-  \pb{H}{K} = \omega(V_H,V_K) 
-  \end{equation*} 
+  Sia $(X, \omega)$ una varietà simplettica e siano $H,K: X \to \R$ due funzioni reali differenziabili con campi vettoriali hamiltoniani $V_H$ e $V_K$, si dice \dfn{parentesi di Poisson} di $H$ e $K$ \begin{equation}
+  \pb{H}{K} \defeq \omega(V_H,V_K) 
+  \end{equation} 
 \end{definition}
 \begin{theorem}
   Sia $(X, \omega)$ una varietà simplettica, sia $\mathcal{F}(X)$ lo spazio delle funzioni reali differenziabili su $X$ e siano $\pb{\cdot}{\cdot}$ le parentesi di Poisson su $X$. Allora $\big(\mathcal{F}(X), \pb{\cdot}{\cdot}\big)$ è un'algebra di Lie.
@@ -128,9 +129,9 @@ L'insieme $\mathcal{F}(X)$ delle funzioni reali differenziabili $f:X \to \R$ def
 
 Per una data funzione $H:X\to \R$, le parentesi di Poisson forniscono la variazione di qualsiasi altra funzione $K$ lungo le linee di flusso di $X_H$.
 \begin{theorem}
-  Sia $(X, \omega)$ una varietà simplettica, sia $H$ un'hamiltoniana e sia $\overline{x}:t \mapsto \overline{x}(t)$ una linea di flusso del suo campo hamiltoniano $X_H$. Allora per ogni funzione differenziabile $K:X\to \R$ vale \begin{equation*}
+  Sia $(X, \omega)$ una varietà simplettica, sia $H$ un'hamiltoniana e sia $\overline{x}:t \mapsto \overline{x}(t)$ una linea di flusso del suo campo hamiltoniano $X_H$. Allora per ogni funzione differenziabile $K:X\to \R$ vale \begin{equation}
   \dv{t} K\big(\overline{x}(t)\big) = \pb{K}{H}
-  \end{equation*}  
+  \end{equation}  
 \end{theorem}
 \begin{corollary}
   Se $\pb{K}{H} = 0$, $K$ si conserva lungo le linee di flusso. In tal caso, $K$ è detto \dfn{integrale del moto}.
@@ -142,21 +143,21 @@ Per una data funzione $H:X\to \R$, le parentesi di Poisson forniscono la variazi
 Oltre all'hamiltoniana stessa, anche la forma simplettica si conserva durante l'evoluzione del sistema, e in particolare il \textquote{volume} definito dall'integrale della sua $n$-esima potenza, che è una $2n$-forma, su un sottoinsieme rimane costante. Questo risultato è noto come \emph{teorema di Liouville}
 \begin{theorem}[Liouville]
   Sia $(X, \omega)$ una varietà simplettica $2n$-dimensionale, sia $H$ un'hamiltoniana e sia $\Phi^t:X \to X$ il suo flusso a un tempo $t \in \R$. Allora $\Phi^t$ è una trasformazione canonica e conserva i \dfn{volumi simplettici} dei sottoinsiemi di $X$, cioè se $U \subset X$
-  \begin{equation*}
+  \begin{equation}
   \int\limits_U \omega^{\wedge n} = \int\limits_{\Phi^t(U)} \omega^{\wedge n}
-  \end{equation*} 
+  \end{equation} 
   dove 
-  \begin{equation*}
+  \begin{equation}
     \omega^{\wedge n} = \underbrace{\omega \wedge \ldots \wedge \omega}_{n}
-  \end{equation*} 
+  \end{equation} 
 \end{theorem}
 
 La struttura simplettica consente di associare campi vettoriali a funzioni differenziabili. In maniera simile, anche se nel senso inverso, l'algebra delle funzioni data dalle parentesi di Poisson può essere vista come il risultato, tramite la forma simplettica, di una struttura algebrica di Lie valida per l'insieme $\mathcal{V}(X)$ dei \emph{campi vettoriali} definiti su una varietà \emph{qualsiasi}, non necessariamente simplettica. Questa struttura è detta \emph{parentesi di Lie}.
 % ed è strettamente legata al concetto di derivata di Lie.
 % \begin{definition}
-%   Siano $X$ una varietà, $V$ un campo vettoriale su $X$ e $\alpha$ una $k$-forma differenziale su $X$. Si dice \dfn{derivata di Lie} $L_V\alpha$ la $k$-forma differenziale data per ogni $x \in X$ da \begin{equation*}
+%   Siano $X$ una varietà, $V$ un campo vettoriale su $X$ e $\alpha$ una $k$-forma differenziale su $X$. Si dice \dfn{derivata di Lie} $L_V\alpha$ la $k$-forma differenziale data per ogni $x \in X$ da \begin{equation}
 %   (L_V \alpha)_x = \eval{\dv{t}}_{t=0} \big( (\Phi_V^t)^* \alpha_{\Phi_V^t(x)}\big)_x
-%   \end{equation*} 
+%   \end{equation} 
 %   dove $\Phi_V$ è il flusso di $V$ e $\dv{t}$ agisce nello spazio vettoriale delle $k$-forme su $T_x X$.
 % \end{definition}
 % \begin{remark}
@@ -164,53 +165,53 @@ La struttura simplettica consente di associare campi vettoriali a funzioni diffe
 % \end{remark}
 \begin{definition}
   Siano $X$ una varietà e $V,W$ campi vettoriali su $X$. Si dice \dfn{parentesi di Lie} di $V$ e $W$ il commutatore delle derivate direzionali che essi definiscono, ovvero l'operatore differenziale dato da
-  \begin{equation*}
-  [V,W]_x f\defeq V_x W_x f - W_x V_x f
-  \end{equation*}
-  per ogni $f \in \mathcal{F}(X)$. Si dimostra infatti che questo operatore è di primo ordine.
+  \begin{equation}
+  [V,W]_x f\defeq V_x (W f) - W_x (V f)
+  \end{equation}
+  per ogni $f \in \mathcal{F}(X)$, dove $Wf: X \to \mathcal{F}(X)$ è l'applicazione che manda $x \mapsto W_x f$ e $Vf$ è definita analogamente. Si dimostra infatti che questo operatore è di primo ordine.
 \end{definition}
 \begin{remark}
   La parentesi di Lie di due campi vettoriali può essere definita equivalentemente come la \dfn{derivata di Lie} del secondo lungo il primo, ovvero il vettore che descrive la derivata del valore del secondo campo visto seguendo una linea di flusso del primo
-  \begin{equation*}
+  \begin{equation}
     [V,W]_x = - \eval{\dv{t}}_{t=0} \Big(\big(D_{\Phi_V^t(x)} (\Phi_V^t)^{-1}\big)\big(W_{\Phi_V^t(x)}\big) \Big)_x
-    \end{equation*}
+    \end{equation}
 \end{remark}
 \begin{theorem}
-  Sia $(X, \omega)$ una varietà simplettica, siano $\pb{\cdot}{\cdot}$ le parentesi di Poisson e $[\cdot , \cdot ]$ quelle di Lie su di essa. Allora il gradiente simplettico $H \mapsto V_H$ è un \dfn{omomorfismo} di algebre di Lie da $\big(\mathcal{F}(X), \pb{\cdot}{\cdot} \big)$ a $\big(\mathcal{V}(X), [\cdot , \cdot]\big)$, ovvero se $H,K \in \mathcal{F}(X)$ e $V_H, V_K \in \mathcal{V}(X)$ sono i loro campi vettoriali hamiltoniani \begin{equation*}
+  Sia $(X, \omega)$ una varietà simplettica, siano $\pb{\cdot}{\cdot}$ le parentesi di Poisson e $[\cdot , \cdot ]$ quelle di Lie su di essa. Allora il gradiente simplettico $H \mapsto V_H$ è un \dfn{omomorfismo} di algebre di Lie da $\big(\mathcal{F}(X), \pb{\cdot}{\cdot} \big)$ a $\big(\mathcal{V}(X), [\cdot , \cdot]\big)$, ovvero se $H,K \in \mathcal{F}(X)$ e $V_H, V_K \in \mathcal{V}(X)$ sono i loro campi vettoriali hamiltoniani \begin{equation}
   V_{\pb{H}{K}} = [V_H, V_K]
-  \end{equation*} 
+  \end{equation} 
 \end{theorem}
 
 Come esempio, si consideri $\R^{2n}$ con la forma canonica. Riscrivendo la definizione di campo hamiltoniano per una funzione $H$ in coordinate, si ottiene che per ogni $\vec{v} \in \R^{2n}$ deve valere
-\begin{equation*}
+\begin{equation}
 -(\vec{V}_H)\transpose\, \mathsf{J}\, \vec{v} = (\grad{H})\transpose \vec{v}
-\end{equation*}
+\end{equation}
 dove $\mathsf{J}$ è la matrice definita sopra. Siccome $\mathsf{J}^{-1} = -\mathsf{J}$, ciò equivale a 
-\begin{equation*}
+\begin{equation}
 (\vec{V}_H)\transpose = (\grad{H})\transpose\, \mathsf{J}
-\end{equation*} 
+\end{equation} 
 Considerando nello specifico le funzioni coordinata $q_i$ e $p_j$ (che in $\R^{2n}$ sono definite globalmente) siccome i loro gradienti sono dati da
-\begin{equation*}
+\begin{equation}
 \grad{q_i} = \pmqty{0 \\ \vdots \\ 1 \\ \vdots \\ 0}\ \mqty{1 \\ \phantom{\vdots} \\ i \\ \phantom{\vdots} \\ 2n} \qqtext{e} 
 \grad{p_i} = \pmqty{0 \\ \vdots \\ 1 \\ \vdots \\ 0}\ \mqty{1 \\ \phantom{\vdots} \\ n+i \\ \phantom{\vdots} \\ 2n}
-\end{equation*} 
+\end{equation} 
 si ha che i loro campi vettoriali sono 
-\begin{equation*}
+\begin{equation}
   \vec{V}_{q_i} = \pmqty{0 \\ \vdots \\ 1 \\ \vdots \\ 0}\ \mqty{1 \\ \phantom{\vdots} \\ n+i \\ \phantom{\vdots} \\ 2n} \qqtext{e} 
   \vec{V}_{p_i} = \pmqty{0 \\ \vdots \\ -1 \\ \vdots \\ 0}\ \mqty{1 \\ \phantom{\vdots} \\ i \\ \phantom{\vdots} \\ 2n}
-\end{equation*} 
+\end{equation} 
 Dunque, la parentesi di Poisson è data da
-\begin{equation*}
+\begin{equation}
 \pb{q_i}{p_j} = \omega(\vec{V}_{q_i}, \vec{V}_{p_j}) = \vec{V}_{q_i}\, \mathsf{J}\, \vec{V}_{p_j} = \delta_{ij}
-\end{equation*}
+\end{equation}
 Siccome questa è una funzione costante per $i$ e $j$ fissati, il suo campo hamiltoniano è nullo. Inoltre, se visti come derivazioni i campi vettoriali delle funzioni coordinate sono 
-\begin{equation*}
+\begin{equation}
 \vec{V}_{q_i} = \pdv{p_i} \qqtext{e} \vec{V}_{p_i} = -\pdv{q_i}
-\end{equation*}
+\end{equation}
 da cui per il teorema di Schwarz segue che la loro parentesi di Lie è 
-\begin{equation*}
+\begin{equation}
 [V_{q_i}, V_{p_i}] = -\pdv{p_i}\pdv{q_i} + \pdv{q_i}\pdv{p_i} = 0
-\end{equation*}
+\end{equation}
 e in questo caso risulta quindi confermato che $\vec{V}_{\pb{q_i}{p_i}} = [\vec{V}_{q_i}, \vec{V}_{p_i}]$
 
 \section{Gruppi di Lie e algebre associate}
@@ -243,40 +244,40 @@ Se esiste una tale mappa, si dice che $X$ ha \dfn{simmetria continua} sotto $G$.
 Dato che un gruppo di Lie è esso stesso una varietà, un gruppo può agire su se stesso. Ciò è possibile in vari modi.
 
 \begin{definition}
-  Sia $G$ un gruppo di Lie. Si dice \dfn{azione sinistra} di $G$ su se stesso l'applicazione data da $L_g(h) = g \cdot h$ per ogni $g,h \in X$. Si dice invece \dfn{azione destra} l'applicazione data da $R_g(h) = h \cdot g$. Entrambe queste azioni si dicono \dfn{dirette}.
+  Sia $G$ un gruppo di Lie. Si dice \dfn{azione sinistra} di $G$ su se stesso l'applicazione data da $L_g(h) \defeq g \cdot h$ per ogni $g,h \in X$. Si dice invece \dfn{azione destra} l'applicazione data da $R_g(h) \defeq h \cdot g$. Entrambe queste azioni si dicono \dfn{dirette}.
 \end{definition}
 \begin{definition}
-  Sia $G$ un gruppo di Lie, si dice \dfn{azione aggiunta} di $G$ su se stesso l'applicazione data da $\mathrm{AD}_g(h) = g \cdot h \cdot g^{-1}$ per ogni $g,h \in X$.
+  Sia $G$ un gruppo di Lie, si dice \dfn{azione aggiunta} di $G$ su se stesso l'applicazione data da $\mathrm{AD}_g(h) \defeq g \cdot h \cdot g^{-1}$ per ogni $g,h \in X$.
 \end{definition}
 \begin{remark} \label{rem:adjIdentity}
-  L'azione aggiunta di un elemento $g$ di un gruppo di Lie $G$ manda l'identità in se stessa, siccome \begin{equation*}
+  L'azione aggiunta di un elemento $g$ di un gruppo di Lie $G$ manda l'identità in se stessa, siccome \begin{equation}
     \mathrm{AD}_g e = g\cdot e\cdot g^{-1} = g\cdot g^{-1} = e
-  \end{equation*} 
+  \end{equation} 
 \end{remark}
 
 Siccome un gruppo di Lie è anche una varietà, su di esso sono definiti spazi tangenti e derivate. In particolare, se $\mathrm{AD}_g$ è l'azione aggiunta di $g \in G$, per l'\autoref{rem:adjIdentity} si ha che $D_e \mathrm{AD}_g: T_e G \to T_e G$. Quindi esiste un'azione naturale di $G$ sul suo spazio tangente nell'identità.
 \begin{definition}
-  Si dice \dfn{azione aggiunta} di un gruppo di Lie $G$ sul suo spazio tangente nell'identità $T_e G$ la derivata dell'azione aggiunta di $G$ su se stesso $\mathrm{Ad}_g = D_e \mathrm{AD}_g$, per ciascun $g \in G$. 
+  Si dice \dfn{azione aggiunta} di un gruppo di Lie $G$ sul suo spazio tangente nell'identità $T_e G$ la derivata dell'azione aggiunta di $G$ su se stesso $\mathrm{Ad}_g \defeq D_e \mathrm{AD}_g$, per ciascun $g \in G$. 
 \end{definition}
 
 Gruppi e algebre di Lie sono strettamente legati. Lo spazio tangente nell'identità consente infatti di associare a ogni gruppo di Lie un'algebra di Lie, tramite l'algebra di Lie dei campi vettoriali che è definita su ogni varietà. A ogni elemento $\gamma$ dello spazio tangente a $G$ nell'identità si può infatti associare un campo vettoriale su tutto $G$, sfruttando l'azione di $G$ per fare il push-forward di $\gamma$ su tutti gli spazi tangenti.
 \begin{definition}
-  Siano $G$ un gruppo di Lie, $e \in G$ la sua identità e $\gamma \in T_e G$. Si dice \dfn{campo associato} a $\gamma$ il campo vettoriale $V_\gamma$ su $G$, dato per ogni $g \in G$ da \begin{equation*}
-  \big(V_\gamma\big)_g = \big(D_e \Phi^{\text{dir}}_g\big) (\gamma)
-  \end{equation*} 
+  Siano $G$ un gruppo di Lie, $e \in G$ la sua identità e $\gamma \in T_e G$. Si dice \dfn{campo vettoriale associato} a $\gamma$ il campo vettoriale $V_\gamma$ su $G$, dato per ogni $g \in G$ da \begin{equation}
+  \big(V_\gamma\big)_g \defeq \big(D_e \Phi^{\text{dir}}_g\big) (\gamma)
+  \end{equation} 
   dove $\Phi^{\text{dir}}_g$ è un'azione diretta di $G$ su se stesso.
 \end{definition}
 \begin{remark}
   Questo campo vettoriale può essere visto come il campo degli spostamenti infinitesimi di ciascun elemento di $G$, se essi vengono ottenuti come $g=\Phi^{\text{dir}}_g(e)$ e l'identità viene spostata infinitesimamente in modo dato da $\gamma$.
 \end{remark}
 \begin{definition}
-  Siano $G$ un gruppo di Lie, $e \in G$ la sua identità e $\gamma, \delta \in T_e G$. Si dice \dfn{parentesi di Lie} dei due vettori tangenti $\gamma$ e $\delta$ il vettore \begin{equation*}
-  [\gamma,\delta] = [V_{\gamma}, V_{\delta}]_e
-  \end{equation*} 
+  Siano $G$ un gruppo di Lie, $e \in G$ la sua identità e $\gamma, \delta \in T_e G$. Si dice \dfn{parentesi di Lie} dei due vettori tangenti $\gamma$ e $\delta$ il vettore \begin{equation}
+  [\gamma,\delta] \defeq [V_{\gamma}, V_{\delta}]_e
+  \end{equation} 
   dove la parentesi al secondo membro è la parentesi di Lie di campi vettoriali su $X$.
 \end{definition}
 \begin{remark} \label{rem:matrixComm}
-  Per i gruppi di matrici (ad esempio $SO(3)$), è possibile dimostrare che la parentesi di Lie è data dal commutatore $[A,B] = AB - BA$.
+  Per i gruppi di matrici, come ad esempio $SO(3)$, è possibile dimostrare che la parentesi di Lie è data dal commutatore $[A,B] = AB - BA$.
 \end{remark}
 \begin{definition}
   Sia $G$ un gruppo di Lie e $e$ la sua identità, si dice \dfn{algebra di Lie} $\mathfrak{g}$ di $G$ l'algebra di Lie $\big(T_e G, [\cdot ,\cdot ]\big)$. Spesso verrà usato il simbolo $\mathfrak{g}$ anche per indicare $T_e G$.
@@ -290,9 +291,9 @@ Grazie allo stretto legame fra le definizioni delle parentesi di Lie nei due cas
 
 \begin{definition} \label{def:infmAction}
   Sia $G$ un gruppo di Lie e sia $X$ una varietà di cui $G$ fornisce una simmetria continua con l'azione $\Phi$. Si dice \dfn{azione infinitesima} di $G$ su $X$ la seguente mappa $\phi: \mathfrak{g} \to \mathcal{V}(X)$. Per ogni $[\gamma] \in T_e G$, si scelga un rappresentante della classe di equivalenza $\gamma:\R\to G$ con $\gamma(0) = e$. L'azione infinitesima associa a $[\gamma]$ un campo vettoriale su $X$ dato dalle classi di equivalenza dei cammini su $X$
-  \begin{equation*}
-  \big(\phi_{\gamma}\big)_x = \Phi_{\gamma(t)} (x)
-  \end{equation*}
+  \begin{equation}
+  \big(\phi_{\gamma}\big)_x \defeq \Phi_{\gamma(t)} (x)
+  \end{equation}
   Se esiste una tale mappa, si dice che $X$ ha una \dfn{simmetria infinitesima} data da $G$.
 \end{definition}
 \begin{theorem}
@@ -300,47 +301,47 @@ Grazie allo stretto legame fra le definizioni delle parentesi di Lie nei due cas
 \end{theorem}
 \begin{definition}
   La mappa $\big(t, [\gamma]\big) \in \R \times  \mathfrak{g} \mapsto g \in G$ che costituisce il cammino $\gamma$ nella \autoref{def:infmAction} è detta \dfn{mappa esponenziale}, e si denota $\exp(t \gamma)$, se vale 
-  \begin{equation*}
+  \begin{equation}
     \exp\big((t+s) \gamma\big) = \exp(t \gamma) \cdot  \exp (s \gamma)
-  \end{equation*} 
+  \end{equation} 
   per ogni $t,s \in \R$.
 \end{definition}
 \begin{remark}
   Si può intuitivamente pensare la mappa esponenziale come una somma infinita di trasformazioni infinitesime
-  \begin{equation*}
+  \begin{equation}
   \exp(t \gamma) = \identity + t \gamma + \frac{1}{2} t^2 \gamma^2 + \ldots
-  \end{equation*} 
+  \end{equation} 
   che fornisce una trasformazione finita $g \in G$.
 \end{remark} 
 
 Si consideri ad esempio il gruppo delle rotazioni dello spazio tridimensionale $SO(3)$. Esso è una varietà differenziabile tridimensionale, quindi è un gruppo di Lie. Lo si può identificare con il gruppo delle matrici reali ortogonali $3\times 3$ a determinante unitario. Tramite questa identificazione, l'azione di $SO(3)$ su $\R^3$ risulta definita naturalmente: per $R \in SO(3)$ e $\vec{v} \in \R^3$, 
-\begin{equation*}
+\begin{equation}
 \Phi_R: \vec{v}\to R\vec{v}
-\end{equation*} 
+\end{equation} 
 Si consideri una curva $\gamma_z: \R \to SO(3)$ definita come segue:
-\begin{equation*}
-\gamma_z: \theta \to R_z(\theta) \qqtext{con} R_z(\theta) = \pmqty{\cos \theta & \sin \theta & 0 \\ -\sin \theta & \cos \theta & 0 \\ 0 & 0 & 1}
-\end{equation*}
+\begin{equation}
+\gamma_z: \theta \to R_z(\theta) \qqtext{con} R_z(\theta) \defeq \pmqty{\cos \theta & \sin \theta & 0 \\ -\sin \theta & \cos \theta & 0 \\ 0 & 0 & 1}
+\end{equation}
 Si noti che $R_z(\theta)$ non è altro che la matrice di rotazione di un angolo $\theta$ intorno all'asse $z$. Intendendo $SO(3)$ come spazio vettoriale di matrici, si può derivare la curva $\gamma$ in $\theta=0$. Questa matrice caratterizza la classe di equivalenza $[\gamma_z]$ e può quindi essere identificata con la classe stessa. 
-\begin{equation*}
+\begin{equation}
 \eval{\dv{\theta}}_{\theta=0}\gamma_z = \pmqty{0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0} \defeq r_z
-\end{equation*}
+\end{equation}
 Analogamente, dalle curve $\gamma_y: \theta\mapsto R_y(\theta)$ e $\gamma_x: \theta \mapsto R_x(\theta)$ si ottengono 
-\begin{equation*}
+\begin{equation}
   \eval{\dv{\theta}}_{\theta=0}\gamma_y = \pmqty{0 & 0 & -1 \\ 0 & 0 & 0 \\ 1 & 0 & 0} \defeq r_y \qqtext{e} \eval{\dv{\theta}}_{\theta=0}\gamma_x = \pmqty{0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0} \defeq r_x
-\end{equation*}
+\end{equation}
 Queste tre matrici sono linearmente indipendenti. Siccome l'algebra di Lie $\mathfrak{g}$ di $SO(3)$ ha dimensione uguale al gruppo, quindi $3$, esse ne costituiscono una base. L'algebra di Lie consiste delle combinazioni lineari di $r_x, r_y, r_z$, ovvero delle matrici $3\times 3$ antisimmetriche, e può essere identificata con $\R^3$ tramite questa base.  Nel seguito, si intenderà l'algebra di Lie di $SO(3)$ alternativamente come spazio di matrici o di triple reali, a seconda delle necessità.
 
 L'azione aggiunta $\mathrm{Ad}$ di $SO(3)$ sulla propria algebra di Lie è definita come la derivata nell'identità dell'azione aggiunta $\mathrm{AD}$ di $SO(3) $ su se stesso. Ciò significa che $\mathrm{Ad}_R$, con $R \in SO(3)$, è l'applicazione che manda un percorso $\gamma: \theta \mapsto A(\theta)$ nel percorso $\gamma': \theta \mapsto R A(\theta) R^{-1}$. Questo percorso ha ancora codominio $SO(3)$ e può quindi essere caratterizzato dalla sua derivata in $\theta = 0$
-\begin{equation*}
+\begin{equation}
 \eval{\dv{\theta}}_{\theta=0} \big(R A(\theta)R^{-1}\big) = R \Bigg(\eval{\dv{\theta}}_{\theta=0} A(\theta)\Bigg) R^{-1}
-\end{equation*}  
+\end{equation}  
 che è a sua volta antisimmetrica e può quindi essere identificata con un elemento di $\R^3$. Con un calcolo diretto si può mostrare che l'azione aggiunta coincide con l'azione naturale su $\R^3$, cioè per $R \in SO(3)$ e $\vec{r} \in \mathfrak{g} \simeq \R^3$
-\begin{equation*}
+\begin{equation}
 \mathrm{Ad}_R: \vec{r} \mapsto R \vec{r}
-\end{equation*} 
+\end{equation} 
 Sempre con un calcolo diretto, dall'\autoref{rem:matrixComm} si può mostrare che la parentesi di Lie è data da
-\begin{equation*}
+\begin{equation}
   [\vec{r},\vec{s}] = \left( \smqty{
     0 & r_3 & -r_2 \\
     -r_3 & 0 & r_1 \\
@@ -358,31 +359,31 @@ Sempre con un calcolo diretto, dall'\autoref{rem:matrixComm} si può mostrare ch
     -r_3 & 0 & r_1 \\
     r_2 & -r_1 & 0
   } \right)  = \vec{r} \times \vec{s} 
-\end{equation*} 
+\end{equation} 
 dove $\vec{r}$ e $\vec{s}$ sono considerati prima come elementi di $\mathfrak{g}$ e poi come elementi di $\R^3$. L'azione infinitesima di $\vec{r} \in \mathfrak{g}$ su $\vec{v} \in \R^3$ infine, è data dalle classi di equivalenza dei cammini dati dall'azione di una matrice $A(\theta)$, che possono essere identificati dalle matrici
-\begin{equation*}
+\begin{equation}
 \eval{\dv{\theta}}_{\theta=0} A(\theta) \vec{v} = \pmqty{
   0 & r_3 & -r_2 \\
   -r_3 & 0 & r_1 \\
   r_2 & -r_1 & 0
 } \mqty(v_1 \\ v_2 \\v_3)
-\end{equation*} 
+\end{equation} 
 Ancora un calcolo diretto mostra quindi che l'azione infinitesima di $\vec{r} \in \mathfrak{g} \simeq \R^3$ è 
-\begin{equation*}
+\begin{equation}
 \phi_{\vec{r}}: \vec{v} \mapsto \vec{r}\times \vec{v}
-\end{equation*}
+\end{equation}
 
 Un gruppo di Lie $G$ con opportune proprietà può essere usato per rimuovere informazioni ridondanti dai punti di una varietà $X$, sfruttando la simmetria a cui esso è associato. Per formulare precisamente questo metodo, è necessario introdurre i concetti di \emph{azione libera}, \emph{orbita} e \emph{fetta} dell'azione di un gruppo.
 \begin{definition}
   Sia $X$ una varietà e $G$ un gruppo di Lie. Un'azione di $G$ su $X$ si dice \dfn{libera} se nessuna azione di un elemento $g \in G$ diverso dall'identità ha punti fissi.
 \end{definition}
 \begin{definition}
-  Siano $G$ un gruppo di Lie e $X$ una varietà su cui esso agisce secondo $\Phi$. Si dice \dfn{orbita} di $x \in X$ l'insieme $Gx = \{ \Phi_g(x)\mid g \in G\}$. Si dice \dfn{fetta} dell'azione di $G$ in $p \in Gx$ l'insieme $S_{\epsilon}(p) = \phi^{-1}\big(\phi(Gx)^{\perp} \cap B_{\epsilon}(0)\big)$ dove $(U,\phi)$ è una carta su $X$ e $\phi(Gx)^{\perp}$ è il complemento ortogonale dell'immagine di $Gx$ attraverso la carta.
+  Siano $G$ un gruppo di Lie e $X$ una varietà su cui esso agisce secondo $\Phi$. Si dice \dfn{orbita} di $x \in X$ l'insieme $Gx \defeq \{ \Phi_g(x)\mid g \in G\}$. Si dice \dfn{fetta} dell'azione di $G$ in $p \in Gx$ l'insieme $S_{\epsilon}(p) \defeq \phi^{-1}\big(\phi(Gx)^{\perp} \cap B_{\epsilon}(0)\big)$ dove $(U,\phi)$ è una carta su $X$ e $\phi(Gx)^{\perp}$ è il complemento ortogonale dell'immagine di $Gx$ attraverso la carta.
 \end{definition}
 
 La rimozione di informazioni ridondanti è formalizzata nel seguente teorema, che avrà un ruolo fondamentale per il metodo della \emph{riduzione simplettica} che sarà esposto nel prossimo paragrafo.
 \begin{theorem}
-  Sia $X$ una varietà e $G$ un gruppo di Lie compatto che agisce liberamente su $X$ secondo $\Phi$. Allora l'insieme quoziente $X/G$ definito dalla relazione di equivalenza $x \sim \Phi_g(x)$, con $x \in X$ e $g \in G$, ha una struttura naturale di varietà differenziabile, tale che l'applicazione $\pi:X \to X /G$ che manda un punto nella sua classe di equivalenza sia differenziabile. Le carte sono le carte $(U/G,\phi)$ dove $U = G\big(S_{\epsilon}(p)\big)$ con $p \in X$ e $\phi$ è una carta su $S_{\epsilon}(p)$, che è una sottovarietà di $X$.
+  Sia $X$ una varietà e $G$ un gruppo di Lie compatto che agisce liberamente su $X$ secondo $\Phi$. Allora l'insieme quoziente $X/G$ definito dalla relazione di equivalenza $x \sim \Phi_g(x)$, con $x \in X$ e $g \in G$, ha una struttura naturale di varietà differenziabile, tale che l'applicazione $\pi:X \to X /G$ che manda un punto nella sua classe di equivalenza sia differenziabile. Le carte sono le carte $(U/G,\phi)$ dove $U \defeq G\big(S_{\epsilon}(p)\big)$ con $p \in X$ e $\phi$ è una carta su $S_{\epsilon}(p)$, che è una sottovarietà di $X$.
 \end{theorem}
 
 \section{Riduzione simplettica}
@@ -394,9 +395,9 @@ Su una varietà generica un gruppo può agire in qualsiasi modo. Perché l'azion
 Fra le azioni simplettiche di un gruppo, esiste una sottoclasse con particolare rilevanza fisica, detta delle azioni \emph{hamiltoniane}. Queste sono le azioni date dal flusso di un'hamiltoniana definita su tutta la varietà $X$. La mappa che a un'elemento dell'algebra associa l'hamiltoniana è difficile da trattare direttamente, siccome il suo codominio è infinito-dimensionale. Una trattazione più semplice --- nonostante le apparenze --- coinvolge $\mathfrak{g}^*$, il duale dell'algebra di Lie. Il gruppo $G$ ha infatti un'azione naturale, oltre che sull'algebra stessa, anche sul duale, e ciò consente di definire la mappa passando da esso.
 \begin{definition}
   Siano $G$ un gruppo di Lie e $\mathfrak{g}$ la sua algebra associata. Si dice \dfn{azione coaggiunta} di $g \in G$ su $\mathfrak{g}^*$ l'applicazione $\mathrm{Ad}_g^*$ che manda $\alpha \in \mathfrak{g}^*$ in $\mathrm{Ad}^*_g(\alpha) \in \mathfrak{g}^*$ definito da
-  \begin{equation*}
-  \big[\mathrm{Ad}^*_g(\alpha)\big](\gamma) = \alpha(\mathrm{Ad}_{g^{-1}}\gamma)
-  \end{equation*}
+  \begin{equation}
+  \big[\mathrm{Ad}^*_g(\alpha)\big](\gamma) \defeq \alpha(\mathrm{Ad}_{g^{-1}}\gamma)
+  \end{equation}
   per ogni $\gamma \in \mathfrak{g}$, dove $\mathrm{Ad}$ indica l'azione aggiunta di $G$ su $\mathfrak{g}$.
 \end{definition}
 \begin{remark}
@@ -404,26 +405,26 @@ Fra le azioni simplettiche di un gruppo, esiste una sottoclasse con particolare 
 \end{remark}
 \begin{definition}
   Siano $(X, \omega)$ una varietà simplettica e $G$ un gruppo di Lie che vi agisce simpletticamente secondo le mappe $\Phi_g$, con $g \in G$. L'azione $\Phi$ di $G$ si dice \dfn{hamiltoniana} se esiste un'applicazione $\mu: X \to \mathfrak{g}^*$ tale che per ogni $x \in X$, per ogni $\gamma \in \mathfrak{g}$ e per ogni $\xi \in T_x X$ valga
-  \begin{equation*}
+  \begin{equation}
   \omega\big((\phi_{\gamma})_x, \xi\big) = \dd_x [\mu_x(\gamma)](\xi)
-  \end{equation*} 
+  \end{equation} 
   Se inoltre l'applicazione $\mu$ è \dfn{equivariante}, ovvero per ogni $g \in G$, per ogni $x \in X$ vale
-  \begin{equation*}
+  \begin{equation}
   \mu\big(\Phi_g(x)\big) = \mathrm{Ad}_g^*\, \big(\mu(x)\big)
-  \end{equation*} 
+  \end{equation} 
   essa è detta \dfn{mappa momento} per $\Phi$.
 \end{definition}
 \begin{remark}
-  La prima richiesta equivale al chiedere che l'azione infinitesima di ciascun $\gamma$ sia il campo vettoriale di un'hamiltoniana, data da $x \mapsto P_{\gamma}(x) = \mu_x(\gamma)$. L'hamiltoniana così ottenuta dipende linearmente da $\gamma$, ma è possibile dimostrare che non c'è perdita di generalità rispetto al caso di hamiltoniane generiche.
+  La prima richiesta equivale al chiedere che l'azione infinitesima di ciascun $\gamma$ sia il campo vettoriale di un'hamiltoniana, data da $x \mapsto P_{\gamma}(x) \defeq \mu_x(\gamma)$. L'hamiltoniana così ottenuta dipende linearmente da $\gamma$, ma è possibile dimostrare che non c'è perdita di generalità rispetto al caso di hamiltoniane generiche.
 \end{remark}
 \begin{remark}
   La seconda richiesta è che $G$ agisca su $X$ in maniera compatibile con la sua azione su $\mathfrak{g}^*$, cioè che le due operazioni formino un diagramma commutativo con la mappa momento, la quale collega gli insiemi. Questa richiesta, al contrario della prima, non può essere soddisfatta per hamiltoniane generiche.
 \end{remark}
 \begin{remark}
-  L'applicazione $\mu^*:\mathfrak{g} \to \mathcal{F}(X)$ che manda $\gamma \mapsto P_{\gamma}$, detta \dfn{mappa comomento}, è un omomorfismo delle due algebre di Lie, ovvero 
-  \begin{equation*}
+  Data una mappa momento $\mu$, l'applicazione $\mu^*:\mathfrak{g} \to \mathcal{F}(X)$ che manda $\gamma \mapsto P_{\gamma}$, detta \dfn{mappa comomento}, è un omomorfismo delle due algebre di Lie, ovvero 
+  \begin{equation}
   [\gamma,\delta] = \{P_{\gamma}, P_{\delta}\} 
-  \end{equation*} 
+  \end{equation} 
   per ogni $\gamma,\delta \in \mathfrak{g}$.
 \end{remark}
 \begin{remark}
@@ -441,44 +442,44 @@ La principale rilevanza fisica delle azioni hamiltoniane sta nel fatto che esse 
 Nel caso in cui la varietà simplettica sotto esame sia il fibrato cotangente di una qualche altra varietà $Q$, spesso le azioni hamiltoniane su di esso sono associate a simmetrie di $Q$. Nel seguito si vedrà che questo risultato, insieme a quello precedente, costituisce il teorema di Noether sulla conservazione del momento associato a una simmetria di un sistema.
 \begin{theorem}
   Sia $Q$ una varietà e sia $G$ un gruppo di Lie che ne fornisce una simmetria continua secondo una qualche azione $\Phi$. Allora l'azione $\tilde{\Phi}$ di $G$ sul fibrato cotangente $X=T^*Q$ data per $x \in Q$ e $\alpha \in T^*_x Q$ da
-  \begin{equation*}
-  \tilde{\Phi}(x,\alpha) = \big(\Phi(x), [(\Phi^{-1})^*(\alpha)]_{\Phi(x)}\big)
-  \end{equation*} 
+  \begin{equation}
+  \tilde{\Phi}(x,\alpha) \defeq \big(\Phi(x), [(\Phi^{-1})^*(\alpha)]_{\Phi(x)}\big)
+  \end{equation} 
   è hamiltoniana rispetto alla forma canonica.
 \end{theorem}
 \begin{remark}
-  L'azione $\tilde{\Phi}$ è detta \dfn{sollevamento} di $\Phi$ sul fibrato cotangente, siccome \begin{equation*}
+  L'azione $\tilde{\Phi}$ è detta \dfn{sollevamento} di $\Phi$ sul fibrato cotangente, siccome \begin{equation}
   \pi \circ \tilde{\Phi} = \Phi
-  \end{equation*}
+  \end{equation}
   ovvero $\tilde{\Phi}$ è una versione di $\Phi$ che agisce anche sulle fibre cotangenti \textquotedblleft sopra\textquotedblright\ la varietà base.
 \end{remark}
 
 Come esempio, si consideri ancora il caso dell'azione di $SO(3)$ su $\R^3$. Siccome per ogni $\vec{v} \in  \R^3$ $T^*_{\vec{v}}\R^3 \simeq \R^3$, il fibrato cotangente di $\R^3$ è $T^*\R^3 \simeq \R^6$. L'azione di $SO(3)$ su $\R^3$ ha per sollevamento l'azione su $\R^6$ data da 
-\begin{equation*}
+\begin{equation}
 \Phi_R: (\vec{q},\vec{p}) \mapsto (R\vec{q},R\vec{p})
-\end{equation*}  
+\end{equation}  
 Analogamente al caso di $\R^3$, l'azione infinitesima corrispondente è data da
-\begin{equation*}
+\begin{equation}
 \phi_{\vec{r}}: (\vec{q},\vec{p}) \mapsto (\vec{r}\times \vec{q},\vec{r}\times \vec{p})
-\end{equation*}
+\end{equation}
 
 Chiaramente, anche la coalgebra $\mathfrak{g}^*$ è isomorfa a $\R^3$. Un elemento $\vec{\alpha} \in \mathfrak{g}^* \simeq \R^3$ agisce su $\vec{\gamma} \in \mathfrak{g} \simeq \R^3$ secondo
-\begin{equation*}
+\begin{equation}
 \vec{\alpha}(\vec{\gamma}) = \vec{\alpha} \cdot \vec{\gamma}
-\end{equation*} 
+\end{equation} 
 L'azione coaggiunta di $R \in SO(3)$ è definita come l'azione $\mathrm{Ad}^*_R$ tale che per ogni $\vec{\alpha} \in \mathfrak{g}^*$, per ogni $\vec{\gamma} \in \mathfrak{g}$
-\begin{equation*}
+\begin{equation}
   \big[\mathrm{Ad}^*_R(\vec{\alpha})\big](\vec{\gamma}) = \vec{\alpha}\big(\mathrm{Ad}_{R^{-1}}(\vec{\gamma})\big) = \vec{\alpha} \cdot R^{-1}\vec{\gamma} = R \vec{\alpha} \cdot \vec{\gamma}
-\end{equation*} 
+\end{equation} 
 dato che $R$ è ortogonale. Essa è quindi data da
-\begin{equation*}
+\begin{equation}
 \mathrm{Ad}^*_R(\vec{\alpha}) = R\vec{\alpha}
-\end{equation*} 
+\end{equation} 
 
 Tramite il calcolo vettoriale in $\R^3$ si dimostra che l'azione di $SO(3)$ su $\R^6$ con la forma canonica è hamiltoniana, con mappa momento data da 
-\begin{equation*}
+\begin{equation}
 \mu: (\vec{q},\vec{p}) \mapsto \vec{q} \times \vec{p}
-\end{equation*} 
+\end{equation} 
 Si noti che, identificando $\vec{q}$ con la posizione e $\vec{p}$ con il momento lineare, questa quantità è formalmente uguale al momento angolare di una particella. Nella formulazione geometrica della meccanica, questo è infatti il suo significato. La mappa comomento è poi data da $P_{\gamma}=(\vec{q} \times \vec{p}) \cdot  \vec{\gamma}$.
 
 Siccome $P_\gamma$ deve rimanere costante, un sistema che ammette un'azione hamiltoniana ha meno gradi di libertà effettivi di quanto appaia a primo impatto. È possibile rimuovere i gradi di libertà apparenti tramite un processo noto come \emph{riduzione simplettica}, reso possibile dal teorema seguente.
@@ -486,13 +487,13 @@ Siccome $P_\gamma$ deve rimanere costante, un sistema che ammette un'azione hami
 \begin{theorem}[Riduzione simplettica]
   Sia $(X,\omega)$ una varietà simplettica, sia $G$ un gruppo di Lie compatto con azione hamiltoniana su $X$ e sia $\mu:  X \to \mathfrak{g}^*$ la mappa momento. Sia $p \in \mathfrak{g}^*$, sia $X_p = \mu^{-1}(p)$ e sia $G_p = \{g \in G \mid \mathrm{Ad}_g^*\, p = p\}$. Se $G_p$ agisce liberamente su $X_p$ allora:
   \begin{enumerate}
-    \item L'insieme $X_p/G_p$ è una varietà simplettica con forma simplettica $\omega_r$ tale che \begin{equation*}
+    \item L'insieme $X_p/G_p$ è una varietà simplettica con forma simplettica $\omega_r$ tale che \begin{equation}
     \pi^* \omega_r = \omega
-    \end{equation*} 
+    \end{equation} 
     dove $\pi:X_p \to X_p/G_p$ è la proiezione sullo spazio quoziente e $\omega$ indica in realtà la \emph{restrizione} $\omega|_{X_p}$.
-    \item Se $H:X\to \R$ è una funzione differenziabile invariante sotto l'azione di $G$, allora la sua restrizione a $X_p/G_p$ (il cui valore su una classe di equivalenza è dato dal valore su un rappresentante) è una funzione $H_r:X_p/G_p \to \R$ il cui campo hamiltoniano rispetto a $\omega_r$ è \begin{equation*}
+    \item Se $H:X\to \R$ è una funzione differenziabile invariante sotto l'azione di $G$, allora la sua restrizione a $X_p/G_p$ (il cui valore su una classe di equivalenza è dato dal valore su un rappresentante) è una funzione $H_r:X_p/G_p \to \R$ il cui campo hamiltoniano rispetto a $\omega_r$ è \begin{equation}
     V_{H_r} = D \pi(V_H)
-    \end{equation*}
+    \end{equation}
     dove $V_H$ è il campo hamiltoniano di $H$.
   \end{enumerate}
 \end{theorem}

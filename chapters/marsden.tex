@@ -8,39 +8,39 @@ Per individuare univocamente un generico sistema sono necessari due elementi: il
 
 % La velocità $\dot{x}$ di un sistema è interpretabile come un vettore tangente allo spazio delle configurazioni nel punto $x(t)$, facendo corrispondere a ogni $\xi = [\gamma] \in T_x M$ il vettore $\dot{x} = \dot{\gamma}(0)$, che appartiene a $\R^{n}$ poiché $\gamma: ]-\epsilon,\epsilon[ \to M \subset \R^{n}$ ed è tangente nel senso ordinario (ortogonale al gradiente dei vincoli) alla varietà immersa $M$. Su ogni spazio tangente è quindi definita l'energia cinetica come forma quadratica $K_x: \dot{x} \mapsto \frac{1}{2} \dot{x}^2$.
 
-La velocità $\dot{x}$ di un sistema è definita come derivata temporale $\dv{\overline{x}}{t}()(t)$ del suo moto $\overline{x}: t \in I \mapsto \overline{x}(t) \in M$, dove $I$ è un intervallo reale. Per definizione, un vettore tangente alla varietà $M$ nel punto $x \in M$ è una classe di equivalenza di cammini infinitesimi che passano da $x$ al tempo $0$. Per un dato $x =\overline{x}(t)$, si può traslare il tempo e ridurne il dominio in modo da ottenere un nuovo cammino $\gamma:]-\epsilon, \epsilon\,[$ tale che $x = \gamma(0)$. Questo cammino sarà inoltre tale che $\dot{x} = \dv{\gamma}{t}()(0)$. Siccome $M \subset \R^{n}$, una scelta valida per $\phi$ è l'identità $\identity$. Quindi, perché un secondo cammino $\gamma'$ sia equivalente a $\gamma$, è necessario e sufficiente che \begin{equation*}
+La velocità $\dot{x}$ di un sistema è definita come derivata temporale $\dv{\overline{x}}{t}()(t)$ del suo moto $\overline{x}: t \in I \mapsto \overline{x}(t) \in M$, dove $I$ è un intervallo reale. Per definizione, un vettore tangente alla varietà $M$ nel punto $x \in M$ è una classe di equivalenza di cammini infinitesimi che passano da $x$ al tempo $0$. Per un dato $x =\overline{x}(t)$, si può traslare il tempo e ridurne il dominio in modo da ottenere un nuovo cammino $\gamma:]-\epsilon, \epsilon\,[$ tale che $x = \gamma(0)$. Questo cammino sarà inoltre tale che $\dot{x} = \dv{\gamma}{t}()(0)$. Siccome $M \subset \R^{n}$, una scelta valida per $\phi$ è l'identità $\identity$. Quindi, perché un secondo cammino $\gamma'$ sia equivalente a $\gamma$, è necessario e sufficiente che \begin{equation}
 \eval{\dv{t}}_{t=0} \gamma'(t) = \eval{\dv{t}}_{t=0} \gamma(t) = \dot{x}
-\end{equation*}
+\end{equation}
 per definizione: la velocità $\dot{x}$ caratterizza la classe $\xi = [\gamma]$ dello spazio tangente a $M$ in $x$. Questo potrà quindi essere identificato con lo spazio delle velocità possibili quando il sistema ha configurazione $x$. Si può quindi dire che la velocità di un sistema è un vettore tangente allo spazio delle configurazioni nella configurazione attuale del sistema. L'energia cinetica, funzione della velocità, è quindi definita per ciascun $x \in M$ su $T_x M$ da $K_x: \dot{x} \mapsto \frac{1}{2} \dot{x}^2$, dove la norma include le masse delle particelle che costituiscono il sistema.
 
-La lagrangiana ridotta di un sistema dipende sia dall'energia potenziale che dall'energia cinetica, e dunque sia dalla configurazione del sistema che dalla sua velocità. Essa deve quindi essere definita su $TM$, il fibrato tangente di $M$. Le energie cinetica e potenziale dovranno quindi cambiare dominio da rispettivamente $T_x M$ e $M$ a $TM$ per poter formare la lagrangiana. Sia $(x,\dot{x}) \in TM$, con $x \in M$ e $\dot{x} \in T_x M$ ciò si può fare definendo \begin{equation*}
+La lagrangiana ridotta di un sistema dipende sia dall'energia potenziale che dall'energia cinetica, e dunque sia dalla configurazione del sistema che dalla sua velocità. Essa deve quindi essere definita su $TM$, il fibrato tangente di $M$. Le energie cinetica e potenziale dovranno quindi cambiare dominio da rispettivamente $T_x M$ e $M$ a $TM$ per poter formare la lagrangiana. Sia $(x,\dot{x}) \in TM$, con $x \in M$ e $\dot{x} \in T_x M$ ciò si può fare definendo \begin{equation}
 \begin{aligned}
-  &V(x,\dot{x})|_{TM} = V(x)|_M \\
-  &K(x, \dot{x})|_{TM} = K(\dot{x})|_{T_x M}
+  &V(x,\dot{x})|_{TM} \defeq V(x)|_M \\
+  &K(x, \dot{x})|_{TM} \defeq K(\dot{x})|_{T_x M}
 \end{aligned}
-\end{equation*} 
-Si può a questo punto definire la lagrangiana (ridotta) di un sistema indipendente dal tempo come una funzione differenziabile $\mathcal{L}:TM\to \R$ data per $x \in M$ e $\dot{x} \in T_x M$ da \begin{equation*}
-\mathcal{L}(x,\dot{x}) = K(\dot{x}) - V(x)
-\end{equation*}
+\end{equation} 
+Si può a questo punto definire la lagrangiana (ridotta) di un sistema indipendente dal tempo come una funzione differenziabile $\mathcal{L}:TM\to \R$ data per $x \in M$ e $\dot{x} \in T_x M$ da \begin{equation}
+\mathcal{L}(x,\dot{x}) \defeq K(\dot{x}) - V(x)
+\end{equation}
 
 In coordinate, la trasformata di Legendre rispetto alle velocità trasforma la lagrangiana $\mathcal{L}(x,\dot{x})$ nell'hamiltoniana $\mathcal{H}(x,\dot{x}^*)$ dove gli $\dot{x}^*$ sono elementi dello spazio duale a quello degli $\dot{x}$. Siccome $\dot{x} \in T_x M$, è quindi naturale imporre che l'hamiltoniana $\mathcal{H}$ accetti come argomenti $\dot{x}^* \in T_x^* M$, ovvero che sia definita sul fibrato cotangente $T^*M$. Lo spazio delle fasi, dominio dell'hamiltoniana, può quindi essere definito come il fibrato cotangente dello spazio delle configurazioni. Se una regione di $M$ è coperta dalla carta $(U,\phi)$, un punto $x \in U$ si può individuare con $\vec{q} = (q_1, \ldots, q_n) = \big(\phi_1(x), \ldots, \phi_n(x)\big)$ e il momento generalizzato cotangente a $M$ in $x$ si può individuare con $\vec{p}=(p_1, \ldots, p_n)$, nella base duale data da $\{\dd_x \phi_1, \ldots, \dd_x \phi_n\} $. Si recupera così la definizione basata sulle coordinate.
 
-Essendo un fibrato cotangente, lo spazio delle fasi ha una struttura simplettica canonica ed è quindi possibile sfruttare la \autoref{def:hamField} di campo vettoriale hamiltoniano per estendere la \autoref{eq:hamFieldUnconstr} al caso di varietà che non costituiscono spazi vettoriali. Si consideri infatti una varietà simplettica $2n$-dimensionale $X$. In una carta simplettica data dal teorema di Darboux $(U,\phi)$ siano i suoi punti $x \in U$ individuati dalle coordinate $(x_1, \ldots, x_{2n})$ e i vettori $\xi$ tangenti a $X$ in un punto $y \in U$ individuati dalle coordinate $(\xi_1, \ldots, \xi_{2n})$. Allora il differenziale $\dd{\mathcal{H}}$ è rappresentato dalla trasposta del gradiente su queste coordinate $(\grad{\mathcal{H}})^T$, così che \begin{equation*}
+Essendo un fibrato cotangente, lo spazio delle fasi ha una struttura simplettica canonica ed è quindi possibile sfruttare la \autoref{def:hamField} di campo vettoriale hamiltoniano per estendere la \autoref{eq:hamFieldUnconstr} al caso di varietà che non costituiscono spazi vettoriali. Si consideri infatti una varietà simplettica $2n$-dimensionale $X$. In una carta simplettica data dal teorema di Darboux $(U,\phi)$ siano i suoi punti $x \in U$ individuati dalle coordinate $(x_1, \ldots, x_{2n})$ e i vettori $\xi$ tangenti a $X$ in un punto $y \in U$ individuati dalle coordinate $(\xi_1, \ldots, \xi_{2n})$. Allora il differenziale $\dd{\mathcal{H}}$ è rappresentato dalla trasposta del gradiente su queste coordinate $(\grad{\mathcal{H}})^T$, così che \begin{equation}
 \dd{\mathcal{H}}(\xi) = (\grad{\mathcal{H}})^T \begin{pmatrix} \xi_1\\ \vdots\\ \xi_{2n} \end{pmatrix}
-\end{equation*} 
-Allo stesso tempo, la forma simplettica $\omega$ sarà rappresentata da $\mathsf{J} = \left( \begin{smallmatrix}
+\end{equation} 
+Allo stesso tempo, la forma simplettica $\omega$ sarà rappresentata da $\mathsf{J} \defeq \left( \begin{smallmatrix}
   0 & -\mathbb{1} \\ \mathbb{1} & 0
 \end{smallmatrix}  \right) $ e il campo $X_{\mathcal{H}}$ da un vettore $\mathsf{X_{\mathcal{H}}}$, così che
-\begin{equation*}
+\begin{equation}
 \dd{\mathcal{H}}(\xi) = \omega(X_{\mathcal{H}}, \xi) = \mathsf{X_{\mathcal{H}}}^T\, \mathsf{J}\, \begin{pmatrix} \xi_1\\ \vdots\\ \xi_{2n} \end{pmatrix}
-\end{equation*} 
+\end{equation} 
 Da ciò segue che $\mathsf{X_{\mathcal{H}}}^T \mathsf{J} = (\grad{\mathcal{H}})^T$. Trasponendo e moltiplicando per $\mathsf{J}$, siccome $\mathsf{J}^2 =- \mathbb{1}$, si ha
-\begin{equation*}
+\begin{equation}
 \mathsf{X}_{\mathcal{H}} = -\mathsf{J} \grad{\mathcal{H}} 
-\end{equation*}
-ovvero che per le coordinate vale \begin{equation*}
+\end{equation}
+ovvero che per le coordinate vale \begin{equation}
 \dot{q}_j = \pdv{\mathcal{H}}{p_j} \qquad \dot{p}_j = - \pdv{\mathcal{H}}{q_j}
-\end{equation*}
+\end{equation}
 che sono le equazioni di Hamilton. Le linee di flusso del campo vettoriale hamiltoniano minimizzano quindi l'azione associata alla lagrangiana ridotta sullo spazio delle configurazioni vincolato. Esse minimizzano quindi l'azione, e dunque rappresentano le posizioni e le velocità che il sistema ha nel suo moto. Con quest'ultimo tassello è finalmente possibile porre una formulazione della meccanica di sistemi conservativi con vincoli olonomi arbitrari puramente geometrica e libera da coordinate.
 
 Un sistema fisico è definito dal suo \emph{spazio delle configurazioni}, una varietà differenziabile $n$-dimensionale $M$ in cui ogni punto $m$ corrisponde a una diversa configurazione delle componenti del sistema, e da una funzione \emph{hamiltoniana} $\mathcal{H}: M\to \R$, che ne governa il movimento. Lo \emph{stato} di un sistema è rappresentato da un punto nello \emph{spazio delle fasi}, il fibrato cotangente $X = T^* M$ dello spazio delle configurazioni. Sullo spazio delle fasi è definita la \emph{forma simplettica canonica} $\omega$. Il \emph{campo vettoriale hamiltoniano} $X_{\mathcal{H}}$ è definito come il campo corrispondente al differenziale dell'hamiltoniana $\dd_{x}{\mathcal{H}}$ secondo la forma simplettica. Se il sistema parte da uno stato iniziale $(x_0, \dot{x}^*_0)$, il suo stato percorre la linea di flusso di $X_{\mathcal{H}}$ che parte da $(x_0, \dot{x}^*_0)$. L'evoluzione di una qualsiasi funzione di stato $F$ è data dalla parentesi di Poisson $\{F, \mathcal{H}\}$.
@@ -50,39 +50,39 @@ Se lo spazio delle fasi ammette un'azione hamiltoniana $\Phi_g$ di un qualche gr
 \section{Esempio: moto del corpo rigido libero}
 Si consideri un sistema costituito da un corpo rigido libero. Per definire questo sistema nella formulazione simplettica, è necessario individuare il suo spazio delle configurazioni e la sua hamiltoniana. Un \dfn{corpo rigido} è definito come una collezione di punti materiali $P$ le cui distanze relative sono tutte fissate. La definizione di punti e distanze equivale alla definizione della forma del corpo. Note le distanze, la posizione di ciascun punto del corpo in un dato sistema di riferimento può essere ottenuta conoscendo la posizione di un suo punto e il modo in cui è ruotato il corpo. La configurazione del corpo è quindi rappresentata da un punto nella varietà $M = \R^3 \times SO(3)$, che costituisce lo spazio delle configurazioni. Si noti che in questa prima fase $SO(3)$, il gruppo di Lie delle rotazioni in tre dimensioni, sarà considerato solo in quanto varietà differenziabile: le sue proprietà di gruppo saranno completamente irrilevanti. Per quanto riguarda l'hamiltoniana $\mathcal{H}$, siccome supponiamo che il corpo sia libero essa è data semplicemente dall'energia cinetica (per la precisione, dalla \emph{trasformata di Legendre} dell'energia cinetica, in modo da essere definita su $T^*M$ e non su $TM$). 
 
-Lo spazio delle fasi del sistema è a rigore $T^*M = T^*\big(\R^3 \times SO(3)\big)$. Esso è tuttavia isomorfo a $T^*\R^3 \times T^*SO(3)$, la cui trattazione è notevolmente più semplice per via della possibilità di sfruttare le proprietà di identificazione tra spazi tangenti e cotangenti di $\R^3$. Si userà quindi come spazio delle fasi $X = T^*\R^3 \times T^*SO(3)$, lasciando implicito il ritorno al fibrato cotangente di $M$ propriamente detto.
+Lo spazio delle fasi del sistema è a rigore $T^*M = T^*\big(\R^3 \times SO(3)\big)$. Esso è tuttavia isomorfo a $T^*\R^3 \times T^*SO(3)$, la cui trattazione è notevolmente più semplice per via della possibilità di sfruttare le proprietà di identificazione tra spazi tangenti e cotangenti di $\R^3$. Si userà quindi come spazio delle fasi $X \defeq T^*\R^3 \times T^*SO(3)$, lasciando implicito il ritorno al fibrato cotangente di $M$ propriamente detto.
 
 Si consideri il gruppo di Lie delle \dfn{traslazioni} $\R^3$. Questa volta a essere rilevante è la natura di gruppo. Esso ha un'azione naturale su $\R^3$ inteso come \emph{varietà}, data per $\vec{a} \in \R^3\text{-gruppo}$ e $\vec{q} \in \R^3\text{-varietà}$ da
-\begin{equation*}
+\begin{equation}
 \Phi_{\vec{a}}^{\R^3}: \vec{q} \mapsto  \vec{a} + \vec{q}
-\end{equation*}
+\end{equation}
 dove il $+$ denota l'operazione di addizione definita in $\R^3$ inteso come spazio vettoriale. Si definisca la sua azione su $M$ come 
-\begin{equation*}
+\begin{equation}
   \Phi_{\vec{a}}^M: (\vec{q},\rho) \longmapsto (\vec{a} + \vec{q},\rho)
-\end{equation*}
+\end{equation}
 dove $\vec{q} \in \R^3, \rho \in SO(3), \vec{\dot{q}}^* \in T^*_{\vec{q}}\R^3$ e $\dot{\rho}^* \in T^*_{\rho}SO(3)$. Questa azione è ben definita su $M$ e per il teorema di Noether genera quindi un'azione hamiltoniana sul fibrato cotangente propriamente detto. Questa azione corrisponde a un'azione $\Phi^X_a$ su $X$, definita sfruttando la fattorizzazione come segue. Sia $(\vec{q},\vec{\dot{q}}^*, \rho, \dot{\rho}^*) \in X$. Ciò significa innanzitutto che $\vec{\dot{q}}^* \in T^*_{\vec{q}}\R^3$. Ma siccome $T^*_{\vec{q}}\R^3 \simeq \R^3 \simeq T^*_{\vec{q}+\vec{a}}\R^3$, si può anche considerare che $\vec{\dot{q}}^* \in T^*_{\vec{q}+\vec{a}}\R^3$. D'altra parte, anche $\dot{\rho}^* \in  T^*_{\rho}SO(3)$. Da ciò segue che $(\vec{q} +\vec{a},\vec{\dot{q}}^*, \rho, \dot{\rho}^*) \in X$, siccome i covettori appartengono agli spazi cotangenti appropriati. È quindi possibile definire l'azione su $X$ senza pull-back dei covettori, che invece è necessario nel caso dell'azione sul fibrato cotangente propriamente detto, come 
-\begin{equation*}
+\begin{equation}
 \Phi^X_{\vec{a}}: (\vec{q},\vec{\dot{q}}^*, \rho, \dot{\rho}^*) \longmapsto (\vec{q}+ \vec{a},\vec{\dot{q}}^*, \rho, \dot{\rho}^*) 
-\end{equation*}  
+\end{equation}  
 
 Come ci si può aspettare, anche $\Phi^X$ è hamiltoniana, con mappa momento data da
-\begin{equation*}
+\begin{equation}
 \mu^{\R^3}: (\vec{q}, \vec{\dot{q}}^*, \rho, \dot{\rho}^*) \longmapsto\; \vec{\dot{q}}^*
-\end{equation*} 
+\end{equation} 
 dove l'immagine $\vec{\dot{q}}^*$ è considerata come elemento di $T^*_{\vec{q}}\R^3 \simeq \R^3 \simeq T^*_{\vec{0}}\R^3 = \mathfrak{r}^{3*}$, il duale dell'algebra di Lie di $\R^3$-gruppo. Si noti che, come anticipato, questa quantità corrisponde fisicamente al momento lineare. Nel seguito, per semplicità, si scriverà $\mu \defeq \mu^{\R^3}$
 
-Dimostriamo che $\mu$ è effettivamente una mappa momento. L'azione infinitesima di $\vec{e}_i$, l'$i$-esimo elemento della base canonica di $\R^3 \simeq T_e \R^3 = \mathfrak{r}^3$, su $X$ è data dal campo costante
-\begin{equation*}
+Dimostriamo che $\mu$ è effettivamente una mappa momento. L'azione infinitesima di $\vec{e}_i$, l'$i$-esimo elemento della base canonica di $\R^3 \simeq T_e \R^3 = \mathfrak{r}^3$, su $X$ è data dal campo vettoriale costante
+\begin{equation}
 \phi_{\vec{e}_i}^X: (\vec{q},\vec{\dot{q}}^*, \rho, \dot{\rho}^*)\longmapsto (\vec{e}_i, 0, 0, 0)
-\end{equation*}
-dove nell'immagine $\vec{e}_i$ è inteso come elemento della base canonica di $\R^3 \simeq T_{\vec{q}}\R^3$. Infatti,l'azione infinitesima di $\mathfrak{r}^3$ su $\R^3$ in $\vec{x} \in \R^3$ è \begin{equation*}
+\end{equation}
+dove nell'immagine $\vec{e}_i$ è inteso come elemento della base canonica di $\R^3 \simeq T_{\vec{q}}\R^3$. Infatti,l'azione infinitesima di $\mathfrak{r}^3$ su $\R^3$ in $\vec{x} \in \R^3$ è \begin{equation}
   \Big(\phi^{\R^3}_{\vec{e}_i}\Big)\vec{_x} = \Phi^{\R^3}_{\vec{0} + \vec{e}_i t}(x) = \vec{x} + \vec{e}_i t \simeq \vec{e}_i
-\end{equation*}
+\end{equation}
 siccome $\R^3 \ni \vec{e}_i \simeq (\vec{0}+\vec{e}_i t) \in \vec{T_0} \R^3 $ e l'azione di $\R^3$ sulle altre componenti è banale. Allo stesso tempo, il valore della mappa comomento associata a $\vec{e}_i$ in ciascun punto è 
-\begin{equation*}
+\begin{equation}
   P_{\vec{e}_i}(\vec{q},\vec{\dot{q}}^*, \rho, \dot{\rho}^*) =\ \vec{\dot{q}}^*\! \vec{e}_i = \dot{q}^*_i
-\end{equation*} 
-dove nel membro di mezzo $\vec{\dot{q}}^*$ è considerato come elemento di $T^*_{\vec{q}}\R^3 \simeq \R^3 \simeq T^*_{\vec{0}}\R^3 = \mathfrak{r}^{3*}$ ed $\vec{e}_i$ come elemento di $\R^3 \simeq T_{\vec{0}}\R^3 = \mathfrak{r}^3$. Nella base simplettica di $T^*\big(\R^3 \times  SO(3)\big)$ (non di $X$, che non essendo un fibrato cotangente non ha una struttura simplettica canonica), data semplicemente dalla concatenazione delle basi simplettiche di $\R^3$ e $SO(3)$, siccome la mappa comomento è costante sulle componenti derivanti da $T^*SO(3)$ il campo hamiltoniano della mappa comomento per un dato $e_i$ è fornito da \begin{equation*}
+\end{equation} 
+dove nel membro di mezzo $\vec{\dot{q}}^*$ è considerato come elemento di $T^*_{\vec{q}}\R^3 \simeq \R^3 \simeq T^*_{\vec{0}}\R^3 = \mathfrak{r}^{3*}$ ed $\vec{e}_i$ come elemento di $\R^3 \simeq T_{\vec{0}}\R^3 = \mathfrak{r}^3$. Nella base simplettica di $T^*\big(\R^3 \times  SO(3)\big)$, data semplicemente dalla concatenazione delle basi simplettiche di $\R^3$ e $SO(3)$, siccome la mappa comomento è costante sulle componenti derivanti da $T^*SO(3)$ il campo hamiltoniano della mappa comomento per un dato $e_i$ è fornito da \begin{equation}
 V_{P_{\vec{e}_i}} = - \mathsf{J}\, \grad{P_{\vec{e}_i}} = - \begin{pmatrix}
   0 & 0 & \mathbb{1} & 0 \\
   0 & 0 & 0 & \mathbb{1} \\
@@ -91,52 +91,52 @@ V_{P_{\vec{e}_i}} = - \mathsf{J}\, \grad{P_{\vec{e}_i}} = - \begin{pmatrix}
 \end{pmatrix} \begin{pmatrix}
 0 \\ 0 \\ \vec{e}_i \\ 0
 \end{pmatrix} = (\vec{e}_i, 0, 0, 0)
-\end{equation*} 
+\end{equation} 
 ovvero esattamente il campo dell'azione infinitesima. Quanto all'equivarianza, siccome $\R^{n}$ è commutativo l'azione aggiunta $\mathrm{Ad}$ è banale, e quindi lo è anche l'azione coaggiunta. L'equivarianza è soddisfatta poiché in effetti $\mu$ non dipende dalla configurazione in $\R^3$, così che $\mu(\vec{q}+\vec{a}) = \mu(\vec{q}) = \mathrm{Ad}^*\,\big(\mu(\vec{q})\big)$. Quindi $\mu$ è una mappa momento e $\Phi^X$ è un'azione hamiltoniana.
 
 Siccome $\R^{n}$ è commutativo e l'azione coaggiunta è banale, si ha anche che $G_{\vec{p}} = G$ per ogni $\vec{p} \in \mathfrak{r}^3$, e siccome per ogni coppia di elementi $\vec{a}, \vec{b} \in \R^3$ esiste un terzo elemento $\vec{c}$ tale che $\vec{a} = \vec{c} + \vec{b}$, tutti gli elementi di $\R^3$ sono equivalenti sotto l'azione di $\R^3$. Da queste osservazioni e dal fatto che per un dato $\vec{p} \in \R^3 \simeq T^*_{\vec{0}} \R^3 = \mathfrak{r}^3$ si ha che
-\begin{equation*}
+\begin{equation}
 \mu^{-1}(\vec{p}) = \big\lbrace(\vec{q},\vec{p}, \rho, \dot{\rho}^*) \mid \vec{q}\in \R^3, \rho \in SO(3), \dot{\rho}^* \in T^*_{\rho} SO(3)\big\rbrace \simeq \R^3 \times T^*SO(3)
-\end{equation*} 
+\end{equation} 
 segue che che $\mu^{-1}(p)/\R^3 = T^*SO(3)$. Per il teorema di Marsden-Weinstein, $T^* SO(3)$ ha una struttura simplettica data dalla forma simplettica ridotta, mentre l'evoluzione del sistema è governata dall'hamiltoniana su $X$, ristretta a $T^* SO(3)$. Si può dimostrare che la forma simplettica ridotta è quella canonica, mentre l'hamiltoniana differisce da quella su $X$ per una costante. Ciò significa che il moto di rotazione di un corpo rigido libero che trasla è esattamente uguale a quello dello stesso corpo che ruota senza traslare.
 
 Si ha quindi una sorta di spazio delle configurazioni ridotto $\pi\big(T^*SO(3)\big) = SO(3)$. In modo simile a quanto fatto per $\R^3$, si faccia agire $SO(3)$-gruppo su $SO(3)$-varietà secondo la moltiplicazione a sinistra:
-\begin{equation*}
+\begin{equation}
 L_{\sigma}: \rho \longmapsto \sigma \rho 
-\end{equation*} 
+\end{equation} 
 Il moto del sistema in $SO(3)$ sarà un'applicazione $\overline{\rho}: \R \to SO(3)$. La velocità generalizzata in un punto $\rho$ della varietà sarà naturalmente un vettore $\dot{\rho}(t) \in T_{\overline{\rho}(t)}SO(3)$. Tuttavia, si considera solitamente una quantità equivalente alla velocità, la \dfn{velocità angolare} $\psi$ definita dal push-forward di $\dot{\rho}$ nello spazio tangente all'identità $T_e SO(3) = \mathfrak{so(3)}$:
-\begin{equation*}
-\psi = \big(D L_{\rho^{-1}}\big)\big(\dot{\rho}\big)
-\end{equation*}
+\begin{equation}
+\psi \defeq \big(D L_{\rho^{-1}}\big)\big(\dot{\rho}\big)
+\end{equation}
 Analogamente, si definisce \dfn{momento angolare} (del corpo rigido) la quantità, equivalente al momento generalizzato $\dot{\rho}^*(t) \in T^*_{\overline{\rho}(t)}SO(3)$, definita dal pull-back di $\dot{\rho}^*$ nello spazio cotangente all'identità $T^*_e SO(3) = \mathfrak{so(3)}^*$
-\begin{equation*}
-\lambda = \big(R^*_{\rho} \big)\big(\dot{\rho}^*\big)
-\end{equation*} 
+\begin{equation}
+\lambda \defeq \big(R^*_{\rho} \big)\big(\dot{\rho}^*\big)
+\end{equation} 
 dove $R_\rho$ indica la moltiplicazione a destra: $R_\rho: \sigma \mapsto \sigma \rho$. Siccome l'algebra di Lie di $SO(3)$ è tridimensionale, sia la velocità angolare che il momento angolare possono essere identificati con vettori di $\R^3 \simeq (\R^3)^*$, e siccome l'azione di $SO(3)$ su $\mathfrak{so(3)}$ è la stessa che su $\R^3$ essi vengono trasformati da una rotazione del corpo rigido nella stessa maniera in cui lo sono i vettori posizione delle particelle che compongono il corpo stesso. Per questo motivo, velocità e momento angolari sono trattati come vettori in meccanica newtoniana; la loro natura nella formulazione simplettica è tuttavia appunto quella di elementi di algebra e coalgebra di Lie di $SO(3)$.
 
 Dato che si sta considerando il corpo rigido libero, l'hamiltoniana coinciderà sostanzialmente con l'energia cinetica. Per sua natura, questa dovrà essere definita tramite una norma sulle velocità: l'introduzione della velocità angolare consente di definire questa norma solo su $\mathfrak{so(3)}$ invece che su ciascun $T_{\rho}SO(3)$. La norma viene solitamente introdotta tramite un prodotto scalare definito positivo $\langle \cdot, \cdot\rangle: \mathfrak{so(3)} \times  \mathfrak{so(3)} \to \R^+$. Esso consente di definire un'identificazione $I$, detta \dfn{tensore d'inerzia}, tra $\mathfrak{so(3)}$ e $\mathfrak{so(3)}^*$, tramite
-\begin{equation*}
+\begin{equation}
 I: \psi \mapsto \psi^* \qqtext{tale che} \psi^* (\psi) = \langle \psi, \psi \rangle
-\end{equation*} 
+\end{equation} 
 L'identificazione tra velocità e momenti angolari fornita da $I$ è analoga a quella tra velocità e momenti lineari fornita dalla massa. I valori numerici del prodotto scalare dipendono dalla distribuzione di massa del corpo in considerazione. L'energia cinetica (e quindi l'hamiltoniana) può essere definita su $T^* SO(3)$ tramite il tensore d'inerzia, la norma su $\mathfrak{so(3)}$ e il pullback dei covettori da $T^*_{\rho}SO(3)$ a $T^*_{e}SO(3)$, come
-\begin{equation*}
-\mathcal{H}(\rho, \dot{\rho}^*) = \Big\langle I^{-1}\big(L^*_\rho \dot{\rho}^*\big), I^{-1}\big(L^*_\rho \dot{\rho}^*\big) \Big\rangle
-\end{equation*}
+\begin{equation}
+\mathcal{H}(\rho, \dot{\rho}^*) \defeq \Big\langle I^{-1}\big(L^*_\rho \dot{\rho}^*\big), I^{-1}\big(L^*_\rho \dot{\rho}^*\big) \Big\rangle
+\end{equation}
 
 $SO(3)$-varietà ammette chiaramente $SO(3)$-gruppo come simmetria, e per il teorema di Noether genera quindi un'azione hamiltoniana su $T^*SO(3)$. Si può dimostrare che la mappa momento di questa azione è data da 
-\begin{equation*}
+\begin{equation}
 \mu^{SO(3)}: (\rho, \dot{\rho}^*) \longmapsto R_{\rho}^* \dot{\rho}^* 
-\end{equation*}
+\end{equation}
 ovvero proprio dal momento angolare corrispondente al momento generalizzato $\dot{\rho}^*$. Per semplicità, si ponga $\mu \defeq \mu^{SO(3)}$. Dato che i valori di $\mu$ si conservano, si è ritrovata la legge di conservazione del momento angolare. Il riottenimento di questa legge, nota dalla meccanica newtoniana, è la motivazione principale per la definizione di velocità e momento angolari in $SO(3)$ ed $\mathfrak{so(3)}^*$ e per l'uso dell'azione destra nella definizione del momento angolare.
 
 % Siccome $\lambda = R^*_{\rho} \dot{\rho}^*$ è un elemento di $\mathfrak{so(3)}^*$, esso è duale alle velocità angolari $\psi$. La sua azione su di esse è data per definizione di pull-back da
-% \begin{equation*}
+% \begin{equation}
 % \lambda(\psi) = \big[(R_\rho^* \dot{\rho}^*)\big]\big((DL_{\rho^{-1}})\dot{\rho}\big) = \dot{\rho}^* \Big((DR_\rho)\big((DL_{\rho^{-1}})\dot{\rho}\big)\Big) \defeq \dot{\rho}^*(\dot{\rho}')
-% \end{equation*}
+% \end{equation}
 % Si noti innanzitutto che l'effetto combinato delle due azioni $L_{\rho^{-1}}$ e $R_\rho$ è di portare $\rho$ in $e$ e poi di nuovo in $\rho$. Quindi anche $\dot{\rho}'$ è tangente a $SO(3)$ in $\rho$. Un calcolo diretto mostra poi che per un cammino su $SO(3)$ che definisce $\dot{\rho}$ le differenze dalla sua immagine attraverso le due azioni, che definisce $\dot{\rho}'$, sono di ordine maggiore o uguale a $2$. Per i vettori tangenti, intesi come classi di equivalenza di moti al primo ordine, si ha quindi che $\dot{\rho} = \dot{\rho}'$. Insomma vale 
-% \begin{equation*}
+% \begin{equation}
 % \lambda(\psi) = \dot{\rho}^*(\dot{\rho})
-% \end{equation*}
+% \end{equation}
 % L'interpretazione fisica del valore assunto da $\mu^{SO(3)}$ è quindi semplice: le sue componenti sono le componenti del momento angolare nella base in cui è espressa la velocità angolare, identificando $\mathfrak{so(3)} \simeq \R^3 \simeq (\R^3)^* \simeq \mathfrak{so(3)}^*$.
 
 Per un dato $\lambda \in \mathfrak{so(3)}^*$, è possibile dimostrare che $\mu^{-1}(\lambda)/SO(3)_{\lambda} = S^2$, l'insieme degli elementi $\psi \in \mathfrak{so(3)}$ con norma pari a $\norm{\lambda}_{\R^3}$, dove $\psi, \lambda$ sono visti come elementi di $\mathfrak{so(3)}^* \simeq \R^3$ e $\norm{\cdot}_{\R^3}$ è la norma euclidea in $\R^3$. Di nuovo, essa avrà una struttura simplettica data dalla forma simplettica ridotta, mentre la dinamica sarà governata dall'hamiltoniana $\mathcal{H}$, ristretta a $S^2$. Il significato della riduzione dello spazio delle fasi a $S^2$ è che lo stato di rotazione del sistema (sia la sua configurazione che i suoi momenti) è completamente specificato dalla posizione del suo asse di rotazione, una volta fissate le condizioni iniziali.
