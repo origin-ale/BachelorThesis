@@ -47,8 +47,8 @@ Ciò significa che la derivata di $\pi$ manda vettori $\vec{\xi} = (\xi_1, \ldot
 \begin{equation}
   D_{(\vec{q},\vec{p})}\pi: (\xi_1, \ldots, \xi_{2n}) \mapsto  (\xi_1, \ldots, \xi_n)
 \end{equation}
-e, siccome $\alpha(\xi) = \sum_j p_j \xi_j$ (l'applicazione di un vettore cotangente a uno tangente, scritta in coordinate) e siccome $(\dd{q})_j$ è la base duale $\xi_j = (\dd{q}_j)(\xi)$, si ha \begin{equation}
-\lambda_{(\vec{q},\vec{p})} (\xi) = \sum_{j=1}^n p_j \xi_j = \left[\sum_{j=1}^n p_j \dd{q_j}\right] (\xi)
+e, siccome $\alpha(\xi) = \sum_j p_j \xi_j$ (l'applicazione di un vettore cotangente a uno tangente, scritta in coordinate) e siccome $(\dd{q})_j$ è la base duale $\xi_j = (\dd{q}_j)(\vec{\xi})$, si ha \begin{equation}
+\lambda_{(\vec{q},\vec{p})} (\vec{\xi}) = \sum_{j=1}^n p_j \xi_j = \left[\sum_{j=1}^n p_j \dd{q_j}\right] (\vec{\xi})
 \end{equation} 
 da cui segue che \begin{equation}
   \lambda_{(\vec{q},\vec{p})} = \sum_{j=1}^n p_j \dd{q_j}
@@ -59,13 +59,13 @@ La forma simplettica su $\R^{2n}$ nelle coordinate $(q_1, \ldots, q_n)$ è quind
 \end{equation} 
 Si noti che questa forma ha coefficienti costanti su $\R^{2n}$, ed è quindi rappresentabile in una base $\{e_i\}$ come matrice quadrata $2n \times 2n$ con elementi dati da 
 \begin{equation}
-\omega(e_i, e_j) = \sum_{k=1}^{n} (\dd{q_k} \wedge \dd{p_k})(e_i, e_j) = \sum_{k=1}^{n} \det\pmqty{\dd{q_k}(e_i) & \dd{q_k}(e_j) \\\dd{p_k}(e_i) & \dd{p_k}(e_j)}
+\omega(\vec{e}_i, \vec{e}_j) = \sum_{k=1}^{n} (\dd{q_k} \wedge \dd{p_k})(\vec{e}_i, \vec{e}_j) = \sum_{k=1}^{n} \det\pmqty{\dd{q_k}(\vec{e}_i) & \dd{q_k}(\vec{e}_j) \\\dd{p_k}(\vec{e}_i) & \dd{p_k}(\vec{e}_j)}
 \end{equation}
 ovvero, nella base con coordinate $(q_1, \ldots, q_n, p_1, \ldots, p_n)$, dalla matrice a blocchi
 \begin{equation}
 - \mathsf{J} \defeq - \pmqty{0 & -\mathbb{1} \\ \mathbb{1} & 0}
 \end{equation} 
-ovvero vale $\omega(\xi_1, \xi_2) = \xi_1^T (-\mathsf{J}) \xi_2$. Essendo essa stessa una derivata esterna, $\omega$ è chiusa, mentre dalla rappresentazione in coordinate si ottiene che essa è anche non degenere. $\omega$ è quindi effettivamente una forma simplettica.
+ovvero vale $\omega(\vec{\xi}_1, \vec{\xi}_2) = \vec{\xi}_1^T (-\mathsf{J}) \vec{\xi}_2$. Essendo essa stessa una derivata esterna, $\omega$ è chiusa, mentre dalla rappresentazione in coordinate si ottiene che essa è anche non degenere. $\omega$ è quindi effettivamente una forma simplettica.
 
 Si può dimostrare che la struttura della forma simplettica in $\R^{2n}$ è comune a tutte le varietà simplettiche. Questo risultato è noto come \emph{teorema di Darboux}. Per formularlo precisamente, è necessario definire il concetto di una trasformazione che \textquote{preserva la struttura simplettica}.
 
@@ -152,7 +152,7 @@ Oltre all'hamiltoniana stessa, anche la forma simplettica si conserva durante l'
   \end{equation} 
 \end{theorem}
 
-La struttura simplettica consente di associare campi vettoriali a funzioni differenziabili. In maniera simile, anche se nel senso inverso, l'algebra delle funzioni data dalle parentesi di Poisson può essere vista come il risultato, tramite la forma simplettica, di una struttura algebrica di Lie valida per l'insieme $\mathcal{V}(X)$ dei \emph{campi vettoriali} definiti su una varietà \emph{qualsiasi}, non necessariamente simplettica. Questa struttura è detta \emph{parentesi di Lie}.
+La struttura simplettica consente di associare campi vettoriali a funzioni differenziabili. In maniera simile, anche se nel senso inverso, l'algebra delle funzioni data dalle parentesi di Poisson può essere vista come il risultato, tramite la forma simplettica, di una struttura algebrica di Lie valida per l'insieme $\mathcal{V}(X)$ dei \emph{campi vettoriali} definiti su una varietà \emph{qualsiasi}, non necessariamente simplettica. L'operazione che definisce questa struttura è detta \emph{parentesi di Lie}.
 % ed è strettamente legata al concetto di derivata di Lie.
 % \begin{definition}
 %   Siano $X$ una varietà, $V$ un campo vettoriale su $X$ e $\alpha$ una $k$-forma differenziale su $X$. Si dice \dfn{derivata di Lie} $L_V\alpha$ la $k$-forma differenziale data per ogni $x \in X$ da \begin{equation}
@@ -202,7 +202,7 @@ si ha che i loro campi vettoriali sono
 \end{equation} 
 Dunque, la parentesi di Poisson è data da
 \begin{equation}
-\pb{q_i}{p_j} = \omega(\vec{V}_{q_i}, \vec{V}_{p_j}) = \vec{V}_{q_i}\, \mathsf{J}\, \vec{V}_{p_j} = \delta_{ij}
+\pb{q_i}{p_j} = \omega(\vec{V}_{q_i}, \vec{V}_{p_j}) = \vec{V}\,\transpose_{q_i}\, \mathsf{J}\, \vec{V}_{p_j} = \delta_{ij}
 \end{equation}
 Siccome questa è una funzione costante per $i$ e $j$ fissati, il suo campo hamiltoniano è nullo. Inoltre, se visti come derivazioni i campi vettoriali delle funzioni coordinate sono 
 \begin{equation}
@@ -230,7 +230,7 @@ L'uso principale dei gruppi di Lie in meccanica è la modellizzazione matematica
   Sia $X$ una varietà e sia $G$ un gruppo di Lie. Si dice \dfn{azione} di $G$ su $X$ un'applicazione differenziabile $\Phi:(g,x) \in G \times X \mapsto \Phi_g(x) \in X$ tale che:
   \begin{enumerate}
     \item L'azione di $e$ è la mappa identità: $\Phi_e (x) = x$ per ogni $x \in X$.
-    \item Azione e moltiplicazione sono associative fra loro: $\Phi_{g\cdot h} (x) = \Phi_g \big(\Phi_h (x)\big)$ per ogni $g,h \in G$ e $x \in X$.
+    \item Azione e moltiplicazione sono associative fra loro: $\Phi_{g\cdot h} (x) = \Phi_g \big(\Phi_h (x)\big)$ per ogni $g,h \in G$ e $x \in X$, oppure $\Phi_{g\cdot h} (x) = \Phi_h \big(\Phi_g (x)\big)$ per ogni $g,h \in G$ e $x \in X$.
   \end{enumerate}
 Se esiste una tale mappa, si dice che $X$ ha \dfn{simmetria continua} sotto $G$. 
 \end{definition}
@@ -326,7 +326,7 @@ Si noti che $R_z(\theta)$ non è altro che la matrice di rotazione di un angolo 
 \begin{equation}
 \eval{\dv{\theta}}_{\theta=0}\gamma_z = \pmqty{0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0} \defeq r_z
 \end{equation}
-Analogamente, dalle curve $\gamma_y: \theta\mapsto R_y(\theta)$ e $\gamma_x: \theta \mapsto R_x(\theta)$ si ottengono 
+Analogamente, da $\gamma_y: \theta\mapsto R_y(\theta)$ e $\gamma_x: \theta \mapsto R_x(\theta)$ si ottengono 
 \begin{equation}
   \eval{\dv{\theta}}_{\theta=0}\gamma_y = \pmqty{0 & 0 & -1 \\ 0 & 0 & 0 \\ 1 & 0 & 0} \defeq r_y \qqtext{e} \eval{\dv{\theta}}_{\theta=0}\gamma_x = \pmqty{0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0} \defeq r_x
 \end{equation}
