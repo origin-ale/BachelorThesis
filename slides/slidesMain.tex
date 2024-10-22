@@ -1,0 +1,110 @@
+\documentclass[]{beamer}
+\mode<presentation>
+
+\usepackage[italian]{babel}
+% \usepackage[a-1b]{pdfx}
+
+\usepackage[T1]{fontenc}
+% \usepackage[utf8]{inputenc} %ignored by luatex?
+\usepackage{xcolor}
+
+
+\usepackage{tikz}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{LibertinusSerif}[
+  Extension = .otf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold, 
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic
+]
+% \setmainfont[Ligatures=TeX]{Comic Sans MS}
+\setsansfont[Ligatures=TeX]{LibertinusSans}[
+  Extension = .otf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold, 
+  ItalicFont = *-Italic,
+]
+\setmonofont{NewCMMono10-Regular.otf}
+% \setmainlanguage[babelshorthands]{italian}
+
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\setmathfont{XITS Math}
+\usepackage{physics}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\identity}{\mathcal{i}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\defeq}{\coloneq}
+\newcommand{\transpose}{^{\mathrm{T}}}
+
+\usepackage{amsthm}
+\usepackage{thmtools, thm-restate}
+% \declaretheorem[
+%   style = plain,
+%   parent = chapter,
+%   name = Teorema,
+%   refname={teorema,teoremi},
+%   Refname={Teorema,Teoremi}]{theorem}
+% \declaretheorem[
+%   style = definition, 
+%   sibling = theorem, 
+%   name = Definizione,
+%   refname={definizione,definizioni},
+%   Refname={Definizione,Definizioni}]{definition}
+\newcommand{\dfn}[1]{\emph{#1}}
+
+\usepackage{graphicx}
+\graphicspath{./graphics}
+
+\usepackage[italian=quotes]{csquotes}
+
+
+\usepackage{hyperref} 
+\hypersetup{hidelinks}
+
+\beamertemplatenavigationsymbolsempty
+\setbeamercolor{structure}{fg=RossoUnibo,bg=RossoUnibo}
+\definecolor{RossoUnibo}{HTML}{ad2624}
+\setbeamercolor{alerted text}{fg=RossoUnibo}
+\setbeamercolor{section in head/foot}{fg=white}
+% \usetheme{Singapore}
+\useoutertheme[subsection=false, footline=authortitle]{miniframes}
+\usecolortheme{dolphin}
+
+\let\emph\relax % there's no \RedeclareTextFontCommand
+\DeclareTextFontCommand{\emph}{\bfseries\boldmath}
+
+
+\title{Introduzione alla geometria simplettica in fisica}
+\subtitle{Tesi di laurea triennale}
+\author{Alessandro Cerati}
+\institute{Alma Mater Studiorum --- Università di Bologna \\
+Dipartimento di Fisica e Astronomia \\
+Corso di Laurea in Fisica}
+\date{30 ottobre 2024}
+
+\begin{document}
+
+\begin{frame}[plain]
+\maketitle\vspace{-33pt}
+\begin{center}
+  \scriptsize
+    Relatore: \\
+    Prof. Emanuele Latini
+\end{center}
+
+\end{frame}
+\frame{\frametitle{Indice} \tableofcontents}
+
+\section{Introduzione}
+\frame{lorem}
+\section{Varietà differenziabili}
+\frame{ipsum}
+\section{Varietà simplettiche}
+\frame{dolor}
+\section{Meccanica simplettica}
+\frame{amet}
+\end{document}
