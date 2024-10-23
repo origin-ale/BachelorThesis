@@ -1,0 +1,40 @@
+\begin{tikzpicture}
+  % main sphere
+  \coordinate (center) at (0,0) {};
+  \draw[line width = .6pt] (center) circle (1.5);
+
+  % poles, axes
+  \coordinate (npole) at (0,1.5); \coordinate (spole) at (0,-1.5);
+  \draw[->] ($(spole)-(0,.25)$) -- ($(npole)+(0,.25)$);
+  \coordinate (epole) at (1.5,0); \coordinate (wpole) at (-1.5,0);
+  \draw[->] ($(wpole)-(.25,0)$) -- ($(epole)+(.25,0)$);
+  \draw[->] (0,0,-1.5) -- (0,0,1.5);
+
+  % meridian and equator
+  \path[save path = \pathMeridian, name path = meridian] 
+  (npole) arc (90:-90:.75 and 1.5) (spole);
+  \draw[dashed, name path = equator] (-1.5, 0) arc (-180:0:1.5 and .5) (1.5,0); 
+  \draw[black, dashed] [use path = \pathMeridian];
+  
+  % particle
+  \path[name path = partRadius] (center) -- (60:1.5);
+  \node[name intersections={of= partRadius and meridian}, shape = coordinate] 
+    (particle) at (intersection-1) {};
+  \draw[fill = black] (particle) circle (1pt);
+  \draw (center) -- (particle); 
+
+  % meridian position
+  \node[name intersections ={of= meridian and equator}, shape = coordinate] 
+  (eqproj) at (intersection-1) {};
+  \draw (center) -- (eqproj);
+
+  % coordinates
+  \draw ($(center)!.5!(npole)$) arc (90:41:.375 and .75) ($(center)!.5!(particle)$) 
+    node [pos=-.5, below] {$\theta$};
+  \draw ($(center)!.5!(eqproj)$) arc (-30:0:3 and .45) ($(center)!.25!(epole)$) 
+    node [near start, above=2pt] {$\phi$};
+
+  % trajectory
+  \draw[line width = .6pt] (particle) arc (110:225:2.75 and 1.25);
+
+\end{tikzpicture}

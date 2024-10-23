@@ -1,0 +1,35 @@
+\begin{tikzpicture}[y=.2cm]
+% axes
+\draw[->] (-.25,0) -- (3.25,0);
+\draw[->,name path = yaxis] (0,-8.75) -- (0,8.75);
+\node[anchor = north east] at (3.25,0) {$x$};
+\node[anchor = north east] at (0,8.75) {$y$};
+
+% parabola
+\begin{scope}
+  \clip (-.25,-8.75) rectangle (3.25,8.75);
+  \draw[domain=0:3, line width =.6pt, name path = parabola] plot(\x, \x*\x)
+    node[anchor = north west] at (2,4) {$f(x)$};
+
+% functionals
+\draw[name path = functional, line width = 0.6pt] plot(\x, 4*\x);
+\draw[dashed, name path = tangent] plot(\x, 4*\x - 4)
+  node[left = 3pt] at (1,4) {$px$};
+
+% distance at minimum
+\node[name intersections = {of= parabola and tangent}, circle, inner sep = .75pt, fill=black]
+  (tanPoint) at (intersection-1) {};
+
+% vertical distances
+\path[name path = tanVert] (tanPoint) -- (tanPoint |- 0,10);
+\node[name intersections = {of= functional and tanVert}, circle, inner sep = .75pt, fill=black]
+  (funcVert) at (intersection-1) {};
+\draw[<->] (funcVert) -- (tanPoint) node[at start, left=3pt] {$f^*(p)$};
+
+\node[name intersections = {of= tangent and yaxis}, circle, inner sep = .75pt, fill=black]
+  (yaxVert) at (intersection-1) {};
+\node[circle, inner sep = .75pt, fill=black] (origin) at (0,0) {};
+\draw[<->] ($(origin)-(.1,.5)$) -- ($(yaxVert)-(.1,.2)$);
+\end{scope}
+
+\end{tikzpicture}

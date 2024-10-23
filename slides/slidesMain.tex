@@ -10,6 +10,8 @@
 
 
 \usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{intersections}
 
 \usepackage{fontspec}
 \setmainfont[Ligatures=TeX]{LibertinusSerif}[
@@ -66,13 +68,14 @@
 \hypersetup{hidelinks}
 
 \beamertemplatenavigationsymbolsempty
-\setbeamercolor{structure}{fg=RossoUnibo,bg=RossoUnibo}
+\setbeamercolor{structure}{fg=VerdeDIFA,bg=VerdeDIFA}
 \definecolor{RossoUnibo}{HTML}{ad2624}
-\setbeamercolor{alerted text}{fg=RossoUnibo}
+\definecolor{VerdeDIFA}{HTML}{00843d}
+\setbeamercolor{alerted text}{fg=VerdeDIFA}
 \setbeamercolor{section in head/foot}{fg=white}
-% \usetheme{Singapore}
 \useoutertheme[subsection=false, footline=authortitle]{miniframes}
 \usecolortheme{dolphin}
+\useinnertheme{rectangles}
 
 \let\emph\relax % there's no \RedeclareTextFontCommand
 \DeclareTextFontCommand{\emph}{\bfseries\boldmath}
@@ -90,21 +93,294 @@ Corso di Laurea in Fisica}
 
 \begin{frame}[plain]
 \maketitle\vspace{-33pt}
-\begin{center}
-  \scriptsize
-    Relatore: \\
-    Prof. Emanuele Latini
-\end{center}
+\begin{columns}
+  \column{.3\textwidth}
+  \begin{flushleft}
+    \scriptsize
+      Relatore: \\
+      Prof. Emanuele Latini
+  \end{flushleft}
+  \column{.3\textwidth}
+  \begin{flushright}
+    \scriptsize
+    Anno Accademico: \\
+    2023/2024
+  \end{flushright}
+\end{columns}
 
 \end{frame}
-\frame{\frametitle{Indice} \tableofcontents}
+% \frame{\frametitle{Indice} \tableofcontents}
 
 \section{Introduzione}
-\frame{lorem}
+\begin{frame}
+\frametitle{L'obiettivo: una formulazione geometrica}
+  \begin{columns}
+    \column{.6\textwidth}
+    \textbf{Meccanica newtoniana} \begin{itemize}
+      \item $\vec{F} = m \vec{a}$
+      \item $3N$ equazioni differenziali 
+      \item Coordinate lineari obbligate 
+    \end{itemize}
+    \textbf{Meccanica hamiltoniana} \begin{itemize}
+      \item Equazioni di Hamilton 
+      \item Integrali del moto
+      \item Coordinate arbitrarie
+      \item Computazioni complesse
+    \end{itemize}
+   \alert{Obiettivo: \emph{formulazione geometrica}} per sistemi arbitrari, possibilità di \alert{ridurre la dimensionalità}.
+    \column{.4\textwidth}
+      \begin{center}
+            \input{../graphics/sphereMechanics.tikz}
+      \end{center}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Un esempio: sistemi non vincolati}
+    \begin{columns}
+      \column{.65\textwidth}
+      $N$ particelle non vincolate.\\[5pt]
+      Spazio delle configurazioni $\R \times \ldots \times \R \simeq \R^{n}$.\\[5pt]
+      Spazio delle fasi $\R^{2n}$, punti $\vec{z}=(\vec{q},\vec{p})$.\\[11pt]
+
+      Campo vettoriale hamiltoniano:\[
+      \vec{V}_{\mathcal{H}}(\vec{z}) = - \mathsf{J} \nabla \mathcal{H}(\vec{z}) \qqtext{con} \mathsf{J} \defeq \pmqty{0 & -\mathbb{1} \\ \mathbb{1} & 0}
+      \]
+      Equazioni di Hamilton prendono la forma \[
+      \vec{\dot{z}} = \vec{V}_{\mathcal{H}}(\vec{z})
+      \]
+      Per sistemi vincolati, varietà differenziabili.
+      \column{.35\textwidth}
+        \begin{center}
+              \input{../graphics/sphereMechanics.tikz}
+        \end{center}
+    \end{columns}
+  \end{frame}
+
 \section{Varietà differenziabili}
-\frame{ipsum}
+
+\begin{frame}
+  \frametitle{Varietà, vettori, covettori}
+    \begin{columns}
+      \column{.6\textwidth}
+        \emph{Varietà differenziabile}: insieme con coordinate locali in $\R^{n}$.\\[5pt]
+        \emph{Vettori} tangenti: \begin{itemize}
+          \item Cammini al I ordine
+          \item Derivazione (regola di Leibniz)
+          \item Operatore differenziale I ordine
+        \end{itemize}
+        \emph{Covettori}: duali ai vettori, \textquote{lunghezza in una direzione}.\\[5pt]
+        Coordinate inducono basi.\\
+      \column{.4\textwidth}
+        \begin{center}
+              \input{../graphics/manifold.tikz}
+        \end{center}
+    \end{columns}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Approfondimento su vettori e covettori}
+      \begin{columns}
+        \column{.65\textwidth}
+        \textbf{Vettori}:
+        \begin{itemize}
+          \item \emph{Campi vettoriali}
+          \item \emph{Flussi} dei campi
+          \item \emph{Fibrato tangente} $TX = \{(x,\xi)\}$
+          \item Derivata o \emph{push-forward}\\[11pt]
+        \end{itemize}
+
+        \textbf{Covettori}:
+        \begin{itemize}
+          \item \emph{$1$-forme differenziali}
+          \item \emph{\alert{Fibrato cotangente}} $T^*X = \{(x,\alpha)\}$
+          \item \emph{Pull-back} \\[11pt]
+        \end{itemize}
+        \emph{\alert{Differenziale}} di una funzione. 
+
+        \column{.35\textwidth}
+          \begin{center}
+                \input{../graphics/manifold.tikz}
+          \end{center}
+      \end{columns}
+    \end{frame}
+
+  \begin{frame}
+    \frametitle{Forme differenziali}
+      \begin{columns}
+        \column{.6\textwidth}
+          Misura di volumi con segno.\\[5pt]
+          Ottenute da covettori con \emph{prodotto esterno}, hanno base di prodotti esterni.\\[11pt]
+          \emph{Integrazione} tramite pullback a $\R^{n}$.\\[11pt]
+          \emph{\alert{Derivata esterna}} generalizza flusso: parte principale dell'integrale di $\alpha$ su una frontiera.
+
+        \column{.4\textwidth}
+          \begin{center}
+                \input{../graphics/sphereMechanics.tikz}
+          \end{center}
+      \end{columns}
+    \end{frame}
+
 \section{Varietà simplettiche}
-\frame{dolor}
+
+\begin{frame}
+\frametitle{Struttura simplettica}
+\begin{columns}
+  \column{.65\textwidth}
+  \emph{Forma simplettica}: 2-forma $\omega$ chiusa ($\dd{\omega} = 0$) e non degenere.\\[11pt]
+  \alert{Struttura simplettica canonica} sui fibrati cotangenti:
+  \begin{enumerate}
+    \item $1$-forma \emph{tautologica} $\lambda$: $\alpha$ alla proiezione di $\xi$ sulla varietà.
+    \item Forma simplettica \emph{canonica} $\omega = \dd{\lambda}$.\\[11pt]
+  \end{enumerate}
+  \emph{Darboux}: $\exists$ sempre coordinate tali che \[
+    \omega \simeq -\mathsf{J} \defeq \left(\smqty{0 & \mathbb{1} \\ -\mathbb{1} & 0}\right)
+  \] 
+
+  \emph{\alert{Campo vettoriale hamiltoniano}} $V_H$: corrispondente a $\dd{H}$ attraverso $\omega$.
+  \column{.35\textwidth}
+    \begin{center}
+          \input{../graphics/canonical.tikz}
+    \end{center}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Parentesi e leggi di conservazione}
+  \begin{columns}
+    \column{.65\textwidth}
+    Parentesi di \emph{Poisson} $\pb{H}{K} = \omega(V_H, V_K)$: variazione di $H$ lungo flusso di $H$.\\[5pt]
+    In particolare $H$ si conserva lungo il suo flusso.\\[11pt]
+
+    \emph{Liouville}: l'integrale di $\omega \wedge \ldots \wedge \omega$ è conservato dal flusso.\\[11pt]
+
+    Parentesi di \emph{Lie} fra campi vettoriali: commutatore delle derivazioni.
+    \column{.35\textwidth}
+      \begin{center}
+            \input{../graphics/sphereMechanics.tikz}
+      \end{center}
+  \end{columns}
+  \end{frame}
+
+\begin{frame}
+\frametitle{Gruppi e algebre di Lie}
+\begin{columns}
+  \column{.65\textwidth}
+  \alert{\emph{Gruppo di Lie}} $G$: varietà con identità e moltiplicazione, inversione differenziabili.\\[5pt]
+  \emph{Azione}: applicazioni con struttura del gruppo.\\[11pt]
+  \emph{Algebra di Lie} $\mathfrak{g}$: spazio tangente nell'identità, con parentesi dei campi.\\[5pt]
+  \emph{Azione infinitesima}: campo vettoriale delle classi create da un cammino nel gruppo.
+
+  \column{.35\textwidth}
+    \begin{center}
+          \input{../graphics/sphereMechanics.tikz}
+    \end{center}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Mappa momento}
+\begin{columns}
+  \column{.6\textwidth}
+  \emph{Azione hamiltoniana}: azione infinitesima che è un campo hamiltoniano.\\[5pt]
+  \alert{\emph{Mappa momento}}: $\mu: X\to \mathfrak{g}^*$ con diagramma commutativo fra azione e azione coaggiunta.\\[11pt]
+  \emph{Conservazione del momento}: $\mu_x(\gamma)$ conservate lungo le linee di $H$ se $H$ è conservata da $G$. \\[5pt]
+  \emph{Noether}: simmetria continua di $X$ genera azione hamiltoniana su $T^*X$.
+  \column{.4\textwidth}
+    \begin{center}
+          \input{../graphics/sphereMechanics.tikz}
+    \end{center}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Teorema di riduzione simplettica}
+  \begin{columns}
+    \column{.6\textwidth}
+    Se:
+    \begin{itemize}
+      \item $(X, \omega)$ varietà simplettica
+      \item $G$ gruppo di Lie compatto con azione hamiltoniana su $X$
+      \item $\mu: X \to \mathfrak{g}^*$ mappa momento di $G$
+      \item $p \in \mathfrak{g^*}$, $G_p$ suo stabilizzatore
+    \end{itemize}
+    Allora:
+    \begin{itemize}
+      \item $\mu^{-1}(p)/G_p$ varietà simplettica con $\omega_r$ proiettata da $X$.
+      \item $H$ invariante sotto $G$ si restringe su $\mu^{-1}(p)/G_p$ a una funzione con $V_{H_r}$ proiettato da $X$.
+    \end{itemize}
+    \column{.4\textwidth}
+      \begin{center}
+            \input{../graphics/sphereMechanics.tikz}
+      \end{center}
+  \end{columns}
+  \end{frame}
+
 \section{Meccanica simplettica}
-\frame{amet}
+
+\begin{frame}
+\frametitle{Formulazione geometrica per sistemi arbitrari}
+\begin{columns}
+  \column{.7\textwidth}
+  Sistema: 
+  \begin{itemize}
+    \item {spazio delle configurazioni}, varietà $n$-dimensionale $M$
+    \item {hamiltoniana} $\mathcal{H}: M\to \R$
+  \end{itemize}
+  {Stato}: punto nello {spazio delle fasi} $X = T^* M$.\\ 
+  {Forma canonica} $\omega$ dà {campo hamiltoniano} $V_{\mathcal{H}}$.\\[5pt]
+  \alert{Moto del sistema: linea di flusso hamiltoniano da condizione iniziale.}\\[5pt]
+  $\mathcal{H}$ invariante sotto $\Phi_g$ hamiltoniana: $\mu$ costante nell'evoluzione. Dinamica nello spazio delle fasi ridotto $\mu^{-1}(P_0)/G_{P_0}$: riduzione simplettica. 
+  \column{.3\textwidth}
+    \begin{center}
+          \input{../graphics/manifold.tikz}
+    \end{center}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Corpo rigido libero: invarianza traslazionale}
+\begin{columns}
+  \column{.6\textwidth}
+  $M = \R^3 \times SO(3)$.\\ $X \defeq T^* \R^3 \times T^*SO(3) \ni (\vec{q}, \vec{\dot{q}}^*, \rho, \dot{\rho}^*)$.\\[5pt]
+  Azione di $\vec{a} \in \R^3$: traslazione\\ $\Phi_{\vec{a}}(\vec{q}, \vec{\dot{q}}^*, \rho, \dot{\rho}^*) = (\vec{q}+\vec{a}, \vec{\dot{q}}^*, \rho, \dot{\rho}^*)$.\\[5pt]
+  Mappa momento $\mu^{\R^3}(\vec{q}, \vec{\dot{q}}^*, \rho, \dot{\rho}^*) = \vec{\dot{q}}^*$.\\ È il \alert{momento lineare}!\\[11pt]
+  $\mu^{-1}(\vec{p})/\R^3 \simeq T^* SO(3)$. Riduzione simplettica implica che rotazione è la stessa di corpo rigido con punto fisso.
+  \column{.4\textwidth}
+    \begin{center}
+          \input{../graphics/sphereMechanics.tikz}
+    \end{center}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Corpo rigido libero: invarianza rotazionale}
+\begin{columns}
+  \column{.7\textwidth}
+  Velocità, momento angolare: pull-back identità.\\
+  Hamiltoniana: energia cinetica, con prodotto scalare e tensore d'inerzia.\\[11pt]
+  Azione di $\sigma \in SO(3)$: moltiplicazione sinistra
+  $L_{\sigma}\rho = \sigma \rho$. \\[5pt]
+  Mappa momento $\mu^{SO(3)}(\rho, \dot{\rho}^*) = R_{\rho}\dot{\rho}^*$.\\ È il \alert{momento angolare}!\\[11pt]
+  $\mu^{-1}(\lambda)/SO(3)_{\lambda} \equiv S^2$. Stato di rotazione data una condizione iniziale dipende solo dall'asse.\\[11pt]
+  \emph{Poinsot}: due assi stabili e uno instabile.\\
+  Si dimostra con intersezioni di ellissoide e $S^2$.
+  \column{.3\textwidth}
+    \begin{center}
+          \input{../graphics/sphereMechanics.tikz}
+    \end{center}
+\end{columns}
+\end{frame}
+
+\appendix
+\begin{frame}[plain]
+\hspace{0pt}
+\vfill
+\begin{center}
+  \Huge Grazie per l'attenzione
+\end{center}
+\vfill
+\hspace{0pt}
+\end{frame}
+
 \end{document}

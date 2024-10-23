@@ -1,0 +1,32 @@
+\begin{tikzpicture}
+  \draw[line width = .6pt] 
+    plot [smooth cycle] coordinates
+    {(5:1.5) (69:1.6) (112:1.3) (190:1.2) (238:1.4) (309:1.6)};
+
+  \clip plot [smooth cycle] coordinates
+    {(5:1.5) (69:1.6) (112:1.3) (190:1.2) (238:1.4) (309:1.6)};
+
+  \fill[draw = black, fill = gray, fill opacity = .5] 
+    plot [smooth cycle] coordinates
+    {(5:2) (69:2) (112:2) (245:.6)};
+
+  \fill[draw = black, fill = gray, fill opacity = .5] 
+    plot [smooth cycle] coordinates
+    {(112:2) (190:2) (238:2) (43:.3)};
+
+  \fill[draw = black, fill = gray, fill opacity = .5] 
+    plot [smooth cycle] coordinates
+    {(5:2) (309:2) (238:2) (167:.5)};
+
+  \node[below = 3pt] at (69:1.6) {$U_1$};
+  \node[above left] at (309:1.6) {$U_2$};
+  \node[right] at (190:1.2) {$U_3$};
+
+  \draw[line width = .6pt] (58:.9) parabola (232:.4) 
+    node[inner sep = .75pt, circle, fill = black] (x) at (135:.13) {};
+  
+  \node[below right] at (x) {$x$};
+  \node[above left] at (x) {$v$};
+
+  \draw[->, line width = .6pt] (x) --++ (70:.5);
+\end{tikzpicture}
