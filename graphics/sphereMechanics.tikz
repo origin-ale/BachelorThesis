@@ -20,8 +20,10 @@
   \path[name path = partRadius] (center) -- (60:1.5);
   \node[name intersections={of= partRadius and meridian}, shape = coordinate] 
     (particle) at (intersection-1) {};
-  \draw[fill = black] (particle) circle (1pt);
-  \draw (center) -- (particle); 
+  \draw[fill = VerdeDIFA, draw =VerdeDIFA] (particle) circle (2pt);
+  \begin{scope}[on background layer]
+    \draw (center) -- (particle); 
+  \end{scope}
 
   % meridian position
   \node[name intersections ={of= meridian and equator}, shape = coordinate] 
@@ -35,6 +37,6 @@
     node [near start, above=2pt] {$\phi$};
 
   % trajectory
-  \draw[line width = .6pt] (particle) arc (110:225:2.75 and 1.25);
+  \draw[line width = .8pt, draw = VerdeDIFA] (particle) arc (110:225:2.75 and 1.25);
 
 \end{tikzpicture}

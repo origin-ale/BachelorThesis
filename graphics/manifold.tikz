@@ -1,4 +1,4 @@
-\begin{tikzpicture}
+\begin{tikzpicture}[scale =1.5]
   \draw[line width = .6pt] 
     plot [smooth cycle] coordinates
     {(5:1.5) (69:1.6) (112:1.3) (190:1.2) (238:1.4) (309:1.6)};

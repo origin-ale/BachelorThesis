@@ -1,0 +1,39 @@
+\begin{tikzpicture}
+  % coalgebra
+  \coordinate (coalgebra cntr) at (0, -2);
+  \draw[->] (coalgebra cntr) ++ (-1.5,0) --++ (3,0) node[below] {$\mathfrak{g}^*$};
+  \node[circle, fill = black, inner sep = 1pt] (p) at ($(coalgebra cntr) + (.5,0)$) {};
+  \node[below] at (p) {$\vec{p}$};
+
+  % preimage
+  \def\sidelen{1.75}
+  \begin{scope}[canvas is xy plane at z=1]
+    \draw[line width = .6pt, fill = gray, fill opacity = .2] (0,0) rectangle (\sidelen, \sidelen) 
+    node[black, below = 30pt, fill opacity = 1, midway] {$\mu^{-1}(\vec{p})$};
+    \draw[line width = 1pt, draw = VerdeDIFA] (0,.75) --++ (\sidelen,0) node[at start, VerdeDIFA, below left= 6pt] {$\mu^{-1}(\vec{p})/G_p$};
+  \end{scope}
+
+  % bundle
+  \begin{scope}[canvas is xy plane at z=0]
+    \draw (0,0) rectangle (\sidelen, \sidelen);
+    \node[above] at (0,\sidelen) {$X$};
+  \end{scope}
+  \begin{scope}[canvas is xy plane at z=\sidelen]
+    \draw (0,0) rectangle (\sidelen, \sidelen);
+  \end{scope}
+  \begin{scope}[canvas is yz plane at x=0]
+    \draw (0,0) rectangle (\sidelen, \sidelen);
+  \end{scope}
+  \begin{scope}[canvas is yz plane at x=\sidelen]
+    \draw (0,0) rectangle (\sidelen, \sidelen);
+  \end{scope}
+  \begin{scope}[canvas is zx plane at y=0]
+    \draw (0,0) rectangle (\sidelen, \sidelen);
+  \end{scope}
+  \begin{scope}[canvas is zx plane at y=\sidelen]
+    \draw (0,0) rectangle (\sidelen, \sidelen);
+  \end{scope}
+  
+  % action 
+  \draw[->] (-1.5, 1.5) --++ (0,-.75) node[below] {$\Phi_g$};
+\end{tikzpicture}

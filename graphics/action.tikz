@@ -1,0 +1,48 @@
+\begin{tikzpicture}
+    % main sphere
+    \coordinate (so3center) at (0,0) {};
+    \def\radius{1}
+    \def\axlength{1.5}
+    \draw[line width = .6pt] (so3center) circle (\radius);
+  
+    % poles, axes
+    \coordinate (npole) at (0,\radius,0); \coordinate (spole) at (0,-\radius,0);
+    \coordinate (epole) at (\radius,0,0); \coordinate (wpole) at (-\radius,0,0);
+    \draw[->] ($(spole)-(0, .25)$) -- ($(npole)+(0, .25)$) node[left, at start] {$SO(3)$};
+  
+    % meridian and equator
+    \draw[dashed, name path = equator] (-\radius, 0) arc (-180:0:1 and .5); 
+
+    % elements in SO(3)
+    \node[inner sep = 1.25pt, circle, fill=black] (identity) at (npole) {};
+    \node[above right] at (identity) {$e$};
+
+    \node[inner sep = 1.25pt, circle, fill=black] (g) at ($(20:\radius-.3)$) {};
+    \node[below = 4pt] at (g) {$g$};
+    \draw[->] (so3center) -- (g);
+    \draw[->] ($(g) + (0, .2)$) arc (90:-45:.2);
+
+\begin{scope}[draw = VerdeDIFA, VerdeDIFA, line width = .8pt]
+      % lie algebra
+      \draw ($(identity) - (1.25,0,1.25)$) --++ (2.5,0,0) --++ (0,0,2.5) --++ (-2.5,0,0) -- cycle node[below] {$\mathfrak{g}$};
+  
+      % elements in lie algebra
+      \draw[->, line width = .6pt] (identity) --++ (-.1, 0, 1) node[below = 5pt] {$\gamma$};
+\end{scope}
+
+    %R3 axes
+    \coordinate (origin) at (0,-4,0);
+    \draw[->] (origin) -- (\axlength, -4, 0);
+    \draw[->] (origin) -- ($(origin) + (0, \axlength, 0)$) node[left] {$\R^3$}; 
+    \draw[->] (origin) -- (0, -4, \axlength);   
+
+    %R3 points
+    \node[inner sep = 1.25pt, circle, fill=black] (x) at ($(origin) + (1, 1.25, .5)$)  {};
+    \node[above left] at (x) {$x$};
+    \draw[->] ($(x) + (.2,0)$) arc (90:-90:.75 and .47);
+
+    \node[inner sep = 1.25pt, circle, fill=black] (Phi x) at ($(origin) + (1.25, .5, 1)$)  {};
+    \node[below = 4pt] at (Phi x) {$\Phi_g(x)$};
+
+    \draw[->, line width = .8pt, draw =VerdeDIFA] (x) --++ (-.1, 0, 1.2) node[left = 6pt, VerdeDIFA] {$(\phi_g)_x$};
+\end{tikzpicture}

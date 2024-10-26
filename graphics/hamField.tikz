@@ -20,22 +20,18 @@
   },
   use tangent/.default=1
 ]
+  \draw[rotate = 90, line width = 1.2pt, draw = VerdeDIFA, 
+  tangent = 0, tangent = .2, tangent = .4, tangent = .6, tangent = .8] 
+  (-3, -1) parabola[bend pos = .6] bend +(0, .8) (2, -.7);
+  \foreach \n in {1, 2, 3, 4, 5}
+  \draw[use tangent=\n, ->, line width = .6pt] (0,0) -- (1.5,0);
+  \node at (.5, -1) {$V_{\mathcal{H}}$}; 
 
-  \draw[line width = 1pt, draw = black, 
-  tangent = .1, tangent = .3, tangent = .6, tangent = .8] plot [smooth] coordinates
-    {(-1,-.8) (-.8,-.2) (0, .5) (.7, .9) (.9, 1)};
-  \node[VerdeDIFA] at (.7,0) {$V$};
+\begin{scope}[VerdeDIFA]
+    \node at (1, 1) {$\mathcal{H} \equiv E_0$}; 
+    \node at (1, .5) {$\mu \equiv P_0$};
+\end{scope}
 
-  \foreach \n in {1, 2, 3, 4}
-  \draw[use tangent=\n, ->, line width = 1pt, draw = VerdeDIFA] (0,0) -- (.5,0);
 
-  \draw[rotate = 90, line width = .8pt, draw = black, 
-  tangent = .2, tangent = .4, tangent = .6, tangent = .8] 
-  (-4.5, -1) parabola[bend pos = .6] bend +(0, .8) (-2.5, -.7);
-  \foreach \n in {1, 2, 3, 4}
-  \draw[use tangent=\n, line width = 1pt, draw = VerdeDIFA] (0,-.5) -- (0, .5);
-
-  \node[right] at (.7, -2.5) {$X$};
-  \node[right, VerdeDIFA] at (.7, -3.3) {$T^*X$};
-
+  
 \end{tikzpicture}

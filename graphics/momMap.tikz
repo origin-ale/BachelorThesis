@@ -1,0 +1,4 @@
+\begin{tikzcd}
+  X \arrow{r}{\mu} \arrow{d}{\Phi_g} & \mathfrak{g}^* \arrow{d}{\mathrm{Ad}^*} \\
+  X \arrow{r}{\mu} & \mathfrak{g}^*
+\end{tikzcd}

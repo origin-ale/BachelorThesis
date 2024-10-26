@@ -12,6 +12,10 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \usetikzlibrary{intersections}
+\usetikzlibrary{3d}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{backgrounds}
+\usepackage{tikz-cd}
 
 \usepackage{fontspec}
 \setmainfont[Ligatures=TeX]{LibertinusSerif}[
@@ -113,7 +117,7 @@ Corso di Laurea in Fisica}
 
 \section{Introduzione}
 \begin{frame}
-\frametitle{L'obiettivo: una formulazione geometrica}
+\frametitle{Obiettivo: una formulazione geometrica}
   \begin{columns}
     \column{.6\textwidth}
     \textbf{Meccanica newtoniana} \begin{itemize}
@@ -152,7 +156,7 @@ Corso di Laurea in Fisica}
       Per sistemi più generali, varietà differenziabili.
       \column{.3\textwidth}
         \begin{center}
-              \input{../graphics/sphereMechanics.tikz}
+              \input{../graphics/unconstrained.tikz}
         \end{center}
     \end{columns}
   \end{frame}
@@ -186,8 +190,8 @@ Corso di Laurea in Fisica}
         \column{.65\textwidth}
         \textbf{Vettori}:
         \begin{itemize}
-          \item \emph{Campi vettoriali}
-          \item \emph{Flussi} dei campi
+          \item \emph{Campi vettoriali} $V$
+          \item \emph{Flussi} dei campi 
           % \item \emph{Fibrato tangente} $TX = \{(x,\xi)\}$
           \item Derivata o \emph{push-forward}
           \item \emph{Parentesi di Lie}: commutatore.
@@ -196,7 +200,7 @@ Corso di Laurea in Fisica}
         \textbf{Covettori}:
         \begin{itemize}
           \item $1$-forme differenziali
-          \item \alert{\emph{$2$-forme differenziali}}
+          \item \alert{\emph{$2$-forme differenziali}}: prodotto esterno
           \item \emph{\alert{Fibrato cotangente}} $T^*X = \{(x,\alpha)\}$
           \item \emph{Pull-back} 
           \item \emph{\alert{Derivata esterna}} $\dd \alpha$ generalizza rotore.
@@ -277,13 +281,13 @@ Corso di Laurea in Fisica}
   \alert{\emph{Gruppo di Lie}} $G$: insieme con strutture compatibili di gruppo e varietà.\\[5pt]
   \emph{Azione} $\Phi_g$: applicazioni con struttura del gruppo.\\[11pt]
   \emph{Algebra di Lie} $\mathfrak{g}$: vettori tangenti nell'identità, con parentesi indotte.\\
-  Duale: \alert{\emph{coalgebra}} $\mathfrak{g}^*$\\[5pt]
-  \emph{Azione infinitesima}: campo vettoriale delle classi create da cammino nel gruppo.\\[5pt]
+  Duale: \alert{\emph{coalgebra}} $\mathfrak{g}^*$.\\[5pt]
+  \emph{Azione infinitesima} $\phi_g$: campo vettoriale delle classi create da cammino nel gruppo.\\[5pt]
   Azione naturale su $\mathfrak{g}^*$: \alert{\emph{coaggiunta}} $\mathrm{Ad}^*$.
 
   \column{.35\textwidth}
     \begin{center}
-          \input{../graphics/sphereMechanics.tikz}
+          \input{../graphics/action.tikz}
     \end{center}
 \end{columns}
 \end{frame}
@@ -298,7 +302,7 @@ Corso di Laurea in Fisica}
   \emph{Noether}: azione su $X$ genera azione hamiltoniana su $T^*X$.
   \column{.4\textwidth}
     \begin{center}
-          \input{../graphics/sphereMechanics.tikz}
+          \input{../graphics/momMap.tikz}
     \end{center}
 \end{columns}
 \end{frame}
@@ -324,13 +328,13 @@ Corso di Laurea in Fisica}
     \end{itemize}
     \column{.4\textwidth}
       \begin{center}
-            \input{../graphics/sphereMechanics.tikz}
+            \input{../graphics/symplecticReduction.tikz}
       \end{center}
   \end{columns}
 \end{frame}
 
 \begin{frame}
-\frametitle{Un esempio: invarianza traslazionale}
+\frametitle{Corpo rigido libero: invarianza traslazionale}
 \begin{columns}
   \column{.6\textwidth}
   $M = \R^3 \times SO(3)$.\\ $X \defeq T^* \R^3 \times T^*SO(3) \ni (\vec{q}, \vec{\dot{q}}^*, \rho, \dot{\rho}^*)$.\\[5pt]
@@ -339,24 +343,25 @@ Corso di Laurea in Fisica}
   $\mu^{-1}(\vec{p})/\R^3 \simeq T^* SO(3)$, dove $\vec{p} \in \mathfrak{g}^*$. Riduzione simplettica implica che rotazione è la stessa di corpo rigido con punto fisso.
   \column{.4\textwidth}
     \begin{center}
-          \input{../graphics/sphereMechanics.tikz}
+          \input{../graphics/translInvar.tikz}
     \end{center}
 \end{columns}
 \end{frame}
 
 \begin{frame}
-\frametitle{Un esempio: invarianza rotazionale}
+\frametitle{Corpo rigido libero: invarianza rotazionale}
 \begin{columns}
   \column{.7\textwidth}
   Velocità, momento angolare: pull-back delle grandezze all'identità.\\
-  Hamiltoniana: energia cinetica, con prodotto scalare e tensore d'inerzia.\\[11pt]
+  Identificazione tra le due: tensore d'inerzia.
+  Hamiltoniana: energia cinetica.\\[11pt]
   Azione di $\sigma \in SO(3)$ su se stesso.\\
   Mappa momento $\mu(\rho, \dot{\rho}^*) = R_{\rho}\dot{\rho}^*$.\\ È il \alert{momento angolare}!\\[11pt]
   $\mu^{-1}(\lambda)/SO(3)_{\lambda} \simeq S^2$ (con $\lambda \in \mathfrak{g}^*$): simplettica.\\ 
   Stato di rotazione data una condizione iniziale dipende solo dall'asse.\\[11pt]
   \column{.3\textwidth}
     \begin{center}
-          \input{../graphics/sphereMechanics.tikz}
+          \input{../graphics/rotInvar.tikz}
     \end{center}
 \end{columns}
 \end{frame}
@@ -375,10 +380,11 @@ Corso di Laurea in Fisica}
   {Stato}: punto nello {spazio delle fasi} $X = T^* M$.\\ 
   {Forma canonica} $\omega$ dà {campo hamiltoniano} $V_{\mathcal{H}}$.\\[5pt]
   \alert{Moto del sistema: linea di flusso hamiltoniano da condizione iniziale.}\\[5pt]
-  $\mathcal{H}$ invariante sotto $\Phi_g$: $\mu$ costante durante evoluzione. Dinamica nello spazio delle fasi ridotto $\mu^{-1}(P_0)/G_{P_0}$: riduzione simplettica. 
+  \alert{$\mathcal{H}$ invariante sotto $\Phi_g$: $\mu$ costante durante evoluzione.} Dinamica nello spazio delle fasi ridotto $\mu^{-1}(P_0)/G_{P_0}$: riduzione simplettica. 
   \column{.3\textwidth}
     \begin{center}
-          \input{../graphics/manifold.tikz}
+      \input{../graphics/hamField.tikz}
+      % \includegraphics[width=\textwidth]{../graphics/Euclid.jpg}
     \end{center}
 \end{columns}
 \end{frame}

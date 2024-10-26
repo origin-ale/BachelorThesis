@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+  \def\axlength{2}
+  \coordinate (origin) at (0,0,0);
+  \draw[->] (origin) -- (\axlength, 0, 0);
+  \draw[->] (origin) -- (0, \axlength, 0) node[left] {$\R^3$}; 
+  \draw[->] (origin) -- (0, 0, \axlength); 
+  
+  \foreach \x in {(.7, .3, 1.4), (.9, 1.4, 0), (.4, 1.7, 1.8), (1.5, 1, .4), (1.2, .9, 1.6), (1.4, 1.3, 1.7)}
+    \node [inner sep = 1pt, circle, fill = black] at \x {};
+
+\begin{scope}[->, draw = VerdeDIFA, line width = .6pt]
+    \draw (.7, .3, 1.4) --++ (.5, -.4, .3);
+    \draw (.9, 1.4, 0) --++ (-.4, -.6, .3);
+    \draw (.4, 1.7, 1.8) --++ (-.5, .4, .3);
+    \draw (1.5, 1, .4) --++ (.7, 0, .6);
+    \draw (1.2, .9, 1.6) --++ (-.3, .6, .6);
+    \draw (1.4, 1.3, 1.7) --++ (.3, -.4, .3);
+\end{scope}
+  
+\end{tikzpicture}
