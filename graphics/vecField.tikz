@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+  \draw[line width = .6pt] 
+    plot [smooth cycle] coordinates
+    {(5:1.5) (69:1.6) (112:1.3) (190:1.2) (238:1.4) (309:1.6)};
+
+  \draw[line width = .8pt] plot [smooth] coordinates
+    {(-1,-.8) (-.8,-.2) (0, .5) (.7, .9) (.9, 1)};
+
+  \draw[->, line width = .8pt, draw =VerdeDIFA] (-1,-.8) --++ (80:.9);
+  \draw[->, line width = .8pt, draw =VerdeDIFA] (-.8,-.2) --++ (48:.7);
+  \draw[->, line width = .8pt, draw =VerdeDIFA] (0, .5) --++ (35:.7);
+  \draw[->, line width = .8pt, draw =VerdeDIFA] (.7, .9) --++ (29:.3);
+  
+\end{tikzpicture}

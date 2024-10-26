@@ -21,15 +21,15 @@
     node[midway, below] {$\pi\big((x,\alpha)\big)$};
 
 % derivatives
-  \node[shape=coordinate, label={above left:$v$}] (tanTip) at ($(particle) + (36:1.3)$) {};
+  \node[shape=coordinate, label={above left:$\xi$}] (tanTip) at ($(particle) + (36:1.3)$) {};
   \draw[->] (particle) -- (tanTip);
   \draw[line width = .8pt, ->] (proj) -- (tanTip |- origin)
-  node[near end, below] {$D\pi(v)$};
+  node[near end, below] {$D\pi(\xi)$};
 
 % 1-form
   \draw[<->, line width = .6pt]
     ($(proj) + (0,.5)$) -- ($(tanTip |- origin) + (0,.5)$)
-    node[very near end,above] {$\alpha\big(D\pi(v)\big)$};
+    node[very near end,above] {$\alpha\big(D\pi(\xi)\big)$};
   \draw[dashed] ($(tanTip |- origin) + (0,.5)$) -- (tanTip |- origin);
 
 \end{tikzpicture}
