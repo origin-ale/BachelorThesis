@@ -1,4 +1,4 @@
-My bachelor thesis on symplectic geometry. Thesis has been uploaded on October 16th, but I will also include the presentation slides in this repo. I might also update the LaTeX sources to make them more readable some time in the future.
+My bachelor thesis on symplectic geometry. Thesis was uploaded on October 16th 2024 and slides were presented on October 30th. I might update the LaTeX sources to make them more readable some time in the future.
 
 **Abstract**
 
